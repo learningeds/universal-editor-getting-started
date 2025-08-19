@@ -12,7 +12,7 @@ export default async function decorate(block) {
   const footerMeta = getMetadata('footer');
   let footerPath;
 
-  if (navMeta) {
+  if (footerMeta) {
     footerPath = new URL(footerMeta, window.location).pathname;
   } else {
     const path = window.location.pathname;

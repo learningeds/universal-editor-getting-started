@@ -70,6 +70,55 @@
 
 /* hero banner midsouthmach */
 
+/* text midsouthmach */
+
+.text {
+  max-width: 960px;         /* aliniere pe centru */
+  margin: 2rem auto;        /* spațiere sus/jos */
+  padding: 0 1rem;          /* respiră lateral pe ecrane mici */
+  font-family: "Arial", sans-serif;
+  color: #22366d;
+  line-height: 1.6;
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+.text p {
+  margin-bottom: 1rem;
+}
+
+.text h2,
+.text h3 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin: 2rem 0 1rem;
+  text-align: center;
+  color: #22366d;
+}
+
+.text ul {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+}
+
+.text ul li {
+  margin: 0.5rem 0;
+  padding-left: 1.2rem;
+  position: relative;
+  font-weight: 500;
+}
+
+.text ul li::before {
+  content: "–";
+  position: absolute;
+  left: 0;
+  color: #22366d;
+  font-weight: bold;
+}
+
+/* text midsouthmach */
+
 /* image grid */
 .columns .default-content-wrapper div {
   display: inline-flex; 

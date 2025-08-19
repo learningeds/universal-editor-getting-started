@@ -7,8 +7,23 @@ import { loadFragment } from '../fragment/fragment.js';
  */
 export default async function decorate(block) {
   // Load footer as fragment
-  const footerMeta = getMetadata('footer');
-  const footerPath = footerMeta ? new URL(footerMeta, window.location).pathname : '/footer';
+//  const footerMeta = getMetadata('footer');
+//  const footerPath = footerMeta ? new URL(footerMeta, window.location).pathname : '/footer';
+  const navMeta = getMetadata('footer');
+  let navPath;
+
+  if (navMeta) {
+    navPath = new URL(navMeta, window.location).pathname;
+  } else {
+    const path = window.location.pathname;
+
+    if (path.includes('/aem-boilerplate/agre-aem-boilerplate')) {
+      navPath = '/agre-aem-boilerplate/footer';
+    } else {
+      navPath = '/footer';
+    }
+  }
+
   const fragment = await loadFragment(footerPath);
 
   // Clear the current footer block content

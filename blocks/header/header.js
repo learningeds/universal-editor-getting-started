@@ -121,7 +121,7 @@ export default async function decorate(block) {
     const path = window.location.pathname;
 
     if (path.includes('/aem-boilerplate/agre-aem-boilerplate')) {
-      navPath = '/aem-boilerplate/agre-aem-boilerplate/nav';
+      navPath = '/agre-aem-boilerplate/nav';
     } else {
       navPath = '/nav';
     }

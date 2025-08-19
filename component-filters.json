@@ -39,9 +39,27 @@
       "button",
       "title"
     ]
-  }
+  },
   {
     "id": "carousel",
+    "components": [
+      "text",
+      "image",
+      "button",
+      "title"
+    ]
+  },
+  {
+    "id": "card",
+    "components": [
+      "text",
+      "image",
+      "button",
+      "title"
+    ]
+  },
+  {
+    "id": "hero",
     "components": [
       "text",
       "image",

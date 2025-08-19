@@ -147,6 +147,14 @@ section p {
 /* header midsoutmach */
 
 /* === HEADER MIDSOUTHMACH === */
+
+header nav a:any-link,
+header nav p,
+header nav li,
+header nav span {
+  color: #22366d !important;
+}
+
 header .nav-wrapper {
   background-color: #fff !important;
   border-bottom: 1px solid #ddd;

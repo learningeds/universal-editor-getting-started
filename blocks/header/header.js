@@ -109,8 +109,25 @@ function toggleMenu(nav, navSections, forceExpanded = null) {
  */
 export default async function decorate(block) {
   // load nav as fragment
+//  const navMeta = getMetadata('nav');
+//  const navPath = navMeta ? new URL(navMeta, window.location).pathname : '/nav';
+
   const navMeta = getMetadata('nav');
-  const navPath = navMeta ? new URL(navMeta, window.location).pathname : '/nav';
+  let navPath;
+
+  if (navMeta) {
+    navPath = new URL(navMeta, window.location).pathname;
+  } else {
+    const path = window.location.pathname;
+
+    if (path.includes('/aem-boilerplate/agre-aem-boilerplate')) {
+      navPath = '/aem-boilerplate/agre-aem-boilerplate/nav';
+    } else {
+      navPath = '/nav';
+    }
+  }
+
+  console.log(navPath);
 
   const fragment = await loadFragment(navPath);
 

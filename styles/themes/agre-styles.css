@@ -61,6 +61,11 @@
   background-color: transparent;
   color: #22366d;
   cursor: pointer;
+  text-decoration: none;
+}
+
+.hero a:any-link:hover {
+  text-decoration: underline;
 }
 
 /* hero banner midsouthmach */

@@ -848,9 +848,9 @@
     height: 500px;
 }
 
-.section[data-aue-resource*="section_1401448757"] .cards.block li {
+.section[data-aue-resource*="section_1401448757"] .cards.block > ul > li {
     box-shadow: none;
-    box-radius: 0;
+    border-radius: 0;
 }
 
 .section[data-aue-resource*="section_1401448757"] .cards.block .cards-card-body {
@@ -866,7 +866,7 @@
 
 .section[data-aue-resource*="section_997662740"] .cards.block > ul > li {
     box-shadow: none;
-    box-radius: 0;
+    border-radius: 0;
 }
 
 .section[data-aue-resource*="section_1870237760"] .cards.block li {

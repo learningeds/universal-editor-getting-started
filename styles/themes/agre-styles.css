@@ -141,52 +141,94 @@ header nav .nav-hamburger button {
 /* end header midsoutmach */
 
 /* footer midsouthmach */
-
 footer {
-  background-color: #001c4a;
+  background-color: #001c4a; /* navy blue ca pe site */
   color: #ffffff;
-  font-family: var(--body-font-family, Arial, sans-serif);
+  padding: 60px 40px;
+  font-family: Arial, sans-serif;
   font-size: 16px;
   line-height: 1.6;
-  margin-top: 40px;
 }
 
-footer .footer-wrapper {
+footer .columns.block.columns-4-cols > div {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+  align-items: start;
   max-width: 1248px;
   margin: 0 auto;
-  padding: 40px 20px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 32px;
 }
 
-footer .footer-logo img {
-  max-width: 180px;
+footer .columns.block.columns-4-cols > div > div:first-child {
+  background: none;
+  padding: 0;
+  border-radius: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-height: auto;
+}
+
+footer .columns.block.columns-4-cols > div > div:first-child img {
+  max-width: 200px;
   height: auto;
   margin-bottom: 16px;
 }
 
-footer h4 {
+footer .columns.block.columns-4-cols > div > div:first-child p {
+  font-size: 16px;
+  margin: 0;
+  color: #ffffff;
+}
+
+footer .columns.block.columns-4-cols > div > div:first-child .icon-phone,
+footer .columns.block.columns-4-cols > div > div:first-child .icon-mail {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+}
+
+footer .columns.block.columns-4-cols > div > div:first-child svg,
+footer .columns.block.columns-4-cols > div > div:first-child .icon {
+  width: 20px;
+  height: 20px;
+  fill: white;
+}
+
+footer .columns.block.columns-4-cols > div > div:first-child::after,
+footer .columns.block.columns-4-cols > div > div:first-child::before {
+  display: none;
+  content: none;
+}
+
+footer .columns.block.columns-4-cols > div > div:not(:first-child) h5 {
   font-size: 18px;
   font-weight: 600;
   margin-bottom: 12px;
   color: #ffffff;
 }
 
-footer a:any-link {
+footer .columns.block.columns-4-cols ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+footer .columns.block.columns-4-cols ul li {
+  margin-bottom: 8px;
+}
+
+footer .columns.block.columns-4-cols ul li a {
   color: #ffffff;
   text-decoration: none;
+  font-size: 16px;
   transition: all 0.3s ease;
 }
 
-footer a:hover {
+footer .columns.block.columns-4-cols ul li a:hover {
   text-decoration: underline;
   color: #ffb400;
-}
-
-footer .footer-contact p {
-  margin: 4px 0;
-  color: #ffffff;
 }
 
 footer .footer-bottom {
@@ -196,6 +238,7 @@ footer .footer-bottom {
   font-size: 14px;
   color: #ffffff;
   border-top: 1px solid rgba(255, 255, 255, 0.2);
+  margin-top: 40px;
 }
 
 footer .footer-bottom a:any-link {
@@ -206,6 +249,26 @@ footer .footer-bottom a:any-link {
 
 footer .footer-bottom a:hover {
   text-decoration: underline;
+}
+
+@media (max-width: 1024px) {
+  footer {
+    padding: 40px 30px;
+  }
+
+  footer .columns.block.columns-4-cols > div {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  footer .columns.block.columns-4-cols > div {
+    grid-template-columns: 1fr;
+  }
+
+  footer .columns.block.columns-4-cols > div > div {
+    margin-bottom: 20px;
+  }
 }
 
 /* footer midsouthmach */

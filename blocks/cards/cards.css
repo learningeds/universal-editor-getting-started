@@ -807,6 +807,10 @@
     text-align:center;
 }
 
+.cards.block .cards-card-body p {
+    margin-bottom: 0.25em;
+}
+
 .section[data-aue-resource*="section_997662740"] .cards.block .cards-card-body a::before {
     content: none;
 }

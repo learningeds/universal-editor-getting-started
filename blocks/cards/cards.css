@@ -751,7 +751,7 @@
   color: #002e3d;
 }
 
-.section .cards-container[data-aue-resource*="section_1870237760"] {
+.section[data-aue-resource*="section_1870237760"] {
 border-top-color:rgb(218, 220, 220);
 border-top-style:solid;
 border-top-width:0.666667px;
@@ -772,7 +772,7 @@ background-color: #eceded;
 }
 
 
-.section .cards-container[data-aue-resource*="section_1870237760"] .default-content-wrapper h4{
+.section[data-aue-resource*="section_1870237760"] .default-content-wrapper h4{
 color: black;
 font-size: 24px;
 font-family: &quot;Arial Black&quot;, &quot;Arial Bold&quot;, Arial, sans-serif;

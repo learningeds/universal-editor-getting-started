@@ -768,6 +768,9 @@
     background-color: #eceded;
 }
 
+.section[data-aue-resource*="section_1870237760"] .default-content-wrapper{
+    padding: 1rem 1rem;
+}
 
 .section[data-aue-resource*="section_1870237760"] .default-content-wrapper h4{
     color: black;
@@ -775,6 +778,11 @@
     font-family: 'Arial Black', 'Arial Bold', Arial, sans-serif;
     line-height: 1.1;
     text-align: center;
+}
+
+.section[data-aue-resource*="section_1870237760"] .cards.block{
+    margin-left: 140px;
+    margin-right: 140px;
 }
 
 .section[data-aue-resource*="section_1870237760"] .cards.block ul {

@@ -878,7 +878,7 @@
     background-color: #ed1c2ee6;
 }
 
-.section[data-aue-resource*="section_1401448757"] .cards.block li[data-aue-resource*="item_293575383"]:first-child {
+.section[data-aue-resource*="section_1401448757"] .cards.block li[data-aue-resource*="item_293575383"] .cards-card-body:first-child {
     display: none;
 }
 
@@ -886,7 +886,7 @@
     background-color: #000;
 }
 
-.section[data-aue-resource*="section_1401448757"] .cards.block li[data-aue-resource*="item_1726713103"]:first-child {
+.section[data-aue-resource*="section_1401448757"] .cards.block li[data-aue-resource*="item_1726713103"] .cards-card-body:first-child {
     display: none;
 }
 

@@ -238,3 +238,11 @@ div.section.cards-container div.cards-card-body {
 div.section.cards-container div.cards-card-body p {
   color: rgb(34, 54, 109);
 }
+
+#nav > div.section.nav-brand > div {
+  margin: 0px;
+}
+
+#nav > div.section.nav-tools > div {
+  margin: 0px;
+}

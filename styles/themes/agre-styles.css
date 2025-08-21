@@ -142,11 +142,19 @@ header nav .nav-hamburger button {
 
 /* footer midsouthmach */
 
+/*
 .footer.block {
   background-color: #004a59;
   color: white;
   padding: 60px 80px;
   font-family: Arial, sans-serif;
+} */
+
+div.footer.block {
+  background-color: #004a59 !important;
+  color: white !important;
+  padding: 60px 80px !important;
+  font-family: Arial, sans-serif !important;
 }
 
 .footer.block .columns.block.columns-4-cols > div {

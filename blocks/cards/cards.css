@@ -1007,3 +1007,61 @@
     background-color: #ed1c2ee6;
 }
 
+.section[data-aue-resource*="section_303714501"] .cards-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 40px 0;
+}
+
+/* The list that holds the cards */
+.section[data-aue-resource*="section_303714501"] .cards.block ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  position: relative;
+  max-width: 800px;
+  height: 400px; /* control height for collage effect */
+}
+
+/* Each card */
+.section[data-aue-resource*="section_303714501"] .cards.block ul li {
+  position: absolute;
+  width: 300px;
+  background: #fff;
+  border: 6px solid white;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+/* First card */
+.section[data-aue-resource*="section_303714501"] .cards.block ul li:nth-child(1) {
+  transform: rotate(-6deg);
+  top: 20px;
+  left: 60px;
+  z-index: 1;
+}
+
+/* Second card */
+.section[data-aue-resource*="section_303714501"] .cards.block ul li:nth-child(2) {
+  transform: rotate(6deg);
+  top: 60px;
+  left: 160px;
+  z-index: 2;
+}
+
+/* Image inside the card */
+.section[data-aue-resource*="section_303714501"] .cards-card-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Text inside the card */
+.section[data-aue-resource*="section_303714501"] .cards-card-body {
+  padding: 10px;
+  text-align: center;
+  font-family: sans-serif;
+}
+

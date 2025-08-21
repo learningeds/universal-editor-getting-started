@@ -150,9 +150,13 @@ footer {
   border-top: 1px solid #ddd;
 }
 
+footer .columns.block.columns-4-cols > div > div:first-child::before {
+  display: none;
+}
+
 footer .columns.block.columns-4-cols > div > div:first-child {
   background-color: #fff !important;
-  background-image: none
+  background-image: none;
 }
 
 footer .columns.block.columns-4-cols > div {

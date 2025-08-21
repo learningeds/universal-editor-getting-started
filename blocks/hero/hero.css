@@ -62,27 +62,38 @@
     max-width: 720px;
   }
 }
-/* Force text + link to overlay hero image */
-.hero .default-content-wrapper {
+/* Make hero itself the positioning container */
+.hero.section {
+  position: relative;
+}
+
+/* Target the wrapper inside hero only */
+.hero.section > .default-content-wrapper {
   position: absolute;
-  top: 50%;
-  left: 64px;
+  top: 50%;              /* vertically center */
+  left: 64px;            /* align text away from edge */
   transform: translateY(-50%);
   z-index: 2;
   max-width: 600px;
   color: #fff;
+  pointer-events: none;  /* text won’t block background clicks */
+}
+
+/* Restore pointer events only for links */
+.hero.section > .default-content-wrapper a {
+  pointer-events: auto;
 }
 
 /* Headline */
-.hero .default-content-wrapper h1 {
+.hero.section > .default-content-wrapper h1 {
   font-size: 56px;
   line-height: 1.2;
   margin: 0 0 20px 0;
   color: #fff;
 }
 
-/* CTA link styled as button */
-.hero .default-content-wrapper h2 a {
+/* CTA button */
+.hero.section > .default-content-wrapper h2 a {
   display: inline-block;
   background: rgba(255, 255, 255, 0.15);
   border: 2px solid #fff;
@@ -94,9 +105,7 @@
   transition: all 0.3s ease;
 }
 
-.hero .default-content-wrapper h2 a:hover {
+.hero.section > .default-content-wrapper h2 a:hover {
   background: #fff;
-  color: #c8102e; /* Chicago Pneumatic red */
+  color: #c8102e;
 }
-
-

@@ -142,52 +142,52 @@ header nav .nav-hamburger button {
 
 /* footer midsouthmach */
 
-div.footer.block {
+footer {
   background-color: #fff !important;
   color: #333 !important;
   padding: 60px 80px !important;
-  font-family: Arial, sans-serif !important;
-  font-size: 14px !important;
-  line-height: 1.6 !important;
+  font-family: Arial, sans-serif;
   border-top: 1px solid #ddd;
 }
 
-div.footer.block * {
-  background-color: transparent !important;
+
+footer .columns.block.columns-4-cols > div > div:first-child {
+  display: none !important;
 }
 
-div.footer.block .columns {
+footer .columns.block.columns-4-cols > div {
   display: grid;
   grid-template-columns: 2fr 1fr;
   gap: 40px;
-  align-items: flex-start;
+  align-items: start;
 }
 
-div.footer.block h3 {
+footer h3,
+footer h5 {
   font-size: 16px;
   font-weight: bold;
   color: #000;
   margin-bottom: 12px;
 }
 
-div.footer.block a {
+footer p {
+  margin: 0 0 12px;
   color: #333;
-  text-decoration: none;
-  display: block;
-  margin-bottom: 8px;
-  transition: color 0.3s ease;
+  font-size: 14px;
+  line-height: 1.6;
 }
 
-div.footer.block a:hover {
+footer a {
+  color: #333;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+footer a:hover {
   color: #0056b3;
 }
 
-div.footer.block p {
-  margin: 0 0 10px;
-  color: #333;
-}
-
-div.footer.block .cta {
+footer .cta {
   background: #1e2a44;
   color: #fff !important;
   padding: 12px 20px;
@@ -195,29 +195,29 @@ div.footer.block .cta {
   font-weight: bold;
   display: inline-block;
   margin-top: 15px;
-  transition: background 0.3s ease, color 0.3s ease;
+  transition: background 0.3s;
 }
 
-div.footer.block .cta:hover {
+footer .cta:hover {
   background: #0056b3;
 }
 
-div.footer.block .social a {
+footer .social a {
   margin-right: 15px;
   font-weight: bold;
   color: #333;
 }
 
-div.footer.block .social a:hover {
+footer .social a:hover {
   color: #0056b3;
 }
 
 @media (max-width: 900px) {
-  div.footer.block .columns {
+  footer .columns.block.columns-4-cols > div {
     grid-template-columns: 1fr;
     gap: 30px;
   }
-  div.footer.block {
+  footer {
     padding: 40px 20px !important;
   }
 }

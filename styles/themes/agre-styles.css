@@ -151,7 +151,8 @@ footer {
 }
 
 footer .columns.block.columns-4-cols > div > div:first-child {
-  display: none !important;
+  background-color: #fff !important;
+  background-image: none
 }
 
 footer .columns.block.columns-4-cols > div {

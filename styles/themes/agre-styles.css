@@ -147,6 +147,17 @@ footer {
   font-family: Arial, sans-serif;
 }
 
+footer .columns.block.columns-4-cols > div > div:first-child {
+  background-image: none
+  background-size: cover;
+  color: white;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  min-height: 330px; /* optional: to keep consistent height */
+}
+
 /* footer midsouthmach */
 
 /*

@@ -150,7 +150,6 @@ footer {
   border-top: 1px solid #ddd;
 }
 
-
 footer .columns.block.columns-4-cols > div > div:first-child {
   display: none !important;
 }
@@ -160,6 +159,15 @@ footer .columns.block.columns-4-cols > div {
   grid-template-columns: 2fr 1fr;
   gap: 40px;
   align-items: start;
+}
+
+footer .columns.block.columns-4-cols > div > div:nth-child(2),
+footer .columns.block.columns-4-cols > div > div:nth-child(3) {
+  grid-column: 1;
+}
+
+footer .columns.block.columns-4-cols > div > div:nth-child(4) {
+  grid-column: 2;
 }
 
 footer h3,
@@ -223,77 +231,3 @@ footer .social a:hover {
 }
 
 /* end footer midsouthmach */
-
-/*
-.footer.block {
-  background-color: #004a59;
-  color: white;
-  padding: 60px 80px;
-  font-family: Arial, sans-serif;
-}
-
-.footer.block .columns.block.columns-4-cols > div {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 40px;
-  align-items: start;
-}
-
-.footer.block .columns.block.columns-4-cols > div > div:first-child {
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  padding: 40px 30px;
-  border-radius: 40px 0 40px 0;
-  color: white;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-  min-height: 330px;
-}
-
-.footer.block .columns.block.columns-4-cols h4 {
-  font-size: 20px;
-  color: #a4c0c4;
-  margin-bottom: 12px;
-}
-
-.footer.block .columns.block.columns-4-cols p {
-  font-size: 16px;
-  line-height: 1.6;
-  margin: 0;
-}
-
-.footer.block .columns.block.columns-4-cols a {
-  color: white;
-  text-decoration: none;
-  font-size: 16px;
-}
-
-.footer.block .columns.block.columns-4-cols a:hover {
-  text-decoration: underline;
-}
-
-@media (max-width: 1024px) {
-  .footer.block {
-    padding: 40px 30px;
-  }
-
-  .footer.block .columns.block.columns-4-cols > div {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-@media (max-width: 768px) {
-  .footer.block .columns.block.columns-4-cols > div {
-    grid-template-columns: 1fr;
-  }
-
-  .footer.block .columns.block.columns-4-cols > div > div {
-    margin-bottom: 20px;
-  }
-}
-
-*/
-/* footer midsouthmach */

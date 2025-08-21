@@ -62,3 +62,40 @@
     max-width: 720px;
   }
 }
+/* Wrap text + link properly inside hero */
+.hero .default-content-wrapper {
+  position: relative;
+  z-index: 2;            /* Ensure above background image */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  padding: 0 64px;       /* Same horizontal alignment as before */
+}
+
+/* Headline inside hero */
+.hero .default-content-wrapper h1 {
+  color: #fff;
+  font-size: 56px;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+/* CTA link inside hero */
+.hero .default-content-wrapper h2 a {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.15);
+  border: 2px solid #fff;
+  padding: 12px 24px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #fff;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.hero .default-content-wrapper h2 a:hover {
+  background: #fff;
+  color: #c8102e;   /* Chicago Pneumatic red */
+}
+

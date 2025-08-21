@@ -62,26 +62,26 @@
     max-width: 720px;
   }
 }
-/* Wrap text + link properly inside hero */
+/* Force text + link to overlay hero image */
 .hero .default-content-wrapper {
-  position: relative;
-  z-index: 2;            /* Ensure above background image */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  height: 100%;
-  padding: 0 64px;       /* Same horizontal alignment as before */
+  position: absolute;
+  top: 50%;
+  left: 64px;
+  transform: translateY(-50%);
+  z-index: 2;
+  max-width: 600px;
+  color: #fff;
 }
 
-/* Headline inside hero */
+/* Headline */
 .hero .default-content-wrapper h1 {
-  color: #fff;
   font-size: 56px;
   line-height: 1.2;
-  margin-bottom: 20px;
+  margin: 0 0 20px 0;
+  color: #fff;
 }
 
-/* CTA link inside hero */
+/* CTA link styled as button */
 .hero .default-content-wrapper h2 a {
   display: inline-block;
   background: rgba(255, 255, 255, 0.15);
@@ -96,6 +96,7 @@
 
 .hero .default-content-wrapper h2 a:hover {
   background: #fff;
-  color: #c8102e;   /* Chicago Pneumatic red */
+  color: #c8102e; /* Chicago Pneumatic red */
 }
+
 

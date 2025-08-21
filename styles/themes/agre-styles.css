@@ -158,6 +158,10 @@ footer .columns.block.columns-4-cols > div > div:first-child {
   min-height: 330px; /* optional: to keep consistent height */
 }
 
+div.footer.block .columns.block.columns-4-cols > div {
+  border: 1px solid red;
+}
+
 /* footer midsouthmach */
 
 /*

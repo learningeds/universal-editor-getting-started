@@ -10,7 +10,12 @@
  * governing permissions and limitations under the License.
  */
 
-:root {}
+:root {
+  /* cards */
+  --card-individual-border-radius: 0px;
+  --card-grid-template-columns: repeat(auto-fit, minmax(10%, 1fr));
+  --card-grid-gap: 1.2rem;
+}
 
 /* hero banner midsouthmach */
 .hero {
@@ -224,5 +229,12 @@ footer .social a:hover {
   }
 }
 
+div.section.cards-container div.cards-card-body {
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 18px;
+}
 
-/* end footer midsouthmach */
+div.section.cards-container div.cards-card-body p {
+  color: rgb(34, 54, 109);
+}

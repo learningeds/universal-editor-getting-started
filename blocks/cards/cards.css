@@ -29,8 +29,6 @@
 
 /* ----------- CARD WRAPPER BACKGROUND ----------- */
 .cards-wrapper {
-
-
   border-radius: 16px;
 }
 
@@ -41,14 +39,14 @@
   padding: 0;
   max-width: 1200px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 32px;
+  grid-template-columns: var(--card-grid-template-columns);
+  gap: var(--card-grid-gap);
 }
 
 /* ----------- INDIVIDUAL CARD ----------- */
 .cards.block > ul > li {
   background-color: #ffffff;
-  border-radius: 16px;
+  border-radius: var(--card-individual-border-radius);
   display: flex;
   flex-direction: column;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);

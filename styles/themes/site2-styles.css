@@ -43,4 +43,9 @@
   /* columns */
   --column-border-radius: 30px;
   --column-background-color: white;
+
+    /* cards */
+  --card-individual-border-radius: 16px;
+  --card-grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  --card-grid-gap: 32px;
 }

@@ -1,5 +1,6 @@
 import { getMetadata } from '../../scripts/aem.js';
 import { loadFragment } from '../fragment/fragment.js';
+import { getThemeFromUrl } from '../../scripts/scripts.js';
 
 // media query match that indicates mobile/tablet width
 const isDesktop = window.matchMedia('(min-width: 900px)');
@@ -118,12 +119,15 @@ export default async function decorate(block) {
   if (navMeta) {
     navPath = new URL(navMeta, window.location).pathname;
   } else {
-    const path = window.location.pathname;
 
-    if (path.includes('/aem-boilerplate/agre-aem-boilerplate')) {
-      navPath = '/agre-aem-boilerplate/nav';
-    } else {
-      navPath = '/nav';
+    const theme = getThemeFromUrl();
+    switch (theme) {
+      case 'midsouth':
+        navPath = '/midsouth-aem-boilerplate/nav';
+        break;
+      default:
+        navPath = '/nav';
+        break;
     }
   }
 

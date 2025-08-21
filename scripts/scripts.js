@@ -157,14 +157,14 @@ async function loadSiteCss() {
     //const theme = themes[randomIndex];
     // console.warn(`the selected theme is ${theme}`);
 
-    const themeFromUrl = checkSite();
+    const themeFromUrl = getThemeFromUrl();
     console.warn(`the selected theme is ${themeFromUrl}`);
     switch (themeFromUrl) {
       case "atlascopco":
         loadCSS(`${window.hlx.codeBasePath}/styles/themes/atlascopco-styles.css`);
         break;
-      case "agre":
-        loadCSS(`${window.hlx.codeBasePath}/styles/themes/agre-styles.css`);
+      case "midsouth":
+        loadCSS(`${window.hlx.codeBasePath}/styles/themes/midsouth-styles.css`);
         break;
       case "ceccato":
         loadCSS(`${window.hlx.codeBasePath}/styles/themes/ceccato-styles.css`);
@@ -180,20 +180,17 @@ async function loadSiteCss() {
   }
 }
 
-function checkSite() {
-  if (window.location.href.indexOf('agre') > -1) {
-    return 'agre';
-  } else {
-    if (window.location.href.indexOf('ceccato') > -1) {
-      return 'ceccato';
-    } else {
-      if (window.location.href.indexOf('compresseurs-mauguiere') > -1) {
-        return 'compresseurs-mauguiere';
-      } else {
-        return 'atlascopco'
-      }
-    }
+export function getThemeFromUrl() {
+  if (window.location.href.indexOf('midsouth-aem-boilerplate') > -1) {
+    return 'midsouth';
   }
+  if (window.location.href.indexOf('ceccato') > -1) {
+    return 'ceccato';
+  }
+  if (window.location.href.indexOf('compresseurs-mauguiere') > -1) {
+    return 'compresseurs-mauguiere';
+  } 
+    return 'atlascopco';  
 }
 
 loadPage();

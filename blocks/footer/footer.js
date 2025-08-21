@@ -1,5 +1,6 @@
 import { getMetadata } from '../../scripts/aem.js';
 import { loadFragment } from '../fragment/fragment.js';
+import { getThemeFromUrl } from '../../scripts/scripts.js';
 
 /**
  * loads and decorates the footer
@@ -15,13 +16,15 @@ export default async function decorate(block) {
   if (footerMeta) {
     footerPath = new URL(footerMeta, window.location).pathname;
   } else {
-    const path = window.location.pathname;
-
-    if (path.includes('/aem-boilerplate/agre-aem-boilerplate')) {
-      footerPath = '/agre-aem-boilerplate/footer';
-    } else {
-      footerPath = '/footer';
-    }
+    const theme = getThemeFromUrl();
+        switch (theme) {
+          case 'midsouth':
+            footerPath = '/midsouth-aem-boilerplate/footer';
+            break;
+          default:
+            footerPath = '/footer';
+            break;
+        }
   }
 
   const fragment = await loadFragment(footerPath);

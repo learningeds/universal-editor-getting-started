@@ -897,7 +897,9 @@
 
 .section[data-aue-resource*="section_392309207"] {
     background-color: #eceded;
+    border-top: 1px solid #dadcdc;
     display: block;
+    padding: 36px 43.2px;
 }
 
 .section[data-aue-resource*="section_392309207"] .default-content-wrapper h1{

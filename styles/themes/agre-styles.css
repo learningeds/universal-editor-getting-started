@@ -142,12 +142,6 @@ header nav .nav-hamburger button {
 
 /* footer midsouthmach */
 
-footer .columns.block.columns-4-cols > div > div:first-child::before {
-  content: '';
-  background-image: none;
-  color: #333 !important;
-}
-
 footer {
   background-color: #fff !important;
   color: #333 !important;
@@ -157,8 +151,7 @@ footer {
 }
 
 footer .columns.block.columns-4-cols > div > div:first-child {
-  background-color: #fff !important;
-  background-image: none;
+  display: none !important;
 }
 
 footer .columns.block.columns-4-cols > div {

@@ -784,6 +784,20 @@
     text-align: center;
 }
 
+.section[data-aue-resource*="section_1870237760"] .cards.block .cards-card-body{
+    background-color: black;
+    padding: 0;
+    margin-top: -90px;
+}
+
+.section[data-aue-resource*="section_1870237760"] .cards.block .cards-card-body p{
+    color: white;
+    font-size: 24px;
+    font-weight: 700;
+    text-align: center;
+    line-height: normal;
+}
+
 .section[data-aue-resource*="section_1870237760"] .cards.block{
     margin-left: 140px;
     margin-right: 140px;
@@ -916,6 +930,16 @@
     grid-template-columns: repeat(2, 1fr);
 }
 
+.section[data-aue-resource*="section_392309207"] .cards.block > ul > li{
+    border-radius: 0;
+    box-shadow: none;
+    transform: none;
+}
+
+.section[data-aue-resource*="section_392309207"] .cards.block .cards-card-body {
+   padding: 0 15px;
+}
+
 .section[data-aue-resource*="section_392309207"] .cards.block .cards-card-body h5 {
     line-height:28.35px;
     font-size:21px;
@@ -930,6 +954,7 @@
 
 .section[data-aue-resource*="section_392309207"] .cards.block .cards-card-body p a {
     border: 2px solid #003049;
+    color: #333;
     border-radius: 0;
     text-align: center;
     font-size: 18px;
@@ -943,9 +968,42 @@
     transition-property: background, color, border;
 }
 
+.section[data-aue-resource*="section_392309207"] .cards.block .cards-card-body a::before {
+    content: none;
+}
+
 .section[data-aue-resource*="section_392309207"] .cards.block .cards-card-body p a:hover {
     color: #ed1c2e;
     text-decoration: none;
     outline: 0;
+    background-color: white;
+    border-color: #ed1c2e;
+}
+
+.section[data-aue-resource*="section_459641719"] {
+    border-top: 1px solid #dadcdc;
+    display: block;
+    padding-top: 10px;
+}
+
+.section[data-aue-resource*="section_459641719"] .cards.block > ul > li{
+    border-radius: 0;
+    box-shadow: none;
+    transform: none;
+    height: 306.167px;
+}
+
+.section[data-aue-resource*="section_1870237760"] .cards.block .cards-card-body{
+    background-color: #ed1c2ee6;
+    color: #FFF;
+    padding: 20px;
+    margin-top: -90px;
+}
+
+.section[data-aue-resource*="section_392309207"] .cards.block .cards-card-body p a:hover {
+    color: #FFF;
+    text-decoration: underline;
+    outline: 0;
+    background-color: #ed1c2ee6;
 }
 

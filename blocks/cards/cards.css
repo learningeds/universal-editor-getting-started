@@ -874,6 +874,10 @@
     border-radius: 0;
 }
 
+.section[data-aue-resource*="section_1401448757"] .cards.block > ul > li:hover {
+    transform: none;
+}
+
 .section[data-aue-resource*="section_1401448757"] .cards.block li[data-aue-resource*="item_293575383"] {
     background-color: #ed1c2ee6;
 }

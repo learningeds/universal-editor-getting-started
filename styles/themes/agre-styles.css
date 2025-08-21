@@ -143,73 +143,80 @@ header nav .nav-hamburger button {
 /* footer midsouthmach */
 
 div.footer.block {
-  background-color: #1e2a44 !important; /* bleumarin */
-  color: #ccc !important;
+  background-color: #fff !important;
+  color: #333 !important;
   padding: 60px 80px !important;
   font-family: Arial, sans-serif !important;
   font-size: 14px !important;
   line-height: 1.6 !important;
+  border-top: 1px solid #ddd;
 }
 
-div.footer.block .columns.block.columns-4-cols {
-  display: grid !important;
-  grid-template-columns: repeat(4, 1fr) !important;
-  gap: 40px !important;
-  max-width: 1200px !important;
-  margin: 0 auto !important;
+div.footer.block * {
+  background-color: transparent !important;
 }
 
-div.footer.block .columns.block.columns-4-cols > div {
-  border: none !important;
+div.footer.block .columns {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 40px;
+  align-items: flex-start;
 }
 
-div.footer.block h4 {
-  font-size: 14px !important;
-  font-weight: 600 !important;
-  color: #fff !important;
-  margin-bottom: 12px !important;
+div.footer.block h3 {
+  font-size: 16px;
+  font-weight: bold;
+  color: #000;
+  margin-bottom: 12px;
 }
 
 div.footer.block a {
-  color: #ccc !important;
-  text-decoration: none !important;
+  color: #333;
+  text-decoration: none;
   display: block;
   margin-bottom: 8px;
   transition: color 0.3s ease;
 }
 
 div.footer.block a:hover {
-  color: #fff !important;
+  color: #0056b3;
 }
 
 div.footer.block p {
-  margin: 0 0 12px 0;
-  color: #ccc !important;
+  margin: 0 0 10px;
+  color: #333;
 }
 
-div.footer.block .button {
+div.footer.block .cta {
+  background: #1e2a44;
+  color: #fff !important;
+  padding: 12px 20px;
+  border-radius: 25px;
+  font-weight: bold;
   display: inline-block;
-  background-color: #fff !important;
-  color: #1e2a44 !important;
-  padding: 10px 20px !important;
-  border-radius: 25px !important;
-  font-weight: 600 !important;
-  text-decoration: none !important;
   margin-top: 15px;
-  transition: all 0.3s ease;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
-div.footer.block .button:hover {
-  background-color: #ccc !important;
-  color: #1e2a44 !important;
+div.footer.block .cta:hover {
+  background: #0056b3;
 }
 
-@media (max-width: 768px) {
-  div.footer.block .columns.block.columns-4-cols {
-    grid-template-columns: 1fr !important;
-    gap: 30px !important;
+div.footer.block .social a {
+  margin-right: 15px;
+  font-weight: bold;
+  color: #333;
+}
+
+div.footer.block .social a:hover {
+  color: #0056b3;
+}
+
+@media (max-width: 900px) {
+  div.footer.block .columns {
+    grid-template-columns: 1fr;
+    gap: 30px;
   }
-
   div.footer.block {
     padding: 40px 20px !important;
   }

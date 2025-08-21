@@ -145,6 +145,7 @@ header nav .nav-hamburger button {
 footer .columns.block.columns-4-cols > div > div:first-child::before {
   content: '';
   background-image: none;
+  color: #333 !important;
 }
 
 footer {

@@ -991,7 +991,7 @@
     height: 306.167px;
 }
 
-.section[data-aue-resource*="section_1870237760"] .cards.block .cards-card-body{
+.section[data-aue-resource*="section_459641719"] .cards.block .cards-card-body{
     background-color: #ed1c2ee6;
     color: #FFF;
     padding: 20px;
@@ -1006,60 +1006,53 @@
 }
 
 .section[data-aue-resource*="section_303714501"] .cards-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  padding: 40px 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  box-sizing: border-box;
 }
 
 /* The list that holds the cards */
 .section[data-aue-resource*="section_303714501"] .cards.block ul {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 32px;
+  justify-content: center;
   list-style: none;
   padding: 0;
   margin: 0;
-  position: relative;
-  max-width: 800px;
-  height: 400px; /* control height for collage effect */
+  overflow-x: auto; /* enables horizontal scroll if no JS carousel */
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
 }
 
 /* Each card */
 .section[data-aue-resource*="section_303714501"] .cards.block ul li {
-  position: absolute;
-  width: 300px;
-  background: #fff;
-  border: 6px solid white;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  flex: 0 0 calc(50% - 16px); /* 2 cards per row */
+  scroll-snap-align: center;
+  background-color: #fff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 320px;
   transition: transform 0.3s ease;
 }
 
-/* First card */
-.section[data-aue-resource*="section_303714501"] .cards.block ul li:nth-child(1) {
-  transform: rotate(-6deg);
-  top: 20px;
-  left: 60px;
-  z-index: 1;
-}
-
-/* Second card */
-.section[data-aue-resource*="section_303714501"] .cards.block ul li:nth-child(2) {
-  transform: rotate(6deg);
-  top: 60px;
-  left: 160px;
-  z-index: 2;
-}
-
 /* Image inside the card */
-.section[data-aue-resource*="section_303714501"] .cards-card-image img {
+.section[data-aue-resource*="section_303714501"] .cards-card-image picture, .cards-card-image img {
+  display: block;
   width: 100%;
   height: auto;
-  display: block;
+  object-fit: cover;
 }
 
 /* Text inside the card */
 .section[data-aue-resource*="section_303714501"] .cards-card-body {
-  padding: 10px;
+  padding: 16px;
+  font-family: "Arial", sans-serif;
+  font-size: 1rem;
   text-align: center;
-  font-family: sans-serif;
 }
 

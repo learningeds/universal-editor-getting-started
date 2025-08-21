@@ -140,29 +140,82 @@ header nav .nav-hamburger button {
 
 /* end header midsoutmach */
 
-footer {
-  background-color: white;
-  color: #000;
-  padding: 60px 80px;
-  font-family: Arial, sans-serif;
+/* footer midsouthmach */
+
+div.footer.block {
+  background-color: #1e2a44 !important; /* bleumarin */
+  color: #ccc !important;
+  padding: 60px 80px !important;
+  font-family: Arial, sans-serif !important;
+  font-size: 14px !important;
+  line-height: 1.6 !important;
 }
 
-footer .columns.block.columns-4-cols > div > div:first-child {
-  background-image: none
-  background-size: cover;
-  color: white;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-  min-height: 330px; /* optional: to keep consistent height */
+div.footer.block .columns.block.columns-4-cols {
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: 40px !important;
+  max-width: 1200px !important;
+  margin: 0 auto !important;
 }
 
 div.footer.block .columns.block.columns-4-cols > div {
-  border: 1px solid red;
+  border: none !important;
 }
 
-/* footer midsouthmach */
+div.footer.block h4 {
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  color: #fff !important;
+  margin-bottom: 12px !important;
+}
+
+div.footer.block a {
+  color: #ccc !important;
+  text-decoration: none !important;
+  display: block;
+  margin-bottom: 8px;
+  transition: color 0.3s ease;
+}
+
+div.footer.block a:hover {
+  color: #fff !important;
+}
+
+div.footer.block p {
+  margin: 0 0 12px 0;
+  color: #ccc !important;
+}
+
+div.footer.block .button {
+  display: inline-block;
+  background-color: #fff !important;
+  color: #1e2a44 !important;
+  padding: 10px 20px !important;
+  border-radius: 25px !important;
+  font-weight: 600 !important;
+  text-decoration: none !important;
+  margin-top: 15px;
+  transition: all 0.3s ease;
+}
+
+div.footer.block .button:hover {
+  background-color: #ccc !important;
+  color: #1e2a44 !important;
+}
+
+@media (max-width: 768px) {
+  div.footer.block .columns.block.columns-4-cols {
+    grid-template-columns: 1fr !important;
+    gap: 30px !important;
+  }
+
+  div.footer.block {
+    padding: 40px 20px !important;
+  }
+}
+
+/* end footer midsouthmach */
 
 /*
 .footer.block {

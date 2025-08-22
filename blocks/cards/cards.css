@@ -1211,7 +1211,8 @@
 }
 
 .section[data-aue-resource*="section_1870237760"] .cards.block li:hover .cards-card-body h3 {
-  opacity: 0;
+    opacity: 0;
+    transform: translateY(-100%);
 }
 
 .section[data-aue-resource*="section_1870237760"] .cards.block li:hover .cards-card-body{

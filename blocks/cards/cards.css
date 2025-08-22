@@ -1281,11 +1281,6 @@
   max-width: 70%;
 }
 
-.section[data-aue-resource*="section_818874408"] .columns.block > div:last-child {
-  flex: 0 0 30%;
-  max-width: 30%;
-}
-
 .section[data-aue-resource*="section_818874408"] .columns.block > div:last-child > img{
   width: 300px;
     height: 210px;

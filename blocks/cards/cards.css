@@ -1048,6 +1048,12 @@
   min-width: 100%; /* Show 1 card at a time */
   box-sizing: border-box;
   padding: 1rem;
+    box-shadow: none;
+    border-radius: 0;
+}
+
+.section[data-aue-resource*="section_303714501"] .cards.block > ul > li {
+    box-shadow: none;
 }
 
 /* Card appearance */

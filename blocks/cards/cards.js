@@ -30,5 +30,5 @@ export default function decorate(block) {
   setInterval(() => {
     index = (index + 1) % total;
     track.style.transform = `translateX(-${index * 100}%)`;
-  }, 1000);
+  }, 15000);
 }

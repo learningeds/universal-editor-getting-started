@@ -23,7 +23,7 @@ export default function decorate(block) {
   block.append(ul);
 
   document.addEventListener('DOMContentLoaded', () => {
-  const section = document.querySelector('.section[data-aue-resource*="section_1870237760"]');
+  const section = document.querySelector('.section[data-aue-resource*="section_303714501"]');
   const track = section.querySelector('.cards.block > ul');
   const cards = section.querySelectorAll('.cards.block > ul > li');
   const total = cards.length;

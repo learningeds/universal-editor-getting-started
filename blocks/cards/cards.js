@@ -22,6 +22,7 @@ export default function decorate(block) {
   block.textContent = '';
   block.append(ul);
 
+  document.addEventListener('DOMContentLoaded', () => {
   const section = document.querySelector('.section[data-aue-resource*="section_1870237760"]');
   const track = section.querySelector('.cards.block > ul');
   const cards = section.querySelectorAll('.cards.block > ul > li');
@@ -57,5 +58,5 @@ export default function decorate(block) {
     index = (index + 1) % total;
     updateCarousel();
   }, 15000); // 15 seconds
-
+  });
 }

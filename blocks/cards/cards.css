@@ -810,7 +810,6 @@
 }
 
 .section[data-aue-resource*="section_1870237760"] .cards.block > ul > li:hover {
-    transform:translateY(-150px);
     box-shadow:none;
 }
 

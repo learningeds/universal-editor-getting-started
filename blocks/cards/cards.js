@@ -22,7 +22,8 @@ export default function decorate(block) {
   block.textContent = '';
   block.append(ul);
 
-  const section = document.querySelector('.section[data-aue-resource*="section_303714501"]');
+  const section = block.closest('.section[data-aue-resource*="section_303714501"]');
+  if (!section) return; // Exit if not in target section
   if(section) {
     const track = section.querySelector('.cards.block > ul');
     const cards = section.querySelectorAll('.cards.block > ul > li');

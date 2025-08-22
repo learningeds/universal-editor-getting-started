@@ -1077,7 +1077,6 @@
   font-size: 1.2rem;
   margin-top: 0.5rem;
 }
-
 .section[data-aue-resource*="section_284834724"] .default-content-wrapper h1 {
     font-size: 28px;
     font-weight: 900;
@@ -1085,10 +1084,16 @@
     text-align: center;
 }
 
+.section[data-aue-resource*="section_284834724"] .default-content-wrapper p {
+    margin: 0;
+    width: 55rem;
+}
+
 .section[data-aue-resource*="section_284834724"] .button-container {
   display: flex;
   justify-content: center;
   margin: 40px 0;
+    flex-direction: column;
 }
 
 .section[data-aue-resource*="section_284834724"] .button-container .button {
@@ -1099,7 +1104,7 @@
   max-width: 1000px;
   padding: 24px;
   border: 1px solid #ccc;
-  font-size: 1.2rem;
+  font-weight: 20;
   text-decoration: none;
   color: #333;
   background-color: #fff;

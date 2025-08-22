@@ -22,15 +22,13 @@ export default function decorate(block) {
   block.textContent = '';
   block.append(ul);
 
-  document.addEventListener('DOMContentLoaded', () => {
-    const track = document.querySelector('.section[data-aue-resource*="section_303714501"] .cards.block > ul');
-    const cards = document.querySelectorAll('.section[data-aue-resource*="section_303714501"] .cards.block > ul > li');
-    let index = 0;
-    const total = cards.length;
-
-    setInterval(() => {
-      index = (index + 1) % total;
-      track.style.transform = `translateX(-${index * 100}%)`;
-    }, 300); // slide every 1 second
-  });
+  const track = block.querySelector('.section[data-aue-resource*="section_303714501"] ul');
+  const cards = block.querySelectorAll('.section[data-aue-resource*="section_303714501"] ul > li');
+  let index = 0;
+  const total = cards.length;
+  
+  setInterval(() => {
+    index = (index + 1) % total;
+    track.style.transform = `translateX(-${index * 100}%)`;
+  }, 1000);
 }

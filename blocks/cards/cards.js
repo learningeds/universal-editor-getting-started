@@ -24,7 +24,7 @@ export default function decorate(block) {
 
   const section = block.closest('.section[data-aue-resource*="section_303714501"]');
   if (!section) return; // Exit if not in target section
-  if(section) {
+  if (section) {
     const track = section.querySelector('.cards.block > ul');
     const cards = section.querySelectorAll('.cards.block > ul > li');
     const total = cards.length;

@@ -1039,7 +1039,7 @@
 .section[data-aue-resource*="section_303714501"] .cards.block > ul {
   display: flex;
   flex-wrap: nowrap;
-  transition: transform 15s ease-in-out;
+  transition: transform 1s ease-in-out;
   padding: 0;
   margin: 0;
   list-style: none;

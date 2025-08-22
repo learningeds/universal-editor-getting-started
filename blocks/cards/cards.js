@@ -22,13 +22,40 @@ export default function decorate(block) {
   block.textContent = '';
   block.append(ul);
 
-  const track = block.querySelector('.section[data-aue-resource*="section_303714501"] ul');
-  const cards = block.querySelectorAll('.section[data-aue-resource*="section_303714501"] ul > li');
-  let index = 0;
+  const section = document.querySelector('.section[data-aue-resource*="section_1870237760"]');
+  const track = section.querySelector('.cards.block > ul');
+  const cards = section.querySelectorAll('.cards.block > ul > li');
   const total = cards.length;
-  
+  let index = 0;
+
+  // Create carousel indicators
+  const indicatorWrapper = document.createElement('div');
+  indicatorWrapper.className = 'cards-carousel-indicators';
+
+  for (let i = 0; i < total; i++) {
+    const dot = document.createElement('div');
+    dot.className = 'dot';
+    if (i === 0) dot.classList.add('active');
+    dot.addEventListener('click', () => {
+      index = i;
+      updateCarousel();
+    });
+    indicatorWrapper.appendChild(dot);
+  }
+
+  section.appendChild(indicatorWrapper);
+
+  function updateCarousel() {
+    track.style.transform = `translateX(-${index * 100}%)`;
+    const dots = indicatorWrapper.querySelectorAll('.dot');
+    dots.forEach((dot, i) => {
+      dot.classList.toggle('active', i === index);
+    });
+  }
+
   setInterval(() => {
     index = (index + 1) % total;
-    track.style.transform = `translateX(-${index * 105}%)`;
-  }, 15000);
+    updateCarousel();
+  }, 15000); // 15 seconds
+
 }

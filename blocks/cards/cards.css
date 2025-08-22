@@ -786,7 +786,7 @@
 .section[data-aue-resource*="section_1870237760"] .cards.block .cards-card-body{
     background-color: black;
     padding: 0;
-    margin-top: -90px;
+    margin-top: -80px;
 }
 
 .section[data-aue-resource*="section_1870237760"] .cards.block .cards-card-body h3{
@@ -1015,7 +1015,7 @@
 }
 
 .section[data-aue-resource*="section_459641719"] .cards.block .cards-card-body:hover{
-    transform: translateY(-5px);
+    transform: translateY(-6px);
 }
 
 
@@ -1165,7 +1165,7 @@
 }
 
 .section[data-aue-resource*="section_1870237760"] .cards-card-body h3,
-.cards-card-body p {
+.section[data-aue-resource*="section_1870237760"] .cards-card-body p {
   margin: 0;
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
@@ -1185,8 +1185,6 @@
   bottom: 0;
   margin: 0;
   padding: 1rem;
-  background-color: white; /* Optional: for full white overlay */
-  color: black; /* Adjust as needed */
   opacity: 0;
   transform: translateY(100%);
   transition: opacity 0.4s ease, transform 0.4s ease;
@@ -1199,7 +1197,7 @@
 
 /* Hide other content when hovered */
 .section[data-aue-resource*="section_1870237760"] .cards.block li:hover .cards-card-image,
-.cards.block li:hover .cards-card-body h3 {
+.section[data-aue-resource*="section_1870237760"] .cards.block li:hover .cards-card-body h3 {
   opacity: 0;
   visibility: hidden;
 }
@@ -1211,14 +1209,14 @@
 }
 
 .section[data-aue-resource*="section_1870237760"] .cards.block li:hover .cards-card-body h3 {
-  opacity: 0;
-  transform: translateY(-100%);
+    opacity: 0;
+    transform: translateY(-100%);
 }
 
-.section[data-aue-resource*="section_1870237760"] .cards.block li:hover .cards-card-body p {
-  opacity: 1;
-  transform: translateY(0);
-  height: auto;
+.section[data-aue-resource*="section_1870237760"] .cards.block li:hover .cards-card-body{
+    background-color: black;
+    padding: 0;
+    margin-top: -180px;
 }
 
 .section[data-aue-resource*="section_303714501"] .cards-carousel-indicators {

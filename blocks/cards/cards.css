@@ -1240,3 +1240,52 @@
   background-color: #000;
 }
 
+.section[data-aue-resource*="section_818874408"] .columns-container {
+    padding-left: 12rem;
+    padding-right: 12rem;
+}
+
+.section[data-aue-resource*="section_818874408"] .columns-container .default-content-wrapper h1{
+    margin: 0;
+    color: #333;
+    font-size: 28px;
+    font-weight: 900;
+    line-height: 30.8px;
+}
+
+.section[data-aue-resource*="section_818874408"] .columns.block > div:first-child > p{
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 27px;
+}
+
+.section[data-aue-resource*="section_818874408"] .columns-container .default-content-wrapper p{
+    color: #333;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 27px;
+}
+
+/* Apply styles only to the specific section */
+.section[data-aue-resource*="section_818874408"] .columns.block {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+/* Target the first and second columns */
+.section[data-aue-resource*="section_818874408"] .columns.block > div:first-child {
+  flex: 0 0 70%;
+  max-width: 70%;
+}
+
+.section[data-aue-resource*="section_818874408"] .columns.block > div:last-child {
+  flex: 0 0 30%;
+  max-width: 30%;
+}
+
+.section[data-aue-resource*="section_818874408"] .columns.block > div:last-child > img{
+  width: 300px;
+    height: 210px;
+}
+

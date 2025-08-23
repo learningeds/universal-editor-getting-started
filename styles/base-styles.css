@@ -421,15 +421,18 @@ main .section.imageovercard {
     margin: 0;
 }
 
+/* Main section wrapper */
 .section.pressreleaseblock {
   background-color: #f7fafc;
-  padding: 40px 20px;
   max-width: 1200px;
   margin: 0 auto;
+  padding: 40px 20px;
+  box-sizing: border-box;
   font-family: 'Arial', sans-serif;
   color: #0a3d62;
 }
 
+/* Title */
 .section.pressreleaseblock > .default-content-wrapper h1 {
   text-align: center;
   font-weight: 600;
@@ -438,27 +441,38 @@ main .section.imageovercard {
   color: #0a3d62;
 }
 
+/* Cards grid container */
 .section.pressreleaseblock .cards-wrapper {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); /* exactly 2 columns */
-  gap: 24px; /* uniform gap */
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr) !important;
+  gap: 24px !important;
+  width: 100%;
+  box-sizing: border-box;
   margin-bottom: 40px;
-  justify-items: stretch;
 }
 
+/* Remove layout disruption from .cards wrapper */
+.section.pressreleaseblock .cards {
+  display: contents; /* allows li children to behave as grid items */
+}
+
+/* Individual card styles */
 .section.pressreleaseblock .cards .cards-card-body {
   background-color: #f4f8fa;
+  padding: 24px;
   border-radius: 6px;
-  padding: 24px; /* padding 24px all sides */
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-  color: #1c3f5a;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   font-size: 14px;
-  min-height: 280px;
+  color: #1c3f5a;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  min-height: 280px;
+  box-sizing: border-box;
+  width: 100%;
 }
 
+/* Card title */
 .section.pressreleaseblock .cards .cards-card-body h3 {
   font-weight: 600;
   font-size: 16px;
@@ -466,17 +480,20 @@ main .section.imageovercard {
   color: #0a3d62;
 }
 
+/* Card paragraph */
 .section.pressreleaseblock .cards .cards-card-body p {
   margin-bottom: 12px;
-  line-height: 1.4;
+  line-height: 1.5;
   flex-grow: 1;
 }
 
+/* Tags/links inside cards */
 .section.pressreleaseblock .cards .cards-card-body a {
   display: inline-block;
   font-size: 12px;
   padding: 4px 8px;
   margin-right: 6px;
+  margin-bottom: 6px;
   border: 1px solid #316f91;
   border-radius: 3px;
   color: #316f91;
@@ -491,10 +508,12 @@ main .section.imageovercard {
   color: #fff;
 }
 
+/* Bottom button container */
 .section.pressreleaseblock .button-container {
   text-align: center;
 }
 
+/* Bottom button */
 .section.pressreleaseblock .button-container a.button.secondary {
   background-color: transparent;
   border: 1px solid #316f91;

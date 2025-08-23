@@ -151,24 +151,27 @@
 }
 .upcomingeventscards {
   background-color: #003a46;
-  padding: 40px 20px;
+  padding: 30px 60px; /* padding around container */
   color: #fff;
   font-family: Georgia, serif;
+  max-width: 1440px;
+  margin: 0 auto; /* center container */
+  box-sizing: border-box;
 }
 
 .upcomingeventscards > .default-content-wrapper > h1 {
-  color: #fff;
   font-weight: 400;
   font-size: 1.75rem;
   margin-bottom: 40px;
+  color: #fff;
   text-align: left;
 }
 
 .upcomingeventscards .cards-wrapper {
   display: flex;
   gap: 30px;
-  justify-content: start;
-  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: stretch;
 }
 
 .upcomingeventscards .cards-wrapper > div.cards.block > ul {
@@ -178,21 +181,26 @@
   margin: 0;
   list-style: none;
   width: 100%;
+  box-sizing: border-box;
 }
 
 .upcomingeventscards .cards-wrapper > div.cards.block > ul > li {
   background-color: #00464f;
   border-radius: 12px;
   padding: 30px 25px;
-  flex: 1;
-  box-sizing: border-box;
+  flex: 1 1 30%; /* allow flex growth, basis ~30% width */
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   min-width: 280px;
-  max-width: 320px;
+  max-width: 480px; /* limit max width for each card */
+  box-sizing: border-box;
   color: #fff;
-  position: relative;
+  height: 460px; /* fixed height for all cards for consistent alignment */
+}
+
+.upcomingeventscards .cards-wrapper > div.cards.block > ul > li p:first-child {
+  margin-bottom: 12px;
 }
 
 /* Date box styling for 2nd and 3rd cards */
@@ -207,23 +215,11 @@
   line-height: 1.1;
   text-align: center;
   padding: 5px 0;
-  margin-bottom: 12px;
-  letter-spacing: 0.04em;
   white-space: pre-line;
   display: flex;
   flex-direction: column;
   justify-content: center;
-}
-
-/* Split date parts for vertical stacking */
-/* Using content and ::after might not be feasible, so instead, we use CSS to break lines */
-.upcomingeventscards .cards-wrapper > div.cards.block > ul > li:nth-child(2) p:first-child {
-  white-space: pre-line;
-}
-
-/* For 3rd card, add line breaks using white-space pre-line and content */
-.upcomingeventscards .cards-wrapper > div.cards.block > ul > li:nth-child(3) p:first-child {
-  white-space: pre-line;
+  margin-bottom: 12px;
 }
 
 /* Quarter release heading style */
@@ -242,15 +238,15 @@
   font-size: 1.4rem;
   line-height: 1.3;
   margin: 0 0 10px 0;
+    color: white;
 }
 
-/* First card paragraph styling */
-.upcomingeventscards .cards-wrapper > div.cards.block > ul > li:nth-child(1) p:nth-child(3) {
+/* Paragraph styling (same font size for all paragraphs) */
+.upcomingeventscards .cards-wrapper > div.cards.block > ul > li p {
   font-size: 1rem;
   color: #fff;
-  margin-bottom: 30px;
-  max-width: 270px;
   line-height: 1.5;
+  margin-bottom: 20px;
 }
 
 /* Investors text style */
@@ -259,7 +255,6 @@
   font-size: 0.75rem;
   color: #7aa6ab;
   letter-spacing: 0.1em;
-  margin-bottom: 12px;
   font-weight: 600;
 }
 

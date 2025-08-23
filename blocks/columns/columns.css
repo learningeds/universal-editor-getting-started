@@ -11,7 +11,7 @@
   padding-top: 80px;
 }
 
-/* Flex layout for 3-column cards */
+/* Flex layout */
 .columns.block.columns-3-cols > div {
   display: flex;
   justify-content: space-between;
@@ -26,23 +26,28 @@
 .columns.block.columns-3-cols > div > div {
   flex: 1;
   padding: 32px 24px;
-  background-color: #ddb178; /* Beige */
+  background-color: #ddb178;
   text-align: center;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start; /* ✅ align from top consistently */
   border-right: 1px solid #a97d40;
   position: relative;
   max-width: 400px;
 }
 
-/* Remove right border from last card */
+/* Remove right border from last */
 .columns.block.columns-3-cols > div > div:last-child {
   border-right: none;
 }
 
-/* Labels above the cards */
+/* Reset margins for children */
+.columns.block.columns-3-cols > div > div * {
+  margin-top: 0 !important; /* ✅ removes extra space above */
+}
+
+/* Labels */
 .columns.block.columns-3-cols > div > div:nth-child(1)::before {
   content: 'CAREERS';
 }
@@ -60,27 +65,27 @@
   font-weight: 700;
   letter-spacing: 1.2px;
   text-transform: uppercase;
-  margin-bottom: 8px;   /* ✅ consistent space below label */
+  margin-bottom: 8px;
   color: #003b3f;
 }
 
-/* Title (e.g. "Available jobs") */
+/* Titles */
 .columns.block.columns-3-cols > div > div h3 {
   font-family: "Noto Serif", Georgia, "Times New Roman", serif;
   font-size: 32px;
   font-weight: 500;
   color: #003b3f;
-  margin: 0;            /* ✅ remove default margins */
   line-height: 1.3;
+  margin: 0; /* ✅ reset */
 }
 
-/* Description */
+/* Paragraph */
 .columns.block.columns-3-cols > div > div p {
   font-family: "Open Sans", Arial, Helvetica, sans-serif;
   font-size: 16px;
   color: #3a3a3a;
   line-height: 1.6;
-  margin: 12px 0 0;     /* ✅ consistent space below title */
+  margin: 12px 0 0; /* ✅ controlled space only below title */
 }
 
 /* Responsive */
@@ -106,7 +111,7 @@
   }
 }
 
-/* Hover effect (dark teal with white text) */
+/* Hover effect */
 .columns.block.columns-3-cols > div > div:hover {
   background: #054e5a;
   transition: background 0.3s ease;

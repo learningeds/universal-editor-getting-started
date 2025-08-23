@@ -430,11 +430,11 @@ main .section.imageovercard {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
-/* === TITLE === */
+/* === SECTION TITLE === */
 .section.pressreleaseblock > .default-content-wrapper h1 {
   text-align: center;
   font-size: 28px;
-  font-weight: 500;
+  font-weight: 400; /* Lighter to match reference image */
   color: #003049;
   margin-bottom: 48px;
 }
@@ -458,23 +458,23 @@ main .section.imageovercard {
   all: unset;
 }
 
-/* === CARD STYLING === */
+/* === INDIVIDUAL CARD === */
 .section.pressreleaseblock .cards ul li {
   background-color: #e9f2f3;
-  padding: 20px 20px 16px;
+  padding: 24px 20px 20px;
   border-radius: 4px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
 }
 
-/* Hide top empty body */
+/* Remove empty first body div if present */
 .section.pressreleaseblock .cards ul li .cards-card-body:first-child:empty {
   display: none;
 }
 
-/* === CARD BODY === */
+/* === CARD BODY TEXT === */
 .section.pressreleaseblock .cards-card-body {
   font-size: 14px;
   color: #003049;
@@ -499,46 +499,44 @@ main .section.imageovercard {
   font-size: 16px;
   font-weight: 600;
   color: #003049;
-  margin: 0 0 12px 0;
-  line-height: 1.3;
+  margin: 0 0 10px 0;
+  line-height: 1.4;
 }
 
-/* DESCRIPTION PARAGRAPH */
+/* PARAGRAPH */
 .section.pressreleaseblock .cards-card-body p {
   margin: 0 0 12px 0;
-  color: #003049;
   font-size: 14px;
-  line-height: 1.5;
+  color: #003049;
 }
 
-/* LAST P MARGIN FIX */
-.section.pressreleaseblock .cards-card-body p:last-of-type {
-  margin-bottom: 0;
-}
-
-/* REMOVE BACKGROUND BOX AROUND TAGS */
+/* Prevent tags being wrapped in their own blocky paragraphs */
 .section.pressreleaseblock .cards-card-body p:has(a) {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
   margin: 0;
   padding: 0;
-  background: none;
 }
 
-/* TAGS */
+/* TAG STYLING */
 .section.pressreleaseblock .cards-card-body a {
-  display: inline-block;
   font-size: 12px;
-  color: #003049;
-  border: 1px solid #003049;
   padding: 4px 10px;
+  border: 1px solid #003049;
   border-radius: 3px;
+  color: #003049;
   text-decoration: none;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.03em;
   background: none;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+/* Remove any arrows or unwanted characters from inside the buttons */
+.section.pressreleaseblock .cards-card-body a::before,
+.section.pressreleaseblock .cards-card-body a::after {
+  content: none !important;
 }
 
 .section.pressreleaseblock .cards-card-body a:hover {
@@ -557,17 +555,17 @@ main .section.imageovercard {
   background: none;
   color: #003049;
   border: 1px solid #003049;
-  padding: 10px 22px;
+  padding: 10px 24px;
   font-size: 12px;
   font-weight: 600;
   text-transform: uppercase;
   border-radius: 3px;
   letter-spacing: 0.5px;
   text-decoration: none;
-  transition: background 0.3s ease;
+  transition: background-color 0.3s ease;
 }
 
 .section.pressreleaseblock .button-container .button.secondary:hover {
-  background: #003049;
+  background-color: #003049;
   color: white;
 }

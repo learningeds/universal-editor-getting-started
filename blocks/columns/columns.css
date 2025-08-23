@@ -1,6 +1,6 @@
 .columns-wrapper {
-  padding-left: 30px;
-  padding-right: 30px;
+  padding-left: 30px !important;
+  padding-right: 30px !important;
 }
 
 .columns.block.columns-3-cols {

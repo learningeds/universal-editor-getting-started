@@ -28,7 +28,7 @@
 
 /* Content alignment */
 .hero > * {
-  max-width: 720px;       /* allow wider text wrapping */
+ 
   margin-left: 64px;      /* consistent left spacing */
   margin-right: auto;
   color: #ffffff;

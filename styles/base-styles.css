@@ -395,6 +395,10 @@ main .section.imageovercard {
 .section.imageovercard .button-container .button:hover {
   background-color: #003837;
 }
+.section.imageovercard .cards-card-body {
+  background-color: #fcf8f2 !important;
+}
+
 .default-content-wrapper {
 
     text-align: left;

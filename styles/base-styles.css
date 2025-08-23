@@ -273,6 +273,7 @@ main .section.highlight {
   background-color: #054e5a;
   margin: 0;
   padding: 40px 0;
+    padding-bottom: 150px !important;
 }
 .default-content-wrapper {
   

@@ -313,16 +313,21 @@ main .section.imageovercard {
   padding: 0;
 }
 
+
 .section.imageovercard .cards li {
   background-color: #fcfcfc;
-  border-radius: 20px 20px 20px 0px; /* Rounded 3 corners */
-  padding: 3rem 2rem;
+  border-radius: 20px 20px 20px 0px; /* 3 corners rounded */
+  padding: 48px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-  max-width: 580px;
-  width: 100%;
+  width: 722.8px;
+  height: 610.3px;
   box-sizing: border-box;
   font-family: "Open Sans", sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
+
 
 /* Pretitle */
 .section.imageovercard .cards-card-body p:first-child {

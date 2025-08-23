@@ -1,8 +1,5 @@
 .columns-wrapper {
-   margin-top: 0px;
-margin-right: 0px;
-margin-bottom: 0px;
-margin-left: 0px;
+  margin: 0;
   padding-left: 30px !important;
   padding-right: 30px !important;
 }
@@ -22,15 +19,14 @@ margin-left: 0px;
   width: 100%;
   margin: 0;
   background: none;
-    height: 230px;
+  height: 230px;
 }
 
 /* Each card */
 .columns.block.columns-3-cols > div > div {
   flex: 1;
- 
-  padding: 24px;
-  background-color: #ddb178; /* Light brown background */
+  padding: 32px 24px;
+  background-color: #ddb178; /* Beige */
   text-align: center;
   box-sizing: border-box;
   display: flex;
@@ -38,7 +34,7 @@ margin-left: 0px;
   justify-content: center;
   border-right: 1px solid #a97d40;
   position: relative;
-  max-width: 400px; /* Roughly matches layout from screenshot */
+  max-width: 400px;
 }
 
 /* Remove right border from last card */
@@ -59,27 +55,31 @@ margin-left: 0px;
 
 .columns.block.columns-3-cols > div > div::before {
   display: block;
-  font-size: 0.85rem;
-  font-weight: 600;
-  letter-spacing: 1px;
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
   text-transform: uppercase;
-  margin-bottom: 0.5rem;
+  margin-bottom: 12px;
   color: #003b3f;
 }
 
 /* Title (e.g. "Available jobs") */
 .columns.block.columns-3-cols > div > div h3 {
-  font-size: 2rem;
+  font-family: "Noto Serif", Georgia, "Times New Roman", serif;
+  font-size: 32px;
   font-weight: 500;
   color: #003b3f;
-  margin: 0 0 0.8rem;
+  margin: 0 0 12px;
+  line-height: 1.3;
 }
 
 /* Description */
 .columns.block.columns-3-cols > div > div p {
-  font-size: 1rem;
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
+  font-size: 16px;
   color: #3a3a3a;
-  line-height: 1.5;
+  line-height: 1.6;
   margin: 0;
 }
 
@@ -105,99 +105,14 @@ margin-left: 0px;
     border-bottom: none;
   }
 }
-/* 🟦 Hover effect (blue gradient and white text) */
+
+/* Hover effect (dark teal with white text) */
 .columns.block.columns-3-cols > div > div:hover {
   background: #054e5a;
-}
-
-/* Two-column layout wrapper */
-
-.columns.block.columns-2-cols {
-  background-color: #fff;
-}
-
-.columns.block.columns-2-cols > div {
-  display: flex;
-  flex-wrap: nowrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 3rem;
-}
-
-/* === Left column (text content) === */
-.columns.block.columns-2-cols > div > div:first-child {
-  flex: 1 1 50%;
-  max-width: 50%;
-}
-
-.columns.block.columns-2-cols h1 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-  color: #004b54;
-  font-weight: 600;
-}
-
-.columns.block.columns-2-cols p {
-  font-size: 1.125rem;
-  line-height: 1.6;
-  margin-bottom: 1.5rem;
-  color: #333;
-}
-
-.columns.block.columns-2-cols .button-container {
-  margin-top: 1rem;
-}
-
-.columns.block.columns-2-cols .button-container .button {
-  display: inline-block;
-  background: linear-gradient(to right, #007e8a, #003e51);
-  color: #fff;
-  padding: 0.75rem 1.5rem;
-  font-weight: 600;
-  text-decoration: none;
-  border-radius: 4px;
   transition: background 0.3s ease;
 }
-
-.columns.block.columns-2-cols .button-container .button:hover {
-  background: linear-gradient(to right, #005e66, #002e3a);
-}
-
-/* === Right column (image) === */
-.columns.block.columns-2-cols .columns-img-col {
-  flex: 1 1 45%;
-  max-width: 45%;
-  display: flex;
-  justify-content: center;
-}
-
-.columns.block.columns-2-cols .columns-img-col picture,
-.columns.block.columns-2-cols .columns-img-col img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 12px;
-  object-fit: cover;
-}
-
-/* === Mobile responsive behavior === */
-@media (max-width: 768px) {
-  .columns.block.columns-2-cols > div {
-    flex-direction: column;
-  }
-
-  .columns.block.columns-2-cols > div > div,
-  .columns.block.columns-2-cols .columns-img-col {
-    max-width: 100%;
-    flex: 1 1 100%;
-    text-align: center;
-  }
-
-  .columns.block.columns-2-cols h1 {
-    font-size: 2rem;
-  }
-
-  .columns.block.columns-2-cols p {
-    font-size: 1rem;
-  }
+.columns.block.columns-3-cols > div > div:hover::before,
+.columns.block.columns-3-cols > div > div:hover h3,
+.columns.block.columns-3-cols > div > div:hover p {
+  color: #ffffff;
 }

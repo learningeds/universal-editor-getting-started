@@ -50,13 +50,16 @@
 
 .hero p {
   font-family: "Open Sans", Arial, Helvetica, sans-serif !important;
-  font-size: 22px;             /* ✅ slightly smaller, closer to reference */
-  font-weight: 300;            /* ✅ keep it light */
-  line-height: 1.6;            /* ✅ tighter than 1.8, matches screenshot */
+  font-size: 22px;
+  font-weight: 300;
+  line-height: 1.6;
   margin-top: 16px;
-  color: rgba(255, 255, 255, 0.9); /* ✅ softer white, not harsh */
-  max-width: 700px;            /* ✅ narrower, forces line breaks like reference */
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 640px;   /* ✅ Adjust width to force 3 lines */
+  word-break: break-word;
+  white-space: normal; /* ✅ ensures wrapping works */
 }
+
 
 
 

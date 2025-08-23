@@ -140,6 +140,10 @@
           {
             "name": "Highlight",
             "value": "highlight"
+          },
+          {
+            "name": "Custom",
+            "value": "custom"
           }
           
         ]

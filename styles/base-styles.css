@@ -284,10 +284,12 @@ main .section.imageovercard {
   min-height: 100vh;
   display: flex;
   align-items: center;
+  justify-content: flex-start;
   padding: 4rem 2rem;
   box-sizing: border-box;
 }
 
+/* Card container */
 .section.imageovercard .cards-wrapper {
   max-width: 1200px;
   width: 100%;
@@ -307,78 +309,62 @@ main .section.imageovercard {
 
 .section.imageovercard .cards li {
   background-color: #ffffff;
-  border-radius: 16px;
+  border-radius: 20px;
+  padding: 3rem 2rem;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-  padding: 2rem;
-  max-width: 420px;
+  max-width: 550px;
   width: 100%;
   box-sizing: border-box;
 }
 
-.section.imageovercard .cards-card-image img {
-  width: 100%;
-  border-radius: 10px;
-  margin-bottom: 1.5rem;
-  display: block;
-}
-
+/* Pretitle (SUSTAINABILITY) */
 .section.imageovercard .cards-card-body p:first-child {
   text-transform: uppercase;
-  font-weight: bold;
+  font-weight: 600;
   font-size: 0.85rem;
-  color: #222;
-  margin-bottom: 0.5rem;
-}
-
-.section.imageovercard .cards-card-body h2 {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #003b49;
+  letter-spacing: 0.05em;
+  color: #006c67;
   margin-bottom: 1rem;
-  line-height: 1.4;
 }
 
-.section.imageovercard .cards-card-body p:not(.button-container) {
-  font-size: 1rem;
-  color: #444;
+/* Title */
+.section.imageovercard .cards-card-body h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #004b4b;
+  line-height: 1.3;
+  margin-bottom: 1.5rem;
+}
+
+/* Paragraph text */
+.section.imageovercard .cards-card-body p:not(.button-container):not(:first-child) {
+  font-size: 1.05rem;
+  color: #333;
   line-height: 1.6;
   margin-bottom: 1rem;
 }
 
+/* Button */
 .section.imageovercard .button-container {
-  margin-top: 1.5rem;
+  margin-top: 2rem;
 }
 
 .section.imageovercard .button-container .button {
   display: inline-block;
-  background-color: #006c67;
+  background-color: #005a56;
   color: #fff;
-  padding: 0.7rem 1.5rem;
+  padding: 0.9rem 1.8rem;
   font-size: 0.95rem;
-  border-radius: 5px;
+  border-radius: 6px;
   text-decoration: none;
   font-weight: 600;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s ease;
 }
 
 .section.imageovercard .button-container .button:hover {
-  background-color: #004d4a;
+  background-color: #003f3c;
 }
-@media (max-width: 768px) {
-  .section.imageovercard {
-    flex-direction: column;
-    align-items: center;
-    padding: 2rem 1rem;
-  }
 
-  .section.imageovercard .cards {
-    justify-content: center;
-  }
-
-  .section.imageovercard .cards li {
-    max-width: 100%;
-  }
-}
 
 
 .default-content-wrapper {

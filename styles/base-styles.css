@@ -421,127 +421,130 @@ main .section.imageovercard {
     margin: 0;
 }
 
-/* Section container */
-.section.pressreleaseblock {
-  background-color: #f7fafc;
+/* Press release block container */
+section.pressreleaseblock {
+  background-color: #f5fafd;
   padding: 40px 20px;
-  max-width: 1200px;
-  margin: 0 auto;
-  box-sizing: border-box;
-  font-family: Arial, sans-serif;
 }
 
-/* Title styling */
-.section.pressreleaseblock > .default-content-wrapper h1 {
+/* Heading */
+section.pressreleaseblock h1 {
   text-align: center;
-  font-size: 22px;
+  font-size: 24px;
   font-weight: 600;
+  color: #003049;
   margin-bottom: 40px;
-  color: #0a3d62;
 }
 
-/* Ensure .cards-wrapper is just a layout wrapper */
-.section.pressreleaseblock .cards-wrapper {
-  width: 100%;
-  margin-bottom: 40px;
-  box-sizing: border-box;
+/* Wrapper around the cards */
+section.pressreleaseblock .cards-wrapper {
+  display: flex;
+  justify-content: center;
 }
 
-/* ✅ APPLY GRID TO UL — this is where cards actually live */
-.section.pressreleaseblock .cards ul {
+/* Grid layout for cards */
+section.pressreleaseblock .cards {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 2 columns */
+  grid-template-columns: repeat(2, 1fr);
   gap: 24px;
-  list-style: none;
+  max-width: 1200px;
+  width: 100%;
   padding: 0;
-  margin: 0;
+  list-style: none;
 }
 
-/* Ensure .cards block doesn’t interfere */
-.section.pressreleaseblock .cards {
-  all: unset;
-}
-
-/* Card container */
-.section.pressreleaseblock .cards ul li {
-  background-color: #f4f8fa;
+/* Individual card styling */
+section.pressreleaseblock .cards li {
+  background-color: #e9f2f3;
   padding: 24px;
-  border-radius: 6px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-  box-sizing: border-box;
+  border-radius: 4px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 280px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
 }
 
-/* Inner card content body (richtext block) */
-.section.pressreleaseblock .cards-card-body {
-  color: #1c3f5a;
-  font-size: 14px;
+/* Remove top padding if extra */
+section.pressreleaseblock .cards-card-body:first-child {
+  display: none;
 }
 
-/* Card date */
-.section.pressreleaseblock .cards-card-body pre {
-  margin: 0 0 10px;
-  font-weight: bold;
-  color: #0a3d62;
+/* Card content block */
+section.pressreleaseblock .cards-card-body {
+  padding: 0;
+  font-family: inherit;
 }
 
-/* Card title */
-.section.pressreleaseblock .cards-card-body h3 {
-  font-size: 16px;
-  margin: 0 0 12px;
+/* Date */
+section.pressreleaseblock .cards-card-body pre {
+  font-size: 12px;
   font-weight: 600;
-  color: #0a3d62;
+  color: #003049;
+  margin: 0 0 4px 0;
+  font-family: monospace;
 }
 
-/* Paragraph inside cards */
-.section.pressreleaseblock .cards-card-body p {
-  margin: 0 0 10px;
-  line-height: 1.5;
+/* Title */
+section.pressreleaseblock .cards-card-body h3 {
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0 0 12px 0;
+  color: #003049;
 }
 
-/* Link/tag styles inside cards */
-.section.pressreleaseblock .cards-card-body a {
+/* Paragraph text */
+section.pressreleaseblock .cards-card-body p {
+  font-size: 14px;
+  color: #003049;
+  margin: 0 0 12px 0;
+}
+
+/* Button container spacing */
+section.pressreleaseblock .cards-card-body p:last-child {
+  margin-bottom: 0;
+}
+
+/* Link buttons */
+section.pressreleaseblock .cards-card-body a {
   display: inline-block;
   font-size: 12px;
-  padding: 4px 8px;
-  margin: 4px 4px 0 0;
-  border: 1px solid #316f91;
-  border-radius: 3px;
-  color: #316f91;
+  font-weight: 500;
+  color: #003049;
   text-decoration: none;
-  text-transform: uppercase;
-  letter-spacing: 0.03em;
-  transition: 0.3s;
+  border: 1px solid #003049;
+  padding: 4px 8px;
+  margin: 0 8px 8px 0;
+  border-radius: 2px;
+  background: none;
+  transition: background-color 0.3s ease;
 }
 
-.section.pressreleaseblock .cards-card-body a:hover {
-  background-color: #316f91;
-  color: #fff;
+/* Button hover */
+section.pressreleaseblock .cards-card-body a:hover {
+  background-color: #003049;
+  color: white;
 }
 
-/* Bottom "View all press releases" button container */
-.section.pressreleaseblock .button-container {
+/* "View all press releases" button */
+section.pressreleaseblock .default-content-wrapper .button-container {
   text-align: center;
   margin-top: 40px;
 }
 
-/* Button itself */
-.section.pressreleaseblock .button-container .button.secondary {
-  background-color: transparent;
-  border: 1px solid #316f91;
-  color: #316f91;
-  padding: 10px 24px;
+section.pressreleaseblock .default-content-wrapper .button-container a.button.secondary {
+  background: none;
+  color: #003049;
+  border: 1px solid #003049;
+  padding: 8px 16px;
+  font-size: 12px;
   font-weight: 600;
   text-transform: uppercase;
-  border-radius: 4px;
-  text-decoration: none;
-  transition: 0.3s;
+  letter-spacing: 0.5px;
+  border-radius: 3px;
+  transition: background 0.3s ease;
 }
 
-.section.pressreleaseblock .button-container .button.secondary:hover {
-  background-color: #316f91;
-  color: #fff;
+section.pressreleaseblock .default-content-wrapper .button-container a.button.secondary:hover {
+  background: #003049;
+  color: white;
 }

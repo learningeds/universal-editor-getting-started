@@ -58,6 +58,10 @@
             "name": "ImageOverCard",
             "value": "imageovercard"
           }
+          {
+            "name": "PressReleaseBlock",
+            "value": "pressreleaseblock"
+          }
         ]
         }
       ]

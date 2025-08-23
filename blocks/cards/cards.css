@@ -1,27 +1,107 @@
+.cards-container {
+  background-color: #005661; /* Teal background for the whole section */
+  padding: 60px 20px;
+}
+
+.cards-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Grid layout */
 .cards > ul {
   list-style: none;
   margin: 0;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(257px, 1fr));
-  grid-gap: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 32px;
 }
 
+/* Individual card */
 .cards > ul > li {
-  border: 1px solid #dadada;
-  background-color: var(--background-color);
+  background-color: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transition: transform 0.2s ease;
 }
 
-.cards .cards-card-body {
-  margin: 16px;
+.cards > ul > li:hover {
+  transform: translateY(-4px);
 }
 
+/* Image wrapper */
 .cards .cards-card-image {
   line-height: 0;
 }
 
-.cards > ul > li img {
+.cards .cards-card-image img {
   width: 100%;
-  aspect-ratio: 4 / 3;
+  height: auto;
   object-fit: cover;
+  aspect-ratio: 4/3;
+  display: block;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+/* Body content */
+.cards .cards-card-body {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.cards .cards-card-body h3 {
+  font-family: "Noto Serif", Georgia, "Times New Roman", serif;
+  font-size: 22px;
+  font-weight: 500;
+  color: #004B54;
+  margin: 0 0 12px 0;
+}
+
+.cards .cards-card-body p {
+  font-family: "Open Sans", Arial, sans-serif;
+  font-size: 16px;
+  color: #333;
+  line-height: 1.5;
+  margin: 0 0 12px 0;
+}
+
+/* Link style (regular + button-style) */
+.cards .cards-card-body a {
+  font-family: "Noto Sans", Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: #005B9F;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: auto;
+}
+
+.cards .cards-card-body a::before {
+  content: '→';
+  display: inline-block;
+  font-weight: bold;
+  transform: translateY(-1px);
+  transition: transform 0.2s ease;
+}
+
+.cards .cards-card-body a:hover::before {
+  transform: translateX(4px);
+}
+
+.cards .cards-card-body .button {
+  color: #005B9F;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 12px;
 }

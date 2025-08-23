@@ -12,7 +12,7 @@ export default function decorate(block) {
           // picture is only content in column
           picWrapper.classList.add('columns-img-col');
 
-          // ✅ Inject video only once
+          // Inject video only once
           if (!picWrapper.querySelector('video')) {
             const video = document.createElement('video');
             video.src = 'https://atlascopco.scene7.com/is/content/atlascopco/brands/atlas-copco-group/videos/about-us/things/katarina-thing-0x360-730k.mp4';
@@ -20,6 +20,17 @@ export default function decorate(block) {
             video.setAttribute('controls', '');
             video.setAttribute('muted', '');
             picWrapper.appendChild(video);
+          }
+
+          // Add top right link only once
+          if (!picWrapper.querySelector('.top-right-link')) {
+            const link = document.createElement('a');
+            link.href = 'https://atlascopco.scene7.com/is/content/atlascopco/brands/atlas-copco-group/videos/about-us/things/katarina-thing-0x360-730k.mp4';
+            link.target = '_blank';
+            link.rel = 'noopener noreferrer';
+            link.className = 'top-right-link';
+            link.textContent = 'Zoom / Fullscreen';
+            picWrapper.appendChild(link);
           }
         }
       }

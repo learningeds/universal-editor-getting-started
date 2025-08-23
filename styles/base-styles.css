@@ -1,4 +1,7 @@
-/*
+margin-top: 0px;
+margin-right: 0px;
+margin-bottom: 0px;
+margin-left: 0px;/*
  * Copyright 2020 Adobe. All rights reserved.
  * This file is licensed to you under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License. You may obtain a copy
@@ -252,7 +255,7 @@ main > .section {
 
 main > .section > div {
   max-width: 1200px;
-  margin: auto;
+  
   padding: 0 24px;
 }
 

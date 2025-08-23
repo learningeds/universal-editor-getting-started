@@ -160,7 +160,7 @@
 
 /* Paragraph style */
 .columns.block.columns-2-cols p {
-  font-weight: 200; /* normal */
+  font-weight: 200 !important; /* normal */
   font-size: 23px;
   line-height: 1.6;
   max-width: 480px;

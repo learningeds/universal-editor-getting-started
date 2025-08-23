@@ -9,8 +9,10 @@ export default function decorate(block) {
       if (pic) {
         const picWrapper = pic.closest('div');
         if (picWrapper && picWrapper.children.length === 1) {
+          // picture is only content in column
           picWrapper.classList.add('columns-img-col');
 
+          // Inject video only once
           if (!picWrapper.querySelector('video')) {
             const video = document.createElement('video');
             video.src = 'https://atlascopco.scene7.com/is/content/atlascopco/brands/atlas-copco-group/videos/about-us/things/katarina-thing-0x360-730k.mp4';
@@ -20,22 +22,22 @@ export default function decorate(block) {
             picWrapper.appendChild(video);
           }
 
-          // Add Zoom / Fullscreen link
-          if (!picWrapper.querySelector('.zoom-fullscreen-link')) {
-            const zoomLink = document.createElement('a');
-            zoomLink.href = 'https://atlascopco.scene7.com/is/content/atlascopco/brands/atlas-copco-group/videos/about-us/things/katarina-thing-0x360-730k.mp4';
-            zoomLink.target = '_blank';
-            zoomLink.rel = 'noopener noreferrer';
-            zoomLink.className = 'zoom-fullscreen-link';
-            zoomLink.textContent = 'Zoom / Fullscreen';
-            picWrapper.appendChild(zoomLink);
+          // Add top right link only once
+          if (!picWrapper.querySelector('.top-right-link')) {
+            const link = document.createElement('a');
+            link.href = 'https://atlascopco.scene7.com/is/content/atlascopco/brands/atlas-copco-group/videos/about-us/things/katarina-thing-0x360-730k.mp4';
+            link.target = '_blank';
+            link.rel = 'noopener noreferrer';
+            link.className = 'top-right-link';
+            link.textContent = 'Zoom / Fullscreen';
+            picWrapper.appendChild(link);
           }
         }
       }
     });
   });
 
-  // Existing metadata processing below (unchanged)
+  // Process section metadata
   block.querySelectorAll(':scope > div:not([data-columns-status])').forEach((section) => {
     const sectionMeta = section.querySelector('div.columns-metadata');
     if (sectionMeta) {

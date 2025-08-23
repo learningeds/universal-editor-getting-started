@@ -5,7 +5,6 @@
 
 /* Base hero container */
 .hero {
-color: white;
   position: relative;
   padding: 40px 0;
   min-height: 400px;
@@ -13,6 +12,7 @@ color: white;
   flex-direction: column;
   justify-content: center;
   overflow: hidden;
+  text-align: left;
 }
 
 /* Background image full bleed */
@@ -26,87 +26,54 @@ color: white;
   z-index: -1;
 }
 
-/* Grid-like control without HTML changes */
+/* Content alignment */
 .hero > * {
-  max-width: 600px;         /* Restrict to half width */
-  margin-left: 64px;        /* Align left within grid */
+  max-width: 720px;
+  margin-left: 64px;
   margin-right: auto;
-  color: white;
+  color: #ffffff;
 }
 
 /* Headline styling */
 .hero h1 {
-    font-weight: 400;
-    font-family: "Noto Serif", Arial, Helvetica, sans-serif !important;
-  font-size: 56px;
-  letter-spacing: -1px;
-  line-height: 1.14;
-
-  margin: 0;
+  font-family: "Noto Serif", "Times New Roman", Georgia, serif !important;
+  font-size: 60px;       /* close to screenshot size */
+  font-weight: 400;      /* not bold, slightly elegant */
+  line-height: 1.15;     /* tighter spacing like screenshot */
+  letter-spacing: -0.3px;
+  margin: 0 0 20px;
+  color: #ffffff;
 }
 
 /* Paragraph styling */
 .hero p {
-  font-size: 27px;
+  font-family: "Open Sans", Arial, Helvetica, sans-serif !important;
+  font-size: 20px;
+  font-weight: 300;      /* slightly lighter */
   line-height: 1.6;
-  margin-top: 16px;
+  margin-top: 10px;
+  color: #ffffff;
+  max-width: 600px;      /* narrower for nice wrapping */
 }
 
-/* Responsive spacing */
-@media (width >= 900px) {
+/* Responsive adjustments */
+@media (max-width: 900px) {
   .hero {
-    padding: 80px 0;
+    padding: 60px 20px;
   }
 
   .hero > * {
-   
-    max-width: 720px;
+    margin-left: 20px;
+    margin-right: 20px;
+    max-width: 100%;
   }
-}
-/* Make hero itself the positioning container */
-.hero.section {
-  position: relative;
-}
 
-/* Target the wrapper inside hero only */
-.hero.section > .default-content-wrapper {
-  position: absolute;
-  top: 50%;              /* vertically center */
-  left: 64px;            /* align text away from edge */
-  transform: translateY(-50%);
-  z-index: 2;
-  max-width: 600px;
-  color: #fff;
-  pointer-events: none;  /* text won’t block background clicks */
-}
+  .hero h1 {
+    font-size: 38px;
+    line-height: 1.3;
+  }
 
-/* Restore pointer events only for links */
-.hero.section > .default-content-wrapper a {
-  pointer-events: auto;
-}
-
-/* Headline */
-.hero.section > .default-content-wrapper h1 {
-  font-size: 56px;
-  line-height: 1.2;
-  margin: 0 0 20px 0;
-  color: #fff;
-}
-
-/* CTA button */
-.hero.section > .default-content-wrapper h2 a {
-  display: inline-block;
-  background: rgba(255, 255, 255, 0.15);
-  border: 2px solid #fff;
-  padding: 12px 24px;
-  font-size: 18px;
-  font-weight: 600;
-  color: #fff;
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
-
-.hero.section > .default-content-wrapper h2 a:hover {
-  background: #fff;
-  color: #c8102e;
+  .hero p {
+    font-size: 18px;
+  }
 }

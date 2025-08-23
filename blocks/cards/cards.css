@@ -14,12 +14,12 @@
 .cards-container p {
   color: white;
   font-family: "Noto Serif", Georgia, "Times New Roman", serif;
-  margin: 0 0 16px 0; /* reduced margin bottom for less gap */
+  margin: 0 0 24px 0;
 }
 
 /* Add spacing between intro and cards */
 .cards-wrapper .cards {
-  margin-top: 24px; /* reduced from 32px */
+  margin-top: 32px;
 }
 
 /* ----- Cards Grid Layout ----- */
@@ -35,29 +35,13 @@
 /* ----- Individual Card ----- */
 .cards > ul > li {
   background-color: #ffffff;
-  border-radius: 12px 12px 12px 0; /* default radius, overridden below */
+  border-radius: 12px 12px 12px 0; /* Only bottom-left is square */
   overflow: hidden;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   display: flex;
   flex-direction: column;
   height: 100%;
-  transition: none; /* disable motion */
-}
-
-/* ----- Card Border Radius Variations ----- */
-/* First card: rounded top-left and bottom-left */
-.cards > ul > li:first-child {
-  border-radius: 12px 0 0 12px;
-}
-
-/* Second card: rounded top-right and bottom-right */
-.cards > ul > li:nth-child(2) {
-  border-radius: 0 12px 12px 0;
-}
-
-/* Third card: rounded top-left, top-right and bottom-right */
-.cards > ul > li:last-child {
-  border-radius: 12px 12px 12px 0;
+  transition: none;
 }
 
 /* ----- Image Block ----- */
@@ -69,7 +53,7 @@
   width: 100%;
   height: auto;
   object-fit: cover;
-  aspect-ratio: 4/3;
+  aspect-ratio: 4 / 3;
   display: block;
   border-top-left-radius: 12px;
   border-top-right-radius: 12px;
@@ -110,9 +94,9 @@
   text-decoration: none;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 1rem;
   margin-top: auto;
-  border-bottom: 2px solid transparent; /* for underline on hover */
+  border-bottom: 2px solid transparent;
   padding-bottom: 2px;
   transition: border-color 0.2s ease;
 }
@@ -122,23 +106,46 @@
   display: inline-block;
   font-weight: bold;
   transform: translateY(-1px);
-  transition: transform 0.2s ease;
+  transition: none;
 }
 
 .cards .cards-card-body a:hover {
   border-color: #005B9F;
-  text-decoration: none; /* remove default underline */
+  text-decoration: none;
 }
 
 .cards .cards-card-body a:hover::before {
-  transform: translateX(4px);
+  transform: translateY(-1px); /* Arrow does not move */
 }
 
-/* ----- Optional Button Class Styling (if used) ----- */
-.cards .cards-card-body .button {
+/* ----- Fix for links inside .button-container (3rd card) ----- */
+.cards .cards-card-body .button-container a {
+  font-family: "Noto Sans", Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
   color: #005B9F;
-  font-weight: 600;
   text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  border-bottom: 2px solid transparent;
+  padding-bottom: 2px;
+  transition: border-color 0.2s ease;
+}
+
+.cards .cards-card-body .button-container a::before {
+  content: '→';
   display: inline-block;
-  margin-top: 12px;
+  font-weight: bold;
+  transform: translateY(-1px);
+  transition: none;
+}
+
+.cards .cards-card-body .button-container a:hover {
+  border-color: #005B9F;
+  text-decoration: none;
+}
+
+.cards .cards-card-body .button-container a:hover::before {
+  transform: translateY(-1px);
 }

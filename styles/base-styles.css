@@ -421,128 +421,151 @@ main .section.imageovercard {
     margin: 0;
 }
 
-/* Section container */
+/* === SECTION CONTAINER === */
 .section.pressreleaseblock {
   background-color: #ffffff;
-  padding: 40px 20px;
+  padding: 60px 20px;
   max-width: 1200px;
   margin: 0 auto;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
-/* Title styling */
+/* === SECTION TITLE === */
 .section.pressreleaseblock > .default-content-wrapper h1 {
   text-align: center;
-  font-size: 24px;
-  font-weight: 500;
-  margin-bottom: 40px;
-  color: #0a3d62;
+  font-size: 28px;
+  font-weight: 400; /* Lighter to match reference image */
+  color: #003049;
+  margin-bottom: 48px;
 }
 
-/* Cards wrapper */
+/* === CARDS GRID === */
 .section.pressreleaseblock .cards-wrapper {
   width: 100%;
   margin-bottom: 40px;
 }
 
-/* Grid layout for cards */
 .section.pressreleaseblock .cards ul {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 32px;
-  list-style: none;
+  gap: 24px;
   padding: 0;
   margin: 0;
+  list-style: none;
 }
 
-/* Reset card block styles */
 .section.pressreleaseblock .cards {
   all: unset;
 }
 
-/* Individual card container */
+/* === INDIVIDUAL CARD === */
 .section.pressreleaseblock .cards ul li {
-  background-color: #e8f4f8;
-  padding: 24px 24px 20px;
-  border-radius: 6px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  background-color: #e9f2f3;
+  padding: 24px 20px 20px;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
 }
 
-/* Card content styling */
+/* Remove empty first body div if present */
+.section.pressreleaseblock .cards ul li .cards-card-body:first-child:empty {
+  display: none;
+}
+
+/* === CARD BODY TEXT === */
 .section.pressreleaseblock .cards-card-body {
-  color: #1c3f5a;
   font-size: 14px;
+  color: #003049;
   line-height: 1.5;
 }
 
-/* Date line (pretitle) */
+/* DATE */
 .section.pressreleaseblock .cards-card-body pre {
-  margin: 0 0 8px 0;
+  margin: 0 0 10px 0;
+  font-size: 13px;
   font-weight: 600;
-  font-size: 12px;
-  font-family: inherit;
-  color: #0a3d62;
+  font-family: monospace;
+  color: #003049;
+  background: none;
+  border: none;
+  padding: 0;
+  display: block;
 }
 
-/* Title inside card */
+/* TITLE */
 .section.pressreleaseblock .cards-card-body h3 {
   font-size: 16px;
-  margin: 0 0 12px;
   font-weight: 600;
-  color: #0a3d62;
+  color: #003049;
+  margin: 0 0 10px 0;
+  line-height: 1.4;
 }
 
-/* Paragraph inside cards */
+/* PARAGRAPH */
 .section.pressreleaseblock .cards-card-body p {
-  margin: 0 0 10px;
+  margin: 0 0 12px 0;
   font-size: 14px;
-  color: #1c3f5a;
+  color: #003049;
 }
 
-/* Tag buttons inside cards */
+/* Prevent tags being wrapped in their own blocky paragraphs */
+.section.pressreleaseblock .cards-card-body p:has(a) {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+}
+
+/* TAG STYLING */
 .section.pressreleaseblock .cards-card-body a {
-  display: inline-block;
   font-size: 12px;
-  padding: 6px 10px;
-  margin: 6px 6px 0 0;
-  border: 1px solid #0a3d62;
+  padding: 4px 10px;
+  border: 1px solid #003049;
   border-radius: 3px;
-  color: #0a3d62;
+  color: #003049;
   text-decoration: none;
   text-transform: uppercase;
   letter-spacing: 0.03em;
-  background-color: transparent;
-  font-weight: 500;
+  background: none;
+  transition: all 0.3s ease;
+}
+
+/* Remove any arrows or unwanted characters from inside the buttons */
+.section.pressreleaseblock .cards-card-body a::before,
+.section.pressreleaseblock .cards-card-body a::after {
+  content: none !important;
 }
 
 .section.pressreleaseblock .cards-card-body a:hover {
-  background-color: #0a3d62;
+  background-color: #003049;
   color: #fff;
 }
 
-/* Button container */
+/* === VIEW ALL BUTTON === */
 .section.pressreleaseblock .button-container {
   text-align: center;
-  margin-top: 50px;
+  margin-top: 40px;
+  margin-bottom: 60px;
 }
 
-/* "View all press releases" button */
 .section.pressreleaseblock .button-container .button.secondary {
-  background-color: transparent;
-  border: 1px solid #0a3d62;
-  color: #0a3d62;
+  background: none;
+  color: #003049;
+  border: 1px solid #003049;
   padding: 10px 24px;
+  font-size: 12px;
   font-weight: 600;
   text-transform: uppercase;
-  border-radius: 4px;
+  border-radius: 3px;
+  letter-spacing: 0.5px;
   text-decoration: none;
-  font-size: 12px;
+  transition: background-color 0.3s ease;
 }
 
 .section.pressreleaseblock .button-container .button.secondary:hover {
-  background-color: #0a3d62;
-  color: #ffffff;
+  background-color: #003049;
+  color: white;
 }

@@ -48,7 +48,7 @@ export default function decorate(block) {
     section.appendChild(indicatorWrapper);
   
     function updateCarousel() {
-      track.style.transform = translateX(-${index * 105}%);
+      track.style.transform = `translateX(-${index * 105}%)`;
       const dots = indicatorWrapper.querySelectorAll('.dot');
       dots.forEach((dot, i) => {
         dot.classList.toggle('active', i === index);

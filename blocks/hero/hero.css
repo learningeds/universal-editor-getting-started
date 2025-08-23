@@ -35,15 +35,18 @@
 }
 
 /* Headline styling */
+
 .hero h1 {
   font-family: "Noto Serif", "Times New Roman", Georgia, serif !important;
-  font-size: 60px;       /* close to screenshot size */
-  font-weight: 400;      /* not bold, slightly elegant */
-  line-height: 1.15;     /* tighter spacing like screenshot */
+  font-size: 60px;
+  font-weight: 400;
+  line-height: 1.15;
   letter-spacing: -0.3px;
   margin: 0 0 20px;
   color: #ffffff;
+  max-width: 520px;  
 }
+
 
 /* Paragraph styling */
 .hero p {

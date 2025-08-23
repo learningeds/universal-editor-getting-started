@@ -118,9 +118,12 @@
   transition: background 0.3s ease;
 }
 /* Two-column layout wrapper */
+/* === Two-column layout wrapper === */
 .columns.block.columns-2-cols {
   background-color: #fff;
 }
+
+/* === Two-column layout === */
 .columns.block.columns-2-cols > div {
   display: flex;
   flex-wrap: nowrap;
@@ -128,26 +131,31 @@
   justify-content: space-between;
   gap: 3rem;
 }
+
 /* === Left column (text content) === */
 .columns.block.columns-2-cols > div > div:first-child {
   flex: 1 1 50%;
   max-width: 50%;
 }
+
 .columns.block.columns-2-cols h1 {
   font-size: 2.5rem;
   margin-bottom: 1rem;
   color: #004B54;
   font-weight: 600;
 }
+
 .columns.block.columns-2-cols p {
   font-size: 1.125rem;
   line-height: 1.6;
   margin-bottom: 1.5rem;
   color: #333;
 }
+
 .columns.block.columns-2-cols .button-container {
   margin-top: 1rem;
 }
+
 .columns.block.columns-2-cols .button-container .button {
   display: inline-block;
   background: linear-gradient(to right, #007E8A, #003E51);
@@ -158,46 +166,60 @@
   border-radius: 4px;
   transition: background 0.3s ease;
 }
+
 .columns.block.columns-2-cols .button-container .button:hover {
   background: linear-gradient(to right, #005E66, #002E3A);
 }
-/* === Right column (image) === */
+
+/* === Right column (image replaced with video) === */
 .columns.block.columns-2-cols .columns-img-col {
   flex: 1 1 45%;
   max-width: 45%;
   display: flex;
   justify-content: center;
+  position: relative;
+  padding-top: 56.25%; /* Maintain 16:9 ratio */
+  overflow: hidden;
+  border-radius: 12px;
 }
+
+/* Hide original image */
 .columns.block.columns-2-cols .columns-img-col picture,
 .columns.block.columns-2-cols .columns-img-col img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 12px;
-  object-fit: cover;
+  display: none !important;
 }
-/* === Mobile responsive behavior === */
+
+/* Style inserted video */
+.columns.block.columns-2-cols .columns-img-col video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  display: block;
+}
+
+/* === Mobile responsiveness === */
 @media (max-width: 768px) {
   .columns.block.columns-2-cols > div {
     flex-direction: column;
   }
+
   .columns.block.columns-2-cols > div > div,
   .columns.block.columns-2-cols .columns-img-col {
     max-width: 100%;
     flex: 1 1 100%;
     text-align: center;
+    padding-top: 56.25%; /* Reapply ratio on mobile */
   }
+
   .columns.block.columns-2-cols h1 {
     font-size: 2rem;
   }
+
   .columns.block.columns-2-cols p {
     font-size: 1rem;
   }
-}
-
-
-.columns.block.columns-3-cols > div > div:hover::before,
-.columns.block.columns-3-cols > div > div:hover h3,
-.columns.block.columns-3-cols > div > div:hover p {
-  color: #ffffff;
 }

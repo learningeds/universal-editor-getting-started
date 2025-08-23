@@ -155,6 +155,7 @@
   font-weight: 500; /* medium */
   font-size: 2.5rem;
   line-height: 1.2;
+    font-family: "Noto Serif", "Times New Roman", Georgia, serif !important;
 }
 
 /* Paragraph style */

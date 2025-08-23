@@ -55,10 +55,9 @@
   line-height: 1.6;
   margin-top: 16px;
   color: rgba(255, 255, 255, 0.9);
-  max-width: 640px;   /* ✅ Adjust width to force 3 lines */
-  word-break: break-word;
-  white-space: normal; /* ✅ ensures wrapping works */
+  max-width: 700px;   /* ✅ wide enough now since breaks are manual */
 }
+
 
 
 

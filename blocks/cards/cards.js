@@ -14,60 +14,50 @@ export default function decorate(block) {
     });
     ul.append(li);
   });
-
   ul.querySelectorAll('picture > img').forEach((img) => {
     const optimizedPic = createOptimizedPicture(img.src, img.alt, false, [{ width: '750' }]);
     moveInstrumentation(img, optimizedPic.querySelector('img'));
     img.closest('picture').replaceWith(optimizedPic);
   });
-
   block.textContent = '';
   block.append(ul);
 
-  // 🆕 Background image enhancement
-  ul.querySelectorAll('li').forEach((card) => {
-    const img = card.querySelector('.cards-card-image img');
-    if (img) {
-      card.classList.add('bgimgcard');
-      card.style.backgroundImage = `url('${img.src}')`;
-    }
-  });
-
-  // Existing carousel code
   const section = block.closest('.section[data-aue-resource*="section_303714501"]');
-  if (!section) return;
-
-  const track = section.querySelector('.cards.block > ul');
-  const cards = section.querySelectorAll('.cards.block > ul > li');
-  const total = cards.length;
-  let index = 0;
-
-  const indicatorWrapper = document.createElement('div');
-  indicatorWrapper.className = 'cards-carousel-indicators';
-
-  for (let i = 0; i < total; i++) {
-    const dot = document.createElement('div');
-    dot.className = 'dot';
-    if (i === 0) dot.classList.add('active');
-    dot.addEventListener('click', () => {
-      index = i;
+  if (!section) return; // Exit if not in target section
+  if (section) {
+    const track = section.querySelector('.cards.block > ul');
+    const cards = section.querySelectorAll('.cards.block > ul > li');
+    const total = cards.length;
+    let index = 0;
+  
+    // Create carousel indicators
+    const indicatorWrapper = document.createElement('div');
+    indicatorWrapper.className = 'cards-carousel-indicators';
+  
+    for (let i = 0; i < total; i++) {
+      const dot = document.createElement('div');
+      dot.className = 'dot';
+      if (i === 0) dot.classList.add('active');
+      dot.addEventListener('click', () => {
+        index = i;
+        updateCarousel();
+      });
+      indicatorWrapper.appendChild(dot);
+    }
+  
+    section.appendChild(indicatorWrapper);
+  
+    function updateCarousel() {
+      track.style.transform = `translateX(-${index * 105}%)`;
+      const dots = indicatorWrapper.querySelectorAll('.dot');
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === index);
+      });
+    }
+  
+    setInterval(() => {
+      index = (index + 1) % total;
       updateCarousel();
-    });
-    indicatorWrapper.appendChild(dot);
+    }, 15000); // 15 seconds
   }
-
-  section.appendChild(indicatorWrapper);
-
-  function updateCarousel() {
-    track.style.transform = `translateX(-${index * 105}%)`;
-    const dots = indicatorWrapper.querySelectorAll('.dot');
-    dots.forEach((dot, i) => {
-      dot.classList.toggle('active', i === index);
-    });
-  }
-
-  setInterval(() => {
-    index = (index + 1) % total;
-    updateCarousel();
-  }, 15000); // 15 seconds
 }

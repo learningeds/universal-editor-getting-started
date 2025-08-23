@@ -364,7 +364,9 @@ main .section.imageovercard {
 .section.imageovercard .button-container .button:hover {
   background-color: #003f3c;
 }
-
+.section.imageovercard .cards-card-image {
+  display: none !important;
+}
 
 
 .default-content-wrapper {

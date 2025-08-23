@@ -55,8 +55,8 @@
         "label": "Style",
         "options": [
           {
-            "name": "Custom1",
-            "value": "custom1"
+            "name": "ImageOverCard",
+            "value": "imageovercard"
           }
         ]
         }

@@ -457,11 +457,42 @@ main .section.imageovercard {
 .section.pressreleaseblock .cards {
   all: unset;
 }
+/* === SECTION CONTAINER === */
+.section.pressreleaseblock {
+  background-color: #ffffff;
+  padding: 60px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: "Noto Serif", Arial, Helvetica, sans-serif !important;
+}
+
+/* === CARD BODY TEXT === */
+.section.pressreleaseblock .cards-card-body {
+  color: #003049;
+  font-size: 16px;
+  line-height: 1.6;
+  font-family: "Noto Serif", Arial, Helvetica, sans-serif !important;
+}
+
+/* DATE */
+.section.pressreleaseblock .cards-card-body pre {
+  font-family: "Noto Serif", Arial, Helvetica, sans-serif !important;
+}
+
+/* TITLE */
+.section.pressreleaseblock .cards-card-body h3 {
+  font-family: "Noto Serif", Arial, Helvetica, sans-serif !important;
+}
+
+/* PARAGRAPH */
+.section.pressreleaseblock .cards-card-body p {
+  font-family: "Noto Serif", Arial, Helvetica, sans-serif !important;
+}
 
 /* === INDIVIDUAL CARD === */
 .section.pressreleaseblock .cards ul li {
   background-color: #e9f2f3;
-  padding: 24px;
+ 
   border-radius: 6px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
   display: flex;

@@ -217,12 +217,15 @@
 
 /* === Right column (video slot) === */
 .columns.block.columns-2-cols .columns-img-col {
-  max-width: 602.333px;
-  height: 342.406px;
-  flex: none; /* prevent flex from resizing */
+  flex: 1 1 50%;
+  max-width: 50%;
+
   position: relative;
+  min-height: 300px;  /* Minimum height for video */
   overflow: hidden;
   box-shadow: 0 4px 12px rgb(0 0 0 / 0.1);
+  
+  /* Remove all rounding */
   border-radius: 0;
 }
 

@@ -60,7 +60,7 @@
   font-weight: 700;
   letter-spacing: 1.2px;
   text-transform: uppercase;
-  margin-bottom: 12px;
+  margin-bottom: 8px;   /* ✅ consistent space below label */
   color: #003b3f;
 }
 
@@ -70,7 +70,7 @@
   font-size: 32px;
   font-weight: 500;
   color: #003b3f;
-  margin: 0 0 12px;
+  margin: 0;            /* ✅ remove default margins */
   line-height: 1.3;
 }
 
@@ -80,7 +80,7 @@
   font-size: 16px;
   color: #3a3a3a;
   line-height: 1.6;
-  margin: 0;
+  margin: 12px 0 0;     /* ✅ consistent space below title */
 }
 
 /* Responsive */

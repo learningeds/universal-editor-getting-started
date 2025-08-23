@@ -61,6 +61,10 @@
           {
             "name": "PressReleaseBlock",
             "value": "pressreleaseblock"
+          },
+           {
+            "name": "UpcomingEventsCards",
+            "value": "upcomingeventscards"
           }
         ]
         }

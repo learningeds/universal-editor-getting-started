@@ -165,7 +165,7 @@
   line-height: 1.6;
   max-width: 480px;
   color: #4a4a4a;
-    font-family: Noto Sans, Arial, Helvetica, sans-serif;
+    font-family: Noto Sans, Arial, Helvetica, sans-serif !important;
 }
 
 /* Button container */

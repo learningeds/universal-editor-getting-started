@@ -48,6 +48,17 @@
           "value": "",
           "label": "Text",
           "valueType": "string"
+        },{
+
+        "component": "multiselect",
+        "name": "style",
+        "label": "Style",
+        "options": [
+          {
+            "name": "Custom1",
+            "value": "custom1"
+          }
+        ]
         }
       ]
     }

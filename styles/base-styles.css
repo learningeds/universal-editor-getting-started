@@ -422,17 +422,17 @@ main .section.imageovercard {
 }
 
 /* Main section wrapper */
+/* Main section container */
 .section.pressreleaseblock {
   background-color: #f7fafc;
+  padding: 40px 20px;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 40px 20px;
+  font-family: Arial, sans-serif;
   box-sizing: border-box;
-  font-family: 'Arial', sans-serif;
-  color: #0a3d62;
 }
 
-/* Title */
+/* Title styling */
 .section.pressreleaseblock > .default-content-wrapper h1 {
   text-align: center;
   font-weight: 600;
@@ -441,35 +441,32 @@ main .section.imageovercard {
   color: #0a3d62;
 }
 
-/* Cards grid container */
+/* Grid wrapper for cards */
 .section.pressreleaseblock .cards-wrapper {
-  display: grid !important;
-  grid-template-columns: repeat(2, 1fr) !important;
-  gap: 24px !important;
-  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 columns */
+  gap: 24px; /* uniform spacing */
   box-sizing: border-box;
+  width: 100%;
   margin-bottom: 40px;
 }
 
-/* Remove layout disruption from .cards wrapper */
+/* This is important: .cards becomes invisible layout-wise */
 .section.pressreleaseblock .cards {
-  display: contents; /* allows li children to behave as grid items */
+  display: contents;
 }
 
-/* Individual card styles */
+/* Individual card box */
 .section.pressreleaseblock .cards .cards-card-body {
   background-color: #f4f8fa;
   padding: 24px;
   border-radius: 6px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-  font-size: 14px;
-  color: #1c3f5a;
+  min-height: 280px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  min-height: 280px;
   box-sizing: border-box;
-  width: 100%;
 }
 
 /* Card title */
@@ -480,20 +477,20 @@ main .section.imageovercard {
   color: #0a3d62;
 }
 
-/* Card paragraph */
+/* Paragraph text */
 .section.pressreleaseblock .cards .cards-card-body p {
   margin-bottom: 12px;
   line-height: 1.5;
+  color: #1c3f5a;
   flex-grow: 1;
 }
 
-/* Tags/links inside cards */
+/* Tag-style links inside cards */
 .section.pressreleaseblock .cards .cards-card-body a {
   display: inline-block;
   font-size: 12px;
   padding: 4px 8px;
-  margin-right: 6px;
-  margin-bottom: 6px;
+  margin: 4px 6px 0 0;
   border: 1px solid #316f91;
   border-radius: 3px;
   color: #316f91;
@@ -508,12 +505,12 @@ main .section.imageovercard {
   color: #fff;
 }
 
-/* Bottom button container */
+/* View all press releases button wrapper */
 .section.pressreleaseblock .button-container {
   text-align: center;
 }
 
-/* Bottom button */
+/* Button styling */
 .section.pressreleaseblock .button-container a.button.secondary {
   background-color: transparent;
   border: 1px solid #316f91;

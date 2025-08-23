@@ -379,6 +379,12 @@ main .section.imageovercard {
   transition: background-color 0.3s ease;
   font-family: "Open Sans", sans-serif;
 }
+.section.imageovercard .cards-card-body .button::before {
+  display: none !important;
+}
+.section.imageovercard .cards-card-body .button::after {
+  display: inline-block !important;
+}
 
 .section.imageovercard .button-container .button::after {
   content: " →";

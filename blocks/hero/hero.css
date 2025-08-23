@@ -48,16 +48,16 @@
 }
 
 
-/* Paragraph styling */
 .hero p {
   font-family: "Open Sans", Arial, Helvetica, sans-serif !important;
-  font-size: 20px;
-  font-weight: 300;        /* lighter like Atlas Copco */
-  line-height: 1.5;
+  font-size: 22px;             /* ✅ slightly smaller, closer to reference */
+  font-weight: 300;            /* ✅ keep it light */
+  line-height: 1.6;            /* ✅ tighter than 1.8, matches screenshot */
   margin-top: 16px;
-  color: #ffffff;
-  max-width: 500px;        
+  color: rgba(255, 255, 255, 0.9); /* ✅ softer white, not harsh */
+  max-width: 700px;            /* ✅ narrower, forces line breaks like reference */
 }
+
 
 
 /* Responsive adjustments */

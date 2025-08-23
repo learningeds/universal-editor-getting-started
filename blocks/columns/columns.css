@@ -114,7 +114,8 @@
 
 /* Hover effect with gradient */
 .columns.block.columns-3-cols > div > div:hover {
-  background: linear-gradient(to bottom, #1b777e, #004759);
+  background: linear-gradient(to bottom right, #1b777e, #004759);
+
   transition: background 0.3s ease;
 }
 

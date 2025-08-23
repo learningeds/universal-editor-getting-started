@@ -35,6 +35,7 @@
   border-right: 1px solid #a97d40;
   position: relative;
   max-width: 400px;
+    row-gap: 10px;
 }
 
 /* Remove right border from last */

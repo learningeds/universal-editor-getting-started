@@ -1,12 +1,15 @@
+/* Reset hero wrapper */
 .hero-container .hero-wrapper {
-  max-width: unset;
-  padding: 0;
+  max-width: 100%;   /* ✅ use full width */
+  padding: 0 !important;  /* ✅ remove extra padding (192px issue) */
+  margin: 0 auto;    /* ✅ center if needed */
+  box-sizing: border-box;
 }
 
 /* Base hero container */
 .hero {
   position: relative;
-  padding: 40px 0;
+  padding: 80px 0;   /* ✅ more balanced vertical spacing */
   min-height: 400px;
   display: flex;
   flex-direction: column;
@@ -35,7 +38,6 @@
 }
 
 /* Headline styling */
-
 .hero h1 {
   font-family: "Noto Serif", "Times New Roman", Georgia, serif !important;
   font-size: 60px;
@@ -47,7 +49,7 @@
   max-width: 520px;  
 }
 
-
+/* Paragraph styling */
 .hero p {
   font-family: "Open Sans", Arial, Helvetica, sans-serif !important;
   font-size: 26px;
@@ -55,15 +57,10 @@
   line-height: 1.6;
   margin-top: 16px;
   color: rgba(255, 255, 255, 0.9);
-  max-width: 640px;   /* ✅ Adjust width to force 3 lines */
-  word-break: break-word;
-  white-space: normal; /* ✅ ensures wrapping works */
+  max-width: 640px;
+  white-space: normal;
+  word-break: normal;
 }
-
-
-
-
-
 
 /* Responsive adjustments */
 @media (max-width: 900px) {

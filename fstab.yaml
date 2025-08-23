@@ -1,5 +1,5 @@
 mountpoints:
   /:
-    url: "https://author-p149805-e1528704.adobeaemcloud.com/bin/franklin.delivery/learningeds/universal-editor-getting-started/demo-poc"
+    url: "https://author-p149805-e1528704.adobeaemcloud.com/bin/franklin.delivery/learningeds/universal-editor-getting-started/main"
     type: "markup"
     suffix: ".html"

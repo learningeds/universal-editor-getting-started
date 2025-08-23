@@ -421,141 +421,141 @@ main .section.imageovercard {
     margin: 0;
 }
 
-/* Press release block container */
-/* Section container */
+/* === SECTION CONTAINER === */
 .section.pressreleaseblock {
-  background-color: #f7fafc;
-  padding: 40px 20px;
+  background-color: #ffffff; /* ✅ White background */
+  padding: 60px 20px;
   max-width: 1200px;
   margin: 0 auto;
   box-sizing: border-box;
-  font-family: Arial, sans-serif;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
-/* Section heading */
+/* === TITLE === */
 .section.pressreleaseblock > .default-content-wrapper h1 {
   text-align: center;
-  font-size: 22px;
-  font-weight: 600;
-  margin-bottom: 40px;
-  color: #0a3d62;
+  font-size: 28px; /* ✅ Match size */
+  font-weight: 500;
+  color: #003049;
+  margin-bottom: 48px;
+  line-height: 1.2;
 }
 
-/* Layout wrapper */
+/* === WRAPPER FOR GRID === */
 .section.pressreleaseblock .cards-wrapper {
   width: 100%;
   margin-bottom: 40px;
-  box-sizing: border-box;
 }
 
-/* Grid layout for card list */
+/* === CARDS GRID === */
 .section.pressreleaseblock .cards ul {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 24px;
-  list-style: none;
   padding: 0;
   margin: 0;
+  list-style: none;
 }
 
-/* Remove styling interference */
+/* Remove default block styles */
 .section.pressreleaseblock .cards {
   all: unset;
 }
 
-/* Individual card item */
+/* === CARD CONTAINER === */
 .section.pressreleaseblock .cards ul li {
   background-color: #e9f2f3;
-  padding: 24px;
-  border-radius: 6px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-  box-sizing: border-box;
+  padding: 24px 20px;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  box-sizing: border-box;
 }
 
-/* ✅ Remove any empty top .cards-card-body blocks */
+/* Remove empty top card body */
 .section.pressreleaseblock .cards ul li .cards-card-body:first-child:empty {
   display: none;
 }
 
-/* Card text container */
+/* === CARD BODY === */
 .section.pressreleaseblock .cards-card-body {
-  color: #003049;
   font-size: 14px;
-  line-height: 1.6;
+  color: #003049;
+  line-height: 1.5;
 }
 
-/* Card date */
+/* === DATE (pre) === */
 .section.pressreleaseblock .cards-card-body pre {
-  margin: 0 0 6px;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 600;
   font-family: monospace;
   color: #003049;
+  margin: 0 0 6px;
 }
 
-/* Card title */
+/* === TITLE (h3) === */
 .section.pressreleaseblock .cards-card-body h3 {
   font-size: 16px;
-  margin: 0 0 12px;
-  font-weight: 700;
+  font-weight: 600;
   color: #003049;
+  margin: 0 0 12px;
+  line-height: 1.3;
 }
 
-/* Paragraph text */
+/* === PARAGRAPH === */
 .section.pressreleaseblock .cards-card-body p {
   margin: 0 0 12px;
-  font-size: 14px;
   color: #003049;
+  font-size: 14px;
+  line-height: 1.5;
 }
 
-/* Tag buttons */
+/* === TAGS === */
 .section.pressreleaseblock .cards-card-body a {
   display: inline-block;
   font-size: 12px;
-  font-weight: 500;
   color: #003049;
-  text-decoration: none;
   border: 1px solid #003049;
-  padding: 4px 8px;
+  padding: 4px 10px;
   margin: 0 8px 8px 0;
-  border-radius: 2px;
-  background: none;
-  transition: background-color 0.3s ease;
+  border-radius: 3px;
+  text-decoration: none;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  background: none;
+  transition: background-color 0.3s ease;
 }
 
-/* Button hover */
+/* === TAG HOVER === */
 .section.pressreleaseblock .cards-card-body a:hover {
   background-color: #003049;
-  color: white;
+  color: #ffffff;
 }
 
-/* View all press releases button wrapper */
+/* === "VIEW ALL PRESS RELEASES" BUTTON CONTAINER === */
 .section.pressreleaseblock .button-container {
   text-align: center;
   margin-top: 40px;
 }
 
-/* View all press releases button */
+/* === BUTTON STYLING === */
 .section.pressreleaseblock .button-container .button.secondary {
   background: none;
   color: #003049;
   border: 1px solid #003049;
-  padding: 8px 16px;
+  padding: 10px 22px;
   font-size: 12px;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
   border-radius: 3px;
-  transition: background 0.3s ease;
+  letter-spacing: 0.5px;
   text-decoration: none;
+  transition: background 0.3s ease;
 }
 
-/* Hover effect for main CTA */
+/* === BUTTON HOVER === */
 .section.pressreleaseblock .button-container .button.secondary:hover {
   background: #003049;
   color: white;

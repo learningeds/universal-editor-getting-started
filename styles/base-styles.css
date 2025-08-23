@@ -422,7 +422,7 @@ main .section.imageovercard {
 }
 
 .section.pressreleaseblock {
-  background-color: #f7fafc; /* Light background */
+  background-color: #f7fafc;
   padding: 40px 20px;
   max-width: 1200px;
   margin: 0 auto;
@@ -435,13 +435,13 @@ main .section.imageovercard {
   font-weight: 600;
   font-size: 22px;
   margin-bottom: 40px;
-  color: #0a3d62 !important; /* Make sure title is visible */
+  color: #0a3d62;
 }
 
 .section.pressreleaseblock .cards-wrapper {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Exactly 2 columns */
-  gap: 24px 20px; /* vertical and horizontal gap */
+  grid-template-columns: repeat(2, 1fr); /* exactly 2 columns */
+  gap: 24px; /* uniform gap */
   margin-bottom: 40px;
   justify-items: stretch;
 }
@@ -449,11 +449,11 @@ main .section.imageovercard {
 .section.pressreleaseblock .cards .cards-card-body {
   background-color: #f4f8fa;
   border-radius: 6px;
-  padding: 24px 25px 30px;
+  padding: 24px; /* padding 24px all sides */
   box-shadow: 0 2px 4px rgba(0,0,0,0.05);
   color: #1c3f5a;
   font-size: 14px;
-  min-height: 280px; /* consistent card height */
+  min-height: 280px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;

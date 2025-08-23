@@ -123,7 +123,8 @@
 .columns.block.columns-2-cols {
   background-color: #fff;
   padding: 2rem 1rem;
-@@ -128,11 +127,11 @@
+}
+
 .columns.block.columns-2-cols > div {
   display: flex;
   flex-wrap: nowrap;
@@ -135,7 +136,9 @@
 }
 
 /* === Left column (text content) === */
-@@ -142,174 +141,35 @@
+.columns.block.columns-2-cols > div > div:first-child {
+  flex: 1 1 45%;
+  max-width: 45%;
   padding-right: 1rem;
 }
 

@@ -155,7 +155,7 @@
   font-weight: 500; /* medium */
   font-size: 2.5rem;
   line-height: 1.2;
-    font-family: "Noto Serif", "Times New Roman", Georgia, serif !important;
+  font-family: "Noto Serif", "Times New Roman", Georgia, serif !important;
 }
 
 /* Paragraph style */
@@ -165,7 +165,7 @@
   line-height: 1.6;
   max-width: 480px;
   color: #4a4a4a;
-    font-family: Noto Sans, Arial, Helvetica, sans-serif !important;
+  font-family: Noto Sans, Arial, Helvetica, sans-serif !important;
 }
 
 /* Button container */
@@ -247,6 +247,26 @@
   display: block;
 }
 
+/* Top right "Zoom / Fullscreen" link */
+.columns.block.columns-2-cols .columns-img-col .top-right-link {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  color: #007E8A;
+  text-decoration: none;
+  cursor: pointer;
+  z-index: 10;
+  user-select: none;
+  transition: text-decoration 0.3s ease;
+}
+
+.columns.block.columns-2-cols .columns-img-col .top-right-link:hover {
+  text-decoration: underline;
+}
+
 /* === Mobile responsive behavior === */
 @media (max-width: 768px) {
   .columns.block.columns-2-cols > div {
@@ -293,4 +313,3 @@
     border-radius: 0;
   }
 }
-

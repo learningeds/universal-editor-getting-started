@@ -150,183 +150,154 @@
   transform: translateY(-1px);
 }
 .upcomingeventscards {
-  background-color: #003843;
+  background-color: #003a46;
   padding: 40px 20px;
+  color: #fff;
   font-family: Georgia, serif;
-  color: white;
-  max-width: 1200px;
-  margin: 0 auto;
 }
 
-.upcomingeventscards h1 {
-  font-size: 28px;
-  font-weight: normal;
+.upcomingeventscards > .default-content-wrapper > h1 {
+  color: #fff;
+  font-weight: 400;
+  font-size: 1.75rem;
   margin-bottom: 40px;
-  color: white;
+  text-align: left;
 }
 
 .upcomingeventscards .cards-wrapper {
   display: flex;
-  gap: 24px;
-  justify-content: center;
+  gap: 30px;
+  justify-content: start;
   flex-wrap: nowrap;
 }
 
-.upcomingeventscards .cards.block ul {
+.upcomingeventscards .cards-wrapper > div.cards.block > ul {
   display: flex;
-  gap: 24px;
-  list-style: none;
+  gap: 30px;
   padding: 0;
   margin: 0;
+  list-style: none;
   width: 100%;
 }
 
-.upcomingeventscards .cards.block ul li {
-  background-color: #004851;
-  border-radius: 4px;
-  padding: 24px;
-  flex: 1 1 0;
+.upcomingeventscards .cards-wrapper > div.cards.block > ul > li {
+  background-color: #00464f;
+  border-radius: 12px;
+  padding: 30px 25px;
+  flex: 1;
   box-sizing: border-box;
-  color: #f8b35e;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  min-width: 0;
+  min-width: 280px;
+  max-width: 320px;
+  color: #fff;
+  position: relative;
 }
 
-.upcomingeventscards .cards.block ul li:first-child {
-  background-color: #004851;
-  color: white;
-  text-align: left;
-  border-radius: 16px;
-  padding: 32px 32px 32px 40px;
-  flex-basis: 33%;
+/* Date box styling for 2nd and 3rd cards */
+.upcomingeventscards .cards-wrapper > div.cards.block > ul > li:nth-child(2) p:first-child,
+.upcomingeventscards .cards-wrapper > div.cards.block > ul > li:nth-child(3) p:first-child {
+  font-weight: 700;
+  font-size: 1.7rem;
+  color: #f5a33e;
+  border: 1px solid #f5a33e;
+  width: 50px;
+  height: 62px;
+  line-height: 1.1;
+  text-align: center;
+  padding: 5px 0;
+  margin-bottom: 12px;
+  letter-spacing: 0.04em;
+  white-space: pre-line;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.upcomingeventscards .cards.block ul li:first-child p:first-child {
-  font-size: 12px;
+/* Split date parts for vertical stacking */
+/* Using content and ::after might not be feasible, so instead, we use CSS to break lines */
+.upcomingeventscards .cards-wrapper > div.cards.block > ul > li:nth-child(2) p:first-child {
+  white-space: pre-line;
+}
+
+/* For 3rd card, add line breaks using white-space pre-line and content */
+.upcomingeventscards .cards-wrapper > div.cards.block > ul > li:nth-child(3) p:first-child {
+  white-space: pre-line;
+}
+
+/* Quarter release heading style */
+.upcomingeventscards .cards-wrapper > div.cards.block > ul > li:nth-child(n+2) p:nth-child(2) {
+  color: #98a1a6;
+  font-size: 0.8rem;
   text-transform: uppercase;
-  letter-spacing: 1.2px;
-  margin-bottom: 10px;
-  color: #a0c3ca;
+  letter-spacing: 0.1em;
+  margin: 0 0 10px 0;
+  font-weight: 600;
 }
 
-.upcomingeventscards .cards.block ul li:first-child h3 {
-  font-size: 24px;
-  margin: 0 0 16px 0;
+/* Titles */
+.upcomingeventscards .cards-wrapper > div.cards.block > ul > li h3 {
+  font-weight: 500;
+  font-size: 1.4rem;
   line-height: 1.3;
-  font-weight: 400;
-  color: white;
+  margin: 0 0 10px 0;
 }
 
-.upcomingeventscards .cards.block ul li:first-child p:nth-child(3) {
-  font-size: 14px;
+/* First card paragraph styling */
+.upcomingeventscards .cards-wrapper > div.cards.block > ul > li:nth-child(1) p:nth-child(3) {
+  font-size: 1rem;
+  color: #fff;
+  margin-bottom: 30px;
+  max-width: 270px;
   line-height: 1.5;
-  margin-bottom: 32px;
-  color: white;
 }
 
-.upcomingeventscards .cards.block ul li:first-child a {
-  font-size: 14px;
-  color: white;
+/* Investors text style */
+.upcomingeventscards .cards-wrapper > div.cards.block > ul > li:nth-child(1) p:nth-child(1) {
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  color: #7aa6ab;
+  letter-spacing: 0.1em;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+/* Link styling on first card */
+.upcomingeventscards .cards-wrapper > div.cards.block > ul > li:nth-child(1) a {
+  color: #fff;
   text-decoration: none;
   font-weight: 500;
-  display: inline-flex;
-  align-items: center;
+  font-size: 0.95rem;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.3s ease;
 }
 
-.upcomingeventscards .cards.block ul li:first-child a::before {
-  content: "→";
-  margin-right: 8px;
-  font-weight: 600;
+.upcomingeventscards .cards-wrapper > div.cards.block > ul > li:nth-child(1) a:hover {
+  border-color: #f5a33e;
 }
 
-.upcomingeventscards .cards.block ul li:nth-child(2),
-.upcomingeventscards .cards.block ul li:nth-child(3) {
-  background-color: #004851;
-  color: #f8b35e;
-  border-radius: 0;
-  padding: 40px 32px 40px 24px;
-  text-align: left;
-  flex-basis: 33%;
-  position: relative;
-}
-
-.upcomingeventscards .cards.block ul li:nth-child(2) p:first-child,
-.upcomingeventscards .cards.block ul li:nth-child(3) p:first-child {
-  font-size: 12px;
-  text-transform: uppercase;
-  letter-spacing: 1.2px;
-  margin-bottom: 16px;
-  color: #7ea3a8;
-  position: relative;
-  width: 60px;
-  height: 60px;
-  border: 1px solid #f8b35e;
-  color: #f8b35e;
-  font-weight: 600;
-  font-size: 24px;
-  line-height: 24px;
-  text-align: center;
-  padding-top: 4px;
-  margin-bottom: 24px;
-  border-radius: 2px;
-  display: inline-block;
-}
-
-.upcomingeventscards .cards.block ul li:nth-child(2) p:nth-child(2),
-.upcomingeventscards .cards.block ul li:nth-child(3) p:nth-child(1) {
-  font-size: 12px;
-  text-transform: uppercase;
-  letter-spacing: 1.2px;
-  font-weight: 600;
-  margin-bottom: 12px;
-  color: #7ea3a8;
-}
-
-.upcomingeventscards .cards.block ul li:nth-child(2) h3,
-.upcomingeventscards .cards.block ul li:nth-child(3) h3 {
-  font-size: 24px;
-  font-weight: 400;
-  color: white;
-  line-height: 1.3;
-  margin: 0;
-}
-
+/* Button styling */
 .upcomingeventscards .button-container {
-  text-align: center;
   margin-top: 40px;
+  text-align: center;
 }
 
 .upcomingeventscards .button-container a.button.secondary {
-  border: 1px solid #f8b35e;
-  background: transparent;
-  color: #f8b35e;
-  padding: 14px 28px;
-  font-weight: 600;
+  border: 1px solid #f5a33e;
+  color: #f5a33e;
+  padding: 10px 25px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  font-size: 14px;
-  letter-spacing: 1.5px;
   text-decoration: none;
   display: inline-block;
-  border-radius: 2px;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .upcomingeventscards .button-container a.button.secondary:hover {
-  background-color: #f8b35e;
-  color: #003843;
+  background-color: #f5a33e;
+  color: #003a46;
   text-decoration: none;
-}
-
-@media (max-width: 900px) {
-  .upcomingeventscards .cards-wrapper,
-  .upcomingeventscards .cards.block ul {
-    flex-direction: column;
-  }
-
-  .upcomingeventscards .cards.block ul li {
-    flex-basis: auto;
-    margin-bottom: 24px;
-  }
 }

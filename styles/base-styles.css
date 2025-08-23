@@ -421,110 +421,127 @@ main .section.imageovercard {
     margin: 0;
 }
 
-/* Main section wrapper */
-/* Main section container */
+/* Section container */
 .section.pressreleaseblock {
   background-color: #f7fafc;
   padding: 40px 20px;
   max-width: 1200px;
   margin: 0 auto;
-  font-family: Arial, sans-serif;
   box-sizing: border-box;
+  font-family: Arial, sans-serif;
 }
 
 /* Title styling */
 .section.pressreleaseblock > .default-content-wrapper h1 {
   text-align: center;
-  font-weight: 600;
   font-size: 22px;
+  font-weight: 600;
   margin-bottom: 40px;
   color: #0a3d62;
 }
 
-/* Grid wrapper for cards */
+/* Ensure .cards-wrapper is just a layout wrapper */
 .section.pressreleaseblock .cards-wrapper {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 2 columns */
-  gap: 24px; /* uniform spacing */
-  box-sizing: border-box;
   width: 100%;
   margin-bottom: 40px;
+  box-sizing: border-box;
 }
 
-/* This is important: .cards becomes invisible layout-wise */
+/* ✅ APPLY GRID TO UL — this is where cards actually live */
+.section.pressreleaseblock .cards ul {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 columns */
+  gap: 24px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Ensure .cards block doesn’t interfere */
 .section.pressreleaseblock .cards {
-  display: contents;
+  all: unset;
 }
 
-/* Individual card box */
-.section.pressreleaseblock .cards .cards-card-body {
+/* Card container */
+.section.pressreleaseblock .cards ul li {
   background-color: #f4f8fa;
   padding: 24px;
   border-radius: 6px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-  min-height: 280px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  box-sizing: border-box;
+  justify-content: space-between;
+  min-height: 280px;
 }
 
-/* Card title */
-.section.pressreleaseblock .cards .cards-card-body h3 {
-  font-weight: 600;
-  font-size: 16px;
-  margin-bottom: 12px;
+/* Inner card content body (richtext block) */
+.section.pressreleaseblock .cards-card-body {
+  color: #1c3f5a;
+  font-size: 14px;
+}
+
+/* Card date */
+.section.pressreleaseblock .cards-card-body pre {
+  margin: 0 0 10px;
+  font-weight: bold;
   color: #0a3d62;
 }
 
-/* Paragraph text */
-.section.pressreleaseblock .cards .cards-card-body p {
-  margin-bottom: 12px;
-  line-height: 1.5;
-  color: #1c3f5a;
-  flex-grow: 1;
+/* Card title */
+.section.pressreleaseblock .cards-card-body h3 {
+  font-size: 16px;
+  margin: 0 0 12px;
+  font-weight: 600;
+  color: #0a3d62;
 }
 
-/* Tag-style links inside cards */
-.section.pressreleaseblock .cards .cards-card-body a {
+/* Paragraph inside cards */
+.section.pressreleaseblock .cards-card-body p {
+  margin: 0 0 10px;
+  line-height: 1.5;
+}
+
+/* Link/tag styles inside cards */
+.section.pressreleaseblock .cards-card-body a {
   display: inline-block;
   font-size: 12px;
   padding: 4px 8px;
-  margin: 4px 6px 0 0;
+  margin: 4px 4px 0 0;
   border: 1px solid #316f91;
   border-radius: 3px;
   color: #316f91;
   text-decoration: none;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  transition: background-color 0.3s, color 0.3s;
+  letter-spacing: 0.03em;
+  transition: 0.3s;
 }
 
-.section.pressreleaseblock .cards .cards-card-body a:hover {
+.section.pressreleaseblock .cards-card-body a:hover {
   background-color: #316f91;
   color: #fff;
 }
 
-/* View all press releases button wrapper */
+/* Bottom "View all press releases" button container */
 .section.pressreleaseblock .button-container {
   text-align: center;
+  margin-top: 40px;
 }
 
-/* Button styling */
-.section.pressreleaseblock .button-container a.button.secondary {
+/* Button itself */
+.section.pressreleaseblock .button-container .button.secondary {
   background-color: transparent;
   border: 1px solid #316f91;
   color: #316f91;
   padding: 10px 24px;
-  text-transform: uppercase;
   font-weight: 600;
+  text-transform: uppercase;
   border-radius: 4px;
   text-decoration: none;
-  letter-spacing: 0.05em;
-  transition: background-color 0.3s, color 0.3s;
+  transition: 0.3s;
 }
 
-.section.pressreleaseblock .button-container a.button.secondary:hover {
+.section.pressreleaseblock .button-container .button.secondary:hover {
   background-color: #316f91;
   color: #fff;
 }

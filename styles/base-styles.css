@@ -422,35 +422,41 @@ main .section.imageovercard {
 }
 
 .section.pressreleaseblock {
-  background-color: #f7fafc; /* Light blue-gray background */
-  padding: 40px 20px;        /* Space inside the container */
-  max-width: 1200px;         /* Limit max width */
-  margin: 0 auto;            /* Center horizontally */
-  font-family: 'Arial', sans-serif; /* Clean font */
-  color: #0a3d62;            /* Dark teal text color */
+  background-color: #f7fafc; /* Light background */
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: 'Arial', sans-serif;
+  color: #0a3d62;
 }
 
 .section.pressreleaseblock > .default-content-wrapper h1 {
   text-align: center;
   font-weight: 600;
-  font-size: 24px;
+  font-size: 22px;
   margin-bottom: 40px;
+  color: #0a3d62 !important; /* Make sure title is visible */
 }
 
 .section.pressreleaseblock .cards-wrapper {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* 2 cards per row */
-  gap: 20px;
+  grid-template-columns: repeat(2, 1fr); /* Exactly 2 columns */
+  gap: 24px 20px; /* vertical and horizontal gap */
   margin-bottom: 40px;
+  justify-items: stretch;
 }
 
 .section.pressreleaseblock .cards .cards-card-body {
-  background-color: #f4f8fa; /* Light card background */
+  background-color: #f4f8fa;
   border-radius: 6px;
-  padding: 20px 25px;
+  padding: 24px 25px 30px;
   box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-  color: #1c3f5a;            /* Card text color */
+  color: #1c3f5a;
   font-size: 14px;
+  min-height: 280px; /* consistent card height */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 .section.pressreleaseblock .cards .cards-card-body h3 {
@@ -463,6 +469,7 @@ main .section.imageovercard {
 .section.pressreleaseblock .cards .cards-card-body p {
   margin-bottom: 12px;
   line-height: 1.4;
+  flex-grow: 1;
 }
 
 .section.pressreleaseblock .cards .cards-card-body a {

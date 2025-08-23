@@ -275,6 +275,7 @@ main .section.highlight {
 main .section.imageovercard {
     background-color: deeppink;
 }
+/* Main background section */
 .section.imageovercard {
   position: relative;
   background-image: url('/adobe/dynamicmedia/deliver/dm-aid--fe873f87-d207-4b91-9048-a42392cfb322/wind-turbines-and-electric-cars-1.webp?width=1500&format=webp&optimize=medium');
@@ -289,7 +290,12 @@ main .section.imageovercard {
   box-sizing: border-box;
 }
 
-/* Card container */
+/* Hide default image inside card */
+.section.imageovercard .cards-card-image {
+  display: none !important;
+}
+
+/* Card layout */
 .section.imageovercard .cards-wrapper {
   max-width: 1200px;
   width: 100%;
@@ -308,39 +314,41 @@ main .section.imageovercard {
 }
 
 .section.imageovercard .cards li {
-  background-color: #ffffff;
-  border-radius: 20px;
+  background-color: #fcfcfc;
+  border-radius: 20px 20px 20px 0px; /* Rounded 3 corners */
   padding: 3rem 2rem;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-  max-width: 550px;
+  max-width: 580px;
   width: 100%;
   box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
 }
 
-/* Pretitle (SUSTAINABILITY) */
+/* Pretitle */
 .section.imageovercard .cards-card-body p:first-child {
   text-transform: uppercase;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 0.85rem;
   letter-spacing: 0.05em;
-  color: #006c67;
-  margin-bottom: 1rem;
+  color: #004b4b;
+  margin-bottom: 1.2rem;
 }
 
 /* Title */
 .section.imageovercard .cards-card-body h2 {
-  font-size: 2rem;
+  font-family: Georgia, serif;
+  font-size: 2.3rem;
   font-weight: 700;
   color: #004b4b;
   line-height: 1.3;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.8rem;
 }
 
 /* Paragraph text */
 .section.imageovercard .cards-card-body p:not(.button-container):not(:first-child) {
-  font-size: 1.05rem;
+  font-size: 1.1rem;
   color: #333;
-  line-height: 1.6;
+  line-height: 1.7;
   margin-bottom: 1rem;
 }
 
@@ -351,24 +359,28 @@ main .section.imageovercard {
 
 .section.imageovercard .button-container .button {
   display: inline-block;
-  background-color: #005a56;
-  color: #fff;
-  padding: 0.9rem 1.8rem;
+  background-color: #004b4b;
+  color: #ffffff;
+  padding: 1rem 1.8rem;
   font-size: 0.95rem;
   border-radius: 6px;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.03em;
   text-decoration: none;
-  font-weight: 600;
   transition: background-color 0.3s ease;
+  font-family: "Open Sans", sans-serif;
+}
+
+.section.imageovercard .button-container .button::after {
+  content: " →";
+  margin-left: 0.5rem;
+  font-weight: bold;
 }
 
 .section.imageovercard .button-container .button:hover {
-  background-color: #003f3c;
+  background-color: #003837;
 }
-.section.imageovercard .cards-card-image {
-  display: none !important;
-}
-
-
 .default-content-wrapper {
 
     text-align: left;

@@ -142,8 +142,9 @@
             "value": "highlight"
           },
           {
-            "name": "Custom",
-            "value": "custom"
+            "name": "ImageOverCard",
+            "value": "imageovercard"
+           
           }
           
         ]

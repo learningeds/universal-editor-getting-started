@@ -2,13 +2,13 @@ import { createOptimizedPicture } from '../../scripts/aem.js';
 import { moveInstrumentation } from '../../scripts/scripts.js';
 
 export default function decorate(block) {
-  /* convert to ul > li */
+  /* Step 1: Convert rows to UL > LI */
   const ul = document.createElement('ul');
-  [...block.children].forEach((row) => {
+  [...block.children].forEach(row => {
     const li = document.createElement('li');
     moveInstrumentation(row, li);
     while (row.firstElementChild) li.append(row.firstElementChild);
-    [...li.children].forEach((div) => {
+    [...li.children].forEach(div => {
       if (div.children.length === 1 && div.querySelector('picture')) div.className = 'cards-card-image';
       else div.className = 'cards-card-body';
     });
@@ -16,7 +16,7 @@ export default function decorate(block) {
   });
 
   // Optimize pictures
-  ul.querySelectorAll('picture > img').forEach((img) => {
+  ul.querySelectorAll('picture > img').forEach(img => {
     const optimizedPic = createOptimizedPicture(img.src, img.alt, false, [{ width: '750' }]);
     moveInstrumentation(img, optimizedPic.querySelector('img'));
     img.closest('picture').replaceWith(optimizedPic);
@@ -25,52 +25,37 @@ export default function decorate(block) {
   block.textContent = '';
   block.append(ul);
 
-  // ===== Updated Combined Carousel Logic for section_1144820921 =====
+  /* Step 2: Merge all cards into one combined carousel */
   const section = document.querySelector('[data-aue-resource*="section_1144820921"]');
   if (!section) return;
 
-  // Collect all cards from existing combined-cards.carousel-view containers
-  const separateContainers = section.querySelectorAll('.combined-cards.carousel-view');
   const allCards = [];
 
-  separateContainers.forEach(container => {
-    const containerUL = container.querySelector('ul');
-    if (containerUL) {
-      [...containerUL.children].forEach(li => allCards.push(li));
-    }
-    container.remove(); // Remove old container
+  // Collect from existing .combined-cards.carousel-view
+  section.querySelectorAll('.combined-cards.carousel-view ul').forEach(ul => {
+    allCards.push(...ul.children);
   });
+  section.querySelectorAll('.combined-cards.carousel-view').forEach(c => c.remove());
 
-  // Also collect cards from .cards-wrapper > .cards.block > ul if any
-  const wrappers = section.querySelectorAll('.cards-wrapper');
-  wrappers.forEach(wrapper => {
-    const cardsBlock = wrapper.querySelector('.cards.block');
-    const wrapperUL = cardsBlock?.querySelector('ul');
-    if (wrapperUL) {
-      [...wrapperUL.children].forEach(li => allCards.push(li));
-    }
+  // Collect from .cards-wrapper
+  section.querySelectorAll('.cards-wrapper .cards.block ul').forEach(ul => {
+    allCards.push(...ul.children);
+  });
+  section.querySelectorAll('.cards-wrapper').forEach(wrapper => {
     wrapper.style.display = 'none';
   });
 
-  if (allCards.length === 0) {
-    // No cards found to combine, exit
-    return;
-  }
+  if (allCards.length === 0) return;
 
-  // Create combined container and ul
+  // Create combined container
   const combinedContainer = document.createElement('div');
-  combinedContainer.className = 'combined-cards grid-view'; // start in grid-view
-
+  combinedContainer.className = 'combined-cards grid-view';
   const combinedUL = document.createElement('ul');
-  combinedContainer.appendChild(combinedUL);
+  combinedContainer.append(combinedUL);
+  allCards.forEach(li => combinedUL.append(li));
 
-  // Append all cards to combined ul
-  allCards.forEach(li => combinedUL.appendChild(li));
-
-  // Insert combined container after default-content-wrapper if exists, else at end of section
-  const refNode = section.querySelector('.default-content-wrapper');
-  if (refNode) refNode.insertAdjacentElement('afterend', combinedContainer);
-  else section.appendChild(combinedContainer);
+  const ref = section.querySelector('.default-content-wrapper');
+  ref ? ref.insertAdjacentElement('afterend', combinedContainer) : section.appendChild(combinedContainer);
 
   // Create toggle button
   let toggleBtn = section.querySelector('.cards-view-toggle-btn');
@@ -81,146 +66,94 @@ export default function decorate(block) {
     section.insertBefore(toggleBtn, combinedContainer);
   }
 
-  // Carousel indicators container
+  // Create carousel arrows
+  const prevBtn = document.createElement('button');
+  prevBtn.className = 'carousel-arrow prev';
+  prevBtn.textContent = '‹';
+  const nextBtn = document.createElement('button');
+  nextBtn.className = 'carousel-arrow next';
+  nextBtn.textContent = '›';
+  combinedContainer.append(prevBtn, nextBtn);
+
+  // Indicators
   const indicators = document.createElement('div');
   indicators.className = 'cards-carousel-indicators';
 
-  let currentIndex = 0;
-  let autoSlideInterval;
-  let isCarousel = false;
+  // Carousel behavior
+  let currentIndex = 0, isCarousel = false, intervalId;
 
-  // Update indicators dots based on cards count
   function updateIndicators() {
     indicators.innerHTML = '';
-    for (let i = 0; i < combinedUL.children.length; i++) {
+    combinedUL.querySelectorAll('li').forEach((_, i) => {
       const dot = document.createElement('div');
       dot.className = 'dot';
       if (i === currentIndex) dot.classList.add('active');
-      dot.addEventListener('click', () => {
-        currentIndex = i;
-        updateCarousel();
-        resetAutoSlide();
-      });
+      dot.onclick = () => { currentIndex = i; updateCarousel(); resetAutoSlide(); };
       indicators.appendChild(dot);
-    }
-  }
-
-  // Update carousel transform and active dot
-  function updateCarousel() {
-    combinedUL.style.transform = `translateX(-${currentIndex * 100}%)`;
-    indicators.querySelectorAll('.dot').forEach((dot, idx) => {
-      dot.classList.toggle('active', idx === currentIndex);
     });
   }
 
-  // Start auto slide
+  function updateCarousel() {
+    combinedUL.style.transform = `translateX(-${currentIndex * 100}%)`;
+    indicators.querySelectorAll('.dot').forEach((dot, i) => {
+      dot.classList.toggle('active', i === currentIndex);
+    });
+  }
+
   function startAutoSlide() {
-    stopAutoSlide();
-    autoSlideInterval = setInterval(() => {
+    clearInterval(intervalId);
+    intervalId = setInterval(() => {
       currentIndex = (currentIndex + 1) % combinedUL.children.length;
       updateCarousel();
     }, 15000);
   }
 
-  // Stop auto slide
   function stopAutoSlide() {
-    if (autoSlideInterval) clearInterval(autoSlideInterval);
+    clearInterval(intervalId);
   }
 
-  // Reset auto slide timer
   function resetAutoSlide() {
     stopAutoSlide();
     startAutoSlide();
   }
 
-  // Toggle button handler
-  toggleBtn.addEventListener('click', () => {
+  prevBtn.onclick = () => {
+    if (currentIndex > 0) { currentIndex--; updateCarousel(); resetAutoSlide(); }
+  };
+  nextBtn.onclick = () => {
+    if (currentIndex < combinedUL.children.length - 1) { currentIndex++; updateCarousel(); resetAutoSlide(); }
+  };
+
+  toggleBtn.onclick = () => {
     isCarousel = !isCarousel;
-
     if (isCarousel) {
-      combinedContainer.classList.remove('grid-view');
-      combinedContainer.classList.add('carousel-view');
-
+      combinedContainer.classList.replace('grid-view', 'carousel-view');
       combinedUL.style.display = 'flex';
-      combinedUL.style.transition = 'transform 0.5s ease';
       combinedUL.style.width = `${combinedUL.children.length * 100}%`;
       combinedUL.querySelectorAll('li').forEach(li => {
         li.style.flex = '0 0 100%';
         li.style.maxWidth = '100%';
       });
-
       currentIndex = 0;
       updateIndicators();
-      updateCarousel();
-
-      combinedContainer.appendChild(indicators);
-
+      combinedContainer.append(indicators);
       startAutoSlide();
-
       toggleBtn.textContent = 'View as grid';
     } else {
-      combinedContainer.classList.remove('carousel-view');
-      combinedContainer.classList.add('grid-view');
-
-      combinedUL.style.transform = 'none';
-      combinedUL.style.transition = 'none';
-      combinedUL.style.width = 'auto';
+      combinedContainer.classList.replace('carousel-view', 'grid-view');
       combinedUL.style.display = 'grid';
+      combinedUL.style.transform = '';
+      combinedUL.style.width = '';
       combinedUL.querySelectorAll('li').forEach(li => {
         li.style.flex = '';
         li.style.maxWidth = '';
       });
-
       stopAutoSlide();
       indicators.remove();
-
       toggleBtn.textContent = 'View as carousel';
     }
-  });
+  };
 
-  // Initialize with grid view
   combinedContainer.classList.add('grid-view');
   combinedUL.style.display = 'grid';
-  // ===== Separate Carousel Logic for section_303714501 with one-time initialization =====
-
-  const section2 = block.closest('.section[data-aue-resource*="section_303714501"]');
-  if (section2 && !section2.classList.contains('carousel-initialized')) {
-    section2.classList.add('carousel-initialized');
-
-    const track = section2.querySelector('.cards.block > ul');
-    const cards = section2.querySelectorAll('.cards.block > ul > li');
-    const total = cards.length;
-    if (total <= 1) return;
-
-    let index = 0;
-
-    const indicatorWrapper2 = document.createElement('div');
-    indicatorWrapper2.className = 'cards-carousel-indicators';
-
-    for (let i = 0; i < total; i++) {
-      const dot = document.createElement('div');
-      dot.className = 'dot';
-      if (i === 0) dot.classList.add('active');
-      dot.addEventListener('click', () => {
-        index = i;
-        updateCarousel2();
-      });
-      indicatorWrapper2.appendChild(dot);
-    }
-
-    section2.appendChild(indicatorWrapper2);
-
-    function updateCarousel2() {
-      track.style.transform = `translateX(-${index * 105}%)`;
-      const dots = indicatorWrapper2.querySelectorAll('.dot');
-      dots.forEach((dot, i) => {
-        dot.classList.toggle('active', i === index);
-      });
-    }
-
-    setInterval(() => {
-      index = (index + 1) % total;
-      updateCarousel2();
-    }, 15000);
-  }
 }

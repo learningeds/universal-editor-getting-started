@@ -22,36 +22,46 @@ export default function decorate(block) {
   block.textContent = '';
   block.append(ul);
 
- function addBetterWayCarouselToggle() {
-  const section = document.querySelector('[data-aue-resource*="section_1144820921"]');
-  if (!section) return;
 
-  const heading = section.querySelector('h1#there-is-always-a-better-way');
-  if (!heading) return;
+  // ===== Carousel Toggle Script Starts =====
+  function addBetterWayCarouselToggle() {
+    const section = document.querySelector('[data-aue-resource*="section_1144820921"]');
+    if (!section) return;
 
-  // Find all cards blocks within this section
-  const cardsBlocks = section.querySelectorAll('.cards.block');
+    const heading = section.querySelector('h1#there-is-always-a-better-way');
+    if (!heading) return;
 
-  cardsBlocks.forEach((cardsBlock) => {
-    // Match only those blocks with the specific heading in cards
-    const containsTargetHeading = [...cardsBlock.querySelectorAll('h3')].some(
-      (h3) => h3.textContent.trim() === 'The hunt for the unknow'
-    );
+    // Find the first relevant cards block that has the specific heading
+    const cardsBlocks = section.querySelectorAll('.cards.block');
+    let targetBlock = null;
 
-    if (!containsTargetHeading) return;
+    cardsBlocks.forEach((cardsBlock) => {
+      const hasTargetHeading = [...cardsBlock.querySelectorAll('h3')].some(
+        (h3) => h3.textContent.trim() === 'The hunt for the unknow'
+      );
 
-    cardsBlock.classList.add('better-way-cards');
+      if (hasTargetHeading && !targetBlock) {
+        targetBlock = cardsBlock;
+      }
+    });
+
+    if (!targetBlock) return;
+
+    const track = targetBlock.querySelector('ul');
+    const cards = targetBlock.querySelectorAll('ul > li');
+    const total = cards.length;
+
+    // Only apply carousel if more than 1 card
+    if (total <= 1) return;
+
+    targetBlock.classList.add('better-way-cards');
 
     // Avoid adding toggle twice
-    if (cardsBlock.querySelector('.cards-view-toggle-btn')) return;
+    if (targetBlock.querySelector('.cards-view-toggle-btn')) return;
 
     const toggleBtn = document.createElement('button');
     toggleBtn.className = 'cards-view-toggle-btn';
     toggleBtn.textContent = 'View as carousel';
-
-    const track = cardsBlock.querySelector('ul');
-    const cards = cardsBlock.querySelectorAll('ul > li');
-    const total = cards.length;
 
     let index = 0;
     let intervalId;
@@ -70,7 +80,7 @@ export default function decorate(block) {
       indicatorWrapper.appendChild(dot);
     }
 
-    cardsBlock.appendChild(indicatorWrapper);
+    targetBlock.appendChild(indicatorWrapper);
 
     function updateCarousel() {
       track.style.transform = `translateX(-${index * 100}%)`;
@@ -91,8 +101,8 @@ export default function decorate(block) {
     }
 
     toggleBtn.addEventListener('click', () => {
-      cardsBlock.classList.toggle('carousel-view');
-      const isCarousel = cardsBlock.classList.contains('carousel-view');
+      targetBlock.classList.toggle('carousel-view');
+      const isCarousel = targetBlock.classList.contains('carousel-view');
 
       toggleBtn.textContent = isCarousel ? 'View as grid' : 'View as carousel';
 
@@ -107,17 +117,16 @@ export default function decorate(block) {
       }
     });
 
-    cardsBlock.insertBefore(toggleBtn, track);
+    targetBlock.insertBefore(toggleBtn, track);
 
-    if (cardsBlock.classList.contains('carousel-view')) {
+    // Optional: Enable carousel initially if already in carousel-view mode
+    if (targetBlock.classList.contains('carousel-view')) {
       startAutoSlide();
       updateCarousel();
     }
-  });
-}
+  }
 
-addBetterWayCarouselToggle();
-
+  addBetterWayCarouselToggle();
 
   const section = block.closest('.section[data-aue-resource*="section_303714501"]');
   if (!section) return; // Exit if not in target section

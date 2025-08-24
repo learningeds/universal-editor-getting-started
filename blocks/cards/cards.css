@@ -298,89 +298,91 @@
   text-decoration: none;
 }
 /* Entire section background to white */
+/* White background for section */
 .section.groupcards {
   background-color: #ffffff;
   padding: 60px 40px;
 }
 
-/* Title styling */
+/* Section heading */
 .groupcards h1 {
   text-align: left;
   font-size: 48px;
   color: #004b5d;
-  font-weight: 600;
-  margin-bottom: 40px;
+  font-weight: 700;
   font-family: 'Georgia', serif;
+  margin-bottom: 40px;
 }
 
 /* Cards container */
 .groupcards .cards-wrapper ul {
   display: flex;
   flex-wrap: wrap;
-  gap: 30px;
+  gap: 24px;
   padding: 0;
   margin: 0;
   list-style: none;
+  justify-content: flex-start;
 }
 
-/* Individual card */
+/* Individual card box */
 .groupcards .cards-wrapper li {
   background-color: #e7eff1;
-  flex: 1 1 calc(25% - 30px); /* 4 cards per row, minus gap */
-  padding: 40px 30px;
-  border-radius: 4px;
-  min-width: 220px;
-  max-width: 260px;
-  text-align: left;
+  width: 260px;
+  height: 220px;
+  border-radius: 6px;
   box-sizing: border-box;
+  padding: 20px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.05);
   transition: box-shadow 0.3s;
 }
 
-/* Add subtle hover */
+/* Hover effect */
 .groupcards .cards-wrapper li:hover {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
 }
 
-/* Upper label (like REVENUES) */
+/* Top-left label */
 .groupcards .cards-wrapper li p {
   font-size: 14px;
   text-transform: uppercase;
-  font-weight: 600;
+  font-weight: 700;
   color: #004b5d;
   margin: 0;
-  letter-spacing: 0.5px;
 }
 
-/* Main value (like 15 BEUR) */
+/* Bottom-right value */
 .groupcards .cards-wrapper li h3 {
-  font-size: 32px;
-  margin: 12px 0 0;
+  font-size: 28px;
   color: #004b5d;
   font-weight: 500;
   font-family: 'Georgia', serif;
+  margin: 0;
+  align-self: flex-end;
 }
 
-/* Responsive tweaks */
+/* Responsive layout */
 @media (max-width: 1024px) {
-  .groupcards .cards-wrapper ul {
-    gap: 20px;
-  }
   .groupcards .cards-wrapper li {
-    flex: 1 1 calc(50% - 20px); /* 2 per row on tablet */
+    width: calc(50% - 12px);
   }
 }
 
 @media (max-width: 600px) {
-  .groupcards .cards-wrapper li {
-    flex: 1 1 100%; /* 1 per row on mobile */
-    max-width: 100%;
+  .groupcards h1 {
+    text-align: center;
+    font-size: 36px;
   }
 
-  .groupcards h1 {
-    font-size: 36px;
-    text-align: center;
+  .groupcards .cards-wrapper ul {
+    justify-content: center;
+  }
+
+  .groupcards .cards-wrapper li {
+    width: 100%;
+    max-width: 90%;
   }
 }

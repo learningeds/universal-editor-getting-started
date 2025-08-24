@@ -60,4 +60,46 @@ export default function decorate(block) {
       updateCarousel();
     }, 15000); // 15 seconds
   }
+  // JS to create carousel functionality and automatic sliding of cards
+document.addEventListener('DOMContentLoaded', () => {
+  const section = document.querySelector('.upcomingeventscards .cards-wrapper');
+  if (!section) return;
+
+  const track = section.querySelector('.cards.block > ul');
+  const cards = section.querySelectorAll('.cards.block > ul > li');
+  const total = cards.length;
+  let index = 0;
+
+  // Create carousel indicators (dots)
+  const indicatorWrapper = document.createElement('div');
+  indicatorWrapper.className = 'carousel-indicators';
+
+  for (let i = 0; i < total; i++) {
+    const dot = document.createElement('div');
+    dot.className = 'dot';
+    if (i === 0) dot.classList.add('active');
+    dot.addEventListener('click', () => {
+      index = i;
+      updateCarousel();
+    });
+    indicatorWrapper.appendChild(dot);
+  }
+
+  section.appendChild(indicatorWrapper);
+
+  function updateCarousel() {
+    track.style.transform = `translateX(-${index * 100}%)`; // Move cards
+    const dots = indicatorWrapper.querySelectorAll('.dot');
+    dots.forEach((dot, i) => {
+      dot.classList.toggle('active', i === index); // Highlight active dot
+    });
+  }
+
+  // Automatic carousel behavior every 5 seconds
+  setInterval(() => {
+    index = (index + 1) % total;
+    updateCarousel();
+  }, 5000);
+});
+
 }

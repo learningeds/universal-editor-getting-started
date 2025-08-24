@@ -208,4 +208,7 @@ footer .columns.block.columns-4-cols ul li a:hover {
   background-color: #d9a53c; /* Gold color for the arrow icon */
   color: white;
 }
-  
+  footer .columns.block.columns-4-cols > div > div:first-child {
+  background: none; /* removes both color & image */
+  border: none;     /* optional: remove border too if not needed */
+}

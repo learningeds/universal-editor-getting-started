@@ -131,3 +131,62 @@ footer .columns.block.columns-4-cols ul li a:hover {
     margin-bottom: 20px;
   }
 }
+.footer::after a.facebook {
+  background-color: #3b5998; /* Facebook */
+  color: white;
+}
+
+.footer::after a.linkedin {
+  background-color: #0077b5; /* LinkedIn */
+  color: white;
+}
+
+.footer::after a.instagram {
+  background-color: #e4405f; /* Instagram */
+  color: white;
+}
+
+.footer::after a.youtube {
+  background-color: #ff0000; /* YouTube */
+  color: white;
+}
+
+.footer::after a.x {
+  background-color: #1d9bf0; /* Twitter (X) */
+  color: white;
+}
+
+.footer::after a.arrow {
+  background-color: #d9a53c; /* Gold color for the arrow */
+  color: white;
+}
+
+/* Adding FontAwesome or other icon font classes using content (only works if the font icons are included) */
+.footer::after a::before {
+  font-family: 'FontAwesome'; /* Include FontAwesome or another icon font */
+}
+
+.footer::after a.facebook::before {
+  content: '\f09a'; /* Facebook */
+}
+
+.footer::after a.linkedin::before {
+  content: '\f08c'; /* LinkedIn */
+}
+
+.footer::after a.instagram::before {
+  content: '\f16d'; /* Instagram */
+}
+
+.footer::after a.youtube::before {
+  content: '\f167'; /* YouTube */
+}
+
+.footer::after a.x::before {
+  content: '\f99d'; /* Twitter (X) */
+}
+
+.footer::after a.arrow::before {
+  content: '\f062'; /* Up Arrow */
+}
+

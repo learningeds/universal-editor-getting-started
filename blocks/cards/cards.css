@@ -502,18 +502,22 @@
 .carousel-arrow:hover {
   background-color: rgba(0, 0, 0, 0.8);
 }
-/* Title and Text Above Cards */
+/* Title and Text on Top of Cards */
+.carousel {
+    position: relative;
+    text-align: center;
+    padding-top: 50px; /* Space between title/text and cards */
+}
+
 .carousel h1 {
     color: #004B6A; /* Dark Blue color for the title */
     font-size: 32px; /* Set a font size for the title */
-    text-align: center;
     margin-bottom: 20px;
 }
 
 .carousel .default-content-wrapper p {
     color: #6A7C89; /* Lighter color for text */
     font-size: 18px;
-    text-align: center;
     margin-bottom: 40px;
 }
 
@@ -523,26 +527,42 @@
     grid-template-columns: 1fr 1fr; /* Two columns layout */
     gap: 30px; /* Space between the cards */
     justify-items: center;
+    margin-top: 40px; /* Space below the title and text */
 }
 
 /* Style for Each Card */
-.carousel .cards-card-body {
-    padding: 20px;
+.carousel .cards-card {
+    position: relative;
     background-color: #f8f8f8;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
     transition: transform 0.3s ease;
 }
 
-.carousel .cards-card-body:hover {
+.carousel .cards-card:hover {
     transform: scale(1.05); /* Hover effect to enlarge the card */
 }
 
-/* Image Styling */
+.carousel .cards-card-body {
+    padding: 20px;
+    z-index: 1; /* Ensure content is above image */
+}
+
+.carousel .cards-card-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0; /* Place image behind the content */
+}
+
 .carousel .cards-card-image img {
     width: 100%;
-    border-radius: 8px;
+    height: 100%;
     object-fit: cover;
+    border-radius: 8px;
 }
 
 /* Button Styling */
@@ -558,4 +578,3 @@
 .carousel .button-container a.button:hover {
     background-color: #003a55; /* Darken button on hover */
 }
-

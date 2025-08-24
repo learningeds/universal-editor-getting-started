@@ -1,3 +1,35 @@
+/* Fix header to top */
+.header {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 1100 !important; /* higher than nav-wrapper */
+  background-color: #003f48 !important; /* same as nav-wrapper */
+  transition: background-color 0.3s ease;
+}
+
+/* Hide nav-sections initially */
+.nav-sections {
+  opacity: 0 !important;
+  pointer-events: none !important;
+  transition: opacity 0.3s ease !important;
+  display: block !important; /* override display:none from existing styles */
+}
+
+/* Keep logo and hamburger visible */
+.nav-brand .default-content-wrapper,
+.nav-hamburger {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+/* Show nav-sections when header has scrolled class */
+.header.scrolled .nav-sections {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
 /* --- NAVIGATION WRAPPER --- */
 .nav-wrapper {
   background-color: #003f48 !important;

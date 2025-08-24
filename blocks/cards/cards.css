@@ -1,15 +1,14 @@
-/* ----- Container + Wrapper ----- */
+/* Container + Wrapper */
 .cards-container {
   background-color: #005661;
   padding: 60px 20px;
 }
-
 .cards-wrapper {
   max-width: 1200px;
   margin: 0 auto;
 }
 
-/* ----- Title and Paragraph Above Cards ----- */
+/* Title and Paragraph */
 .cards-container h1,
 .cards-container p {
   color: white;
@@ -17,12 +16,12 @@
   margin: 0 0 24px 0;
 }
 
-/* Add spacing between intro and cards */
+/* Spacing between intro and cards */
 .cards-wrapper .cards {
   margin-top: 32px;
 }
 
-/* ----- Cards Grid Layout ----- */
+/* Cards Grid Layout */
 .cards > ul {
   list-style: none;
   margin: 0;
@@ -32,10 +31,10 @@
   gap: 32px;
 }
 
-/* ----- Individual Card ----- */
+/* Individual Card */
 .cards > ul > li {
   background-color: #ffffff;
-  border-radius: 12px 12px 12px 0; /* Only bottom-left is square */
+  border-radius: 12px 12px 12px 0; /* Bottom-left square */
   overflow: hidden;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   display: flex;
@@ -44,11 +43,10 @@
   transition: none;
 }
 
-/* ----- Image Block ----- */
+/* Image Block */
 .cards .cards-card-image {
   line-height: 0;
 }
-
 .cards .cards-card-image img {
   width: 100%;
   height: auto;
@@ -59,7 +57,7 @@
   border-top-right-radius: 12px;
 }
 
-/* ----- Card Body ----- */
+/* Card Body */
 .cards .cards-card-body {
   padding: 24px;
   display: flex;
@@ -67,7 +65,7 @@
   flex: 1;
 }
 
-/* ----- Heading inside Card ----- */
+/* Heading inside Card */
 .cards .cards-card-body h3 {
   font-family: "Noto Serif", Georgia, "Times New Roman", serif;
   font-size: 22px;
@@ -76,7 +74,7 @@
   margin: 0 0 12px 0;
 }
 
-/* ----- Paragraph inside Card ----- */
+/* Paragraph inside Card */
 .cards .cards-card-body p {
   font-family: "Open Sans", Arial, sans-serif;
   font-size: 16px;
@@ -85,7 +83,7 @@
   margin: 0 0 12px 0;
 }
 
-/* ----- Link/Button inside Card ----- */
+/* Link/Button inside Card */
 .cards .cards-card-body a {
   font-family: "Noto Sans", Arial, sans-serif;
   font-size: 16px;
@@ -100,7 +98,6 @@
   padding-bottom: 2px;
   transition: border-color 0.2s ease;
 }
-
 .cards .cards-card-body a::before {
   content: '→';
   display: inline-block;
@@ -109,16 +106,14 @@
   transform: translateY(-1px);
   transition: none;
 }
-
 .cards .cards-card-body a:hover {
   text-decoration: underline;
 }
-
 .cards .cards-card-body a:hover::before {
   transform: translateY(-1px);
 }
 
-/* ----- Fix for links inside .button-container (3rd card) ----- */
+/* Button container link fix */
 .cards .cards-card-body .button-container a {
   font-family: "Noto Sans", Arial, sans-serif;
   font-size: 16px;
@@ -132,7 +127,6 @@
   padding-bottom: 2px;
   transition: border-color 0.2s ease;
 }
-
 .cards .cards-card-body .button-container a::before {
   content: '→';
   display: inline-block;
@@ -140,18 +134,14 @@
   transform: translateY(-1px);
   transition: none;
 }
-
 .cards .cards-card-body .button-container a:hover {
   text-decoration: underline;
 }
-
 .cards .cards-card-body .button-container a:hover::before {
   transform: translateY(-1px);
 }
 
-/* -------- Existing styles omitted for brevity -------- */
-
-/* ----- Scoped styles for 'There is always a better way' section ----- */
+/* Scoped styles for 'There is always a better way' section */
 .better-way-cards .cards-view-toggle-btn {
   background-color: transparent;
   border: 2px solid #004B5E;
@@ -164,7 +154,6 @@
   margin-bottom: 1rem;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
-
 .better-way-cards .cards-view-toggle-btn:hover {
   background-color: #004B5E;
   color: #ffffff;
@@ -180,21 +169,18 @@
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
 }
-
 .better-way-cards.carousel-view > ul > li {
   flex: 0 0 80%;
   scroll-snap-align: start;
-  scroll-behavior: smooth;
   transition: transform 0.3s ease;
 }
-
 /* Hide scrollbar */
 .better-way-cards.carousel-view > ul::-webkit-scrollbar {
   display: none;
 }
 .better-way-cards.carousel-view > ul {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 /* Carousel indicators */
@@ -204,7 +190,6 @@
   gap: 12px;
   margin-top: 1rem;
 }
-
 .cards-carousel-indicators .dot {
   width: 12px;
   height: 12px;
@@ -213,25 +198,21 @@
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
-
 .cards-carousel-indicators .dot.active {
   background-color: #004B5E;
 }
-
-/* Optional: smoother scroll on clicking dots */
 .cards-carousel-indicators .dot:focus {
   outline: 2px solid #004B5E;
   outline-offset: 2px;
 }
-/* === Scoped to Section ID === */
+
+/* Scoped to Section ID */
 .section[data-aue-resource*="section_1144820921"] {
   background-color: #fcf8f2;
   padding: 60px 20px;
   font-family: "Noto Sans", sans-serif;
   position: relative;
 }
-
-/* Title + paragraph styles */
 .section[data-aue-resource*="section_1144820921"] .default-content-wrapper h1 {
   font-size: 2.5rem;
   color: #004750;
@@ -239,15 +220,12 @@
   font-weight: 500;
   margin-bottom: 16px;
 }
-
 .section[data-aue-resource*="section_1144820921"] .default-content-wrapper p {
   font-size: 18px;
   color: #4e4843;
   max-width: 600px;
   margin-bottom: 40px;
 }
-
-/* Toggle Button */
 .section[data-aue-resource*="section_1144820921"] .cards-toggle-btn {
   background: none;
   border: 2px solid #004b5e;
@@ -259,13 +237,12 @@
   margin-bottom: 24px;
   transition: all 0.2s ease;
 }
-
 .section[data-aue-resource*="section_1144820921"] .cards-toggle-btn:hover {
   background-color: #004b5e;
   color: #fff;
 }
 
-/* === Carousel view === */
+/* Carousel view */
 .section[data-aue-resource*="section_1144820921"].view-carousel .cards-wrapper {
   display: flex;
   overflow-x: auto;
@@ -273,11 +250,9 @@
   scroll-snap-type: x mandatory;
   padding-bottom: 1rem;
 }
-
 .section[data-aue-resource*="section_1144820921"].view-carousel .cards-wrapper::-webkit-scrollbar {
   display: none;
 }
-
 .section[data-aue-resource*="section_1144820921"].view-carousel .cards.block > ul {
   display: flex;
   gap: 1.5rem;
@@ -285,7 +260,6 @@
   margin: 0;
   list-style: none;
 }
-
 .section[data-aue-resource*="section_1144820921"].view-carousel .cards.block > ul > li {
   min-width: 300px;
   max-width: 420px;
@@ -293,28 +267,25 @@
   scroll-snap-align: start;
 }
 
-/* === Grid view === */
+/* Grid view */
 .section[data-aue-resource*="section_1144820921"].view-grid .cards-wrapper {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 2rem;
 }
-
 .section[data-aue-resource*="section_1144820921"].view-grid .cards.block > ul {
   display: block;
 }
-
 .section[data-aue-resource*="section_1144820921"].view-grid .cards.block > ul > li {
   width: 100%;
 }
 
-/* === Card Styling === */
+/* Card Styling */
 .section[data-aue-resource*="section_1144820921"] .cards.block > ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
-
 .section[data-aue-resource*="section_1144820921"] .cards.block > ul > li {
   background-color: #fff;
   border-radius: 12px;
@@ -323,7 +294,6 @@
   display: flex;
   flex-direction: column;
 }
-
 .section[data-aue-resource*="section_1144820921"] .cards-card-image img {
   width: 100%;
   height: auto;
@@ -331,14 +301,12 @@
   object-fit: cover;
   display: block;
 }
-
 .section[data-aue-resource*="section_1144820921"] .cards-card-body {
   padding: 20px;
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
-
 .section[data-aue-resource*="section_1144820921"] .cards-card-body h3 {
   font-size: 22px;
   color: #004b5e;
@@ -346,13 +314,11 @@
   margin: 0;
   font-weight: 500;
 }
-
 .section[data-aue-resource*="section_1144820921"] .cards-card-body p {
   font-size: 16px;
   color: #333;
   margin: 0;
 }
-
 .section[data-aue-resource*="section_1144820921"] .cards-card-body a {
   color: #004b5e;
   text-decoration: none;
@@ -360,10 +326,21 @@
   margin-top: auto;
   display: inline-block;
   border-bottom: 2px solid transparent;
-  transition: border-color 0.2s ease;
+  padding-bottom: 2px;
+  transition: border-color 0.3s ease;
 }
-
 .section[data-aue-resource*="section_1144820921"] .cards-card-body a:hover {
   border-color: #004b5e;
-  text-decoration: underline;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 900px) {
+  .cards > ul {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  }
+}
+@media (max-width: 600px) {
+  .cards > ul {
+    grid-template-columns: 1fr;
+  }
 }

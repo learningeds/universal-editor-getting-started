@@ -196,8 +196,8 @@
 .columns.block.columns-2-cols .button-container .button::after {
   content: "→"; 
     font-size: 1.25rem;  /* slightly bigger for visual weight */
-  font-weight: 700; 
-  font-size: 1rem;
+  font-weight: 900;
+  font-size: 1.7rem;
   line-height: 1;
   display: inline-block;
   transition: transform 0.3s ease;

@@ -168,6 +168,10 @@
           {
             "name": "LeftImageThenText",
             "value": "lightimagethentext"
+          },
+          {
+            "name": "Carousel",
+            "value": "carousel"
           }
           
         ]

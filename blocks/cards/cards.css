@@ -392,22 +392,20 @@
   padding-top: 0 !important;
 }
 
-.section.groupcards .cards-wrapper ul > li .cards-card-body:nth-of-type(2) p {
+.section.groupcards ul > li > .cards-card-body:not(:empty) p {
   margin: 0;
-  align-self: flex-start;
-  font-size: 0.9rem;
+  font-weight: 500; /* Less bold than before */
   text-transform: uppercase;
-  font-weight: 500;
-  color: #004b5e;
+  font-size: 0.95rem;
+  color: #004B5E; /* Or your brand's deep blue */
 }
 
-
-.section.groupcards .cards-wrapper ul > li .cards-card-body:nth-of-type(2) h3 {
+.section.groupcards ul > li > .cards-card-body:not(:empty) h3 {
   margin: 0;
   align-self: flex-end;
+  font-weight: 400; /* Lighten number */
   font-size: 1.8rem;
-  font-weight: 400;
-  color: #004b5e;
+  color: #004B5E; /* Matches the visual */
 }
 
 

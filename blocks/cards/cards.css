@@ -328,8 +328,8 @@
 /* Individual card box */
 .groupcards .cards-wrapper li {
   background-color: #e7eff1;
-  width: 260px;
-  height: 220px;
+  width: 250px;
+  height: 150px;
   border-radius: 6px;
   box-sizing: border-box;
   padding: 20px;
@@ -338,6 +338,7 @@
   justify-content: space-between;
   box-shadow: 0 3px 8px rgba(0,0,0,0.05);
   transition: box-shadow 0.3s;
+    margin-left: 1rem;
 }
 
 /* Hover effect */

@@ -160,6 +160,10 @@
           {
             "name": "Quote",
             "value": "quote"
+          },
+          {
+            "name": "RightImage",
+            "value": "rightimage"
           }
           
         ]

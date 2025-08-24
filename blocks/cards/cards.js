@@ -22,31 +22,101 @@ export default function decorate(block) {
   block.textContent = '';
   block.append(ul);
 
-  document.addEventListener("DOMContentLoaded", function () {
-    const section = document.querySelector(
-      '.section[data-aue-resource*="section_1144820921"]'
+ function addBetterWayCarouselToggle() {
+  const section = document.querySelector('[data-aue-resource*="section_1144820921"]');
+  if (!section) return;
+
+  const heading = section.querySelector('h1#there-is-always-a-better-way');
+  if (!heading) return;
+
+  // Find all cards blocks within this section
+  const cardsBlocks = section.querySelectorAll('.cards.block');
+
+  cardsBlocks.forEach((cardsBlock) => {
+    // Match only those blocks with the specific heading in cards
+    const containsTargetHeading = [...cardsBlock.querySelectorAll('h3')].some(
+      (h3) => h3.textContent.trim() === 'The hunt for the unknow'
     );
 
-    if (!section) return;
+    if (!containsTargetHeading) return;
 
-    // Add initial class
-    section.classList.add("view-carousel");
+    cardsBlock.classList.add('better-way-cards');
 
-    // Create and inject toggle button
-    const toggleBtn = document.createElement("button");
-    toggleBtn.className = "cards-toggle-btn";
-    toggleBtn.textContent = "View as Grid";
+    // Avoid adding toggle twice
+    if (cardsBlock.querySelector('.cards-view-toggle-btn')) return;
 
-    const wrapper = section.querySelector(".default-content-wrapper");
-    wrapper && wrapper.appendChild(toggleBtn);
+    const toggleBtn = document.createElement('button');
+    toggleBtn.className = 'cards-view-toggle-btn';
+    toggleBtn.textContent = 'View as carousel';
 
-    toggleBtn.addEventListener("click", function () {
-      const isCarousel = section.classList.contains("view-carousel");
-      section.classList.toggle("view-carousel", !isCarousel);
-      section.classList.toggle("view-grid", isCarousel);
-      toggleBtn.textContent = isCarousel ? "View as Carousel" : "View as Grid";
+    const track = cardsBlock.querySelector('ul');
+    const cards = cardsBlock.querySelectorAll('ul > li');
+    const total = cards.length;
+
+    let index = 0;
+    let intervalId;
+
+    const indicatorWrapper = document.createElement('div');
+    indicatorWrapper.className = 'cards-carousel-indicators';
+
+    for (let i = 0; i < total; i++) {
+      const dot = document.createElement('div');
+      dot.className = 'dot';
+      if (i === 0) dot.classList.add('active');
+      dot.addEventListener('click', () => {
+        index = i;
+        updateCarousel();
+      });
+      indicatorWrapper.appendChild(dot);
+    }
+
+    cardsBlock.appendChild(indicatorWrapper);
+
+    function updateCarousel() {
+      track.style.transform = `translateX(-${index * 100}%)`;
+      indicatorWrapper.querySelectorAll('.dot').forEach((dot, i) => {
+        dot.classList.toggle('active', i === index);
+      });
+    }
+
+    function startAutoSlide() {
+      intervalId = setInterval(() => {
+        index = (index + 1) % total;
+        updateCarousel();
+      }, 15000);
+    }
+
+    function stopAutoSlide() {
+      clearInterval(intervalId);
+    }
+
+    toggleBtn.addEventListener('click', () => {
+      cardsBlock.classList.toggle('carousel-view');
+      const isCarousel = cardsBlock.classList.contains('carousel-view');
+
+      toggleBtn.textContent = isCarousel ? 'View as grid' : 'View as carousel';
+
+      if (isCarousel) {
+        startAutoSlide();
+        index = 0;
+        updateCarousel();
+      } else {
+        stopAutoSlide();
+        track.style.transform = 'translateX(0)';
+        indicatorWrapper.querySelectorAll('.dot').forEach((dot) => dot.classList.remove('active'));
+      }
     });
+
+    cardsBlock.insertBefore(toggleBtn, track);
+
+    if (cardsBlock.classList.contains('carousel-view')) {
+      startAutoSlide();
+      updateCarousel();
+    }
   });
+}
+
+addBetterWayCarouselToggle();
 
 
   const section = block.closest('.section[data-aue-resource*="section_303714501"]');

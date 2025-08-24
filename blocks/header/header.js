@@ -155,12 +155,19 @@ export default async function decorate(block) {
     </div>
   `;
 
-  // --- Toggle Menu Show/Hide ---
-  hamburger.querySelector('button').addEventListener('click', () => {
-    const isOpen = nav.getAttribute('aria-expanded') === 'true';
-    nav.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
-    navSections.style.display = isOpen ? 'none' : 'block';
-  });
+ hamburger.querySelector('button').addEventListener('click', () => {
+  const isOpen = nav.getAttribute('aria-expanded') === 'true';
+
+  // Toggle nav open/close state
+  nav.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+
+  // Show/hide the nav sections (menu items)
+  navSections.style.display = isOpen ? 'none' : 'block';
+
+  // Toggle only icon state via class
+  hamburger.classList.toggle('open', !isOpen);
+});
+
 
   // Assemble navigation
   nav.append(navBrand, hamburger, navSections);

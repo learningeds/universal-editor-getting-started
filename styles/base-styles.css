@@ -654,7 +654,8 @@ main .section.imageovercard {
   margin-top: 1rem;
   font-size: 1rem;
   color: #555;
-    
+    margin-left: 3rem;
+
 }
 
 .section.quote .default-content-wrapper p strong {

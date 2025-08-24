@@ -117,7 +117,15 @@
 }
 
 .nav-sections li {
-  margin: 14px 0 !important;
+  margin: 0 !important;
+  padding: 16px !important;
+  border-bottom: 1px solid #ddd !important;
+  background-color: #fff !important;
+  transition: background 0.3s ease !important;
+}
+
+.nav-sections li:hover {
+  background-color: #f5f5f5 !important;
 }
 
 .nav-sections a {

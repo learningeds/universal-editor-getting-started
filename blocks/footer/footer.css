@@ -39,7 +39,7 @@ footer .columns.block.columns-4-cols > div > div:first-child {
   background-position: center;
   padding: 3pc 2pc 24px;
   border-radius: 24px 24px 24px 0;
-  border: 1px solid #f5a33e;
+  
   color: #ffffff;
   position: relative;
   display: flex;
@@ -208,3 +208,6 @@ footer .columns.block.columns-4-cols ul li a:hover {
   background-color: #d9a53c; /* Gold color for the arrow icon */
   color: white;
 }
+    footer .columns.block.columns-4-cols > div > div:first-child .button {
+        background-color: transparent !important;
+    }

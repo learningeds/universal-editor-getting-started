@@ -449,7 +449,7 @@
     border-radius: 8px;
     /* optional */ overflow: hidden; 
 }
-/* Toggle button styling only for better way section */
+/* Scoped styles for 'There is always a better way' section */
 .better-way-cards .cards-view-toggle-btn {
   background-color: transparent;
   border: 2px solid #004B5E;
@@ -462,9 +462,9 @@
   margin-bottom: 1rem;
 }
 
-/* Carousel view styles */
+/* Carousel styling */
 .better-way-cards.carousel-view > ul {
-  display: flex !important;
+  display: flex;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   gap: 2rem;
@@ -477,7 +477,6 @@
   scroll-behavior: smooth;
 }
 
-/* Hide scrollbar */
 .better-way-cards.carousel-view > ul::-webkit-scrollbar {
   display: none;
 }

@@ -142,7 +142,7 @@ export default async function decorate(block) {
   navSections.className = 'nav-sections';
   navSections.style.display = 'none'; // Start hidden
 
-  navSections.innerHTML = `
+   navSections.innerHTML = `
     <div class="default-content-wrapper">
       <ul>
         <li><a href="https://www.atlascopcogroup.com/en/about-us">About us</a></li>
@@ -152,8 +152,13 @@ export default async function decorate(block) {
         <li><a href="https://www.atlascopcogroup.com/en/investors">Investors</a></li>
         <li><a href="https://www.atlascopcogroup.com/en/innovation">Innovation</a></li>
       </ul>
+      <ul class="nav-utility">
+        <li>English <i class="globe-icon">🌐</i></li>
+        <li>Search <i class="search-icon">🔍</i></li>
+      </ul>
     </div>
   `;
+
 
   // --- Toggle Menu Show/Hide ---
  hamburger.querySelector('button').addEventListener('click', () => {

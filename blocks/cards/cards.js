@@ -60,5 +60,29 @@ export default function decorate(block) {
       updateCarousel();
     }, 15000); // 15 seconds
   }
-  
+  // Find all cards blocks on the page
+document.querySelectorAll('.cards.block').forEach((block) => {
+  const cards = block.querySelectorAll('li h3');
+  cards.forEach((card) => {
+    if (card.textContent.trim() === 'The hunt for the unknow') {
+      block.classList.add('better-way-cards');
+
+      // Add toggle button
+      const toggleBtn = document.createElement('button');
+      toggleBtn.className = 'cards-view-toggle-btn';
+      toggleBtn.textContent = 'View as carousel';
+
+      toggleBtn.addEventListener('click', () => {
+        block.classList.toggle('carousel-view');
+        toggleBtn.textContent = block.classList.contains('carousel-view')
+          ? 'View as grid'
+          : 'View as carousel';
+      });
+
+      // Insert button before the cards list
+      block.insertBefore(toggleBtn, block.querySelector('ul'));
+    }
+  });
+});
+
 }

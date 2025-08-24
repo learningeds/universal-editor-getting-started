@@ -144,8 +144,8 @@
 }
 
 .cards .cards-card-body .button-container a:hover {
-  border-color: #005B9F;
-  text-decoration: none;
+ 
+  text-decoration: underline;
 }
 
 .cards .cards-card-body .button-container a:hover::before {

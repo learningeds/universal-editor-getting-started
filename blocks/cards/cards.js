@@ -2,7 +2,6 @@ import { createOptimizedPicture } from '../../scripts/aem.js';
 import { moveInstrumentation } from '../../scripts/scripts.js';
 
 export default function decorate(block) {
-  /* Step 1: Convert rows to UL > LI */
   const ul = document.createElement('ul');
   [...block.children].forEach(row => {
     const li = document.createElement('li');
@@ -15,7 +14,6 @@ export default function decorate(block) {
     ul.append(li);
   });
 
-  // Optimize pictures
   ul.querySelectorAll('picture > img').forEach(img => {
     const optimizedPic = createOptimizedPicture(img.src, img.alt, false, [{ width: '750' }]);
     moveInstrumentation(img, optimizedPic.querySelector('img'));
@@ -25,19 +23,16 @@ export default function decorate(block) {
   block.textContent = '';
   block.append(ul);
 
-  /* Step 2: Merge all cards into one combined carousel */
   const section = document.querySelector('[data-aue-resource*="section_1144820921"]');
   if (!section) return;
 
   const allCards = [];
 
-  // Collect from existing .combined-cards.carousel-view
   section.querySelectorAll('.combined-cards.carousel-view ul').forEach(ul => {
     allCards.push(...ul.children);
   });
   section.querySelectorAll('.combined-cards.carousel-view').forEach(c => c.remove());
 
-  // Collect from .cards-wrapper
   section.querySelectorAll('.cards-wrapper .cards.block ul').forEach(ul => {
     allCards.push(...ul.children);
   });
@@ -47,7 +42,6 @@ export default function decorate(block) {
 
   if (allCards.length === 0) return;
 
-  // Create combined container
   const combinedContainer = document.createElement('div');
   combinedContainer.className = 'combined-cards grid-view';
   const combinedUL = document.createElement('ul');
@@ -57,7 +51,6 @@ export default function decorate(block) {
   const ref = section.querySelector('.default-content-wrapper');
   ref ? ref.insertAdjacentElement('afterend', combinedContainer) : section.appendChild(combinedContainer);
 
-  // Create toggle button
   let toggleBtn = section.querySelector('.cards-view-toggle-btn');
   if (!toggleBtn) {
     toggleBtn = document.createElement('button');
@@ -66,21 +59,22 @@ export default function decorate(block) {
     section.insertBefore(toggleBtn, combinedContainer);
   }
 
-  // Create carousel arrows
   const prevBtn = document.createElement('button');
   prevBtn.className = 'carousel-arrow prev';
   prevBtn.textContent = '‹';
+
   const nextBtn = document.createElement('button');
   nextBtn.className = 'carousel-arrow next';
   nextBtn.textContent = '›';
+
   combinedContainer.append(prevBtn, nextBtn);
 
-  // Indicators
   const indicators = document.createElement('div');
   indicators.className = 'cards-carousel-indicators';
 
-  // Carousel behavior
-  let currentIndex = 0, isCarousel = false, intervalId;
+  let currentIndex = 0;
+  let isCarousel = false;
+  let intervalId;
 
   function updateIndicators() {
     indicators.innerHTML = '';
@@ -88,7 +82,11 @@ export default function decorate(block) {
       const dot = document.createElement('div');
       dot.className = 'dot';
       if (i === currentIndex) dot.classList.add('active');
-      dot.onclick = () => { currentIndex = i; updateCarousel(); resetAutoSlide(); };
+      dot.onclick = () => {
+        currentIndex = i;
+        updateCarousel();
+        resetAutoSlide();
+      };
       indicators.appendChild(dot);
     });
   }
@@ -118,10 +116,19 @@ export default function decorate(block) {
   }
 
   prevBtn.onclick = () => {
-    if (currentIndex > 0) { currentIndex--; updateCarousel(); resetAutoSlide(); }
+    if (currentIndex > 0) {
+      currentIndex--;
+      updateCarousel();
+      resetAutoSlide();
+    }
   };
+
   nextBtn.onclick = () => {
-    if (currentIndex < combinedUL.children.length - 1) { currentIndex++; updateCarousel(); resetAutoSlide(); }
+    if (currentIndex < combinedUL.children.length - 1) {
+      currentIndex++;
+      updateCarousel();
+      resetAutoSlide();
+    }
   };
 
   toggleBtn.onclick = () => {
@@ -153,7 +160,4 @@ export default function decorate(block) {
       toggleBtn.textContent = 'View as carousel';
     }
   };
-
-  combinedContainer.classList.add('grid-view');
-  combinedUL.style.display = 'grid';
 }

@@ -2,94 +2,79 @@ import { createOptimizedPicture } from '../../scripts/aem.js';
 import { moveInstrumentation } from '../../scripts/scripts.js';
 
 export default function decorate(block) {
-  const ul = document.createElement('ul');
-  [...block.children].forEach(row => {
-    const li = document.createElement('li');
-    moveInstrumentation(row, li);
-    while (row.firstElementChild) li.append(row.firstElementChild);
-    [...li.children].forEach(div => {
-      if (div.children.length === 1 && div.querySelector('picture')) div.className = 'cards-card-image';
-      else div.className = 'cards-card-body';
-    });
-    ul.append(li);
-  });
-
-  ul.querySelectorAll('picture > img').forEach(img => {
-    const optimizedPic = createOptimizedPicture(img.src, img.alt, false, [{ width: '750' }]);
-    moveInstrumentation(img, optimizedPic.querySelector('img'));
-    img.closest('picture').replaceWith(optimizedPic);
-  });
-
-  block.textContent = '';
-  block.append(ul);
+  // ... your existing ul creation and optimized picture code ...
 
   const section = document.querySelector('[data-aue-resource*="section_1144820921"]');
   if (!section) return;
 
-  // ====== Convert existing .cards-wrapper containers to .combined-cards ======
+  // Convert .cards-wrapper to .combined-cards.grid-view
   const cardsWrappers = Array.from(section.querySelectorAll('.cards-wrapper'));
   cardsWrappers.forEach(wrapper => {
-    if (!wrapper.classList.contains('combined-cards')) {
-      wrapper.classList.add('combined-cards');
-      wrapper.classList.remove('cards-wrapper');
-      wrapper.classList.add('grid-view');
-    }
+    wrapper.classList.add('combined-cards', 'grid-view');
+    wrapper.classList.remove('cards-wrapper');
   });
 
-  // ====== Collect all combined-cards containers ======
+  // Collect all cards from all combined-cards
   const combinedCardsContainers = Array.from(section.querySelectorAll('.combined-cards'));
   if (combinedCardsContainers.length === 0) return;
 
-  // Collect all cards (li elements) from all combined-cards containers
   const allCards = [];
   combinedCardsContainers.forEach(container => {
     const ul = container.querySelector('ul');
     if (ul) {
       allCards.push(...ul.children);
-      // Remove the old container since we'll rebuild
-      container.remove();
     }
+    container.remove();
   });
 
   if (allCards.length === 0) return;
 
-  // Create a new combined container with grid-view by default
+  // Create new combined container
   const combinedContainer = document.createElement('div');
   combinedContainer.className = 'combined-cards grid-view';
   const combinedUL = document.createElement('ul');
   combinedContainer.append(combinedUL);
   allCards.forEach(li => combinedUL.append(li));
 
+  // Insert combinedContainer after default-content-wrapper or at end of section
   const ref = section.querySelector('.default-content-wrapper');
-  if (ref) ref.insertAdjacentElement('afterend', combinedContainer);
-  else section.appendChild(combinedContainer);
+  if (ref) {
+    ref.insertAdjacentElement('afterend', combinedContainer);
+  } else {
+    section.appendChild(combinedContainer);
+  }
 
-  // ====== Create toggle button if not exists ======
+  // Create toggle button
   let toggleBtn = section.querySelector('.cards-view-toggle-btn');
   if (!toggleBtn) {
     toggleBtn = document.createElement('button');
     toggleBtn.className = 'cards-view-toggle-btn';
     toggleBtn.textContent = 'View as carousel';
-    // Insert before combinedContainer or prepend to section
-    if (combinedCardsContainers.length > 0) {
-      section.insertBefore(toggleBtn, combinedCardsContainers[0]);
-    } else {
-      section.prepend(toggleBtn);
-    }
+
+    // Insert toggle button right before combinedContainer for visibility
+    combinedContainer.before(toggleBtn);
   }
 
-  // ====== Create carousel arrows ======
+  // For debugging: make sure button is visible
+  toggleBtn.style.margin = '10px 0';
+  toggleBtn.style.padding = '10px 20px';
+  toggleBtn.style.cursor = 'pointer';
+  toggleBtn.style.fontSize = '1rem';
+
+  // Create arrows
   const prevBtn = document.createElement('button');
   prevBtn.className = 'carousel-arrow prev';
   prevBtn.textContent = '‹';
+  prevBtn.style.display = 'none';
 
   const nextBtn = document.createElement('button');
   nextBtn.className = 'carousel-arrow next';
   nextBtn.textContent = '›';
+  nextBtn.style.display = 'none';
 
   combinedContainer.append(prevBtn, nextBtn);
 
-  // ====== Create indicators container ======
+  // Indicators
   const indicators = document.createElement('div');
   indicators.className = 'cards-carousel-indicators';
 
@@ -168,7 +153,6 @@ export default function decorate(block) {
       startAutoSlide();
       toggleBtn.textContent = 'View as grid';
 
-      // Show arrows
       prevBtn.style.display = 'block';
       nextBtn.style.display = 'block';
     } else {
@@ -184,13 +168,8 @@ export default function decorate(block) {
       indicators.remove();
       toggleBtn.textContent = 'View as carousel';
 
-      // Hide arrows
       prevBtn.style.display = 'none';
       nextBtn.style.display = 'none';
     }
   };
-
-  // Initialize arrows hidden for grid view
-  prevBtn.style.display = 'none';
-  nextBtn.style.display = 'none';
 }

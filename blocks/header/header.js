@@ -105,37 +105,43 @@ function toggleMenu(nav, navSections, forceExpanded = null) {
 }
 
 export default async function decorate(block) {
+  // Clear existing content
+  block.textContent = '';
+
+  // Wrapper
   const navWrapper = document.createElement('div');
   navWrapper.className = 'nav-wrapper';
 
+  // Nav container
   const nav = document.createElement('nav');
   nav.id = 'nav';
   nav.setAttribute('aria-expanded', 'false');
 
-  // --- Brand Logo (left side) ---
+  // --- Left: Brand Logo ---
   const navBrand = document.createElement('div');
   navBrand.className = 'nav-brand';
   navBrand.innerHTML = `
     <div class="default-content-wrapper">
       <picture>
-        <img src="/adobe/dynamicmedia/deliver/dm-aid--c86512f3-6b96-434a-9919-ef3317c70777/atlas-copco-group-logo-header-1.webp?preferwebp=true&quality=85&width=1280" width="1600" height="468">
+        <img src="/adobe/dynamicmedia/deliver/dm-aid--c86512f3-6b96-434a-9919-ef3317c70777/atlas-copco-group-logo-header-1.webp?preferwebp=true&quality=85&width=160" width="160" height="46" alt="Atlas Copco Group">
       </picture>
     </div>
   `;
 
-  // --- Hamburger Menu (right side) ---
+  // --- Right: Hamburger Menu Button ---
   const hamburger = document.createElement('div');
-  hamburger.className = 'nav-hamburger';
+  hamburger.classList.add('nav-hamburger');
   hamburger.innerHTML = `
-    <button type="button" aria-controls="nav" aria-label="Open navigation">
-      <span class="nav-hamburger-icon"></span> Menu
+    <button type="button" aria-controls="nav" aria-label="Toggle navigation" id="menu-toggle">
+      <span class="nav-hamburger-icon"></span> <span class="menu-label">Menu</span>
     </button>
   `;
 
-  // --- Fullscreen Menu Content (initially hidden) ---
+  // --- Hidden Menu List ---
   const navSections = document.createElement('div');
   navSections.className = 'nav-sections';
-  navSections.style.display = 'none'; // Hide initially
+  navSections.style.display = 'none'; // Start hidden
+
   navSections.innerHTML = `
     <div class="default-content-wrapper">
       <ul>
@@ -149,17 +155,17 @@ export default async function decorate(block) {
     </div>
   `;
 
-  // --- Toggle menu on hamburger click ---
-  hamburger.addEventListener('click', () => {
-    const expanded = nav.getAttribute('aria-expanded') === 'true';
-    nav.setAttribute('aria-expanded', expanded ? 'false' : 'true');
-    navSections.style.display = expanded ? 'none' : 'block';
+  // --- Toggle Menu Show/Hide ---
+  hamburger.querySelector('button').addEventListener('click', () => {
+    const isOpen = nav.getAttribute('aria-expanded') === 'true';
+    nav.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+    navSections.style.display = isOpen ? 'none' : 'block';
   });
 
-  // Append all to nav and block
+  // Assemble navigation
   nav.append(navBrand, hamburger, navSections);
   navWrapper.append(nav);
-  block.textContent = '';
   block.append(navWrapper);
 }
+
 

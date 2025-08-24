@@ -596,8 +596,8 @@ main .section.imageovercard {
   background: none;
   color: #003049;
   border: 1px solid #003049;
-  padding: 10px 24px;
-  font-size: 13px;
+  padding: 20px 24px;
+  font-size: 15px;
   font-weight: 600;
   text-transform: uppercase;
   border-radius: 4px;
@@ -607,8 +607,7 @@ main .section.imageovercard {
 }
 
 .section.pressreleaseblock .button-container .button.secondary:hover {
-  background-color: #003049;
-  color: white;
+  background: linear-gradient(to left, #00837A, #004463);
 }
 .section.quote {
   display: flex;

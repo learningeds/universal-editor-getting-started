@@ -661,4 +661,20 @@ main .section.imageovercard {
   color: #1b1b1b;
   font-weight: 600;
 }
+/* Make the header overlay the hero image */
+.header-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* Ensure it's above the hero image */
+  background: transparent;
+  transition: background 0.3s ease;
+}
+
+/* When scrolled, add a class like .scrolled to reapply background if needed */
+.header-wrapper.scrolled {
+  background-color: #004B55; /* Your current header color */
+  position: fixed;
+}
 

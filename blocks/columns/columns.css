@@ -447,4 +447,5 @@
 .rightimagethentext .columns.block.columns-2-cols p {
   font-family: 'Noto Sans', Arial, Helvetica, sans-serif !important;
   font-weight: 200; /* Light font weight */
+    font-size: 18px !important;
 }

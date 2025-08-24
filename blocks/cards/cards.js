@@ -24,6 +24,8 @@ export default function decorate(block) {
 
 
   // ===== Carousel Toggle Script Starts =====
+
+  // Carousel toggle for "There is always a better way" section
   function addBetterWayCarouselToggle() {
     const section = document.querySelector('[data-aue-resource*="section_1144820921"]');
     if (!section) return;
@@ -31,17 +33,15 @@ export default function decorate(block) {
     const heading = section.querySelector('h1#there-is-always-a-better-way');
     if (!heading) return;
 
-    // Find the first relevant cards block that has the specific heading
     const cardsBlocks = section.querySelectorAll('.cards.block');
     let targetBlock = null;
 
     cardsBlocks.forEach((cardsBlock) => {
-      const hasTargetHeading = [...cardsBlock.querySelectorAll('h3')].some(
-        (h3) => h3.textContent.trim() === 'The hunt for the unknow'
-      );
-
-      if (hasTargetHeading && !targetBlock) {
-        targetBlock = cardsBlock;
+      if (!targetBlock) {
+        const hasTargetHeading = [...cardsBlock.querySelectorAll('h3')].some(
+          (h3) => h3.textContent.trim() === 'The hunt for the unknow'
+        );
+        if (hasTargetHeading) targetBlock = cardsBlock;
       }
     });
 
@@ -51,12 +51,10 @@ export default function decorate(block) {
     const cards = targetBlock.querySelectorAll('ul > li');
     const total = cards.length;
 
-    // Only apply carousel if more than 1 card
     if (total <= 1) return;
 
     targetBlock.classList.add('better-way-cards');
 
-    // Avoid adding toggle twice
     if (targetBlock.querySelector('.cards-view-toggle-btn')) return;
 
     const toggleBtn = document.createElement('button');
@@ -107,19 +105,18 @@ export default function decorate(block) {
       toggleBtn.textContent = isCarousel ? 'View as grid' : 'View as carousel';
 
       if (isCarousel) {
-        startAutoSlide();
         index = 0;
         updateCarousel();
+        startAutoSlide();
       } else {
         stopAutoSlide();
         track.style.transform = 'translateX(0)';
-        indicatorWrapper.querySelectorAll('.dot').forEach((dot) => dot.classList.remove('active'));
+        indicatorWrapper.querySelectorAll('.dot').forEach(dot => dot.classList.remove('active'));
       }
     });
 
     targetBlock.insertBefore(toggleBtn, track);
 
-    // Optional: Enable carousel initially if already in carousel-view mode
     if (targetBlock.classList.contains('carousel-view')) {
       startAutoSlide();
       updateCarousel();
@@ -127,7 +124,6 @@ export default function decorate(block) {
   }
 
   addBetterWayCarouselToggle();
-
   const section = block.closest('.section[data-aue-resource*="section_303714501"]');
   if (!section) return; // Exit if not in target section
   if (section) {

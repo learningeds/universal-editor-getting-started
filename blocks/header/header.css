@@ -1,3 +1,4 @@
+/* ==== Navigation Wrapper ==== */
 .nav-wrapper {
   display: flex !important;
   justify-content: space-between !important;
@@ -8,33 +9,31 @@
   z-index: 1000 !important;
 }
 
+/* ==== Nav Container ==== */
 #nav {
   display: flex !important;
   justify-content: space-between !important;
   align-items: center !important;
   width: 100% !important;
+  flex-wrap: wrap !important;
   position: relative !important;
 }
 
+/* ==== Logo ==== */
 .nav-brand {
   flex: 1 !important;
 }
-
-.nav-hamburger {
-  display: flex !important;
-  align-items: center !important;
-  cursor: pointer !important;
-  margin-left: auto !important;
-  z-index: 10001 !important; /* <- ensure hamburger stays above the menu */
-  position: relative !important;
-}
-
 
 .nav-brand img {
   height: 40px !important;
 }
 
-
+/* ==== Hamburger Button ==== */
+.nav-hamburger {
+  margin-left: auto !important;
+  z-index: 10001 !important;
+  position: relative !important;
+}
 
 .nav-hamburger button {
   background: none !important;
@@ -44,7 +43,6 @@
   display: flex !important;
   align-items: center !important;
   cursor: pointer !important;
-  position: relative !important;
 }
 
 .menu-label {
@@ -52,12 +50,11 @@
   border-bottom: 2px solid white !important;
 }
 
-/* Hamburger / X icon styling */
+/* ==== Hamburger Icon ==== */
 .nav-hamburger-icon {
   width: 20px !important;
   height: 2px !important;
   background-color: white !important;
-  display: inline-block !important;
   position: relative !important;
   transition: transform 0.3s ease !important;
 }
@@ -81,7 +78,6 @@
   top: 6px !important;
 }
 
-/* When menu is open: convert hamburger to X */
 [aria-expanded="true"] .nav-hamburger-icon {
   background-color: transparent !important;
 }
@@ -94,6 +90,7 @@
   transform: rotate(-45deg) translate(3px, -3px) !important;
 }
 
+/* ==== Dropdown Menu ==== */
 .nav-sections {
   position: absolute !important;
   top: 70px !important;
@@ -101,13 +98,18 @@
   right: 0 !important;
   background-color: white !important;
   z-index: 9999 !important;
-  padding: 20px !important;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important;
   display: none !important;
+  overflow: hidden !important;
+  border-top: 1px solid #ccc !important;
 }
 
 .nav-sections[style*="display: block"] {
   display: block !important;
+}
+
+.nav-sections .default-content-wrapper {
+  padding: 0 !important;
 }
 
 .nav-sections ul {
@@ -116,21 +118,51 @@
   margin: 0 !important;
 }
 
+/* ==== Main List Items ==== */
 .nav-sections li {
   margin: 0 !important;
   padding: 16px !important;
   border-bottom: 1px solid #ddd !important;
   background-color: #fff !important;
-  transition: background 0.3s ease !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
 }
 
-.nav-sections li:hover {
-  background-color: #f5f5f5 !important;
-}
-
-.nav-sections a {
+.nav-sections li a {
   color: #003f48 !important;
   text-decoration: none !important;
   font-size: 18px !important;
   font-weight: 600 !important;
+  flex: 1 !important;
+}
+
+.nav-sections li::after {
+  content: '›' !important;
+  color: #003f48 !important;
+  font-size: 18px !important;
+  padding-left: 8px !important;
+}
+
+/* ==== Bottom Utility Section (Language & Search) ==== */
+.nav-utility {
+  background-color: #f5f8f9 !important;
+  border-top: 1px solid #ddd !important;
+}
+
+.nav-utility li {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  padding: 16px !important;
+  font-size: 16px !important;
+  color: #003f48 !important;
+  border-bottom: 1px solid #ddd !important;
+}
+
+.nav-utility li i {
+  font-style: normal !important;
+  font-size: 18px !important;
+  color: #003f48 !important;
+  padding-left: 8px !important;
 }

@@ -149,140 +149,150 @@
 .cards .cards-card-body .button-container a:hover::before {
   transform: translateY(-1px);
 }
-/* Container setup */
 .upcomingeventscards {
-  background-color: #04424d;
-  padding: 30px 60px;
+  background-color: #003a46;
+  padding: 30px 60px; /* padding around container */
   color: #fff;
-  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  font-family: Georgia, serif;
+  max-width: 1440px;
+  margin: 0 auto; /* center container */
   box-sizing: border-box;
 }
 
-/* Section title */
-.upcomingeventscards .default-content-wrapper > h1 {
-  margin-bottom: 40px;
-  font-size: 1.75rem;
+.upcomingeventscards > .default-content-wrapper > h1 {
   font-weight: 400;
+  font-size: 1.75rem;
+  margin-bottom: 40px;
   color: #fff;
+  text-align: left;
 }
 
-/* Grid layout for cards */
 .upcomingeventscards .cards-wrapper {
-  display: grid;
-  grid-template-columns: 2.5fr 1fr;
-  gap: 30px;
-}
-
-/* Let ul>li participate in the grid automatically */
-.upcomingeventscards .cards.block > ul {
-  display: contents;
-}
-
-/* Card container style */
-.upcomingeventscards .cards.block > ul > li {
-  background-color: #054e5a !important;
-  color: #fff;
-  border-radius: 0;
-  padding: 0; /* We'll style inner container */
   display: flex;
-  flex-direction: column;
+  gap: 30px;
+  justify-content: flex-start;
+  align-items: stretch;
+}
+
+.upcomingeventscards .cards-wrapper > div.cards.block > ul {
+  display: flex;
+  gap: 30px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  width: 100%;
   box-sizing: border-box;
 }
 
-/* Inner body of card */
-.upcomingeventscards .cards.block > ul > li > .cards-card-body:last-child {
-  background: transparent;
-  padding: 24px;
+.upcomingeventscards .cards-wrapper > div.cards.block > ul > li {
+  background-color: #00464f;
+  border-radius: 12px;
+  padding: 30px 25px;
+  flex: 1 1 30%; /* allow flex growth, basis ~30% width */
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  min-height: 260px;
-}
-
-/* First card: rounded top-left */
-.upcomingeventscards .cards.block > ul > li:nth-child(1) > .cards-card-body:last-child {
-  border-top-left-radius: 12px;
-}
-
-/* Cards 2 and 3: no rounding */
-.upcomingeventscards .cards.block > ul > li:nth-child(2) > .cards-card-body:last-child,
-.upcomingeventscards .cards.block > ul > li:nth-child(3) > .cards-card-body:last-child {
-  border-radius: 0;
-}
-
-/* Kicker / pre-title and meta */
-.upcomingeventscards .cards-card-body p:first-child,
-.upcomingeventscards .cards-card-body p:nth-child(2) {
-  text-transform: uppercase;
-  font-size: 0.75rem;
-  letter-spacing: 0.1em;
-  margin: 0;
-  font-weight: 600;
-  color: #7aa6ab;
-}
-
-/* Title (h3) */
-.upcomingeventscards .cards-card-body h3 {
-  font-size: 1.5rem;
-  font-weight: 500;
-  line-height: 1.3;
-  margin: 0.5rem 0 1rem 0;
+  justify-content: flex-start;
+  min-width: 280px;
+  max-width: 480px; /* limit max width for each card */
+  box-sizing: border-box;
   color: #fff;
+  height: 460px; /* fixed height for all cards for consistent alignment */
 }
 
-/* Paragraph description (when present) */
-.upcomingeventscards .cards-card-body p:nth-child(3) {
+.upcomingeventscards .cards-wrapper > div.cards.block > ul > li p:first-child {
+  margin-bottom: 12px;
+}
+
+/* Date box styling for 2nd and 3rd cards */
+.upcomingeventscards .cards-wrapper > div.cards.block > ul > li:nth-child(2) p:first-child,
+.upcomingeventscards .cards-wrapper > div.cards.block > ul > li:nth-child(3) p:first-child {
+  font-weight: 700;
+  font-size: 1.7rem;
+  color: #f5a33e;
+  border: 1px solid #f5a33e;
+  width: 50px;
+  height: 62px;
+  line-height: 1.1;
+  text-align: center;
+  padding: 5px 0;
+  white-space: pre-line;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+/* Quarter release heading style */
+.upcomingeventscards .cards-wrapper > div.cards.block > ul > li:nth-child(n+2) p:nth-child(2) {
+  color: #98a1a6;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin: 0 0 10px 0;
+  font-weight: 600;
+}
+
+/* Titles */
+.upcomingeventscards .cards-wrapper > div.cards.block > ul > li h3 {
+  font-weight: 500;
+  font-size: 1.4rem;
+  line-height: 1.3;
+  margin: 0 0 10px 0;
+    color: white;
+}
+
+/* Paragraph styling (same font size for all paragraphs) */
+.upcomingeventscards .cards-wrapper > div.cards.block > ul > li p {
   font-size: 1rem;
   color: #fff;
   line-height: 1.5;
-  margin: 0 0 8px 0;
+  margin-bottom: 20px;
 }
 
-/* Link */
-.upcomingeventscards .cards-card-body .button, 
-.upcomingeventscards .cards-card-body a {
-  color: #fff;
-  text-decoration: underline;
-  font-size: 0.95rem;
+/* Investors text style */
+.upcomingeventscards .cards-wrapper > div.cards.block > ul > li:nth-child(1) p:nth-child(1) {
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  color: #7aa6ab;
+  letter-spacing: 0.1em;
   font-weight: 600;
-  margin-top: auto;
-  display: inline-block;
 }
 
-/* CTA 'Show more' button */
+/* Link styling on first card */
+.upcomingeventscards .cards-wrapper > div.cards.block > ul > li:nth-child(1) a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.3s ease;
+}
+
+.upcomingeventscards .cards-wrapper > div.cards.block > ul > li:nth-child(1) a:hover {
+  border-color: #f5a33e;
+}
+
+/* Button styling */
 .upcomingeventscards .button-container {
-  text-align: center;
   margin-top: 40px;
+  text-align: center;
 }
 
-.upcomingeventscards .button.secondary {
+.upcomingeventscards .button-container a.button.secondary {
   border: 1px solid #f5a33e;
   color: #f5a33e;
   padding: 10px 25px;
-  font-size: 0.9rem;
   font-weight: 700;
+  font-size: 0.9rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   text-decoration: none;
-  transition: background-color 0.25s, color 0.25s;
+  display: inline-block;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.upcomingeventscards .button.secondary:hover {
+.upcomingeventscards .button-container a.button.secondary:hover {
   background-color: #f5a33e;
   color: #003a46;
-}
-
-/* Responsive stacking */
-@media(max-width: 900px) {
-  .upcomingeventscards {
-    padding: 24px;
-  }
-
-  .upcomingeventscards .cards-wrapper {
-    grid-template-columns: 1fr;
-  }
-
-  .upcomingeventscards .cards.block > ul > li:first-child > .cards-card-body:last-child {
-    border-top-left-radius: 12px;
-  }
+  text-decoration: none;
 }

@@ -676,6 +676,7 @@ main .section.imageovercard {
 .header-wrapper.scrolled {
   background-color: #004B55; /* Your current header color */
   position: fixed;
+    height: 5rem;
 }
 
 ..nav-wrapper {

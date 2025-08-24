@@ -632,16 +632,16 @@ main .section.imageovercard {
   color: #004b5e;
   line-height: 1.6;
   position: relative;
-  padding-left: 3rem;
-    padding-right: 25rem;
-    font-size: 28px;
-  font-family: Georgia, serif;
-  font-weight: 400;
+  padding-left: 3rem !important;
+    padding-right: 25rem !important;
+    font-size: 28px !important;
+  font-family: Georgia, serif !important;
+  font-weight: 400 !important;
 }
 
 .section.quote .default-content-wrapper h3::before {
   content: "“";
- font-size: 10rem;
+ font-size: 10rem !important;
   color: #004b5e;
   position: absolute;
   left: 0;

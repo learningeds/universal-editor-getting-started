@@ -391,7 +391,10 @@
   background-size: cover;
   background-repeat: no-repeat;
   border-radius: 8px;
-    
+    border-top-left-radius: 20px; /* Rounded top-left */
+  border-top-right-radius: 20px; /* Rounded top-right */
+  border-bottom-right-radius: 20px; /* Rounded bottom-right */
+  border-bottom-left-radius: 0px; /* Sharp bottom-left corner */
   position: absolute;
   top: 0;
   left: 0;
@@ -421,4 +424,15 @@
 }
 .rightimagethentext .columns-img-col .top-right-link {
   display: none !important;
+}
+.rightimagethentext .columns-2-cols > div:last-child a {
+  font-size: 1.1rem;
+  font-weight: 500;
+  text-decoration: none; /* Remove underline by default */
+  color: #0077cc; /* Set the link color */
+}
+
+.rightimagethentext .columns-2-cols > div:last-child a:hover {
+  text-decoration: underline; /* Underline on hover */
+  color: #005b8c; /* Darker color on hover (optional) */
 }

@@ -194,11 +194,12 @@ export function getThemeFromUrl() {
 }
 
 loadPage();
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 0) {
-    document.body.classList.add('scrolled');
-  } else {
-    document.body.classList.remove('scrolled');
-  }
-});
+ window.addEventListener('scroll', function () {
+    const header = document.querySelector('.header-wrapper');
+    if (window.scrollY > 50) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+  });
 

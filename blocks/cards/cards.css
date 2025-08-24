@@ -149,44 +149,203 @@
 .cards .cards-card-body .button-container a:hover::before {
   transform: translateY(-1px);
 }
-.upcomingeventscards{
-background-color: #04424d;
- padding: 30px 60px; 
- color: #fff;
- font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; width: 100%; margin: 0 auto; box-sizing: border-box; } /* Heading */ .upcomingeventscards .default-content-wrapper > h1{ font-weight: 400; font-size: 1.75rem; margin-bottom: 40px; color: #fff; text-align: left; } /* Card list reset */ .upcomingeventscards .cards{ list-style: none; padding: 0; margin: 0; box-sizing: border-box; display: block; /* layout controlled by variant */ } /* Card base */ .upcomingeventscards .card{ background: #fff; color: #222; border-radius: 12px; padding: 24px; box-shadow: 0 6px 18px rgba(0,0,0,0.08); box-sizing: border-box; display: flex; flex-direction: column; gap: 12px; min-height: 220px; } /* kicker / investors text */ .upcomingeventscards .card .kicker{ text-transform: uppercase; font-size: 0.75rem; color: #7aa6ab; letter-spacing: 0.1em; font-weight: 600; margin: 0; } /* meta (quarterly release label) */ .upcomingeventscards .card .meta{ color: #98a1a6; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; margin: 0; font-weight: 600; } /* Title */ .upcomingeventscards .card h3{ font-weight: 500; font-size: 1.4rem; line-height: 1.3; margin: 0; color: #003a46; /* teal heading to match brand */ } /* excerpt */ .upcomingeventscards .card .excerpt{ font-size: 1rem; color: #333; line-height: 1.5; margin: 0 0 8px 0; } /* link */ .upcomingeventscards .card .card-link{ color: #003a46; text-decoration: none; font-weight: 600; font-size: 0.95rem; margin-top: auto; /* push to bottom in a flex column */ } /* date box */ .upcomingeventscards .date-box{ width: 56px; min-height: 62px; border: 1px solid #f5a33e; color: #f5a33e; display: flex; flex-direction: column; justify-content: center; align-items: center; font-weight: 700; font-size: 1.2rem; line-height: 1; border-radius: 6px; } /* CTA button */ .upcomingeventscards .button-container{ margin-top: 40px; text-align: center; } .upcomingeventscards .button.secondary{ border: 1px solid #f5a33e; color: #f5a33e; padding: 10px 25px; font-weight: 700; font-size: 0.9rem; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; display: inline-block; transition: background-color 0.25s ease, color 0.25s ease; } .upcomingeventscards .button.secondary:hover{ background-color: #f5a33e; color: #003a46; } /* Responsive baseline */ @media (max-width: 900px){ .upcomingeventscards{ padding: 24px; } } /* container for card row */ .upcomingeventscards .cards-wrapper{ display: flex; gap: 30px; justify-content: flex-start; align-items: stretch; } /* make the UL behave as flex row */ .upcomingeventscards .cards{ display: flex; gap: 30px; width: 100%; } /* each card flex rules */ .upcomingeventscards .card{ flex: 1 1 30%; min-width: 260px; max-width: 480px; height: auto; /* avoid fixed height */ } /* Align date-box for event cards on top-left within the card */ .upcomingeventscards .card--event{ gap: 10px; } .upcomingeventscards .card--event .date-box{ align-self: flex-start; } /* small-screen stacking */ @media (max-width: 800px){ .upcomingeventscards .cards{ flex-direction: column; } } /* Use grid to create left wide + right stacked pattern */ .upcomingeventscards .cards-wrapper{ display: grid; grid-template-columns: 3fr 30px; gap: 30px; align-items: start; padding-left: 6rem !important; } /* UL remains the container; we place the cards differently: - first list item should be placed in left column (spanning) - next two list items in right column stacked */ .upcomingeventscards .cards{ display: contents; /* allows cards to be children of grid */ } /* assign positions */ .upcomingeventscards .card--report{ grid-column: 1 / 2; } .upcomingeventscards .card--event{ grid-column: 2 / 3; } /* stack the two event cards vertically */ .upcomingeventscards .card--event + .card--event{ 
-margin-top: 16px;
+.upcomingeventscards {
+  background-color: #04424d;
+  padding: 30px 60px;
+  color: #fff;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
 }
-/* All cards background and text color */
-.upcomingeventscards .cards > ul > li {
-  background-color: #054e5a !important;
-  color: #fff !important;
-  border-radius: 0; /* remove default rounded corners */
+
+.upcomingeventscards .default-content-wrapper > h1 {
+  font-weight: 400;
+  font-size: 1.75rem;
+  margin-bottom: 40px;
+  color: #fff;
+  text-align: left;
+}
+
+/* Card list reset */
+.upcomingeventscards .cards {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: contents;
+}
+
+/* Card base */
+.upcomingeventscards .card {
+  background: #054e5a;
+  color: #fff;
+  border-radius: 0;
+  padding: 24px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-height: 220px;
   box-shadow: none;
 }
-/* Fix text inside cards */
-.upcomingeventscards .cards > ul > li h3,
-.upcomingeventscards .cards > ul > li .meta,
-.upcomingeventscards .cards > ul > li .excerpt,
-.upcomingeventscards .cards > ul > li.kicker,
-.upcomingeventscards .cards > ul > li a {
-  color: #fff !important;
+
+/* Kicker / pre-title */
+.upcomingeventscards .card .kicker {
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  color: #7aa6ab;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  margin: 0;
 }
 
-.upcomingeventscards .cards > ul > li a {
-  text-decoration: underline;
-}
-/* Target first card only and give it a special corner radius */
-.upcomingeventscards li:first-child .card {
-  border-top-left-radius: 24px;
-  border-top-right-radius: 0;
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
+/* Meta subtitle */
+.upcomingeventscards .card .meta {
+  color: #98a1a6;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  margin: 0;
 }
 
-/* responsive: stack into single column on small screens */
-@media (max-width: 900px){
-.upcomingeventscards .cards-wrapper{
-    grid-template-columns: 1fr; }
-.upcomingeventscards .card--event{ 
-    grid-column: 1 / -1; } }
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+/* Title */
+.upcomingeventscards .card h3 {
+  font-family: 'Georgia', serif;
+  font-weight: 500;
+  font-size: 1.55rem;
+  line-height: 1.3;
+  margin: 0;
+  color: #ffffff;
+}
+
+/* Excerpt text */
+.upcomingeventscards .card .excerpt {
+  font-size: 1rem;
+  color: #ffffff;
+  line-height: 1.5;
+  margin: 0 0 8px 0;
+  font-weight: 400;
+}
+
+/* Link */
+.upcomingeventscards .card .card-link {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  margin-top: auto;
+  display: inline-block;
+  border-bottom: 1px solid transparent;
+  transition: border 0.2s ease;
+}
+
+.upcomingeventscards .card .card-link:hover {
+  border-bottom: 1px solid #ffffff;
+}
+
+/* Arrow (optional, inline) */
+.upcomingeventscards .card .card-link::before {
+  content: '→';
+  display: inline-block;
+  margin-right: 8px;
+  font-size: 1.1rem;
+}
+
+/* Date Box */
+.upcomingeventscards .date-box {
+  width: 66px;
+  min-height: 68px;
+  border: 1px solid #f5a33e;
+  color: #f5a33e;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  font-size: 1.25rem;
+  line-height: 1;
+  border-radius: 6px;
+  padding: 6px;
+  text-align: center;
+}
+
+.upcomingeventscards .date-box .day {
+  font-size: 1.6rem;
+  line-height: 1;
+}
+
+.upcomingeventscards .date-box .month-year {
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-top: 4px;
+  letter-spacing: 0.05em;
+}
+
+/* Button CTA */
+.upcomingeventscards .button-container {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.upcomingeventscards .button.secondary {
+  border: 1px solid #f5a33e;
+  color: #f5a33e;
+  padding: 10px 25px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.upcomingeventscards .button.secondary:hover {
+  background-color: #f5a33e;
+  color: #003a46;
+}
+
+/* Grid Layout */
+.upcomingeventscards .cards-wrapper {
+  display: grid;
+  grid-template-columns: 3fr 30px;
+  gap: 30px;
+  align-items: start;
+  padding-left: 6rem !important;
+}
+
+.upcomingeventscards .card--report {
+  grid-column: 1 / 2;
+  border-radius: 24px 0 0 0;
+}
+
+.upcomingeventscards .card--event {
+  grid-column: 2 / 3;
+  gap: 10px;
+}
+
+.upcomingeventscards .card--event + .card--event {
+  margin-top: 16px;
+}
+
+.upcomingeventscards .card--event .date-box {
+  align-self: flex-start;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .upcomingeventscards {
+    padding: 24px;
+  }
+
+  .upcomingeventscards .cards-wrapper {
+    grid-template-columns: 1fr;
+    padding-left: 0 !important;
+  }
+
+  .upcomingeventscards .card--event {
+    grid-column: 1 / -1;
+  }
+}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               

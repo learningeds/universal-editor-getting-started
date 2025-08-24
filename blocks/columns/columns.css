@@ -441,14 +441,3 @@
   text-decoration: underline; /* Underline on hover */
   color: #005b8c; /* Darker color on hover (optional) */
 }
-.rightimagethentext .columns-2-cols > div:last-child p {
-  font-size: 1.2rem;
-  line-height: 1.6;
-  margin-bottom: 1rem;
-  max-width: 90%;
-}
-
-.rightimagethentext .columns-2-cols > div:last-child a:hover {
-  text-decoration: underline; /* Underline on hover */
-  color: #005b8c; /* Darker color on hover (optional) */
-}

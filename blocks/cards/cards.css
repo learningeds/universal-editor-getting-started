@@ -157,7 +157,7 @@ background-color: #04424d;
 margin-top: 16px;
 }
 /* All cards background and text color */
-.upcomingeventscards .card {
+.upcomingeventscards .cards > ul > li {
   background-color: #054e5a !important;
   color: #fff !important;
   border-radius: 0; /* remove default rounded corners */

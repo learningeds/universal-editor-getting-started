@@ -235,10 +235,10 @@
   border-radius: 12px;
   padding: 20px;
   position: relative;
-  overflow: hidden; /* to clip any overflow */
+  overflow: hidden;
 }
 
-/* Combined cards grid (default view) */
+/* Grid view styles */
 .combined-cards.grid-view > ul {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -252,8 +252,8 @@
 .combined-cards.carousel-view > ul {
   display: flex !important;
   flex-wrap: nowrap !important;
-  overflow-x: hidden !important; /* hide native scroll for smoother transform */
-  scroll-snap-type: none !important; /* disable snap, using JS transform */
+  overflow-x: hidden !important;
+  scroll-snap-type: none !important;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
   gap: 2rem;
@@ -261,18 +261,19 @@
   margin: 0;
   list-style: none;
   position: relative;
+  width: 100%;
 }
 
 /* Each card in combined carousel */
 .combined-cards.carousel-view > ul > li {
-  flex: 0 0 100%; /* full width */
+  flex: 0 0 100%;
   max-width: 100%;
   scroll-snap-align: none;
   list-style: none;
   transition: transform 0.5s ease;
 }
 
-/* Hide scroll bar in combined carousel */
+/* Hide scrollbar in combined carousel */
 .combined-cards.carousel-view > ul::-webkit-scrollbar {
   display: none;
 }
@@ -280,6 +281,32 @@
 .combined-cards.carousel-view > ul {
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+/* Indicators */
+.cards-carousel-indicators {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 1rem;
+}
+
+.cards-carousel-indicators .dot {
+  width: 12px;
+  height: 12px;
+  background-color: #ccc;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.cards-carousel-indicators .dot.active {
+  background-color: #004B5E;
+}
+
+.cards-carousel-indicators .dot:focus {
+  outline: 2px solid #004B5E;
+  outline-offset: 2px;
 }
 
 /* Section 1144820921 Scoped Styles */

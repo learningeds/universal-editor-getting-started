@@ -155,8 +155,12 @@ export default async function decorate(block) {
     </div>
   `;
 
- hamburger.querySelector('button').addEventListener('click', () => {
-  const isOpen = nav.getAttribute('aria-expanded') === 'true';
+  // --- Toggle Menu Show/Hide ---
+  hamburger.querySelector('button').addEventListener('click', () => {
+    const isOpen = nav.getAttribute('aria-expanded') === 'true';
+    nav.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+    navSections.style.display = isOpen ? 'none' : 'block';
+     const isOpen = nav.getAttribute('aria-expanded') === 'true';
 
   // Toggle nav open/close state
   nav.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
@@ -166,13 +170,11 @@ export default async function decorate(block) {
 
   // Toggle only icon state via class
   hamburger.classList.toggle('open', !isOpen);
-});
-
+  });
 
   // Assemble navigation
   nav.append(navBrand, hamburger, navSections);
   navWrapper.append(nav);
   block.append(navWrapper);
 }
-
 

@@ -23,14 +23,36 @@ const ul = document.createElement('ul');
   block.textContent = '';
   block.append(ul);
 
-  // Find the main section containing combined-cards
-  const section = document.querySelector('[data-aue-resource*="section_1144820921"]');
+   const section = document.querySelector('[data-aue-resource*="section_1144820921"]');
   if (!section) return;
 
-  // Select all combined-cards containers on the page
-  const combinedCardsContainers = Array.from(section.querySelectorAll('.combined-cards'));
+  // Collect all cards from multiple sections
+  const allCards = [];
+  
+  section.querySelectorAll('.combined-cards.carousel-view ul').forEach(ul => {
+    allCards.push(...ul.children);
+  });
+  section.querySelectorAll('.combined-cards.carousel-view').forEach(c => c.remove());
 
-  if (combinedCardsContainers.length === 0) return;
+  section.querySelectorAll('.cards-wrapper .cards.block ul').forEach(ul => {
+    allCards.push(...ul.children);
+  });
+  section.querySelectorAll('.cards-wrapper').forEach(wrapper => {
+    wrapper.style.display = 'none';
+  });
+
+  if (allCards.length === 0) return;
+
+  // Create combined container
+  const combinedContainer = document.createElement('div');
+  combinedContainer.className = 'combined-cards grid-view';
+  const combinedUL = document.createElement('ul');
+  combinedContainer.append(combinedUL);
+  allCards.forEach(li => combinedUL.append(li));
+
+  const ref = section.querySelector('.default-content-wrapper');
+  ref ? ref.insertAdjacentElement('afterend', combinedContainer) : section.appendChild(combinedContainer);
+
 
   // Create toggle button once
   let toggleBtn = section.querySelector('.cards-view-toggle-btn');

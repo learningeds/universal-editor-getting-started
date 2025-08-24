@@ -449,3 +449,47 @@
     border-radius: 8px;
     /* optional */ overflow: hidden; 
 }
+/* ==== Scoped styles for carousel toggle only on first block ==== */
+
+/* Carousel toggle button style */
+.cards.block[data-aue-resource*="section_1144820921/block"] .cards-view-toggle-btn {
+  background: none;
+  border: 2px solid #005B9F;
+  color: #005B9F;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  margin-bottom: 1rem;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+/* Default grid layout (already in place) */
+
+.cards.block[data-aue-resource*="section_1144820921/block"].carousel-view > ul {
+  display: flex !important;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  gap: 2rem;
+  padding: 1rem 0;
+  scroll-behavior: smooth;
+}
+
+/* Ensure cards snap in carousel mode */
+.cards.block[data-aue-resource*="section_1144820921/block"].carousel-view > ul > li {
+  flex: 0 0 80%;
+  scroll-snap-align: start;
+}
+
+/* Hide scrollbar */
+.cards.block[data-aue-resource*="section_1144820921/block"].carousel-view > ul::-webkit-scrollbar {
+  display: none;
+}
+
+/* Optional: make carousel mobile-first */
+@media (max-width: 768px) {
+  .cards.block[data-aue-resource*="section_1144820921/block"].carousel-view > ul > li {
+    flex: 0 0 90%;
+  }
+}

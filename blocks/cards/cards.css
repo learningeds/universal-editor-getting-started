@@ -325,8 +325,7 @@
   margin: 0;
   list-style: none;
   justify-content: flex-start;
-    margin-left: 3rem !important;
-}
+    }
 
 /* Individual card box */
 .groupcards .cards-wrapper li {

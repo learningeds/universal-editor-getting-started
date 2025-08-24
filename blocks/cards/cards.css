@@ -449,3 +449,35 @@
     border-radius: 8px;
     /* optional */ overflow: hidden; 
 }
+/* Toggle button styling only for better way section */
+.better-way-cards .cards-view-toggle-btn {
+  background-color: transparent;
+  border: 2px solid #004B5E;
+  color: #004B5E;
+  padding: 0.5rem 1.2rem;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-bottom: 1rem;
+}
+
+/* Carousel view styles */
+.better-way-cards.carousel-view > ul {
+  display: flex !important;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  gap: 2rem;
+  padding: 1rem 0;
+}
+
+.better-way-cards.carousel-view > ul > li {
+  flex: 0 0 80%;
+  scroll-snap-align: start;
+  scroll-behavior: smooth;
+}
+
+/* Hide scrollbar */
+.better-way-cards.carousel-view > ul::-webkit-scrollbar {
+  display: none;
+}

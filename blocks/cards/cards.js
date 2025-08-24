@@ -21,55 +21,112 @@ export default function decorate(block) {
   });
   block.textContent = '';
   block.append(ul);
- function addBetterWayCarouselToggle() {
-  const heading = document.querySelector('h1#there-is-always-a-better-way');
-  if (!heading) return;
+  // Function to add toggle button and carousel logic to the "better way" cards blocks
+    function addBetterWayCarouselToggle() {
+        // Find the heading to locate related cards blocks
+        const heading = document.querySelector('h1#there-is-always-a-better-way');
+        if (!heading) return;
 
-  // Start from the next sibling of heading's parent
-  let current = heading.parentElement.nextElementSibling;
+        // Traverse siblings to find cards blocks related to the heading
+        let current = heading.parentElement.nextElementSibling;
+        while (current) {
+            const cardsBlock = current.querySelector('.cards.block');
+            if (cardsBlock) {
+                // Check if the cards block contains a specific card heading to identify target blocks
+                const containsTargetHeading = [...cardsBlock.querySelectorAll('h3')].some(
+                    (h3) => h3.textContent.trim() === 'The hunt for the unknow'
+                );
 
-  while (current) {
-    // Instead of querySelector (which finds the first), use querySelectorAll to get all `.cards.block` in the current sibling
-    const cardsBlocks = current.querySelectorAll('.cards.block');
+                if (containsTargetHeading) {
+                    cardsBlock.classList.add('better-way-cards');
 
-    cardsBlocks.forEach((cardsBlock) => {
-      const containsTargetHeading = [...cardsBlock.querySelectorAll('h3')].some(
-        (h3) => h3.textContent.trim() === 'The hunt for the unknow'
-      );
+                    // Insert toggle button if not already present
+                    if (!cardsBlock.querySelector('.cards-view-toggle-btn')) {
+                        const toggleBtn = document.createElement('button');
+                        toggleBtn.className = 'cards-view-toggle-btn';
+                        toggleBtn.textContent = 'View as carousel';
 
-      if (containsTargetHeading) {
-        cardsBlock.classList.add('better-way-cards');
+                        // Carousel state
+                        let index = 0;
+                        let intervalId;
 
-        // Add toggle button if not already present
-        if (!cardsBlock.querySelector('.cards-view-toggle-btn')) {
-          const toggleBtn = document.createElement('button');
-          toggleBtn.className = 'cards-view-toggle-btn';
-          toggleBtn.textContent = 'View as carousel';
+                        // Grab ul and li cards inside this cardsBlock
+                        const track = cardsBlock.querySelector('ul');
+                        const cards = cardsBlock.querySelectorAll('ul > li');
+                        const total = cards.length;
 
-          toggleBtn.addEventListener('click', () => {
-            cardsBlock.classList.toggle('carousel-view');
-            toggleBtn.textContent = cardsBlock.classList.contains('carousel-view')
-              ? 'View as grid'
-              : 'View as carousel';
-          });
+                        // Create carousel indicators container
+                        const indicatorWrapper = document.createElement('div');
+                        indicatorWrapper.className = 'cards-carousel-indicators';
 
-          // Insert the button before the <ul> (which should always be there)
-          const ul = cardsBlock.querySelector('ul');
-          if (ul) {
-            cardsBlock.insertBefore(toggleBtn, ul);
-          } else {
-            // If no ul found, append at end just in case
-            cardsBlock.appendChild(toggleBtn);
-          }
+                        // Create dots for indicators
+                        for (let i = 0; i < total; i++) {
+                            const dot = document.createElement('div');
+                            dot.className = 'dot';
+                            if (i === 0) dot.classList.add('active');
+                            dot.addEventListener('click', () => {
+                                index = i;
+                                updateCarousel();
+                            });
+                            indicatorWrapper.appendChild(dot);
+                        }
+                        cardsBlock.appendChild(indicatorWrapper);
+
+                        // Update carousel position and active dot
+                        function updateCarousel() {
+                            track.style.transform = `translateX(-${index * 100}%)`;
+                            indicatorWrapper.querySelectorAll('.dot').forEach((dot, i) => {
+                                dot.classList.toggle('active', i === index);
+                            });
+                        }
+
+                        // Start automatic sliding
+                        function startAutoSlide() {
+                            intervalId = setInterval(() => {
+                                index = (index + 1) % total;
+                                updateCarousel();
+                            }, 15000);
+                        }
+
+                        // Stop automatic sliding
+                        function stopAutoSlide() {
+                            clearInterval(intervalId);
+                        }
+
+                        // Handle toggle button click: switch between grid and carousel views
+                        toggleBtn.addEventListener('click', () => {
+                            cardsBlock.classList.toggle('carousel-view');
+                            const isCarousel = cardsBlock.classList.contains('carousel-view');
+
+                            toggleBtn.textContent = isCarousel ? 'View as grid' : 'View as carousel';
+
+                            if (isCarousel) {
+                                startAutoSlide();
+                                index = 0;
+                                updateCarousel();
+                            } else {
+                                stopAutoSlide();
+                                track.style.transform = 'translateX(0)';
+                                indicatorWrapper.querySelectorAll('.dot').forEach((dot) => dot.classList.remove('active'));
+                            }
+                        });
+
+                        // Append the toggle button before the ul
+                        cardsBlock.insertBefore(toggleBtn, track);
+
+                        // If block is initially in carousel view, activate carousel behavior
+                        if (cardsBlock.classList.contains('carousel-view')) {
+                            startAutoSlide();
+                            updateCarousel();
+                        }
+                    }
+                }
+            }
+            current = current.nextElementSibling;
         }
-      }
-    });
+    }
 
-    current = current.nextElementSibling;
-  }
-}
-
-addBetterWayCarouselToggle();
+    addBetterWayCarouselToggle();
 
   const section = block.closest('.section[data-aue-resource*="section_303714501"]');
   if (!section) return; // Exit if not in target section

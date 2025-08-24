@@ -449,3 +449,97 @@
   font-weight: 200; /* Light font weight */
     font-size: 18px !important;
 }
+/* Styling for LeftImageThenText Section */
+.leftimagethentext .columns.block.columns-2-cols {
+  display: flex;
+  gap: 60px; /* Space between columns */
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+/* Image Column Styling */
+.leftimagethentext .columns-img-col {
+  flex: 1;
+  position: relative;
+}
+
+.leftimagethentext .columns-img-col picture img {
+  width: 100%; /* Full width image */
+  height: auto; /* Keep aspect ratio */
+  object-fit: cover; /* Crop and cover area */
+  border-top-left-radius: 20px; /* Rounded top-left */
+  border-top-right-radius: 20px; /* Rounded top-right */
+  border-bottom-right-radius: 20px; /* Rounded bottom-right */
+  border-bottom-left-radius: 0px; /* Sharp bottom-left corner */
+  display: block;
+}
+
+/* Remove Zoom / Fullscreen link */
+.leftimagethentext .columns-img-col .top-right-link {
+  display: none !important;
+}
+
+/* Text Column Styling */
+.leftimagethentext .columns-2-cols > div:last-child {
+  flex: 1;
+}
+
+/* Title Styling */
+.leftimagethentext h1#great-ideas-drive-development {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+  color: #003b44;
+}
+
+/* Pre-title "Innovation" */
+.leftimagethentext h1#great-ideas-drive-development::before {
+  content: "INNOVATION"; /* Pre-title */
+  display: block;
+  color: #00424f;
+  font-size: 0.9rem;
+  letter-spacing: 0.1em;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+/* Paragraph and Link Styling */
+.leftimagethentext .columns-2-cols > div:last-child p {
+  font-family: 'Noto Sans', Arial, Helvetica, sans-serif;
+  font-weight: 200; /* Light font weight */
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  max-width: 90%;
+}
+
+/* Styling the button link */
+.leftimagethentext .columns-2-cols > div:last-child a {
+  font-size: 1.1rem;
+  font-weight: 500;
+  text-decoration: none; /* Remove underline */
+  color: #0077cc; /* Link color */
+  display: inline-flex; /* Align the arrow and text */
+  align-items: center; /* Vertically center text and arrow */
+}
+
+.leftimagethentext .columns-2-cols > div:last-child a::before {
+  content: "→"; /* Arrow before text */
+  margin-right: 8px; /* Space between arrow and text */
+  font-size: 1.5rem; /* Arrow size */
+}
+
+.leftimagethentext .columns-2-cols > div:last-child a:hover {
+  text-decoration: underline; /* Underline on hover */
+  color: #005b8c; /* Darker color on hover */
+}
+
+/* Responsive behavior */
+@media (max-width: 768px) {
+  .leftimagethentext .columns.block.columns-2-cols {
+    flex-direction: column; /* Stack the columns vertically */
+  }
+}

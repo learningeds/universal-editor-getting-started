@@ -159,6 +159,7 @@
   box-sizing: border-box;
 }
 
+/* Heading */
 .upcomingeventscards .default-content-wrapper > h1 {
   font-weight: 400;
   font-size: 1.75rem;
@@ -167,122 +168,72 @@
   text-align: left;
 }
 
-/* Card list reset */
+/* Card List Reset */
 .upcomingeventscards .cards {
   list-style: none;
   padding: 0;
   margin: 0;
-  display: contents;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
 }
 
-/* Card base */
-.upcomingeventscards .card {
-  background: #054e5a;
+/* Card Wrapper */
+.upcomingeventscards .cards-wrapper {
+  display: block;
+}
+
+/* Card Style */
+.upcomingeventscards .cards li {
+  background-color: #054e5a;
   color: #fff;
-  border-radius: 0;
   padding: 24px;
-  box-sizing: border-box;
+  border-radius: 16px;
+  box-shadow: none;
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  min-height: 220px;
-  box-shadow: none;
+  justify-content: space-between;
+  min-height: 260px;
+  box-sizing: border-box;
 }
 
-/* Kicker / pre-title */
-.upcomingeventscards .card .kicker {
-  text-transform: uppercase;
-  font-size: 0.75rem;
-  color: #7aa6ab;
-  letter-spacing: 0.1em;
-  font-weight: 600;
-  margin: 0;
-}
-
-/* Meta subtitle */
-.upcomingeventscards .card .meta {
-  color: #98a1a6;
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  font-weight: 600;
-  margin: 0;
-}
-
-/* Title */
-.upcomingeventscards .card h3 {
-  font-family: 'Georgia', serif;
+/* Text Elements Inside Card */
+.upcomingeventscards .cards li h3 {
   font-weight: 500;
-  font-size: 1.55rem;
-  line-height: 1.3;
-  margin: 0;
-  color: #ffffff;
+  font-size: 1.5rem;
+  color: #fff;
+  margin-top: 0.5rem;
+  margin-bottom: 0.75rem;
 }
 
-/* Excerpt text */
-.upcomingeventscards .card .excerpt {
+.upcomingeventscards .cards li p {
+  color: #fff;
   font-size: 1rem;
-  color: #ffffff;
   line-height: 1.5;
   margin: 0 0 8px 0;
-  font-weight: 400;
 }
 
-/* Link */
-.upcomingeventscards .card .card-link {
-  color: #ffffff;
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 1rem;
-  margin-top: auto;
-  display: inline-block;
-  border-bottom: 1px solid transparent;
-  transition: border 0.2s ease;
-}
-
-.upcomingeventscards .card .card-link:hover {
-  border-bottom: 1px solid #ffffff;
-}
-
-/* Arrow (optional, inline) */
-.upcomingeventscards .card .card-link::before {
-  content: '→';
-  display: inline-block;
-  margin-right: 8px;
-  font-size: 1.1rem;
-}
-
-/* Date Box */
-.upcomingeventscards .date-box {
-  width: 66px;
-  min-height: 68px;
-  border: 1px solid #f5a33e;
-  color: #f5a33e;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  font-weight: 700;
-  font-size: 1.25rem;
-  line-height: 1;
-  border-radius: 6px;
-  padding: 6px;
-  text-align: center;
-}
-
-.upcomingeventscards .date-box .day {
-  font-size: 1.6rem;
-  line-height: 1;
-}
-
-.upcomingeventscards .date-box .month-year {
+.upcomingeventscards .cards li .kicker,
+.upcomingeventscards .cards li .meta {
   font-size: 0.75rem;
   font-weight: 600;
-  margin-top: 4px;
   letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #7aa6ab;
+  margin: 0;
 }
 
-/* Button CTA */
+/* Link inside card */
+.upcomingeventscards .cards li a {
+  color: #fff;
+  text-decoration: underline;
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-top: auto;
+  display: inline-block;
+}
+
+/* CTA Button (Show more) */
 .upcomingeventscards .button-container {
   margin-top: 40px;
   text-align: center;
@@ -291,7 +242,7 @@
 .upcomingeventscards .button.secondary {
   border: 1px solid #f5a33e;
   color: #f5a33e;
-  padding: 10px 25px;
+  padding: 12px 28px;
   font-weight: 700;
   font-size: 0.9rem;
   letter-spacing: 0.1em;
@@ -299,6 +250,7 @@
   text-decoration: none;
   display: inline-block;
   transition: background-color 0.25s ease, color 0.25s ease;
+  border-radius: 4px;
 }
 
 .upcomingeventscards .button.secondary:hover {
@@ -306,46 +258,9 @@
   color: #003a46;
 }
 
-/* Grid Layout */
-.upcomingeventscards .cards-wrapper {
-  display: grid;
-  grid-template-columns: 3fr 30px;
-  gap: 30px;
-  align-items: start;
-  padding-left: 6rem !important;
-}
-
-.upcomingeventscards .card--report {
-  grid-column: 1 / 2;
-  border-radius: 24px 0 0 0;
-}
-
-.upcomingeventscards .card--event {
-  grid-column: 2 / 3;
-  gap: 10px;
-}
-
-.upcomingeventscards .card--event + .card--event {
-  margin-top: 16px;
-}
-
-.upcomingeventscards .card--event .date-box {
-  align-self: flex-start;
-}
-
-/* Responsive */
+/* Responsive - Stack Cards */
 @media (max-width: 900px) {
   .upcomingeventscards {
     padding: 24px;
   }
-
-  .upcomingeventscards .cards-wrapper {
-    grid-template-columns: 1fr;
-    padding-left: 0 !important;
-  }
-
-  .upcomingeventscards .card--event {
-    grid-column: 1 / -1;
-  }
 }
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               

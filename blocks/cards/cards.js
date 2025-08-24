@@ -20,11 +20,12 @@ export default function decorate(block) {
 
   const allCards = [];
   combinedCardsContainers.forEach(container => {
-    const ul = container.querySelector('ul');
-    if (ul) {
-      allCards.push(...ul.children);
-    }
-    container.remove();
+   const cards = container.querySelectorAll('li');
+if (cards.length > 0) {
+  allCards.push(...cards);
+}
+container.remove();
+
   });
 
   if (allCards.length === 0) return;

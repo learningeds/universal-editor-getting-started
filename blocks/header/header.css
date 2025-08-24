@@ -8,17 +8,33 @@
   z-index: 1000 !important;
 }
 
-.nav-brand img {
-  height: 40px !important;
+#nav {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  width: 100% !important;
+  position: relative !important;
 }
 
-/* Right-align hamburger */
+.nav-brand {
+  flex: 1 !important;
+}
+
 .nav-hamburger {
   display: flex !important;
   align-items: center !important;
   cursor: pointer !important;
   margin-left: auto !important;
+  z-index: 10001 !important; /* <- ensure hamburger stays above the menu */
+  position: relative !important;
 }
+
+
+.nav-brand img {
+  height: 40px !important;
+}
+
+
 
 .nav-hamburger button {
   background: none !important;

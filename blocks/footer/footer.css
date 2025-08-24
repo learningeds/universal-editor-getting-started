@@ -5,6 +5,7 @@
     padding: 50px 0;
     font-family: Arial, sans-serif;
     font-size: 14px;
+    text-align: left; /* Align text to the left */
 }
 
 /* Wrapper for footer content */
@@ -28,6 +29,7 @@
     font-size: 16px;
 }
 
+/* Style for the contact information and button */
 .footer .columns-wrapper p {
     margin: 10px 0;
     line-height: 1.5;
@@ -37,11 +39,12 @@
 .footer .button-container a.button {
     background-color: #F9A64D; /* Light orange button color */
     color: white;
-    padding: 8px 16px;
+    padding: 10px 20px;
     text-decoration: none;
     border-radius: 4px;
     font-weight: bold;
     margin-top: 10px;
+    display: inline-block;
 }
 
 /* Link Styling for Column 2 (Atlas Copco Group, Quick links, About Us) */

@@ -566,6 +566,8 @@
   color: #0077cc; /* Link color */
   display: inline-flex;
   align-items: center;
+   
+  background-color: transparent !important; /* Remove background color */
 }
 
 .lightimagethentext .columns-2-cols > div:last-child a::before {

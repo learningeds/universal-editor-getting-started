@@ -104,83 +104,62 @@ function toggleMenu(nav, navSections, forceExpanded = null) {
   }
 }
 
-/**
- * loads and decorates the header, mainly the nav
- * @param {Element} block The header block element
- */
 export default async function decorate(block) {
-  // load nav as fragment
-  //  const navMeta = getMetadata('nav');
-  //  const navPath = navMeta ? new URL(navMeta, window.location).pathname : '/nav';
-
-  const navMeta = getMetadata('nav');
-  let navPath;
-
-  if (navMeta) {
-    navPath = new URL(navMeta, window.location).pathname;
-  } else {
-
-    const theme = getThemeFromUrl();
-    switch (theme) {
-      case 'midsouth':
-        navPath = '/midsouth-aem-boilerplate/nav';
-        break;
-      default:
-        navPath = '/nav';
-        break;
-    }
-  }
-
-  const fragment = await loadFragment(navPath);
-
-  // decorate nav DOM
-  block.textContent = '';
-  const nav = document.createElement('nav');
-  nav.id = 'nav';
-  while (fragment.firstElementChild) nav.append(fragment.firstElementChild);
-
-  const classes = ['brand', 'sections', 'tools'];
-  classes.forEach((c, i) => {
-    const section = nav.children[i];
-    if (section) section.classList.add(`nav-${c}`);
-  });
-
-  const navBrand = nav.querySelector('.nav-brand');
-  const brandLink = navBrand.querySelector('.button');
-  if (brandLink) {
-    brandLink.className = '';
-    brandLink.closest('.button-container').className = '';
-  }
-
-  const navSections = nav.querySelector('.nav-sections');
-  if (navSections) {
-    navSections.querySelectorAll(':scope .default-content-wrapper > ul > li').forEach((navSection) => {
-      if (navSection.querySelector('ul')) navSection.classList.add('nav-drop');
-      navSection.addEventListener('click', () => {
-        if (isDesktop.matches) {
-          const expanded = navSection.getAttribute('aria-expanded') === 'true';
-          toggleAllNavSections(navSections);
-          navSection.setAttribute('aria-expanded', expanded ? 'false' : 'true');
-        }
-      });
-    });
-  }
-
-  // hamburger for mobile
-  const hamburger = document.createElement('div');
-  hamburger.classList.add('nav-hamburger');
-  hamburger.innerHTML = `<button type="button" aria-controls="nav" aria-label="Open navigation">
-      <span class="nav-hamburger-icon"></span>
-    </button>`;
-  hamburger.addEventListener('click', () => toggleMenu(nav, navSections));
-  nav.prepend(hamburger);
-  nav.setAttribute('aria-expanded', 'false');
-  // prevent mobile nav behavior on window resize
-  toggleMenu(nav, navSections, isDesktop.matches);
-  isDesktop.addEventListener('change', () => toggleMenu(nav, navSections, isDesktop.matches));
-
   const navWrapper = document.createElement('div');
   navWrapper.className = 'nav-wrapper';
+
+  const nav = document.createElement('nav');
+  nav.id = 'nav';
+  nav.setAttribute('aria-expanded', 'false');
+
+  // --- Brand Logo (left side) ---
+  const navBrand = document.createElement('div');
+  navBrand.className = 'nav-brand';
+  navBrand.innerHTML = `
+    <div class="default-content-wrapper">
+      <picture>
+        <img src="/adobe/dynamicmedia/deliver/dm-aid--c86512f3-6b96-434a-9919-ef3317c70777/atlas-copco-group-logo-header-1.webp?preferwebp=true&quality=85&width=1280" width="1600" height="468">
+      </picture>
+    </div>
+  `;
+
+  // --- Hamburger Menu (right side) ---
+  const hamburger = document.createElement('div');
+  hamburger.className = 'nav-hamburger';
+  hamburger.innerHTML = `
+    <button type="button" aria-controls="nav" aria-label="Open navigation">
+      <span class="nav-hamburger-icon"></span> Menu
+    </button>
+  `;
+
+  // --- Fullscreen Menu Content (initially hidden) ---
+  const navSections = document.createElement('div');
+  navSections.className = 'nav-sections';
+  navSections.style.display = 'none'; // Hide initially
+  navSections.innerHTML = `
+    <div class="default-content-wrapper">
+      <ul>
+        <li><a href="https://www.atlascopcogroup.com/en/about-us">About us</a></li>
+        <li><a href="https://www.atlascopcogroup.com/en/sustainability">Sustainability</a></li>
+        <li><a href="https://www.atlascopcogroup.com/en/careers">Careers</a></li>
+        <li><a href="https://www.atlascopcogroup.com/en/media">Media</a></li>
+        <li><a href="https://www.atlascopcogroup.com/en/investors">Investors</a></li>
+        <li><a href="https://www.atlascopcogroup.com/en/innovation">Innovation</a></li>
+      </ul>
+    </div>
+  `;
+
+  // --- Toggle menu on hamburger click ---
+  hamburger.addEventListener('click', () => {
+    const expanded = nav.getAttribute('aria-expanded') === 'true';
+    nav.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+    navSections.style.display = expanded ? 'none' : 'block';
+  });
+
+  // Append all to nav and block
+  nav.append(navBrand, hamburger, navSections);
   navWrapper.append(nav);
+  block.textContent = '';
   block.append(navWrapper);
 }
+

@@ -581,8 +581,7 @@ main .section.imageovercard {
 
 /* Hover state */
 .section.pressreleaseblock .cards-card-body a:hover {
-  background-color: #003049;
-  color: white;
+  text-decoration: none;
 }
 
 /* === VIEW ALL BUTTON === */

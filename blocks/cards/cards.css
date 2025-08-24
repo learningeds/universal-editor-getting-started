@@ -391,6 +391,46 @@
 .section.groupcards ul > li > .cards-card-body {
   padding-top: 0 !important;
 }
+/* Step 1: Make li stretch and ensure it's styled consistently */
+.section.groupcards .cards-wrapper ul > li {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 260px;  /* fixed height for consistency */
+  width: 260px;
+  padding: 0;
+  margin: 0;
+}
+
+/* Step 2: Target only the second cards-card-body (with content) */
+.section.groupcards .cards-wrapper ul > li .cards-card-body:nth-of-type(2) {
+  display: flex !important;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  padding: 1.5rem;
+  box-sizing: border-box;
+  background-color: #e8f0f2;
+}
+
+/* Step 3: Align <p> at top-left */
+.section.groupcards .cards-wrapper ul > li .cards-card-body:nth-of-type(2) p {
+  margin: 0;
+  align-self: flex-start;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: #004b5e;
+}
+
+/* Step 4: Align <h3> at bottom-right */
+.section.groupcards .cards-wrapper ul > li .cards-card-body:nth-of-type(2) h3 {
+  margin: 0;
+  align-self: flex-end;
+  font-size: 1.8rem;
+  font-weight: 400;
+  color: #004b5e;
+}
 
 
 

@@ -152,10 +152,11 @@ export default async function decorate(block) {
         <li><a href="https://www.atlascopcogroup.com/en/investors">Investors</a></li>
         <li><a href="https://www.atlascopcogroup.com/en/innovation">Innovation</a></li>
       </ul>
-      <ul class="nav-utility">
-        <li>English <i class="globe-icon">🌐</i></li>
-        <li>Search <i class="search-icon">🔍</i></li>
-      </ul>
+     <ul class="nav-utility">
+  <li class="nav-utility-item"><span>ENGLISH</span><i class="globe-icon">🌐</i></li>
+  <li class="nav-utility-item"><span>SEARCH</span><i class="search-icon">🔍</i></li>
+</ul>
+
     </div>
   `;
 

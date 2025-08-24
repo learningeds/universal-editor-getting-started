@@ -391,6 +391,8 @@ main .section.imageovercard {
   content: " →";
   margin-left: 0.5rem;
   font-weight: bold;
+    font-weight: 900;
+  font-size: 1.5rem;
 }
 
 .section.imageovercard .button-container .button:hover {

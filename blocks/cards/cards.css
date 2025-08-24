@@ -151,7 +151,7 @@
   color: #ffffff;
 }
 
-/* ========== Combined Cards Grid View ========== */
+/* ========== Combined Cards Container ========== */
 .combined-cards {
   max-width: 1200px;
   margin: 0 auto 2rem auto;
@@ -162,6 +162,7 @@
   overflow: hidden;
 }
 
+/* ========== Grid View for Combined Cards ========== */
 .combined-cards.grid-view > ul {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -179,7 +180,7 @@
   flex-direction: column;
 }
 
-/* ========== Combined Cards Carousel View ========== */
+/* ========== Carousel View for Combined Cards ========== */
 .combined-cards.carousel-view > ul {
   display: flex;
   flex-wrap: nowrap;
@@ -209,6 +210,7 @@
   padding: 0.5rem;
   cursor: pointer;
   z-index: 2;
+  user-select: none;
 }
 
 .carousel-arrow.prev {
@@ -217,6 +219,11 @@
 
 .carousel-arrow.next {
   right: 10px;
+}
+
+/* ========== Hide Arrows in Grid View ========== */
+.combined-cards.grid-view .carousel-arrow {
+  display: none;
 }
 
 /* ========== Dot Indicators ========== */
@@ -251,8 +258,8 @@
 }
 
 .combined-cards.carousel-view > ul {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }
 
 /* ========== Responsive Adjustments ========== */

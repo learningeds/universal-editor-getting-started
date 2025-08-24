@@ -396,8 +396,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  height: 260px;  /* fixed height for consistency */
-  width: 260px;
+  
   padding: 0;
   margin: 0;
 }

@@ -398,10 +398,13 @@
   z-index: 1;
 }
 .rightimagethentext .columns.block.columns-2-cols {
-  display: flex;
-  gap: 60px;
-  max-width: 1200px;
-  margin: 0 auto;
-  align-items: center;
   padding: 40px 20px;
+}
+.rightimagethentext .columns.block.columns-2-cols > div {
+  flex: 1;
+}
+
+/* Image styling */
+.rightimagethentext .columns-img-col {
+  position: relative;
 }

@@ -1,38 +1,27 @@
-/* ==== Navigation Wrapper ==== */
+/* --- NAVIGATION WRAPPER --- */
 .nav-wrapper {
-  display: flex !important;
-  justify-content: space-between !important;
-  align-items: center !important;
-  padding: 16px !important;
   background-color: #003f48 !important;
+  padding: 16px !important;
   position: relative !important;
   z-index: 1000 !important;
 }
 
-/* ==== Nav Container ==== */
+/* --- FLEX ROW: LOGO + HAMBURGER --- */
 #nav {
   display: flex !important;
   justify-content: space-between !important;
   align-items: center !important;
   width: 100% !important;
-  flex-wrap: wrap !important;
-  position: relative !important;
 }
 
-/* ==== Logo ==== */
-.nav-brand {
-  flex: 1 !important;
-}
-
+/* --- LOGO --- */
 .nav-brand img {
   height: 40px !important;
 }
 
-/* ==== Hamburger Button ==== */
+/* --- HAMBURGER --- */
 .nav-hamburger {
-  margin-left: auto !important;
   z-index: 10001 !important;
-  position: relative !important;
 }
 
 .nav-hamburger button {
@@ -43,6 +32,7 @@
   display: flex !important;
   align-items: center !important;
   cursor: pointer !important;
+  padding: 0 !important;
 }
 
 .menu-label {
@@ -50,7 +40,7 @@
   border-bottom: 2px solid white !important;
 }
 
-/* ==== Hamburger Icon ==== */
+/* --- ICON --- */
 .nav-hamburger-icon {
   width: 20px !important;
   height: 2px !important;
@@ -90,7 +80,7 @@
   transform: rotate(-45deg) translate(3px, -3px) !important;
 }
 
-/* ==== Dropdown Menu ==== */
+/* --- DROPDOWN MENU --- */
 .nav-sections {
   position: absolute !important;
   top: 70px !important;
@@ -118,7 +108,6 @@
   margin: 0 !important;
 }
 
-/* ==== Main List Items ==== */
 .nav-sections li {
   margin: 0 !important;
   padding: 16px !important;
@@ -144,7 +133,7 @@
   padding-left: 8px !important;
 }
 
-/* ==== Bottom Utility Section (Language & Search) ==== */
+/* --- BOTTOM SECTION --- */
 .nav-utility {
   background-color: #f5f8f9 !important;
   border-top: 1px solid #ddd !important;

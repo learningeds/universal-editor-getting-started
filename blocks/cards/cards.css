@@ -149,17 +149,18 @@
 .cards .cards-card-body .button-container a:hover::before {
   transform: translateY(-1px);
 }
-.upcomingeventscards {
+.upcomingeventscards{
   background-color: #003a46;
-  padding: 30px 60px; /* padding around container */
+  padding: 30px 60px;
   color: #fff;
-  font-family: Georgia, serif;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
   max-width: 1440px;
-  margin: 0 auto; /* center container */
+  margin: 0 auto;
   box-sizing: border-box;
 }
 
-.upcomingeventscards > .default-content-wrapper > h1 {
+/* Heading */
+.upcomingeventscards .default-content-wrapper > h1{
   font-weight: 400;
   font-size: 1.75rem;
   margin-bottom: 40px;
@@ -167,118 +168,97 @@
   text-align: left;
 }
 
-.upcomingeventscards .cards-wrapper {
-  display: flex;
-  gap: 30px;
-  justify-content: flex-start;
-  align-items: stretch;
-}
-
-.upcomingeventscards .cards-wrapper > div.cards.block > ul {
-  display: flex;
-  gap: 30px;
+/* Card list reset */
+.upcomingeventscards .cards{
+  list-style: none;
   padding: 0;
   margin: 0;
-  list-style: none;
-  width: 100%;
   box-sizing: border-box;
+  display: block; /* layout controlled by variant */
 }
 
-.upcomingeventscards .cards-wrapper > div.cards.block > ul > li {
-  background-color: #00464f;
+/* Card base */
+.upcomingeventscards .card{
+  background: #fff;
+  color: #222;
   border-radius: 12px;
-  padding: 30px 25px;
-  flex: 1 1 30%; /* allow flex growth, basis ~30% width */
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  min-width: 280px;
-  max-width: 480px; /* limit max width for each card */
+  padding: 24px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
   box-sizing: border-box;
-  color: #fff;
-  height: 460px; /* fixed height for all cards for consistent alignment */
-}
-
-.upcomingeventscards .cards-wrapper > div.cards.block > ul > li p:first-child {
-  margin-bottom: 12px;
-}
-
-/* Date box styling for 2nd and 3rd cards */
-.upcomingeventscards .cards-wrapper > div.cards.block > ul > li:nth-child(2) p:first-child,
-.upcomingeventscards .cards-wrapper > div.cards.block > ul > li:nth-child(3) p:first-child {
-  font-weight: 700;
-  font-size: 1.7rem;
-  color: #f5a33e;
-  border: 1px solid #f5a33e;
-  width: 50px;
-  height: 62px;
-  line-height: 1.1;
-  text-align: center;
-  padding: 5px 0;
-  white-space: pre-line;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  margin-bottom: 12px;
+  gap: 12px;
+  min-height: 220px;
 }
 
-/* Quarter release heading style */
-.upcomingeventscards .cards-wrapper > div.cards.block > ul > li:nth-child(n+2) p:nth-child(2) {
-  color: #98a1a6;
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  margin: 0 0 10px 0;
-  font-weight: 600;
-}
-
-/* Titles */
-.upcomingeventscards .cards-wrapper > div.cards.block > ul > li h3 {
-  font-weight: 500;
-  font-size: 1.4rem;
-  line-height: 1.3;
-  margin: 0 0 10px 0;
-    color: white;
-}
-
-/* Paragraph styling (same font size for all paragraphs) */
-.upcomingeventscards .cards-wrapper > div.cards.block > ul > li p {
-  font-size: 1rem;
-  color: #fff;
-  line-height: 1.5;
-  margin-bottom: 20px;
-}
-
-/* Investors text style */
-.upcomingeventscards .cards-wrapper > div.cards.block > ul > li:nth-child(1) p:nth-child(1) {
+/* kicker / investors text */
+.upcomingeventscards .card .kicker{
   text-transform: uppercase;
   font-size: 0.75rem;
   color: #7aa6ab;
   letter-spacing: 0.1em;
   font-weight: 600;
+  margin: 0;
 }
 
-/* Link styling on first card */
-.upcomingeventscards .cards-wrapper > div.cards.block > ul > li:nth-child(1) a {
-  color: #fff;
-  text-decoration: none;
+/* meta (quarterly release label) */
+.upcomingeventscards .card .meta{
+  color: #98a1a6;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin: 0;
+  font-weight: 600;
+}
+
+/* Title */
+.upcomingeventscards .card h3{
   font-weight: 500;
+  font-size: 1.4rem;
+  line-height: 1.3;
+  margin: 0;
+  color: #003a46; /* teal heading to match brand */
+}
+
+/* excerpt */
+.upcomingeventscards .card .excerpt{
+  font-size: 1rem;
+  color: #333;
+  line-height: 1.5;
+  margin: 0 0 8px 0;
+}
+
+/* link */
+.upcomingeventscards .card .card-link{
+  color: #003a46;
+  text-decoration: none;
+  font-weight: 600;
   font-size: 0.95rem;
-  border-bottom: 1px solid transparent;
-  transition: border-color 0.3s ease;
+  margin-top: auto; /* push to bottom in a flex column */
 }
 
-.upcomingeventscards .cards-wrapper > div.cards.block > ul > li:nth-child(1) a:hover {
-  border-color: #f5a33e;
+/* date box */
+.upcomingeventscards .date-box{
+  width: 56px;
+  min-height: 62px;
+  border: 1px solid #f5a33e;
+  color: #f5a33e;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  font-size: 1.2rem;
+  line-height: 1;
+  border-radius: 6px;
 }
 
-/* Button styling */
-.upcomingeventscards .button-container {
+/* CTA button */
+.upcomingeventscards .button-container{
   margin-top: 40px;
   text-align: center;
 }
-
-.upcomingeventscards .button-container a.button.secondary {
+.upcomingeventscards .button.secondary{
   border: 1px solid #f5a33e;
   color: #f5a33e;
   padding: 10px 25px;
@@ -288,11 +268,86 @@
   text-transform: uppercase;
   text-decoration: none;
   display: inline-block;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: background-color 0.25s ease, color 0.25s ease;
 }
-
-.upcomingeventscards .button-container a.button.secondary:hover {
+.upcomingeventscards .button.secondary:hover{
   background-color: #f5a33e;
   color: #003a46;
-  text-decoration: none;
+}
+
+/* Responsive baseline */
+@media (max-width: 900px){
+  .upcomingeventscards{ padding: 24px; }
+}
+/* container for card row */
+.upcomingeventscards .cards-wrapper{ 
+  display: flex;
+  gap: 30px;
+  justify-content: flex-start;
+  align-items: stretch;
+}
+
+/* make the UL behave as flex row */
+.upcomingeventscards .cards{
+  display: flex;
+  gap: 30px;
+  width: 100%;
+}
+
+/* each card flex rules */
+.upcomingeventscards .card{
+  flex: 1 1 30%;
+  min-width: 260px;
+  max-width: 480px;
+  height: auto; /* avoid fixed height */
+}
+
+/* Align date-box for event cards on top-left within the card */
+.upcomingeventscards .card--event{
+  gap: 10px;
+}
+.upcomingeventscards .card--event .date-box{
+  align-self: flex-start;
+}
+
+/* small-screen stacking */
+@media (max-width: 800px){
+  .upcomingeventscards .cards{ flex-direction: column; }
+}
+/* Use grid to create left wide + right stacked pattern */
+.upcomingeventscards .cards-wrapper{
+  display: grid;
+  grid-template-columns: 1fr 360px; /* left flexible, right narrow column */
+  gap: 30px;
+  align-items: start;
+}
+
+/* UL remains the container; we place the cards differently:
+   - first list item should be placed in left column (spanning)
+   - next two list items in right column stacked */
+
+.upcomingeventscards .cards{
+  display: contents; /* allows cards to be children of grid */
+}
+
+/* assign positions */
+.upcomingeventscards .card--report{
+  grid-column: 1 / 2;
+}
+
+.upcomingeventscards .card--event{
+  grid-column: 2 / 3;
+}
+
+/* stack the two event cards vertically */
+.upcomingeventscards .card--event + .card--event{
+  margin-top: 16px;
+}
+
+/* responsive: stack into single column on small screens */
+@media (max-width: 900px){
+  .upcomingeventscards .cards-wrapper{
+    grid-template-columns: 1fr;
+  }
+  .upcomingeventscards .card--event{ grid-column: 1 / -1; }
 }

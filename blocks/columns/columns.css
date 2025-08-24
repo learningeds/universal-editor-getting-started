@@ -558,3 +558,30 @@
     flex-direction: column; /* Stack the columns vertically */
   }
 }
+/* Remove background color and arrow after the link text */
+.lightimagethentext .columns-2-cols > div:last-child a {
+  font-size: 1.1rem;
+  font-weight: 500;
+  text-decoration: none; /* Remove underline */
+  color: #0077cc; /* Link color */
+  display: inline-flex;
+  align-items: center;
+}
+
+.lightimagethentext .columns-2-cols > div:last-child a::before {
+  content: "→"; /* Left arrow */
+  margin-right: 8px; /* Space between arrow and text */
+  font-size: 1.5rem; /* Arrow size */
+}
+
+/* Remove arrow after the text */
+.lightimagethentext .columns-2-cols > div:last-child a::after {
+  content: none !important; /* Remove the arrow after the text */
+}
+
+/* Hover effect */
+.lightimagethentext .columns-2-cols > div:last-child a:hover {
+  text-decoration: underline; /* Add underline on hover */
+  color: #005b8c; /* Darker link color on hover */
+}
+

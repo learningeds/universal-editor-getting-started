@@ -270,6 +270,7 @@
   background-color: #00464f;
   transition: border-color 0.3s ease;
     color: white;
+    margin-right: 15rem;
 }
 
 .upcomingeventscards .cards-wrapper > div.cards.block > ul > li:nth-child(1) a:hover {
@@ -315,8 +316,6 @@
   font-size: 48px;
   color: #004b5d;
   font-weight: 500;
-    
- font-family: "Noto Serif", Arial, Helvetica, sans-serif !important;
     font-size: 40px;
   margin-bottom: 40px;
 }

@@ -13,7 +13,7 @@ footer .columns.block.columns-4-cols > div {
   align-items: start;
 }
 footer .columns.block.columns-4-cols > div > div:first-child {
-  background-image: url('/path-to/f46f415c-aac2-49dd-903a-9480c4ce3c55.png'); /* Actual image from upload */
+ background-image: url('/path-to/f46f415c-aac2-49dd-903a-9480c4ce3c55.png'); /* Actual image from upload */
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -25,6 +25,30 @@ footer .columns.block.columns-4-cols > div > div:first-child {
   flex-direction: column;
   gap: 18px;
   min-height: 330px; /* optional: to keep consistent height */
+  color: #f5a33e;
+  /*! border: 1px solid #f5a33e; */
+  background-color: #04424d;
+  background-image: url(/content/dam/brands/atlas-copco-group/utilities/Atlas-Copco-Group-design-overlay.png);
+  border-radius: 24px 24px 24px 0;
+  padding: 3pc 2pc 24px;
+  /*! row-gap: 24px; */
+  background-color: #04424d;
+  background-image: url("https://www.atlascopcogroup.com/content/dam/brands/atlas-copco-group/utilities/Atlas-Copco-Group-design-overlay.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 3pc 2pc 24px;
+  border-radius: 24px 24px 24px 0;
+  border: 1px solid #f5a33e;
+  color: #ffffff;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  row-gap: 24px;
+  min-height: 330px;
+margin-top: -7rem;
+  z-index: 2;
+
 }
 
 /* Remove previous logo insert if used */

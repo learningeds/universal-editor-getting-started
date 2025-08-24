@@ -369,3 +369,94 @@
 }
 
 }
+/* Main container styling */
+.RightImageThenText {
+  padding: 3rem 1rem;
+  background-color: #fff;
+  font-family: 'Helvetica Neue', sans-serif;
+  color: #333;
+}
+
+/* Flex layout for columns */
+.RightImageThenText .columns.block {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+/* Image column */
+.RightImageThenText .columns-img-col {
+  flex: 1 1 50%;
+  position: relative;
+}
+
+.RightImageThenText .columns-img-col img {
+  width: 100%;
+  height: auto;
+  border-radius: 1rem; /* Rounded corners */
+  object-fit: cover;
+  display: block;
+}
+
+/* Text column */
+.RightImageThenText .columns.block > div:last-child {
+  flex: 1 1 50%;
+}
+
+/* Heading */
+.RightImageThenText h1 {
+  font-size: 2rem;
+  color: #004b55;
+  margin-bottom: 1rem;
+}
+
+/* Label above heading */
+.RightImageThenText h1::before {
+  content: "CAREERS";
+  display: block;
+  font-size: 0.85rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: #004b55;
+  margin-bottom: 0.25rem;
+}
+
+/* Paragraph text */
+.RightImageThenText p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+/* Link */
+.RightImageThenText a[href*="job-overview"] {
+  display: inline-flex;
+  align-items: center;
+  color: #0075b0;
+  font-weight: 500;
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: color 0.3s ease;
+}
+
+.RightImageThenText a[href*="job-overview"]::before {
+  content: "→";
+  margin-right: 0.5rem;
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+}
+
+.RightImageThenText a[href*="job-overview"]:hover {
+  color: #004b55;
+}
+
+.RightImageThenText a[href*="job-overview"]:hover::before {
+  transform: translateX(4px);
+}
+
+/* Optional: Hide the Zoom/Fullscreen link if not needed */
+.RightImageThenText .top-right-link {
+  display: none;
+}
+

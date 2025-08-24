@@ -422,14 +422,30 @@
   text-transform: uppercase;
   margin-bottom: 0.5rem;
 }
-.rightimagethentext .columns-img-col .top-right-link {
-  display: none !important;
-}
 .rightimagethentext .columns-2-cols > div:last-child a {
   font-size: 1.1rem;
   font-weight: 500;
   text-decoration: none; /* Remove underline by default */
   color: #0077cc; /* Set the link color */
+  display: inline-flex; /* Make the link behave like a button */
+  align-items: center; /* Vertically center the text and arrow */
+}
+
+.rightimagethentext .columns-2-cols > div:last-child a::before {
+  content: "→"; /* Right arrow symbol */
+  margin-right: 8px; /* Space between the arrow and text */
+  font-size: 1.5rem; /* Adjust the arrow size */
+}
+
+.rightimagethentext .columns-2-cols > div:last-child a:hover {
+  text-decoration: underline; /* Underline on hover */
+  color: #005b8c; /* Darker color on hover (optional) */
+}
+.rightimagethentext .columns-2-cols > div:last-child p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  max-width: 90%;
 }
 
 .rightimagethentext .columns-2-cols > div:last-child a:hover {

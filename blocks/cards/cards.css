@@ -159,7 +159,7 @@
   color: #ffffff;
 }
 
-/* Carousel styling */
+/* Carousel styling for better-way-cards */
 .better-way-cards.carousel-view > ul {
   display: flex;
   flex-wrap: nowrap;
@@ -217,6 +217,7 @@
   border-radius: 12px;
   padding: 20px;
   position: relative;
+  overflow: hidden; /* to clip any overflow */
 }
 
 /* Toggle button for combined cards carousel */
@@ -241,7 +242,6 @@
 }
 
 /* Combined cards grid (default view) */
-/* Combined Cards Container Styles */
 .combined-cards.grid-view > ul {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -255,24 +255,28 @@
 .combined-cards.carousel-view > ul {
   display: flex !important;
   flex-wrap: nowrap !important;
-  overflow-x: auto !important;
-  scroll-snap-type: x mandatory;
+  overflow-x: hidden !important; /* hide native scroll for smoother transform */
+  scroll-snap-type: none !important; /* disable snap, using JS transform */
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
   gap: 2rem;
   padding: 1rem 0;
   margin: 0;
   list-style: none;
+  position: relative;
+  /* Important: prevent wrapping and overflow */
 }
 
+/* Each card in combined carousel */
 .combined-cards.carousel-view > ul > li {
-  flex: 0 0 80%;
-  max-width: 80%;
-  scroll-snap-align: start;
+  flex: 0 0 100%; /* full width */
+  max-width: 100%;
+  scroll-snap-align: none;
   list-style: none;
+  transition: transform 0.5s ease;
 }
 
-/* Hide scroll bar in carousel */
+/* Hide scroll bar in combined carousel */
 .combined-cards.carousel-view > ul::-webkit-scrollbar {
   display: none;
 }
@@ -373,7 +377,8 @@
     grid-template-columns: 1fr;
   }
 }
-/* Treat multiple .combined-cards as horizontal slides */
+
+/* Treat multiple .combined-cards as horizontal slides (if you want) */
 .section[data-aue-resource*="section_1144820921"].carousel-active {
   overflow-x: auto;
   scroll-snap-type: x mandatory;

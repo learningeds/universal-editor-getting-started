@@ -45,6 +45,10 @@
           {
             "name": "RightImageThenText",
             "value": "rightimagethentext"
+          },
+          {
+            "name": "LeftImageThenText",
+            "value": "lightimagethentext"
           }
         ]
       }

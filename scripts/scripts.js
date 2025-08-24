@@ -194,18 +194,23 @@ export function getThemeFromUrl() {
 }
 
 loadPage();
- window.addEventListener('scroll', function () {
-    const header = document.querySelector('.header-wrapper');
+window.addEventListener('scroll', function () {
+  const header = document.querySelector('.header-wrapper');
+  if (header) {
     if (window.scrollY > 50) {
       header.classList.add('scrolled');
     } else {
       header.classList.remove('scrolled');
     }
-     const navwrapper = document.querySelector('.nav-wrapper');
+  }
+
+  const navwrapper = document.querySelector('.nav-wrapper');
+  if (navwrapper) {
     if (window.scrollY > 50) {
       navwrapper.classList.add('scrolled');
     } else {
       navwrapper.classList.remove('scrolled');
     }
-  });
+  }
+});
 

@@ -186,7 +186,7 @@
 
 .upcomingeventscards .cards-wrapper > div.cards.block > ul > li {
   background-color: #00464f;
-    padding: 0 !imporant;
+    padding-top: 0px !imporant;
   border-radius: 12px;
   padding: 30px 25px;
   flex: 1 1 30%; /* allow flex growth, basis ~30% width */

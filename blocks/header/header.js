@@ -157,9 +157,7 @@ export default async function decorate(block) {
 
   // --- Toggle Menu Show/Hide ---
   hamburger.querySelector('button').addEventListener('click', () => {
-    const isOpen = nav.getAttribute('aria-expanded') === 'true';
-    nav.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
-    navSections.style.display = isOpen ? 'none' : 'block';
+
      const isOpen = nav.getAttribute('aria-expanded') === 'true';
 
   // Toggle nav open/close state

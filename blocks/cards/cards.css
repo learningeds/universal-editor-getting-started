@@ -411,7 +411,7 @@
 .carousel {
   display: flex;
   position: relative;
-  overflow: hidden; /* Hide the scrollbar */
+    scroll-snap-type: x mandatory;
   padding: 20px;
   gap: 20px;
   background-color: #fcf8f2; /* Set the background color */

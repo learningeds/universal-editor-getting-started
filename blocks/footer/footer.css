@@ -127,66 +127,60 @@ footer .columns.block.columns-4-cols ul li a:hover {
     grid-template-columns: 1fr;
   }
 
-  footer .columns.block.columns-4-cols > div > div {
-    margin-bottom: 20px;
-  }
+  /* Adding social media icons using CSS content */
+.footer::after {
+  content: '\f09a \f08c \f16d \f167 \f99d \f062'; /* Unicode for Facebook, LinkedIn, Instagram, YouTube, Twitter, and Up Arrow */
+  font-family: 'FontAwesome'; /* Make sure FontAwesome or a similar library is included */
 }
+
+/* Styling for each icon */
+.footer::after a {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%; /* Circle shape */
+  background-color: #ffffff; /* White background for the icons */
+  color: #004a59; /* Dark teal color for the icons */
+  text-decoration: none;
+  font-size: 18px; /* Icon font size */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* On hover, change background and icon color */
+.footer::after a:hover {
+  background-color: #d9a53c; /* Gold color on hover */
+  color: white; /* Icon color changes to white on hover */
+}
+
+/* Social Media Colors */
 .footer::after a.facebook {
-  background-color: #3b5998; /* Facebook */
+  background-color: #3b5998; /* Facebook color */
   color: white;
 }
 
 .footer::after a.linkedin {
-  background-color: #0077b5; /* LinkedIn */
+  background-color: #0077b5; /* LinkedIn color */
   color: white;
 }
 
 .footer::after a.instagram {
-  background-color: #e4405f; /* Instagram */
+  background-color: #e4405f; /* Instagram color */
   color: white;
 }
 
 .footer::after a.youtube {
-  background-color: #ff0000; /* YouTube */
+  background-color: #ff0000; /* YouTube color */
   color: white;
 }
 
 .footer::after a.x {
-  background-color: #1d9bf0; /* Twitter (X) */
+  background-color: #1d9bf0; /* Twitter (X) color */
   color: white;
 }
 
 .footer::after a.arrow {
-  background-color: #d9a53c; /* Gold color for the arrow */
+  background-color: #d9a53c; /* Gold color for the arrow icon */
   color: white;
 }
-
-/* Adding FontAwesome or other icon font classes using content (only works if the font icons are included) */
-.footer::after a::before {
-  font-family: 'FontAwesome'; /* Include FontAwesome or another icon font */
-}
-
-.footer::after a.facebook::before {
-  content: '\f09a'; /* Facebook */
-}
-
-.footer::after a.linkedin::before {
-  content: '\f08c'; /* LinkedIn */
-}
-
-.footer::after a.instagram::before {
-  content: '\f16d'; /* Instagram */
-}
-
-.footer::after a.youtube::before {
-  content: '\f167'; /* YouTube */
-}
-
-.footer::after a.x::before {
-  content: '\f99d'; /* Twitter (X) */
-}
-
-.footer::after a.arrow::before {
-  content: '\f062'; /* Up Arrow */
-}
-

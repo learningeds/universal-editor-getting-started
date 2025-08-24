@@ -23,14 +23,16 @@ export default function decorate(block) {
   block.append(ul);
  function addBetterWayCarouselToggle() {
   const heading = document.querySelector('h1#there-is-always-a-better-way');
-
   if (!heading) return;
 
-  // Traverse following siblings to find related .cards.block containers
+  // Start from the next sibling of heading's parent
   let current = heading.parentElement.nextElementSibling;
+
   while (current) {
-    const cardsBlock = current.querySelector('.cards.block');
-    if (cardsBlock) {
+    // Instead of querySelector (which finds the first), use querySelectorAll to get all `.cards.block` in the current sibling
+    const cardsBlocks = current.querySelectorAll('.cards.block');
+
+    cardsBlocks.forEach((cardsBlock) => {
       const containsTargetHeading = [...cardsBlock.querySelectorAll('h3')].some(
         (h3) => h3.textContent.trim() === 'The hunt for the unknow'
       );
@@ -38,7 +40,7 @@ export default function decorate(block) {
       if (containsTargetHeading) {
         cardsBlock.classList.add('better-way-cards');
 
-        // Insert toggle button if not already there
+        // Add toggle button if not already present
         if (!cardsBlock.querySelector('.cards-view-toggle-btn')) {
           const toggleBtn = document.createElement('button');
           toggleBtn.className = 'cards-view-toggle-btn';
@@ -51,10 +53,17 @@ export default function decorate(block) {
               : 'View as carousel';
           });
 
-          cardsBlock.insertBefore(toggleBtn, cardsBlock.querySelector('ul'));
+          // Insert the button before the <ul> (which should always be there)
+          const ul = cardsBlock.querySelector('ul');
+          if (ul) {
+            cardsBlock.insertBefore(toggleBtn, ul);
+          } else {
+            // If no ul found, append at end just in case
+            cardsBlock.appendChild(toggleBtn);
+          }
         }
       }
-    }
+    });
 
     current = current.nextElementSibling;
   }

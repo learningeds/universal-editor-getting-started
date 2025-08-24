@@ -392,7 +392,23 @@
   padding-top: 0 !important;
 }
 
+.section.groupcards .cards-wrapper ul > li .cards-card-body:nth-of-type(2) p {
+  margin: 0;
+  align-self: flex-start;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: #004b5e;
+}
 
+
+.section.groupcards .cards-wrapper ul > li .cards-card-body:nth-of-type(2) h3 {
+  margin: 0;
+  align-self: flex-end;
+  font-size: 1.8rem;
+  font-weight: 400;
+  color: #004b5e;
+}
 
 
 

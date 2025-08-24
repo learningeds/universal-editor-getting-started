@@ -441,3 +441,6 @@
   text-decoration: underline; /* Underline on hover */
   color: #005b8c; /* Darker color on hover (optional) */
 }
+.rightimagethentext .columns-img-col .top-right-link {
+  display: none !important;
+}

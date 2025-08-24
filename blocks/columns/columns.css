@@ -450,19 +450,19 @@
     font-size: 18px !important;
 }
 /* 1. Target the specific section */
-.section.leftimagethentext .columns-img-col {
+.section.lightimagethentext .columns-img-col {
   position: relative;
   min-height: 400px; /* Ensures space is reserved */
 }
 
 /* 2. Hide existing media (picture, video) */
-.section.leftimagethentext .columns-img-col picture,
-.section.leftimagethentext .columns-img-col video {
+.section.lightimagethentext .columns-img-col picture,
+.section.lightimagethentext .columns-img-col video {
   display: none !important;
 }
 
 /* 3. Inject your image as a background */
-.section.leftimagethentext .columns-img-col::before {
+.section.lightimagethentext .columns-img-col::before {
   content: "";
   display: block;
   width: 100%;
@@ -483,7 +483,7 @@
 }
 
 /* Adjusting the layout for columns */
-.leftimagethentext .columns.block.columns-2-cols {
+.lightimagethentext .columns.block.columns-2-cols {
   display: flex;
   gap: 60px;
   max-width: 1200px;
@@ -492,12 +492,12 @@
   padding: 40px 20px; /* Add some padding around the columns */
 }
 
-.leftimagethentext .columns.block.columns-2-cols > div {
+.lightimagethentext .columns.block.columns-2-cols > div {
   flex: 1; /* Distribute the available space equally */
 }
 
-/* Styling for the "Careers" pre-title */
-.leftimagethentext h1#great-ideas-drive-development::before {
+/* Styling for the "Innovation" pre-title */
+.lightimagethentext h1#great-ideas-drive-development::before {
   content: "INNOVATION"; /* Pre-title text */
   display: block;
   color: #00424f;
@@ -509,7 +509,7 @@
 }
 
 /* Main title styling */
-.leftimagethentext h1#great-ideas-drive-development {
+.lightimagethentext h1#great-ideas-drive-development {
   font-size: 2.5rem; /* Larger font size */
   margin-bottom: 1rem;
   line-height: 1.2;
@@ -517,7 +517,7 @@
 }
 
 /* Paragraph Styling */
-.leftimagethentext .columns-2-cols > div:last-child p {
+.lightimagethentext .columns-2-cols > div:last-child p {
   font-family: 'Noto Sans', Arial, Helvetica, sans-serif !important;
   font-weight: 200; /* Light font weight */
   font-size: 18px !important;
@@ -527,7 +527,7 @@
 }
 
 /* Styling the button link */
-.leftimagethentext .columns-2-cols > div:last-child a {
+.lightimagethentext .columns-2-cols > div:last-child a {
   font-size: 1.1rem;
   font-weight: 500;
   text-decoration: none; /* Remove underline */
@@ -536,25 +536,25 @@
   align-items: center; /* Vertically center text and arrow */
 }
 
-.leftimagethentext .columns-2-cols > div:last-child a::before {
+.lightimagethentext .columns-2-cols > div:last-child a::before {
   content: "→"; /* Arrow before text */
   margin-right: 8px; /* Space between arrow and text */
   font-size: 1.5rem; /* Arrow size */
 }
 
-.leftimagethentext .columns-2-cols > div:last-child a:hover {
+.lightimagethentext .columns-2-cols > div:last-child a:hover {
   text-decoration: underline; /* Underline on hover */
   color: #005b8c; /* Darker color on hover */
 }
 
 /* Remove Zoom / Fullscreen link */
-.leftimagethentext .columns-img-col .top-right-link {
+.lightimagethentext .columns-img-col .top-right-link {
   display: none !important;
 }
 
 /* Responsive behavior for smaller screens */
 @media (max-width: 768px) {
-  .leftimagethentext .columns.block.columns-2-cols {
+  .lightimagethentext .columns.block.columns-2-cols {
     flex-direction: column; /* Stack the columns vertically */
   }
 }

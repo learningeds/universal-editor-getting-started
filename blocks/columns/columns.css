@@ -367,51 +367,50 @@
   background-size: contain;
   background-position: center;
 }
-
 }
-/* Main container styling */
-.RightImageThenText {
-  padding: 3rem 1rem;
-  background-color: #fff;
-  font-family: 'Helvetica Neue', sans-serif;
-  color: #333;
-}
-
-/* Flex layout for columns */
+/* Override container layout */
 .RightImageThenText .columns.block {
   display: flex;
-  align-items: center;
-  gap: 2rem;
   flex-wrap: wrap;
+  gap: 2rem;
+  align-items: center;
 }
 
-/* Image column */
+/* Left column: force image and hide any video */
 .RightImageThenText .columns-img-col {
   flex: 1 1 50%;
   position: relative;
 }
 
-.RightImageThenText .columns-img-col img {
-  width: 100%;
-  height: auto;
-  border-radius: 1rem; /* Rounded corners */
-  object-fit: cover;
-  display: block;
+/* Remove all video or dynamic media content */
+.RightImageThenText .columns-img-col video,
+.RightImageThenText .columns-img-col iframe,
+.RightImageThenText .columns-img-col a.top-right-link {
+  display: none !important;
 }
 
-/* Text column */
+/* Force image display */
+.RightImageThenText .columns-img-col picture,
+.RightImageThenText .columns-img-col img {
+  display: block !important;
+  width: 100% !important;
+  max-width: 100%;
+  height: auto !important;
+  border-radius: 1rem;
+  object-fit: cover;
+}
+
+/* Right text column */
 .RightImageThenText .columns.block > div:last-child {
   flex: 1 1 50%;
 }
 
-/* Heading */
+/* Heading and label */
 .RightImageThenText h1 {
   font-size: 2rem;
   color: #004b55;
   margin-bottom: 1rem;
 }
-
-/* Label above heading */
 .RightImageThenText h1::before {
   content: "CAREERS";
   display: block;
@@ -422,41 +421,32 @@
   margin-bottom: 0.25rem;
 }
 
-/* Paragraph text */
+/* Body text */
 .RightImageThenText p {
   font-size: 1rem;
   line-height: 1.6;
   margin-bottom: 1rem;
 }
 
-/* Link */
+/* Link with arrow */
 .RightImageThenText a[href*="job-overview"] {
   display: inline-flex;
   align-items: center;
   color: #0075b0;
   font-weight: 500;
-  text-decoration: none;
   font-size: 1.1rem;
+  text-decoration: none;
   transition: color 0.3s ease;
 }
-
 .RightImageThenText a[href*="job-overview"]::before {
   content: "→";
   margin-right: 0.5rem;
   font-size: 1.2rem;
   transition: transform 0.3s ease;
 }
-
 .RightImageThenText a[href*="job-overview"]:hover {
   color: #004b55;
 }
-
 .RightImageThenText a[href*="job-overview"]:hover::before {
   transform: translateX(4px);
 }
-
-/* Optional: Hide the Zoom/Fullscreen link if not needed */
-.RightImageThenText .top-right-link {
-  display: none;
-}
-

@@ -177,7 +177,7 @@
 .columns.block.columns-2-cols .button-container .button {
   display: inline-flex;
   align-items: center;
-  background: linear-gradient(to right, #007E8A, #003E51);
+ 
   color: #fff;
   padding: 0.75rem 1.5rem;
   font-weight: 600;

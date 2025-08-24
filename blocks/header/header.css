@@ -9,25 +9,19 @@
   transition: background-color 0.3s ease;
 }
 
-/* Hide nav-sections initially */
+/* Only show .default-content-wrapper and .nav-hamburger initially */
+.nav-wrapper > *:not(.default-content-wrapper):not(.nav-hamburger),
 .nav-sections {
-  opacity: 0 !important;
-  pointer-events: none !important;
-  transition: opacity 0.3s ease !important;
-  display: block !important; /* override display:none from existing styles */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
-/* Keep logo and hamburger visible */
-.nav-brand .default-content-wrapper,
-.nav-hamburger {
-  opacity: 1 !important;
-  pointer-events: auto !important;
-}
-
-/* Show nav-sections when header has scrolled class */
-.header.scrolled .nav-sections {
-  opacity: 1 !important;
-  pointer-events: auto !important;
+/* On scroll, show all header elements */
+body.scrolled .nav-wrapper > *:not(.default-content-wrapper):not(.nav-hamburger),
+body.scrolled .nav-sections {
+  opacity: 1;
+  visibility: visible;
 }
 
 /* --- NAVIGATION WRAPPER --- */

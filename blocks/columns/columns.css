@@ -376,99 +376,31 @@
   align-items: center;
 }
 
-/* Left column: force image and hide any video */
-.RightImageThenText .columns-img-col {
-  flex: 1 1 50%;
+/* 1. Target the specific section */
+.section.rightimagethentext .columns-img-col {
   position: relative;
+  min-height: 400px; /* Ensures space is reserved */
 }
 
-/* Remove all video or dynamic media content */
-.RightImageThenText .columns-img-col video,
-.RightImageThenText .columns-img-col iframe,
-.RightImageThenText .columns-img-col a.top-right-link {
+/* 2. Hide existing media (picture, video) */
+.section.rightimagethentext .columns-img-col picture,
+.section.rightimagethentext .columns-img-col video {
   display: none !important;
 }
 
-/* Force image display */
-.RightImageThenText .columns-img-col picture,
-.RightImageThenText .columns-img-col img {
-  display: block !important;
-  width: 100% !important;
-  max-width: 100%;
-  height: auto !important;
-  border-radius: 1rem;
-  object-fit: cover;
-}
-
-/* Right text column */
-.RightImageThenText .columns.block > div:last-child {
-  flex: 1 1 50%;
-}
-
-/* Heading and label */
-.RightImageThenText h1 {
-  font-size: 2rem;
-  color: #004b55;
-  margin-bottom: 1rem;
-}
-.RightImageThenText h1::before {
-  content: "CAREERS";
-  display: block;
-  font-size: 0.85rem;
-  font-weight: bold;
-  letter-spacing: 1px;
-  color: #004b55;
-  margin-bottom: 0.25rem;
-}
-
-/* Body text */
-.RightImageThenText p {
-  font-size: 1rem;
-  line-height: 1.6;
-  margin-bottom: 1rem;
-}
-
-/* Link with arrow */
-.RightImageThenText a[href*="job-overview"] {
-  display: inline-flex;
-  align-items: center;
-  color: #0075b0;
-  font-weight: 500;
-  font-size: 1.1rem;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-.RightImageThenText a[href*="job-overview"]::before {
-  content: "→";
-  margin-right: 0.5rem;
-  font-size: 1.2rem;
-  transition: transform 0.3s ease;
-}
-.RightImageThenText a[href*="job-overview"]:hover {
-  color: #004b55;
-}
-.RightImageThenText a[href*="job-overview"]:hover::before {
-  transform: translateX(4px);
-}
-.RightImageThenText .columns-img-col {
-  position: relative;
-  flex: 1 1 50%;
-}
-
-/* Hide all existing media */
-.RightImageThenText .columns-img-col > * {
-  display: none !important;
-}
-
-/* Inject your image inline */
-.RightImageThenText .columns-img-col::after {
+/* 3. Inject your image as a background */
+.section.rightimagethentext .columns-img-col::before {
   content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-image: url('https://atlascopco.scene7.com/is/image/atlascopco/two-women-employees-shaking-hands?$landscape1600$');
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 8px;
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background: url("https://atlascopco.scene7.com/is/image/atlascopco/two-women-employees-shaking-hands?$landscape1600$") center center / cover no-repeat;
-  border-radius: 1rem;
+  z-index: 1;
 }
-

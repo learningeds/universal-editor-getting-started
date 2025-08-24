@@ -164,15 +164,15 @@ margin-top: 16px;
   box-shadow: none;
 }
 /* Fix text inside cards */
-.upcomingeventscards .card h3,
-.upcomingeventscards .card .meta,
-.upcomingeventscards .card .excerpt,
-.upcomingeventscards .card .kicker,
-.upcomingeventscards .card a {
+.upcomingeventscards .cards > ul > li h3,
+.upcomingeventscards .cards > ul > li .meta,
+.upcomingeventscards .cards > ul > li .excerpt,
+.upcomingeventscards .cards > ul > li.kicker,
+.upcomingeventscards .cards > ul > li a {
   color: #fff !important;
 }
 
-.upcomingeventscards .card a {
+.upcomingeventscards .cards > ul > li a {
   text-decoration: underline;
 }
 /* Target first card only and give it a special corner radius */

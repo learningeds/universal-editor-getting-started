@@ -41,6 +41,10 @@
           {
             "name": "Highlight1",
             "value": "highlight1"
+          },
+          {
+            "name": "RightImage",
+            "value": "rightimage"
           }
         ]
       }

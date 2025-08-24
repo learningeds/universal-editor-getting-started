@@ -43,8 +43,8 @@
             "value": "highlight1"
           },
           {
-            "name": "RightImage",
-            "value": "rightimage"
+            "name": "RightImageThenText",
+            "value": "rightimagethentext"
           }
         ]
       }

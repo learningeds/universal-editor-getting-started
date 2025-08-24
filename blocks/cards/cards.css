@@ -391,3 +391,29 @@
 .section.groupcards ul > li > .cards-card-body {
   padding-top: 0 !important;
 }
+.section.groupcards ul > li > .cards-card-body:not(:empty) {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  height: 100%;
+  padding: 1.5rem;
+  font-weight: 400; /* Lighten text globally if needed */
+  box-sizing: border-box;
+}
+
+.section.groupcards ul > li > .cards-card-body:not(:empty) p {
+  margin: 0;
+  font-weight: 500; /* Less bold than before */
+  text-transform: uppercase;
+  font-size: 0.95rem;
+  color: #004B5E; /* Or your brand's deep blue */
+}
+
+.section.groupcards ul > li > .cards-card-body:not(:empty) h3 {
+  margin: 0;
+  align-self: flex-end;
+  font-weight: 400; /* Lighten number */
+  font-size: 1.8rem;
+  color: #004B5E; /* Matches the visual */
+}

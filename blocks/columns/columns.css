@@ -194,7 +194,7 @@
 
 /* CSS arrow on the right */
 .columns.block.columns-2-cols .button-container .button::after {
-  content: "";
+  content: "↗"; 
   display: inline-block;
   width: 10px;
   height: 10px;

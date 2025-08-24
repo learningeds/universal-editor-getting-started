@@ -408,3 +408,14 @@
 .rightimagethentext .columns-img-col {
   position: relative;
 }
+/* "Careers" pre-title */
+.rightimagethentext h1#available-jobs::before {
+  content: "Careers";
+  display: block;
+  color: #00424f;
+  font-size: 0.9rem;
+  letter-spacing: 0.1em;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}

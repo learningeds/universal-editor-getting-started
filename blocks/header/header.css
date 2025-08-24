@@ -1,18 +1,11 @@
 /* --- NAVIGATION WRAPPER --- */
 .nav-wrapper {
-  background-color: #003f48 !important;
+
   padding: 16px !important;
   position: relative !important;
   z-index: 1000 !important;
 }
-.nav-wrapper {
-  background-color: transparent  !important;
-  transition: background-color 0.3s ease  !important;
-}
 
-.nav-wrapper.scrolled {
-   background-color: #003f48 !important;
-}
 
 
 /* --- FLEX ROW: LOGO + HAMBURGER --- */

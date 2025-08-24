@@ -26,8 +26,11 @@ export default function decorate(block) {
 
 const section1 = document.querySelector('[data-aue-resource*="section_1144820921"]');
 if (section1) {
-  // Collect all original .combined-cards > ul > li
-  const combinedCards = section1.querySelectorAll('.combined-cards');
+  // Fix: Find ALL .combined-cards elements that are part of this section
+  const combinedCards = document.querySelectorAll(
+    '.combined-cards[data-aue-resource*="section_1144820921"], [data-aue-resource*="section_1144820921"] .combined-cards'
+  );
+
   const allCards = [];
 
   combinedCards.forEach(cardContainer => {
@@ -37,7 +40,7 @@ if (section1) {
   });
 
   if (allCards.length > 0) {
-    // Create unified container
+    // Build unified carousel as before
     const combinedContainer = document.createElement('div');
     combinedContainer.className = 'combined-cards';
 
@@ -49,7 +52,6 @@ if (section1) {
       combinedUL.appendChild(li);
     });
 
-    // Insert combined container into section
     const referenceNode = section1.querySelector('.default-content-wrapper');
     if (referenceNode) {
       referenceNode.insertAdjacentElement('afterend', combinedContainer);
@@ -57,7 +59,7 @@ if (section1) {
       section1.appendChild(combinedContainer);
     }
 
-    // Create toggle button
+    // Toggle button
     let toggleBtn = section1.querySelector('.cards-view-toggle-btn');
     if (!toggleBtn) {
       toggleBtn = document.createElement('button');
@@ -66,7 +68,6 @@ if (section1) {
       section1.insertBefore(toggleBtn, combinedContainer);
     }
 
-    // Indicator setup
     const indicatorWrapper = document.createElement('div');
     indicatorWrapper.className = 'cards-carousel-indicators';
 
@@ -130,8 +131,7 @@ if (section1) {
       toggleBtn.textContent = isCarousel ? 'View as grid' : 'View as carousel';
     });
 
-    // Start in grid view
-    combinedContainer.classList.add('grid-view');
+    combinedContainer.classList.add('grid-view'); // default view
   }
 }
 

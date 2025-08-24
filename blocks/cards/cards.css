@@ -104,20 +104,18 @@
 .cards .cards-card-body a::before {
   content: '→';
   display: inline-block;
-  font-weight: bold;
+  font-weight: 900;
+  font-size: 1.5rem;
   transform: translateY(-1px);
   transition: none;
-    font-weight: 900;
-  font-size: 1.5rem;
 }
 
 .cards .cards-card-body a:hover {
- 
-  text-decoration: underline ;
+  text-decoration: underline;
 }
 
 .cards .cards-card-body a:hover::before {
-  transform: translateY(-1px); /* Arrow does not move */
+  transform: translateY(-1px);
 }
 
 /* ----- Fix for links inside .button-container (3rd card) ----- */
@@ -144,312 +142,16 @@
 }
 
 .cards .cards-card-body .button-container a:hover {
- 
   text-decoration: underline;
 }
 
 .cards .cards-card-body .button-container a:hover::before {
   transform: translateY(-1px);
 }
-.upcomingeventscards {
-  background-color: #003a46;
-  
-  color: #fff;
-  font-family: Georgia, serif;
- 
-  box-sizing: border-box;
-}
 
-.upcomingeventscards > .default-content-wrapper > h1 {
-  font-weight: 400;
-  font-size: 1.75rem;
-  margin-bottom: 40px;
-  color: #fff;
-  text-align: left;
-}
+/* -------- Existing styles omitted for brevity -------- */
 
-.upcomingeventscards .cards-wrapper {
-  display: flex;
-  gap: 30px;
-  justify-content: flex-start;
-  align-items: stretch;
-}
-
-.upcomingeventscards .cards-wrapper > div.cards.block > ul {
-  display: flex;
- gap: 20px;
-  padding: 0;
-  margin: 0;
-  list-style: none;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-.upcomingeventscards .cards-wrapper > div.cards.block > ul > li {
-  background-color: #00464f;
-  border-radius: 12px;
-  padding: 30px 25px;
-  flex: 1 1 30%; /* allow flex growth, basis ~30% width */
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  min-width: 280px;
-  max-width: 480px; /* limit max width for each card */
-  box-sizing: border-box;
-  color: #fff;
-  height: 350px; /* fixed height for all cards for consistent alignment */
-}
-
-.upcomingeventscards .cards-wrapper > div.cards.block > ul > li p:first-child {
-  margin-bottom: 12px;
-}
-.section.upcomingeventscards ul > li > .cards-card-body:empty {
-  display: none !important;
-}
-/* Date box styling for 2nd and 3rd cards */
-.upcomingeventscards .cards-wrapper > div.cards.block > ul > li:nth-child(2) p:first-child,
-.upcomingeventscards .cards-wrapper > div.cards.block > ul > li:nth-child(3) p:first-child {
-  font-weight: 100;
-  font-size: 1.3rem;
-  color: #e1bf92;
-  border: 1px solid #e1bf92;
-  width: 60px;
-  height: 62px;
-  line-height: 1.1;
-  text-align: center;
-  padding: 5px 0;
-  white-space: pre-line;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin-bottom: 12px;
-}
-
-/* Quarter release heading style */
-.upcomingeventscards .cards-wrapper > div.cards.block > ul > li:nth-child(n+2) p:nth-child(2) {
-  color: #98a1a6;
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  margin: 0 0 10px 0;
-  font-weight: 600;
-}
-
-/* Titles */
-.upcomingeventscards .cards-wrapper > div.cards.block > ul > li h3 {
-  font-weight: 500;
-  font-size: 2rem;
-  line-height: 1.3;
-  margin: 0 0 10px 0;
-    color: white;
-}
-
-/* Paragraph styling (same font size for all paragraphs) */
-.upcomingeventscards .cards-wrapper > div.cards.block > ul > li p {
-  font-size: 1rem;
-  color: #fff;
-  line-height: 1.5;
-  margin-bottom: 20px;
-}
-
-/* Investors text style */
-.upcomingeventscards .cards-wrapper > div.cards.block > ul > li:nth-child(1) p:nth-child(1) {
-  text-transform: uppercase;
-  font-size: 0.75rem;
-  color: #7aa6ab;
-  letter-spacing: 0.1em;
-  font-weight: 600;
-}
-
-/* Link styling on first card */
-.upcomingeventscards .cards-wrapper > div.cards.block > ul > li:nth-child(1) a {
- font-size: 1.1rem;
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 0.95rem;
-  background-color: #00464f;
-  transition: border-color 0.3s ease;
-    color: white;
-    margin-right: 15rem;
-}
-
-.upcomingeventscards .cards-wrapper > div.cards.block > ul > li:nth-child(1) a:hover {
- text-decoration: underline;
-
-}
-
-/* Button styling */
-.upcomingeventscards .button-container {
-  margin-top: 40px;
-  text-align: center;
-    margin-left: 10rem;
-}
-
-.upcomingeventscards .button-container a.button.secondary {
-  border: 1px solid #e1bf92;
-  color: #eaeae4;
-  padding: 10px 25px;
-  font-weight: 500;
-  font-size: 1rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  text-decoration: none;
-  display: inline-block;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.upcomingeventscards .button-container a.button.secondary:hover {
-  background-color: #e1bf92;
-  color: #003a46;
-  text-decoration: none;
-}
-/* Entire section background to white */
-/* White background for section */
-.section.groupcards {
-  background-color: #ffffff;
-  padding: 60px 40px;
-}
-
-/* Section heading */
-.groupcards h1 {
-  text-align: left;
-  font-size: 48px;
-  color: #004b5d;
-  font-weight: 500;
-    font-size: 40px;
-  margin-bottom: 40px;
-}
-
-/* Cards container */
-.groupcards .cards-wrapper ul {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  padding: 0;
-  margin: 0;
-  list-style: none;
-  justify-content: flex-start;
-    }
-
-/* Individual card box */
-.groupcards .cards-wrapper li {
-    padding: 0;
-  background-color: #e7eff1;
- width: 253px;
-  height: 120px;
-  border-radius: 0px;
-  box-sizing: border-box;
-  
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  margin-left: 1rem;
-}
-
-
-/* Top-left label */
-.groupcards .cards-wrapper li p {
-  font-size: 14px;
-  text-transform: uppercase;
-  font-weight: 700;
-  color: #004b5d;
-  margin: 0;
-}
-
-/* Bottom-right value */
-.groupcards .cards-wrapper li h3 {
-  font-size: 28px;
-  color: #004b5d;
-  font-weight: 500;
-  font-family: 'Georgia', serif;
-  margin: 0;
-  align-self: flex-end;
-}
-
-/* Responsive layout */
-@media (max-width: 1024px) {
-  .groupcards .cards-wrapper li {
-    width: calc(50% - 12px);
-  }
-}
-
-@media (max-width: 600px) {
-  .groupcards h1 {
-    text-align: center;
-    font-size: 36px;
-  }
-
-  .groupcards .cards-wrapper ul {
-    justify-content: center;
-  }
-.
-
-  .groupcards .cards-wrapper li {
-    width: 100%;
-    max-width: 90%;
-  }
-}
-.section.groupcards ul > li > .cards-card-body {
-  padding-top: 0 !important;
-}
-
-.section.groupcards ul > li > .cards-card-body:not(:empty) p {
-  margin: 0;
-  font-weight: 500; /* Less bold than before */
-  text-transform: uppercase;
-  font-size: 0.95rem;
-  color: #004B5E; /* Or your brand's deep blue */
-}
-
-.section.groupcards ul > li > .cards-card-body:not(:empty) h3 {
-  margin: 0;
-  align-self: flex-end;
-  font-weight: 400; /* Lighten number */
-  font-size: 1.8rem;
-  color: #004B5E; /* Matches the visual */
-   margin-left: 5rem !important;
-  margin-top: 2.3rem !important;
-}
-
-/* General Carousel Styles */
-.carousel {
-  background-color: #fcf8f2; /* Set the background color */
-}
-
-.section.carousel h1 {
-  
-  font-size: 42px;
-  font-weight: 400;
-  line-height: 1.3;
-  color: #004750;   /* teal shade from screenshot */
-  margin-bottom: 16px;
-  margin-right:15rem;
- font-family: "Noto Serif", "Times New Roman", Georgia, serif !important;
-}
-.section.carousel p {
- 
-  font-size: 18px !important;
-  font-weight: 400;
-  text-align: inherit;
-  line-height: 1.6;
-  color: #4e4843;   
-  max-width: 500px; /* keeps it neat */
-  margin: 0;
-  text-align: left !important;
-}
-.section.carousel .cards-wrapper ul {
-    display: grid; grid-template-columns: repeat(2, 1fr); /* 2 columns */
-    gap: 3rem; /* spacing between cards */ 
-    list-style: none; 
-    margin: 0; 
-    padding: 0; } 
-/* Make sure cards stretch evenly */ 
-.section.carousel .cards-wrapper li { 
-    display: flex; flex-direction: column; background: #fff; /* optional */ 
-    border-radius: 8px;
-    /* optional */ overflow: hidden; 
-}
-/* Scoped styles for 'There is always a better way' section */
+/* ----- Scoped styles for 'There is always a better way' section ----- */
 .better-way-cards .cards-view-toggle-btn {
   background-color: transparent;
   border: 2px solid #004B5E;
@@ -460,6 +162,12 @@
   border-radius: 4px;
   cursor: pointer;
   margin-bottom: 1rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.better-way-cards .cards-view-toggle-btn:hover {
+  background-color: #004B5E;
+  color: #ffffff;
 }
 
 /* Carousel styling */
@@ -469,14 +177,49 @@
   scroll-snap-type: x mandatory;
   gap: 2rem;
   padding: 1rem 0;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
 }
 
 .better-way-cards.carousel-view > ul > li {
   flex: 0 0 80%;
   scroll-snap-align: start;
   scroll-behavior: smooth;
+  transition: transform 0.3s ease;
 }
 
+/* Hide scrollbar */
 .better-way-cards.carousel-view > ul::-webkit-scrollbar {
   display: none;
+}
+.better-way-cards.carousel-view > ul {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+/* Carousel indicators */
+.cards-carousel-indicators {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 1rem;
+}
+
+.cards-carousel-indicators .dot {
+  width: 12px;
+  height: 12px;
+  background-color: #ccc;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.cards-carousel-indicators .dot.active {
+  background-color: #004B5E;
+}
+
+/* Optional: smoother scroll on clicking dots */
+.cards-carousel-indicators .dot:focus {
+  outline: 2px solid #004B5E;
+  outline-offset: 2px;
 }

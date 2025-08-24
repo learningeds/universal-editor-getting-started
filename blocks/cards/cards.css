@@ -309,8 +309,10 @@
   text-align: left;
   font-size: 48px;
   color: #004b5d;
-  font-weight: 700;
-  font-family: 'Georgia', serif;
+  font-weight: 500;
+    
+ font-family: "Noto Serif", Arial, Helvetica, sans-serif !important;
+    font-size: 40px;
   margin-bottom: 40px;
 }
 

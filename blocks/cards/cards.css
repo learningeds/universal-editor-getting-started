@@ -177,7 +177,7 @@
 .upcomingeventscards .cards-wrapper > div.cards.block > ul {
   display: flex;
   gap: 30px;
-  padding: 0;
+  padding: 0 !imporant;
   margin: 0;
   list-style: none;
   width: 100%;
@@ -186,6 +186,7 @@
 
 .upcomingeventscards .cards-wrapper > div.cards.block > ul > li {
   background-color: #00464f;
+    padding: 0 !imporant;
   border-radius: 12px;
   padding: 30px 25px;
   flex: 1 1 30%; /* allow flex growth, basis ~30% width */

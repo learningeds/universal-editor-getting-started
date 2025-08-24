@@ -194,21 +194,11 @@ export function getThemeFromUrl() {
 }
 
 loadPage();
-// Add this at the bottom of scripts.js (after loadPage or inside loadPage if preferred)
-function handleScrollForHeader() {
-  const header = document.querySelector('.header');
-  if (!header) return;
-  
+window.addEventListener('scroll', () => {
   if (window.scrollY > 0) {
-    header.classList.add('scrolled');
+    document.body.classList.add('scrolled');
   } else {
-    header.classList.remove('scrolled');
+    document.body.classList.remove('scrolled');
   }
-}
-
-// Make header fixed at top and toggle nav-sections visibility on scroll
-window.addEventListener('scroll', handleScrollForHeader);
-
-// Also call once on load in case user is not at top on load
-window.addEventListener('load', handleScrollForHeader);
+});
 

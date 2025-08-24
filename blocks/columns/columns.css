@@ -444,3 +444,7 @@
 .rightimagethentext .columns-img-col .top-right-link {
   display: none !important;
 }
+.rightimagethentext .columns.block.columns-2-cols p {
+  font-family: 'Noto Sans', Arial, Helvetica, sans-serif;
+  font-weight: 200; /* Light font weight */
+}

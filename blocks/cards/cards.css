@@ -449,47 +449,42 @@
     border-radius: 8px;
     /* optional */ overflow: hidden; 
 }
-/* ==== Scoped styles for carousel toggle only on first block ==== */
+/* ===== Scoped to section_1144820921 ONLY ===== */
 
-/* Carousel toggle button style */
-.cards.block[data-aue-resource*="section_1144820921/block"] .cards-view-toggle-btn {
+/* Toggle button styles */
+#section_1144820921 .cards-toggle-btn {
   background: none;
-  border: 2px solid #005B9F;
-  color: #005B9F;
-  font-size: 16px;
+  border: 2px solid #004B5E;
+  color: #004B5E;
   font-weight: 500;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 1.2rem;
+  border-radius: 4px;
   cursor: pointer;
   margin-bottom: 1rem;
-  display: inline-block;
-  border-radius: 4px;
+  font-size: 1rem;
 }
 
-/* Default grid layout (already in place) */
+#section_1144820921 .cards-toggle-btn:hover {
+  background-color: #004B5E;
+  color: #fff;
+}
 
-.cards.block[data-aue-resource*="section_1144820921/block"].carousel-view > ul {
+/* Carousel layout override */
+#section_1144820921 .cards.block.carousel-view > ul {
   display: flex !important;
+  flex-wrap: nowrap;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
-  gap: 2rem;
+  gap: 1.5rem;
   padding: 1rem 0;
-  scroll-behavior: smooth;
 }
 
-/* Ensure cards snap in carousel mode */
-.cards.block[data-aue-resource*="section_1144820921/block"].carousel-view > ul > li {
+#section_1144820921 .cards.block.carousel-view > ul > li {
   flex: 0 0 80%;
   scroll-snap-align: start;
 }
 
-/* Hide scrollbar */
-.cards.block[data-aue-resource*="section_1144820921/block"].carousel-view > ul::-webkit-scrollbar {
+/* Hide scrollbar (optional) */
+#section_1144820921 .cards.block.carousel-view > ul::-webkit-scrollbar {
   display: none;
-}
-
-/* Optional: make carousel mobile-first */
-@media (max-width: 768px) {
-  .cards.block[data-aue-resource*="section_1144820921/block"].carousel-view > ul > li {
-    flex: 0 0 90%;
-  }
 }

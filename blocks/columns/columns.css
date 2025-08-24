@@ -586,6 +586,7 @@
   text-decoration: underline; /* Add underline on hover */
   color: #005b8c; /* Darker link color on hover */
 }
-
-      .lightimagethentext .columns.block.columns-2-cols .button-container .button {
-background-color: transparent !important; /* Remove background color */}
+.section.lightimagethentext .columns.block.columns-2-cols .button-container .button {
+  background-color: transparent !important;
+  border: none;
+}

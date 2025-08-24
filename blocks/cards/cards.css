@@ -1,71 +1,148 @@
-/* Scoped Combined Carousel Container */
-.section[data-aue-resource*="section_1144820921"] .combined-cards-wrapper-carousel {
+/* Container + Wrapper */
+.cards-container {
+  background-color: #005661;
+  padding: 60px 20px;
+}
+.cards-wrapper {
   max-width: 1200px;
-  margin: 0 auto 2rem auto;
-  position: relative;
-  background-color: #fff;
-  border-radius: 12px;
-  padding: 20px;
+  margin: 0 auto;
+}
+
+/* Title and Paragraph */
+.cards-container h1,
+.cards-container p {
+  color: white;
+  font-family: "Noto Serif", Georgia, "Times New Roman", serif;
+  margin: 0 0 24px 0;
+}
+
+/* Spacing between intro and cards */
+.cards-wrapper .cards {
+  margin-top: 32px;
+}
+
+/* Cards Grid Layout */
+.cards > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 32px;
+}
+
+/* Individual Card */
+.cards > ul > li {
+  background-color: #ffffff;
+  border-radius: 12px 12px 12px 0; /* Bottom-left square */
   overflow: hidden;
-}
-
-/* Grid view (default) - show all cards-wrapper stacked or side-by-side */
-.section[data-aue-resource*="section_1144820921"] .combined-cards-wrapper-carousel.grid-view {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  overflow: visible;
-  transform: none !important;
-  transition: none !important;
-}
-
-/* Carousel view - show one cards-wrapper at a time */
-.section[data-aue-resource*="section_1144820921"] .combined-cards-wrapper-carousel.carousel-view {
-  display: flex;
-  overflow: hidden;
-  scroll-snap-type: x mandatory;
-  transition: transform 0.5s ease;
-  width: 100%;
-}
-
-/* Each cards-wrapper as carousel item */
-.section[data-aue-resource*="section_1144820921"] .combined-cards-wrapper-carousel.carousel-view > .cards-wrapper {
-  flex: 0 0 100%;
-  scroll-snap-align: start;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   display: flex;
   flex-direction: column;
+  height: 100%;
+  transition: none;
 }
 
-/* Carousel indicators container */
-.section[data-aue-resource*="section_1144820921"] .cards-carousel-indicators {
+/* Image Block */
+.cards .cards-card-image {
+  line-height: 0;
+}
+.cards .cards-card-image img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  aspect-ratio: 4 / 3;
+  display: block;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+/* Card Body */
+.cards .cards-card-body {
+  padding: 24px;
   display: flex;
-  justify-content: center;
-  gap: 12px;
-  margin-top: 1rem;
-  user-select: none;
+  flex-direction: column;
+  flex: 1;
 }
 
-.section[data-aue-resource*="section_1144820921"] .cards-carousel-indicators .dot {
-  width: 12px;
-  height: 12px;
-  background-color: #ccc;
-  border-radius: 50%;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-.section[data-aue-resource*="section_1144820921"] .cards-carousel-indicators .dot.active {
-  background-color: #004B5E;
-}
-.section[data-aue-resource*="section_1144820921"] .cards-carousel-indicators .dot:focus {
-  outline: 2px solid #004B5E;
-  outline-offset: 2px;
+/* Heading inside Card */
+.cards .cards-card-body h3 {
+  font-family: "Noto Serif", Georgia, "Times New Roman", serif;
+  font-size: 22px;
+  font-weight: 500;
+  color: #004B54;
+  margin: 0 0 12px 0;
 }
 
-/* Toggle button styling inside section 1144820921 */
-.section[data-aue-resource*="section_1144820921"] .cards-view-toggle-btn {
+/* Paragraph inside Card */
+.cards .cards-card-body p {
+  font-family: "Open Sans", Arial, sans-serif;
+  font-size: 16px;
+  color: #333;
+  line-height: 1.5;
+  margin: 0 0 12px 0;
+}
+
+/* Link/Button inside Card */
+.cards .cards-card-body a {
+  font-family: "Noto Sans", Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: #005B9F;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: auto;
+  border-bottom: 2px solid transparent;
+  padding-bottom: 2px;
+  transition: border-color 0.2s ease;
+}
+.cards .cards-card-body a::before {
+  content: '→';
+  display: inline-block;
+  font-weight: 900;
+  font-size: 1.5rem;
+  transform: translateY(-1px);
+  transition: none;
+}
+.cards .cards-card-body a:hover {
+  text-decoration: underline;
+}
+.cards .cards-card-body a:hover::before {
+  transform: translateY(-1px);
+}
+
+/* Button container link fix */
+.cards .cards-card-body .button-container a {
+  font-family: "Noto Sans", Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: #005B9F;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  border-bottom: 2px solid transparent;
+  padding-bottom: 2px;
+  transition: border-color 0.2s ease;
+}
+.cards .cards-card-body .button-container a::before {
+  content: '→';
+  display: inline-block;
+  font-weight: bold;
+  transform: translateY(-1px);
+  transition: none;
+}
+.cards .cards-card-body .button-container a:hover {
+  text-decoration: underline;
+}
+.cards .cards-card-body .button-container a:hover::before {
+  transform: translateY(-1px);
+}
+
+/* Scoped styles for 'There is always a better way' section */
+.better-way-cards .cards-view-toggle-btn {
   background-color: transparent;
   border: 2px solid #004B5E;
   color: #004B5E;
@@ -74,27 +151,222 @@
   font-weight: 500;
   border-radius: 4px;
   cursor: pointer;
-  margin-top: 1rem;
-  display: inline-block;
+  margin-bottom: 1rem;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
-.section[data-aue-resource*="section_1144820921"] .cards-view-toggle-btn:hover {
+.better-way-cards .cards-view-toggle-btn:hover {
   background-color: #004B5E;
-  color: #fff;
+  color: #ffffff;
 }
 
-/* Hide scrollbar for carousel */
-.section[data-aue-resource*="section_1144820921"] .combined-cards-wrapper-carousel.carousel-view::-webkit-scrollbar {
+/* Carousel styling */
+.better-way-cards.carousel-view > ul {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  gap: 2rem;
+  padding: 1rem 0;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+.better-way-cards.carousel-view > ul > li {
+  flex: 0 0 80%;
+  scroll-snap-align: start;
+  transition: transform 0.3s ease;
+}
+/* Hide scrollbar */
+.better-way-cards.carousel-view > ul::-webkit-scrollbar {
   display: none;
 }
-.section[data-aue-resource*="section_1144820921"] .combined-cards-wrapper-carousel.carousel-view {
+.better-way-cards.carousel-view > ul {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
 
-/* Responsive tweaks */
+/* Carousel indicators */
+.cards-carousel-indicators {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 1rem;
+}
+.cards-carousel-indicators .dot {
+  width: 12px;
+  height: 12px;
+  background-color: #ccc;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.cards-carousel-indicators .dot.active {
+  background-color: #004B5E;
+}
+.cards-carousel-indicators .dot:focus {
+  outline: 2px solid #004B5E;
+  outline-offset: 2px;
+}
+
+/* Combined Cards Container (for section_1144820921 combined carousel) */
+.combined-cards {
+  max-width: 1200px;
+  margin: 0 auto 2rem auto;
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  position: relative;
+}
+
+/* Toggle button for combined cards carousel */
+.combined-cards + .cards-view-toggle-btn,
+.better-way-cards .cards-view-toggle-btn {
+  background-color: transparent;
+  border: 2px solid #004B5E;
+  color: #004B5E;
+  padding: 0.5rem 1.2rem;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-bottom: 1rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  display: inline-block;
+}
+.combined-cards + .cards-view-toggle-btn:hover,
+.better-way-cards .cards-view-toggle-btn:hover {
+  background-color: #004B5E;
+  color: #ffffff;
+}
+
+/* Combined cards grid (default view) */
+.combined-cards.grid-view > ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+/* Combined cards carousel view */
+.combined-cards.carousel-view > ul {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  gap: 2rem;
+  padding: 1rem 0;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+.combined-cards.carousel-view > ul > li {
+  flex: 0 0 80%;
+  scroll-snap-align: start;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+}
+/* Hide scrollbar */
+.combined-cards.carousel-view > ul::-webkit-scrollbar {
+  display: none;
+}
+.combined-cards.carousel-view > ul {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Section 1144820921 Scoped Styles */
+.section[data-aue-resource*="section_1144820921"] {
+  background-color: #fcf8f2;
+  padding: 60px 20px;
+  font-family: "Noto Sans", sans-serif;
+  position: relative;
+}
+.section[data-aue-resource*="section_1144820921"] .default-content-wrapper h1 {
+  font-size: 2.5rem;
+  color: #004750;
+  font-family: "Noto Serif", serif;
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+.section[data-aue-resource*="section_1144820921"] .default-content-wrapper p {
+  font-size: 18px;
+  color: #4e4843;
+  max-width: 600px;
+  margin-bottom: 40px;
+}
+
+/* Card Styling inside section 1144820921 (used for cards inside combined cards or original) */
+.section[data-aue-resource*="section_1144820921"] .cards.block > ul,
+.combined-cards > ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.section[data-aue-resource*="section_1144820921"] .cards.block > ul > li,
+.combined-cards > ul > li {
+  background-color: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.section[data-aue-resource*="section_1144820921"] .cards-card-image img,
+.combined-cards .cards-card-image img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+}
+.section[data-aue-resource*="section_1144820921"] .cards-card-body,
+.combined-cards .cards-card-body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.section[data-aue-resource*="section_1144820921"] .cards-card-body h3,
+.combined-cards .cards-card-body h3 {
+  font-size: 22px;
+  color: #004b5e;
+  font-family: "Noto Serif", serif;
+  margin: 0;
+  font-weight: 500;
+}
+.section[data-aue-resource*="section_1144820921"] .cards-card-body p,
+.combined-cards .cards-card-body p {
+  font-size: 16px;
+  color: #333;
+  margin: 0;
+}
+.section[data-aue-resource*="section_1144820921"] .cards-card-body a,
+.combined-cards .cards-card-body a {
+  color: #004b5e;
+  text-decoration: none;
+  font-weight: 500;
+  margin-top: auto;
+  display: inline-block;
+  border-bottom: 2px solid transparent;
+  padding-bottom: 2px;
+  transition: border-color 0.3s ease;
+}
+.section[data-aue-resource*="section_1144820921"] .cards-card-body a:hover,
+.combined-cards .cards-card-body a:hover {
+  border-color: #004b5e;
+}
+
+/* Responsive Adjustments */
 @media (max-width: 900px) {
-  .section[data-aue-resource*="section_1144820921"] .combined-cards-wrapper-carousel.grid-view {
-    flex-direction: column;
+  .cards > ul {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  }
+}
+@media (max-width: 600px) {
+  .cards > ul {
+    grid-template-columns: 1fr;
   }
 }

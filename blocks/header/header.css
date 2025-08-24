@@ -42,7 +42,7 @@
 /* “Menu” text left, icon right */
 .menu-label {
   margin-right: 8px !important;
-  border-bottom: 2px solid white !important;
+  
   order: 1 !important;
 }
 

@@ -203,7 +203,9 @@
 .upcomingeventscards .cards-wrapper > div.cards.block > ul > li p:first-child {
   margin-bottom: 12px;
 }
-
+.section.upcomingeventscards ul > li > .cards-card-body:empty {
+  display: none !important;
+}
 /* Date box styling for 2nd and 3rd cards */
 .upcomingeventscards .cards-wrapper > div.cards.block > ul > li:nth-child(2) p:first-child,
 .upcomingeventscards .cards-wrapper > div.cards.block > ul > li:nth-child(3) p:first-child {

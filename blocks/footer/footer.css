@@ -1,98 +1,133 @@
-/* Basic structure for the footer */
-.footer {
-    background-color: #004B6A; /* Dark Teal background */
-    color: white;
-    padding: 60px 0; /* Adjust padding for better spacing */
-    font-family: Arial, sans-serif;
-    font-size: 14px;
-    text-align: left; /* Align text to the left */
+footer {
+  background-color: #004a59;
+  color: white;
+  padding: 60px 80px;
+  font-family: Arial, sans-serif;
 }
 
-/* Wrapper for footer content */
-.footer .columns-wrapper {
-    display: flex;
-    justify-content: space-between;
-    max-width: 1200px;
-    margin: 0 auto;
-    flex-wrap: wrap;
+/* Grid for 4 columns */
+footer .columns.block.columns-4-cols > div {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+  align-items: start;
+}
+footer .columns.block.columns-4-cols > div > div:first-child {
+  background-image: url('/path-to/f46f415c-aac2-49dd-903a-9480c4ce3c55.png'); /* Actual image from upload */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 40px 30px;
+  border-radius: 40px 0 40px 0;
+  color: white;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  min-height: 330px; /* optional: to keep consistent height */
 }
 
-/* Each column inside the footer */
-.footer .columns-wrapper > div {
-    flex: 1;
-    margin: 0 20px;
-    min-width: 230px; /* Ensures columns are of adequate size */
-    padding: 10px;
+/* Remove previous logo insert if used */
+footer .columns.block.columns-4-cols > div > div:first-child::before {
+  display: none;
 }
 
-/* Styling for the first column (Address & Contact) */
-.footer .columns-wrapper > div:first-child p {
-    margin: 5px 0;
-    line-height: 1.5;
+
+
+/* Atlas Copco Group logo */
+footer .columns.block.columns-4-cols > div > div:first-child::before {
+  content: '';
+  display: block;
+  width: 200px;
+  height: 50px;
+  background-image: url('https://atlascopco.scene7.com/is/image/atlascopco/Atlas+Copco+Group+logo+header?$landscape1600$&fmt=png-alpha&fit=stretch,1');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: left top;
+  margin-bottom: 20px;
 }
 
-/* Contact button style */
-.footer .columns-wrapper > div:first-child .button-container a.button {
-    background-color: #F9A64D; /* Light orange button color */
-    color: white;
-    padding: 12px 20px; /* Adjusted padding for the button */
-    text-decoration: none;
-    border-radius: 4px;
-    font-weight: bold;
-    display: inline-block;
-    margin-top: 12px; /* Space above the button */
+/* Contact text lines */
+footer .columns.block.columns-4-cols > div > div:first-child p {
+  font-size: 18px;
+  line-height: 1.6;
+  margin: 0;
 }
 
-/* Column Titles (Atlas Copco Group, Quick Links, About Us) */
-.footer h5 {
-    font-size: 18px;
-    margin-bottom: 15px;
-    color: #F9A64D; /* Light orange for the headers */
-    font-weight: bold;
+/* Phone number row */
+footer .columns.block.columns-4-cols > div > div:first-child .icon-phone {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+  font-size: 18px;
 }
 
-/* Styling for Lists inside the Columns */
-.footer ul {
-    list-style-type: none;
-    padding-left: 0;
+/* Phone icon styling */
+footer .columns.block.columns-4-cols > div > div:first-child .icon-phone svg,
+footer .columns.block.columns-4-cols > div > div:first-child .icon-phone .icon {
+  width: 20px;
+  height: 20px;
+  fill: white;
 }
 
-.footer ul li {
-    margin: 5px 0;
+/* Bottom gold corner square */
+footer .columns.block.columns-4-cols > div > div:first-child::after {
+  content: '';
+  position: absolute;
+  bottom: -12px;
+  left: -12px;
+  width: 16px;
+  height: 16px;
+  background-color: #d9a53c;
+  border-radius: 0 0 0 4px;
 }
 
-.footer ul li a {
-    color: white;
-    text-decoration: none;
-    font-size: 14px;
-    display: block; /* Make links block-level for better clicking */
+/* Right-side footer columns: headings */
+footer .columns.block.columns-4-cols > div > div:not(:first-child) h5 {
+  font-size: 20px;
+  color: #a4c0c4;
+  margin-bottom: 12px;
 }
 
-.footer ul li a:hover {
-    color: #F9A64D; /* Light orange on hover */
+/* Right-side footer columns: link lists */
+footer .columns.block.columns-4-cols ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
-/* Styling for the 'About Us' paragraph */
-.footer .columns-wrapper > div:last-child p {
-    font-size: 14px;
-    color: white;
-    line-height: 1.6;
+footer .columns.block.columns-4-cols ul li {
+  margin-bottom: 10px;
 }
 
-/* Ensuring footer items align correctly and are responsive */
-.footer .columns-wrapper > div {
-    margin-bottom: 30px;
+footer .columns.block.columns-4-cols ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
 }
 
-/* For mobile responsiveness */
+footer .columns.block.columns-4-cols ul li a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive layout for tablets and below */
+@media (max-width: 1024px) {
+  footer {
+    padding: 40px 30px;
+  }
+
+  footer .columns.block.columns-4-cols > div {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
 @media (max-width: 768px) {
-    .footer .columns-wrapper {
-        flex-direction: column;
-    }
+  footer .columns.block.columns-4-cols > div {
+    grid-template-columns: 1fr;
+  }
 
-    .footer .columns-wrapper > div {
-        margin-bottom: 30px;
-        flex: none;
-        width: 100%;
-    }
+  footer .columns.block.columns-4-cols > div > div {
+    margin-bottom: 20px;
+  }
 }

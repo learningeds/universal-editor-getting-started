@@ -605,3 +605,53 @@ main .section.imageovercard {
   background-color: #003049;
   color: white;
 }
+.section.quote {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem 1rem;
+  flex-wrap: wrap;
+}
+
+.section.quote picture img {
+  max-width: 300px;
+  height: auto;
+  border-radius: 1rem;
+}
+
+.section.quote .default-content-wrapper {
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.section.quote .default-content-wrapper h3 {
+  font-size: 2rem;
+  font-weight: 400;
+  color: #004b5e;
+  line-height: 1.6;
+  position: relative;
+  padding-left: 3rem;
+}
+
+.section.quote .default-content-wrapper h3::before {
+  content: "“";
+  font-size: 5rem;
+  color: #004b5e;
+  position: absolute;
+  left: 0;
+  top: -0.5rem;
+  line-height: 1;
+}
+
+.section.quote .default-content-wrapper p {
+  margin-top: 1rem;
+  font-size: 1rem;
+  color: #555;
+}
+
+.section.quote .default-content-wrapper p strong {
+  color: #1b1b1b;
+  font-weight: 600;
+}

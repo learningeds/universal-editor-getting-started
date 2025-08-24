@@ -613,7 +613,7 @@ main .section.imageovercard {
   display: flex;
   align-items: center;
   gap: 2rem;
-  padding: 2rem 1rem;
+  
   flex-wrap: wrap;
 }
 

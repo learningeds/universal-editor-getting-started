@@ -381,6 +381,9 @@
   .groupcards .cards-wrapper ul {
     justify-content: center;
   }
+.groupcards .cards .cards-card-body {
+  padding-top: 0 !important;
+}
 
   .groupcards .cards-wrapper li {
     width: 100%;

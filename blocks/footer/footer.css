@@ -2,10 +2,10 @@
 .footer {
     background-color: #004B6A; /* Dark Teal background */
     color: white;
-    padding: 50px 0;
+    padding: 60px 0; /* Adjust padding for better spacing */
     font-family: Arial, sans-serif;
     font-size: 14px;
-    text-align: left; /* Align text to the left */
+    text-align: left; /* Align text to the left, based on the provided image */
 }
 
 /* Wrapper for footer content */
@@ -21,7 +21,7 @@
 .footer .columns-wrapper > div {
     flex: 1;
     margin: 0 20px;
-    min-width: 200px; /* Ensures responsive behavior */
+    min-width: 230px; /* Ensures columns are of adequate size */
 }
 
 /* For the first column (Address) */
@@ -29,32 +29,33 @@
     font-size: 16px;
 }
 
-/* Style for the contact information and button */
+/* Address section styling */
 .footer .columns-wrapper p {
-    margin: 10px 0;
+    margin: 5px 0;
     line-height: 1.5;
 }
 
-/* Contact button style */
+/* Contact button styling */
 .footer .button-container a.button {
-    background-color: #F9A64D; /* Light orange button color */
+    background-color: #F9A64D; /* Orange color for the button */
     color: white;
-    padding: 10px 20px;
+    padding: 12px 20px; /* Adjusted padding for button */
     text-decoration: none;
     border-radius: 4px;
     font-weight: bold;
-    margin-top: 10px;
     display: inline-block;
+    margin-top: 12px; /* Spacing above the button */
 }
 
-/* Link Styling for Column 2 (Atlas Copco Group, Quick links, About Us) */
+/* Column titles (Atlas Copco Group, Quick Links, etc.) */
 .footer h5 {
     font-size: 18px;
     margin-bottom: 15px;
-    color: #F9A64D; /* Light orange color for the headers */
+    color: #F9A64D; /* Light orange for the headers */
     font-weight: bold;
 }
 
+/* Styling for lists inside the columns */
 .footer ul {
     list-style-type: none;
     padding-left: 0;
@@ -68,10 +69,11 @@
     color: white;
     text-decoration: none;
     font-size: 14px;
+    display: block; /* Ensure links are block-level for better clicking area */
 }
 
 .footer ul li a:hover {
-    color: #F9A64D; /* Hover effect */
+    color: #F9A64D; /* Light orange on hover */
 }
 
 /* Adjusting About Us text */
@@ -86,7 +88,7 @@
     margin-bottom: 30px;
 }
 
-/* For responsiveness */
+/* For mobile responsiveness */
 @media (max-width: 768px) {
     .footer .columns-wrapper {
         flex-direction: column;

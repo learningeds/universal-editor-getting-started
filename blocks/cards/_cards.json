@@ -73,6 +73,10 @@
           {
             "name": "Quote",
             "value": "quote"
+          },
+          {
+            "name": "Carousel",
+            "value": "carousel"
           }
         ]
         }

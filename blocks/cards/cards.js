@@ -24,119 +24,116 @@ export default function decorate(block) {
 
   // ===== Combined Carousel Toggle Logic for section_1144820921 =====
 
-  const section1 = document.querySelector('[data-aue-resource*="section_1144820921"]');
-  if (section1) {
-    // Find all cards-wrapper inside this section
-    const cardsWrappers = Array.from(section1.querySelectorAll('.cards-wrapper'));
-    if (cardsWrappers.length > 0) {
-      // Create combined container for all cards
-      const combinedContainer = document.createElement('div');
-      combinedContainer.className = 'combined-cards';
+const section1 = document.querySelector('[data-aue-resource*="section_1144820921"]');
+if (section1) {
+  // Collect all original .combined-cards > ul > li
+  const combinedCards = section1.querySelectorAll('.combined-cards');
+  const allCards = [];
 
-      // Create one UL to hold all cards
-      const combinedUL = document.createElement('ul');
-      combinedContainer.appendChild(combinedUL);
+  combinedCards.forEach(cardContainer => {
+    const li = cardContainer.querySelector('ul > li');
+    if (li) allCards.push(li);
+    cardContainer.style.display = 'none'; // Hide original
+  });
 
-      // Move all <li> cards from all cards-wrapper > .cards.block > ul into combinedUL
-      cardsWrappers.forEach(wrapper => {
-        const cardsBlock = wrapper.querySelector('.cards.block');
-        if (!cardsBlock) return;
+  if (allCards.length > 0) {
+    // Create unified container
+    const combinedContainer = document.createElement('div');
+    combinedContainer.className = 'combined-cards';
 
-        const ul = cardsBlock.querySelector('ul');
-        if (!ul) return;
+    const combinedUL = document.createElement('ul');
+    combinedUL.style.transition = 'transform 0.5s ease';
+    combinedContainer.appendChild(combinedUL);
 
-        Array.from(ul.children).forEach(li => {
-          combinedUL.appendChild(li);
-        });
+    allCards.forEach((li) => {
+      combinedUL.appendChild(li);
+    });
 
-        // Hide original cards-wrapper
-        wrapper.style.display = 'none';
-      });
-
-      // Insert combined container after default content wrapper or at end of section
-      const referenceNode = section1.querySelector('.default-content-wrapper');
-      if (referenceNode) {
-        referenceNode.insertAdjacentElement('afterend', combinedContainer);
-      } else {
-        section1.appendChild(combinedContainer);
-      }
-
-      // Create toggle button for carousel/grid (only if not already created)
-      let toggleBtn = combinedContainer.parentNode.querySelector('.cards-view-toggle-btn');
-      if (!toggleBtn) {
-        toggleBtn = document.createElement('button');
-        toggleBtn.className = 'cards-view-toggle-btn';
-        toggleBtn.textContent = 'View as carousel';
-        combinedContainer.parentNode.insertBefore(toggleBtn, combinedContainer);
-      }
-
-      let isCarousel = false;
-      let index = 0;
-      let intervalId;
-
-      // Create carousel indicators container
-      const indicatorWrapper = document.createElement('div');
-      indicatorWrapper.className = 'cards-carousel-indicators';
-
-      function updateIndicators() {
-        indicatorWrapper.innerHTML = ''; // clear existing dots
-        for (let i = 0; i < combinedUL.children.length; i++) {
-          const dot = document.createElement('div');
-          dot.className = 'dot';
-          if (i === index) dot.classList.add('active');
-          dot.addEventListener('click', () => {
-            index = i;
-            updateCarousel();
-          });
-          indicatorWrapper.appendChild(dot);
-        }
-      }
-
-      function updateCarousel() {
-        combinedUL.style.transform = `translateX(-${index * 100}%)`;
-        const dots = indicatorWrapper.querySelectorAll('.dot');
-        dots.forEach((dot, i) => {
-          dot.classList.toggle('active', i === index);
-        });
-      }
-
-      function startAutoSlide() {
-        if (intervalId) clearInterval(intervalId);
-        intervalId = setInterval(() => {
-          index = (index + 1) % combinedUL.children.length;
-          updateCarousel();
-        }, 15000);
-      }
-
-      function stopAutoSlide() {
-        if (intervalId) clearInterval(intervalId);
-      }
-
-      toggleBtn.addEventListener('click', () => {
-        isCarousel = !isCarousel;
-        if (isCarousel) {
-          combinedContainer.classList.add('carousel-view');
-          combinedContainer.classList.remove('grid-view');
-          combinedUL.style.transform = 'translateX(0)';
-          index = 0;
-          updateIndicators();
-          updateCarousel();
-          startAutoSlide();
-          combinedContainer.appendChild(indicatorWrapper);
-        } else {
-          combinedContainer.classList.add('grid-view');
-          combinedContainer.classList.remove('carousel-view');
-          combinedUL.style.transform = 'translateX(0)';
-          stopAutoSlide();
-          indicatorWrapper.remove();
-        }
-        toggleBtn.textContent = isCarousel ? 'View as grid' : 'View as carousel';
-      });
-
-      // Initialize with grid view
-      combinedContainer.classList.add('grid-view');
+    // Insert combined container into section
+    const referenceNode = section1.querySelector('.default-content-wrapper');
+    if (referenceNode) {
+      referenceNode.insertAdjacentElement('afterend', combinedContainer);
+    } else {
+      section1.appendChild(combinedContainer);
     }
+
+    // Create toggle button
+    let toggleBtn = section1.querySelector('.cards-view-toggle-btn');
+    if (!toggleBtn) {
+      toggleBtn = document.createElement('button');
+      toggleBtn.className = 'cards-view-toggle-btn';
+      toggleBtn.textContent = 'View as carousel';
+      section1.insertBefore(toggleBtn, combinedContainer);
+    }
+
+    // Indicator setup
+    const indicatorWrapper = document.createElement('div');
+    indicatorWrapper.className = 'cards-carousel-indicators';
+
+    let isCarousel = false;
+    let index = 0;
+    let intervalId;
+
+    function updateIndicators() {
+      indicatorWrapper.innerHTML = '';
+      for (let i = 0; i < combinedUL.children.length; i++) {
+        const dot = document.createElement('div');
+        dot.className = 'dot';
+        if (i === index) dot.classList.add('active');
+        dot.addEventListener('click', () => {
+          index = i;
+          updateCarousel();
+        });
+        indicatorWrapper.appendChild(dot);
+      }
+    }
+
+    function updateCarousel() {
+      combinedUL.style.transform = `translateX(-${index * 100}%)`;
+      indicatorWrapper.querySelectorAll('.dot').forEach((dot, i) => {
+        dot.classList.toggle('active', i === index);
+      });
+    }
+
+    function startAutoSlide() {
+      clearInterval(intervalId);
+      intervalId = setInterval(() => {
+        index = (index + 1) % combinedUL.children.length;
+        updateCarousel();
+      }, 15000);
+    }
+
+    function stopAutoSlide() {
+      clearInterval(intervalId);
+    }
+
+    toggleBtn.addEventListener('click', () => {
+      isCarousel = !isCarousel;
+
+      if (isCarousel) {
+        combinedContainer.classList.add('carousel-view');
+        combinedContainer.classList.remove('grid-view');
+        combinedUL.style.transform = 'translateX(0)';
+        index = 0;
+        updateIndicators();
+        updateCarousel();
+        combinedContainer.appendChild(indicatorWrapper);
+        startAutoSlide();
+      } else {
+        combinedContainer.classList.add('grid-view');
+        combinedContainer.classList.remove('carousel-view');
+        combinedUL.style.transform = 'translateX(0)';
+        stopAutoSlide();
+        indicatorWrapper.remove();
+      }
+
+      toggleBtn.textContent = isCarousel ? 'View as grid' : 'View as carousel';
+    });
+
+    // Start in grid view
+    combinedContainer.classList.add('grid-view');
   }
+}
 
   // ===== Separate Carousel Logic for section_303714501 with one-time initialization =====
 

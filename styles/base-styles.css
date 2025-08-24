@@ -661,16 +661,4 @@ main .section.imageovercard {
   color: #1b1b1b;
   font-weight: 600;
 }
-.nav-wrapper {
-  background-color: transparent;
-  transition: background-color 0.3s ease;
-}
-
-.nav-wrapper.scrolled {
-  background-color: #003f48;
-}
-/* Prevent page content from hiding behind fixed header */
-body {
-  padding-top: 80px !important; /* Adjust based on your header height */
-}
 

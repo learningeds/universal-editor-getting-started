@@ -394,19 +394,3 @@
 
 
 
-.section.groupcards ul > li > .cards-card-body:not(:empty) p {
-  margin: 0;
-  align-self: flex-start !important;
-  font-weight: 500;
-  font-size: 0.9rem;
-  text-transform: uppercase;
-  color: #004B5E;
-}
-
-.section.groupcards ul > li > .cards-card-body:not(:empty) h3 {
-  margin: 0;
-  align-self: flex-end !important;
-  font-weight: 400;
-  font-size: 1.8rem;
-  color: #004B5E;
-}

@@ -116,6 +116,18 @@ async function loadEager(doc) {
   } catch (e) {
     // do nothing
   }
+  document.addEventListener('DOMContentLoaded', function () {
+  const navWrapper = document.querySelector('.nav-wrapper');
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 10) {
+      navWrapper.classList.add('scrolled');
+    } else {
+      navWrapper.classList.remove('scrolled');
+    }
+  });
+});
+
 }
 
 /**

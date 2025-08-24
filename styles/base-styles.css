@@ -614,9 +614,9 @@ main .section.imageovercard {
 }
 
 .section.quote picture img {
-  max-width: 300px;
-  height: auto;
+  height: 200px;
   border-radius: 1rem;
+  width: 200px;
 }
 
 .section.quote .default-content-wrapper {
@@ -633,11 +633,15 @@ main .section.imageovercard {
   line-height: 1.6;
   position: relative;
   padding-left: 3rem;
+    padding-right: 25rem;
+    font-size: 28px;
+  font-family: Georgia, serif;
+  font-weight: 400;
 }
 
 .section.quote .default-content-wrapper h3::before {
   content: "“";
-  font-size: 5rem;
+ font-size: 10rem;
   color: #004b5e;
   position: absolute;
   left: 0;

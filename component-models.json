@@ -156,6 +156,10 @@
           {
             "name": "GroupCards",
             "value": "groupcards"
+          },
+          {
+            "name": "Quote",
+            "value": "quote"
           }
           
         ]

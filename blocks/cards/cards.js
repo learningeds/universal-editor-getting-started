@@ -29,58 +29,35 @@ export default function decorate(block) {
     // Find all cards-wrapper inside this section
     const cardsWrappers = Array.from(section1.querySelectorAll('.cards-wrapper'));
     if (cardsWrappers.length > 0) {
-      // Create combined container for all cards
-      const combinedContainer = document.createElement('div');
-      combinedContainer.className = 'combined-cards';
+      // Create a carousel container to hold all cards-wrapper as carousel items
+      const carouselContainer = document.createElement('div');
+      carouselContainer.className = 'combined-cards-wrapper-carousel';
 
-      // Create one UL to hold all cards
-      const combinedUL = document.createElement('ul');
-      combinedContainer.appendChild(combinedUL);
-
-      // Move all <li> cards from all cards-wrapper > .cards.block > ul into combinedUL
+      // Move each cards-wrapper inside carouselContainer
       cardsWrappers.forEach(wrapper => {
-        const cardsBlock = wrapper.querySelector('.cards.block');
-        if (!cardsBlock) return;
-
-        const ul = cardsBlock.querySelector('ul');
-        if (!ul) return;
-
-        Array.from(ul.children).forEach(li => {
-          combinedUL.appendChild(li);
-        });
-
-        // Hide original cards-wrapper
-        wrapper.style.display = 'none';
+        carouselContainer.appendChild(wrapper);
       });
 
-      // Insert combined container after default content wrapper or at end of section
-      const referenceNode = section1.querySelector('.default-content-wrapper');
-      if (referenceNode) {
-        referenceNode.insertAdjacentElement('afterend', combinedContainer);
-      } else {
-        section1.appendChild(combinedContainer);
-      }
+      // Insert carouselContainer at end of section1 (or replace original cards-wrappers container if you prefer)
+      section1.appendChild(carouselContainer);
 
-      // Create toggle button for carousel/grid (only if not already created)
-      let toggleBtn = combinedContainer.parentNode.querySelector('.cards-view-toggle-btn');
-      if (!toggleBtn) {
-        toggleBtn = document.createElement('button');
-        toggleBtn.className = 'cards-view-toggle-btn';
-        toggleBtn.textContent = 'View as carousel';
-        combinedContainer.parentNode.insertBefore(toggleBtn, combinedContainer);
-      }
+      // Create toggle button for carousel/grid and place it at the bottom
+      const toggleBtn = document.createElement('button');
+      toggleBtn.className = 'cards-view-toggle-btn';
+      toggleBtn.textContent = 'View as carousel';
+      section1.appendChild(toggleBtn);
 
       let isCarousel = false;
       let index = 0;
       let intervalId;
 
-      // Create carousel indicators container
+      // Carousel indicators container
       const indicatorWrapper = document.createElement('div');
       indicatorWrapper.className = 'cards-carousel-indicators';
 
       function updateIndicators() {
         indicatorWrapper.innerHTML = ''; // clear existing dots
-        for (let i = 0; i < combinedUL.children.length; i++) {
+        for (let i = 0; i < carouselContainer.children.length; i++) {
           const dot = document.createElement('div');
           dot.className = 'dot';
           if (i === index) dot.classList.add('active');
@@ -93,7 +70,10 @@ export default function decorate(block) {
       }
 
       function updateCarousel() {
-        combinedUL.style.transform = `translateX(-${index * 100}%)`;
+        // Translate carouselContainer to show only the selected cards-wrapper
+        carouselContainer.style.transform = `translateX(-${index * 100}%)`;
+
+        // Update dots active state
         const dots = indicatorWrapper.querySelectorAll('.dot');
         dots.forEach((dot, i) => {
           dot.classList.toggle('active', i === index);
@@ -103,7 +83,7 @@ export default function decorate(block) {
       function startAutoSlide() {
         if (intervalId) clearInterval(intervalId);
         intervalId = setInterval(() => {
-          index = (index + 1) % combinedUL.children.length;
+          index = (index + 1) % carouselContainer.children.length;
           updateCarousel();
         }, 15000);
       }
@@ -115,18 +95,17 @@ export default function decorate(block) {
       toggleBtn.addEventListener('click', () => {
         isCarousel = !isCarousel;
         if (isCarousel) {
-          combinedContainer.classList.add('carousel-view');
-          combinedContainer.classList.remove('grid-view');
-          combinedUL.style.transform = 'translateX(0)';
+          carouselContainer.classList.add('carousel-view');
+          carouselContainer.classList.remove('grid-view');
           index = 0;
           updateIndicators();
           updateCarousel();
           startAutoSlide();
-          combinedContainer.appendChild(indicatorWrapper);
+          section1.appendChild(indicatorWrapper);
         } else {
-          combinedContainer.classList.add('grid-view');
-          combinedContainer.classList.remove('carousel-view');
-          combinedUL.style.transform = 'translateX(0)';
+          carouselContainer.classList.add('grid-view');
+          carouselContainer.classList.remove('carousel-view');
+          carouselContainer.style.transform = 'translateX(0)';
           stopAutoSlide();
           indicatorWrapper.remove();
         }
@@ -134,7 +113,7 @@ export default function decorate(block) {
       });
 
       // Initialize with grid view
-      combinedContainer.classList.add('grid-view');
+      carouselContainer.classList.add('grid-view');
     }
   }
 

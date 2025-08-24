@@ -335,17 +335,13 @@
   height: 120px;
   border-radius: 0px;
   box-sizing: border-box;
-  padding: 20px;
+  
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   margin-left: 1rem;
 }
 
-/* Hover effect */
-.groupcards .cards-wrapper li:hover {
-  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
-}
 
 /* Top-left label */
 .groupcards .cards-wrapper li p {
@@ -407,8 +403,8 @@
   font-weight: 400; /* Lighten number */
   font-size: 1.8rem;
   color: #004B5E; /* Matches the visual */
-    margin-left: 2.5rem !important;
-    margin-top: 1rem !important;
+   margin-left: 5rem !important;
+  margin-top: 2.3rem !important;
 }
 
 

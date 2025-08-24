@@ -31,17 +31,20 @@
   font-size: 16px !important;
   display: flex !important;
   align-items: center !important;
+  flex-direction: row !important;
   cursor: pointer !important;
   padding: 0 !important;
 }
 
+/* “Menu” text left, icon right */
 .menu-label {
-  margin-left: 8px !important;
+  margin-right: 8px !important;
   border-bottom: 2px solid white !important;
+  order: 1 !important;
 }
 
-/* --- ICON --- */
 .nav-hamburger-icon {
+  order: 2 !important;
   width: 20px !important;
   height: 2px !important;
   background-color: white !important;
@@ -80,17 +83,19 @@
   transform: rotate(-45deg) translate(3px, -3px) !important;
 }
 
+/* --- MENU PANEL --- */
 .nav-sections {
-  position: relative !important; /* Changed from absolute */
-  top: 0 !important;             /* No need to push it */
+  position: relative !important;
+  top: 0 !important;
   background-color: white !important;
-  z-index: 999 !important;       /* Below the menu button */
+  z-index: 999 !important;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important;
   display: none !important;
   width: 100% !important;
   border-top: 1px solid #ccc !important;
+  border-radius: 8px !important;
+  overflow: hidden !important;
 }
-
 
 .nav-sections[style*="display: block"] {
   display: block !important;
@@ -106,9 +111,10 @@
   margin: 0 !important;
 }
 
+/* --- MAIN MENU ITEMS --- */
 .nav-sections li {
   margin: 0 !important;
-  padding: 16px !important;
+  padding: 0 !important;
   border-bottom: 1px solid #ddd !important;
   background-color: #fff !important;
   display: flex !important;
@@ -122,25 +128,29 @@
   font-size: 18px !important;
   font-weight: 600 !important;
   flex: 1 !important;
+  padding: 16px !important;
 }
 
+/* --- ARROW (›) IN GREY BOX --- */
 .nav-sections li::after {
   content: '›' !important;
   color: #003f48 !important;
   font-size: 18px !important;
-  padding-left: 8px !important;
+  background-color: #f3f4f6 !important;
+  padding: 8px 12px !important;
+  border-radius: 4px !important;
+  margin-right: 16px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
 }
 
-.nav-sections {
-  border-radius: 8px !important;
-  overflow: hidden !important;
-}
-
+/* --- HOVER EFFECT ON MENU ITEMS --- */
 .nav-sections .default-content-wrapper ul li:hover {
   background-color: #f5f5f5 !important;
 }
 
-/* Utility section (English & Search) background and layout */
+/* --- UTILITY SECTION (ENGLISH & SEARCH) --- */
 .nav-utility {
   background-color: #f5f8f9 !important;
   border-top: 1px solid #ddd !important;

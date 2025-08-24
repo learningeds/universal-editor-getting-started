@@ -449,54 +449,56 @@
   font-weight: 200; /* Light font weight */
     font-size: 18px !important;
 }
-/* Styling for LeftImageThenText Section */
-.leftimagethentext .columns.block.columns-2-cols {
-  display: flex;
-  gap: 60px; /* Space between columns */
-  max-width: 1200px;
-  margin: 0 auto;
-  align-items: center;
-  padding: 40px 20px;
-}
-
-/* Image Column Styling */
-.leftimagethentext .columns-img-col {
-  flex: 1;
+/* 1. Target the specific section */
+.section.leftimagethentext .columns-img-col {
   position: relative;
+  min-height: 400px; /* Ensures space is reserved */
 }
 
-.leftimagethentext .columns-img-col picture img {
-  width: 100%; /* Full width image */
-  height: auto; /* Keep aspect ratio */
-  object-fit: cover; /* Crop and cover area */
+/* 2. Hide existing media (picture, video) */
+.section.leftimagethentext .columns-img-col picture,
+.section.leftimagethentext .columns-img-col video {
+  display: none !important;
+}
+
+/* 3. Inject your image as a background */
+.section.leftimagethentext .columns-img-col::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-image: url('https://atlascopco.scene7.com/is/image/atlascopco/technician-operating-machine?$landscape1600$');
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 8px;
   border-top-left-radius: 20px; /* Rounded top-left */
   border-top-right-radius: 20px; /* Rounded top-right */
   border-bottom-right-radius: 20px; /* Rounded bottom-right */
   border-bottom-left-radius: 0px; /* Sharp bottom-left corner */
-  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
 }
 
-/* Remove Zoom / Fullscreen link */
-.leftimagethentext .columns-img-col .top-right-link {
-  display: none !important;
+/* Adjusting the layout for columns */
+.leftimagethentext .columns.block.columns-2-cols {
+  display: flex;
+  gap: 60px;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: center;
+  padding: 40px 20px; /* Add some padding around the columns */
 }
 
-/* Text Column Styling */
-.leftimagethentext .columns-2-cols > div:last-child {
-  flex: 1;
+.leftimagethentext .columns.block.columns-2-cols > div {
+  flex: 1; /* Distribute the available space equally */
 }
 
-/* Title Styling */
-.leftimagethentext h1#great-ideas-drive-development {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-  line-height: 1.2;
-  color: #003b44;
-}
-
-/* Pre-title "Innovation" */
+/* Styling for the "Careers" pre-title */
 .leftimagethentext h1#great-ideas-drive-development::before {
-  content: "INNOVATION"; /* Pre-title */
+  content: "INNOVATION"; /* Pre-title text */
   display: block;
   color: #00424f;
   font-size: 0.9rem;
@@ -506,11 +508,19 @@
   margin-bottom: 0.5rem;
 }
 
-/* Paragraph and Link Styling */
+/* Main title styling */
+.leftimagethentext h1#great-ideas-drive-development {
+  font-size: 2.5rem; /* Larger font size */
+  margin-bottom: 1rem;
+  line-height: 1.2;
+  color: #003b44;
+}
+
+/* Paragraph Styling */
 .leftimagethentext .columns-2-cols > div:last-child p {
-  font-family: 'Noto Sans', Arial, Helvetica, sans-serif;
+  font-family: 'Noto Sans', Arial, Helvetica, sans-serif !important;
   font-weight: 200; /* Light font weight */
-  font-size: 1.2rem;
+  font-size: 18px !important;
   line-height: 1.6;
   margin-bottom: 1rem;
   max-width: 90%;
@@ -537,7 +547,12 @@
   color: #005b8c; /* Darker color on hover */
 }
 
-/* Responsive behavior */
+/* Remove Zoom / Fullscreen link */
+.leftimagethentext .columns-img-col .top-right-link {
+  display: none !important;
+}
+
+/* Responsive behavior for smaller screens */
 @media (max-width: 768px) {
   .leftimagethentext .columns.block.columns-2-cols {
     flex-direction: column; /* Stack the columns vertically */

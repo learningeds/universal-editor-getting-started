@@ -633,7 +633,7 @@ main .section.imageovercard {
   color: #004b5e;
   line-height: 1.6;
   position: relative;
-  padding-left: 3rem !important;
+  padding-left: 5rem !important;
     padding-right: 25rem !important;
     font-size: 28px !important;
   font-family: Georgia, serif !important;
@@ -645,9 +645,8 @@ main .section.imageovercard {
  font-size: 10rem !important;
   color: #004b5e;
   position: absolute;
-    top: 1rem;
+    top: 1rem !important;
   left: 0;
-  top: -0.5rem;
   line-height: 1;
 }
 

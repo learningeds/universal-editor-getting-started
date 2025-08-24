@@ -162,8 +162,8 @@
             "value": "quote"
           },
           {
-            "name": "RightImage",
-            "value": "rightimage"
+            "name": "RightImageThenText",
+            "value": "rightimagethentext"
           }
           
         ]

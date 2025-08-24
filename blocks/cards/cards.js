@@ -61,11 +61,14 @@ export default function decorate(block) {
         section1.appendChild(combinedContainer);
       }
 
-      // Create toggle button for carousel/grid
-      const toggleBtn = document.createElement('button');
-      toggleBtn.className = 'cards-view-toggle-btn';
-      toggleBtn.textContent = 'View as carousel';
-      combinedContainer.parentNode.insertBefore(toggleBtn, combinedContainer);
+      // Create toggle button for carousel/grid (only if not already created)
+      let toggleBtn = combinedContainer.parentNode.querySelector('.cards-view-toggle-btn');
+      if (!toggleBtn) {
+        toggleBtn = document.createElement('button');
+        toggleBtn.className = 'cards-view-toggle-btn';
+        toggleBtn.textContent = 'View as carousel';
+        combinedContainer.parentNode.insertBefore(toggleBtn, combinedContainer);
+      }
 
       let isCarousel = false;
       let index = 0;

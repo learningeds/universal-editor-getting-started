@@ -45,12 +45,12 @@ export default function decorate(block) {
         if (lis.length > 0) {
           hasCards = true;
           lis.forEach(li => {
-            combinedUL.appendChild(li); // Append (or clone if necessary)
+            combinedUL.appendChild(li); // Move the existing li elements
           });
         }
       }
 
-      // Hide original
+      // Hide original wrapper
       wrapper.style.display = 'none';
     });
 
@@ -62,7 +62,7 @@ export default function decorate(block) {
         section1.appendChild(combinedContainer);
       }
 
-      // Create or re-use toggle button
+      // Create or reuse toggle button
       let toggleBtn = section1.querySelector('.cards-view-toggle-btn');
       if (!toggleBtn) {
         toggleBtn = document.createElement('button');
@@ -71,7 +71,7 @@ export default function decorate(block) {
         section1.insertBefore(toggleBtn, combinedContainer);
       }
 
-      // Carousel logic
+      // Carousel indicators container
       const indicatorWrapper = document.createElement('div');
       indicatorWrapper.className = 'cards-carousel-indicators';
 
@@ -88,6 +88,7 @@ export default function decorate(block) {
           dot.addEventListener('click', () => {
             index = i;
             updateCarousel();
+            resetAutoSlide();
           });
           indicatorWrapper.appendChild(dot);
         });
@@ -112,15 +113,20 @@ export default function decorate(block) {
         clearInterval(intervalId);
       }
 
+      function resetAutoSlide() {
+        stopAutoSlide();
+        startAutoSlide();
+      }
+
       toggleBtn.addEventListener('click', () => {
         isCarousel = !isCarousel;
 
         if (isCarousel) {
           combinedContainer.classList.add('carousel-view');
           combinedContainer.classList.remove('grid-view');
+
           combinedUL.style.display = 'flex';
           combinedUL.style.transition = 'transform 0.5s ease';
-          combinedUL.style.transform = 'translateX(0)';
           combinedUL.style.width = `${combinedUL.children.length * 100}%`;
           combinedUL.querySelectorAll('li').forEach(li => {
             li.style.flex = '0 0 100%';
@@ -131,20 +137,23 @@ export default function decorate(block) {
           updateCarousel();
           combinedContainer.appendChild(indicatorWrapper);
           startAutoSlide();
+
+          toggleBtn.textContent = 'View as grid';
         } else {
           combinedContainer.classList.add('grid-view');
           combinedContainer.classList.remove('carousel-view');
+
           combinedUL.style.transform = 'none';
           combinedUL.removeAttribute('style');
           combinedUL.querySelectorAll('li').forEach(li => li.removeAttribute('style'));
           stopAutoSlide();
           indicatorWrapper.remove();
-        }
 
-        toggleBtn.textContent = isCarousel ? 'View as grid' : 'View as carousel';
+          toggleBtn.textContent = 'View as carousel';
+        }
       });
 
-      // Start with grid view
+      // Initialize with grid view
       combinedContainer.classList.add('grid-view');
     }
   }

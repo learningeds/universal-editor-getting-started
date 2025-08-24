@@ -1,18 +1,9 @@
-/* --- INITIAL HEADER (TRANSPARENT) --- */
+/* --- NAVIGATION WRAPPER --- */
 .nav-wrapper {
-  background-color: transparent !important;
-  padding: 16px !important;
-  position: fixed !important;
-  top: 0 !important;
-  left: 0 !important;
-  width: 100% !important;
-  z-index: 1000 !important;
-  transition: background-color 0.3s ease !important;
-}
-
-/* --- HEADER ON SCROLL --- */
-.nav-wrapper.scrolled {
   background-color: #003f48 !important;
+  padding: 16px !important;
+  position: relative !important;
+  z-index: 1000 !important;
 }
 
 /* --- FLEX ROW: LOGO + HAMBURGER --- */
@@ -40,24 +31,25 @@
   font-size: 16px !important;
   display: flex !important;
   align-items: center !important;
+  flex-direction: row !important;
   cursor: pointer !important;
   padding: 0 !important;
 }
 
-/* Align icon to the right of "Menu" */
+/* “Menu” text left, icon right */
 .menu-label {
   margin-right: 8px !important;
   border-bottom: 2px solid white !important;
-  order: 0 !important;
+  order: 1 !important;
 }
 
 .nav-hamburger-icon {
+  order: 2 !important;
   width: 20px !important;
   height: 2px !important;
   background-color: white !important;
   position: relative !important;
   transition: transform 0.3s ease !important;
-  order: 1 !important;
 }
 
 .nav-hamburger-icon::before,
@@ -91,7 +83,7 @@
   transform: rotate(-45deg) translate(3px, -3px) !important;
 }
 
-/* --- NAV SECTIONS --- */
+/* --- MENU PANEL --- */
 .nav-sections {
   position: relative !important;
   top: 0 !important;
@@ -119,9 +111,10 @@
   margin: 0 !important;
 }
 
+/* --- MAIN MENU ITEMS --- */
 .nav-sections li {
   margin: 0 !important;
-  padding: 16px !important;
+  padding: 0 !important;
   border-bottom: 1px solid #ddd !important;
   background-color: #fff !important;
   display: flex !important;
@@ -135,25 +128,29 @@
   font-size: 18px !important;
   font-weight: 600 !important;
   flex: 1 !important;
+  padding: 16px !important;
 }
 
-/* Arrow styling with grey background */
+/* --- ARROW (›) IN GREY BOX --- */
 .nav-sections li::after {
   content: '›' !important;
   color: #003f48 !important;
   font-size: 18px !important;
-  background-color: #e5e7eb !important;
+  background-color: #f3f4f6 !important;
   padding: 8px 12px !important;
-  border-radius: 50% !important;
-  margin-left: 8px !important;
+  border-radius: 4px !important;
+  margin-right: 16px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
 }
 
-/* Hover state */
+/* --- HOVER EFFECT ON MENU ITEMS --- */
 .nav-sections .default-content-wrapper ul li:hover {
   background-color: #f5f5f5 !important;
 }
 
-/* --- UTILITY BAR --- */
+/* --- UTILITY SECTION (ENGLISH & SEARCH) --- */
 .nav-utility {
   background-color: #f5f8f9 !important;
   border-top: 1px solid #ddd !important;
@@ -171,10 +168,12 @@
   border-bottom: 1px solid #ddd !important;
 }
 
+/* Remove arrow from utility items */
 .nav-utility li::after {
   content: none !important;
 }
 
+/* Ensure icons are directly beside the text */
 .nav-utility li i {
   margin-left: 8px !important;
   font-style: normal !important;

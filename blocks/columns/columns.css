@@ -622,3 +622,13 @@
 .section.lightimagethentext .columns.block.columns-2-cols .columns-img-col .top-right-link {
   display: none !important; /* Hide zoom/fullscreen link */
 }
+.section.lightimagethentext .columns.block.columns-2-cols .button-container > a.button {
+  background-color: transparent !important; /* Ensure no background */
+  border: none !important; /* Remove any border */
+  text-decoration: none !important; /* Remove underline by default */
+  color: #0077cc !important; /* Set the color to blue */
+  display: inline-flex !important; /* Make it inline-flex */
+  align-items: center !important; /* Vertically center */
+  padding: 8px 16px !important; /* Add padding to the button */
+  border-radius: 4px !important; /* Optional rounded corners */
+}

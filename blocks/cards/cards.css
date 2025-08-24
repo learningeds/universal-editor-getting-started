@@ -502,4 +502,60 @@
 .carousel-arrow:hover {
   background-color: rgba(0, 0, 0, 0.8);
 }
+/* Title and Text Above Cards */
+.carousel h1 {
+    color: #004B6A; /* Dark Blue color for the title */
+    font-size: 32px; /* Set a font size for the title */
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.carousel .default-content-wrapper p {
+    color: #6A7C89; /* Lighter color for text */
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+/* Cards Layout - Two Columns */
+.carousel .cards-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two columns layout */
+    gap: 30px; /* Space between the cards */
+    justify-items: center;
+}
+
+/* Style for Each Card */
+.carousel .cards-card-body {
+    padding: 20px;
+    background-color: #f8f8f8;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.carousel .cards-card-body:hover {
+    transform: scale(1.05); /* Hover effect to enlarge the card */
+}
+
+/* Image Styling */
+.carousel .cards-card-image img {
+    width: 100%;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+/* Button Styling */
+.carousel .button-container a.button {
+    background-color: #004B6A; /* Matching button color */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.carousel .button-container a.button:hover {
+    background-color: #003a55; /* Darken button on hover */
+}
 

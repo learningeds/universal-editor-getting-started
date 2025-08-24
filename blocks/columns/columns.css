@@ -586,7 +586,39 @@
   text-decoration: underline; /* Add underline on hover */
   color: #005b8c; /* Darker link color on hover */
 }
-section.lightimagethentext .columns.block.columns-2-cols .button-container a.button {
-  background-color: transparent !important; /* Remove background color */
-  border: none; /* Remove any border */
+/* Very specific selector to target the button link */
+.section.lightimagethentext .columns.block.columns-2-cols .button-container > a.button {
+  background-color: transparent !important; /* Ensure no background */
+  border: none !important; /* Remove border */
+  font-size: 1.1rem !important; /* Font size */
+  font-weight: 500 !important; /* Font weight */
+  text-decoration: none !important; /* No underline */
+  color: #0077cc !important; /* Set the color */
+  display: inline-flex !important; /* Align the text and arrow */
+  align-items: center !important; /* Vertically center */
+  padding: 8px 16px !important; /* Add padding */
+  border-radius: 4px !important; /* Optional rounded corners */
+}
+
+/* Add the left arrow before the button text */
+.section.lightimagethentext .columns.block.columns-2-cols .button-container > a.button::before {
+  content: "→" !important; /* Left arrow */
+  margin-right: 8px !important; /* Space between arrow and text */
+  font-size: 1.5rem !important; /* Arrow size */
+}
+
+/* Remove right arrow after button text */
+.section.lightimagethentext .columns.block.columns-2-cols .button-container > a.button::after {
+  content: none !important; /* No right arrow */
+}
+
+/* Hover effect */
+.section.lightimagethentext .columns.block.columns-2-cols .button-container > a.button:hover {
+  text-decoration: underline !important; /* Underline on hover */
+  color: #005b8c !important; /* Darker color on hover */
+}
+
+/* If the .top-right-link is still appearing in the image section, we remove it */
+.section.lightimagethentext .columns.block.columns-2-cols .columns-img-col .top-right-link {
+  display: none !important; /* Hide zoom/fullscreen link */
 }

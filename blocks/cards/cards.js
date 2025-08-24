@@ -26,42 +26,34 @@ export default function decorate(block) {
   const section = document.querySelector('[data-aue-resource*="section_1144820921"]');
   if (!section) return;
 
+  // Collect all cards from multiple sections
   const allCards = [];
-
-  // Collect all existing cards from carousel views and card wrappers
+  
   section.querySelectorAll('.combined-cards.carousel-view ul').forEach(ul => {
     allCards.push(...ul.children);
   });
-
   section.querySelectorAll('.combined-cards.carousel-view').forEach(c => c.remove());
 
   section.querySelectorAll('.cards-wrapper .cards.block ul').forEach(ul => {
     allCards.push(...ul.children);
   });
-
   section.querySelectorAll('.cards-wrapper').forEach(wrapper => {
     wrapper.style.display = 'none';
   });
 
   if (allCards.length === 0) return;
 
-  // Create combined container and add all cards
+  // Create combined container
   const combinedContainer = document.createElement('div');
   combinedContainer.className = 'combined-cards grid-view';
-
   const combinedUL = document.createElement('ul');
   combinedContainer.append(combinedUL);
-
   allCards.forEach(li => combinedUL.append(li));
 
   const ref = section.querySelector('.default-content-wrapper');
-  if (ref) {
-    ref.insertAdjacentElement('afterend', combinedContainer);
-  } else {
-    section.appendChild(combinedContainer);
-  }
+  ref ? ref.insertAdjacentElement('afterend', combinedContainer) : section.appendChild(combinedContainer);
 
-  // Create toggle button for carousel/grid
+  // Create toggle button once
   let toggleBtn = section.querySelector('.cards-view-toggle-btn');
   if (!toggleBtn) {
     toggleBtn = document.createElement('button');
@@ -70,7 +62,7 @@ export default function decorate(block) {
     section.insertBefore(toggleBtn, combinedContainer);
   }
 
-  // Create prev/next buttons
+  // Create arrows inside combinedContainer
   const prevBtn = document.createElement('button');
   prevBtn.className = 'carousel-arrow prev';
   prevBtn.textContent = '‹';
@@ -81,7 +73,7 @@ export default function decorate(block) {
 
   combinedContainer.append(prevBtn, nextBtn);
 
-  // Create indicators container
+  // Create indicators container inside combinedContainer
   const indicators = document.createElement('div');
   indicators.className = 'cards-carousel-indicators';
 
@@ -129,7 +121,6 @@ export default function decorate(block) {
   }
 
   prevBtn.onclick = () => {
-    if (!isCarousel) return;
     if (currentIndex > 0) {
       currentIndex--;
       updateCarousel();
@@ -138,7 +129,6 @@ export default function decorate(block) {
   };
 
   nextBtn.onclick = () => {
-    if (!isCarousel) return;
     if (currentIndex < combinedUL.children.length - 1) {
       currentIndex++;
       updateCarousel();
@@ -161,6 +151,10 @@ export default function decorate(block) {
       combinedContainer.append(indicators);
       startAutoSlide();
       toggleBtn.textContent = 'View as grid';
+
+      // Show arrows in carousel view
+      prevBtn.style.display = 'block';
+      nextBtn.style.display = 'block';
     } else {
       combinedContainer.classList.replace('carousel-view', 'grid-view');
       combinedUL.style.display = 'grid';
@@ -173,6 +167,14 @@ export default function decorate(block) {
       stopAutoSlide();
       indicators.remove();
       toggleBtn.textContent = 'View as carousel';
+
+      // Hide arrows in grid view
+      prevBtn.style.display = 'none';
+      nextBtn.style.display = 'none';
     }
   };
+
+  // Initialize arrows hidden for grid view
+  prevBtn.style.display = 'none';
+  nextBtn.style.display = 'none';
 }

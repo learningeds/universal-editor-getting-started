@@ -80,62 +80,51 @@
   transform: rotate(-45deg) translate(3px, -3px) !important;
 }
 
-/* --- DROPDOWN MENU --- */
 .nav-sections {
-  position: absolute !important;
-  top: 100% !important;        /* Position right below the parent */
-  right: 0 !important;         /* Align right edge to the button */
-  left: auto !important;       /* Reset left */
+  position: relative !important; /* Changed from absolute */
+  top: 0 !important;             /* No need to push it */
   background-color: white !important;
-  z-index: 9999 !important;
+  z-index: 999 !important;       /* Below the menu button */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important;
   display: none !important;
-  overflow: hidden !important;
+  width: 100% !important;
   border-top: 1px solid #ccc !important;
-  width: 100vw;                /* Optional: full width, or adjust */
-  max-width: 300px;            /* Set a max width */
-  margin-top: 8px !important; /* Space below button */
-  border-radius: 4px;          /* Optional: rounded corners */
 }
-
 
 .nav-sections[style*="display: block"] {
   display: block !important;
 }
 
-.nav-sections .default-content-wrapper {
-  padding: 0 !important;
-}
-
-.nav-sections ul {
+.nav-sections .default-content-wrapper ul {
   list-style: none !important;
-  padding: 0 !important;
   margin: 0 !important;
+  padding: 0 !important;
 }
 
-.nav-sections li {
-  margin: 0 !important;
-  padding: 16px !important;
-  border-bottom: 1px solid #ddd !important;
-  background-color: #fff !important;
+.nav-sections .default-content-wrapper ul li {
   display: flex !important;
   justify-content: space-between !important;
   align-items: center !important;
-}
-
-.nav-sections li a {
-  color: #003f48 !important;
-  text-decoration: none !important;
+  padding: 16px !important;
+  border-bottom: 1px solid #ddd !important;
   font-size: 18px !important;
   font-weight: 600 !important;
-  flex: 1 !important;
+  color: #003f48 !important;
+  background-color: #fff !important;
+  cursor: pointer !important;
+}
+.nav-sections {
+  border-radius: 8px !important;
+  overflow: hidden !important;
 }
 
-.nav-sections li::after {
-  content: '›' !important;
-  color: #003f48 !important;
+.nav-sections .default-content-wrapper ul li:hover {
+  background-color: #f5f5f5 !important;
+}
+
+.nav-utility i {
+  margin-left: auto !important;
   font-size: 18px !important;
-  padding-left: 8px !important;
 }
 
 /* --- BOTTOM SECTION --- */

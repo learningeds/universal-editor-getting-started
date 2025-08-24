@@ -8,6 +8,7 @@
 
 /* Base hero container */
 .hero {
+    background: linear-gradient( to top right, rgba(0, 25, 25, 0.95) 0%, rgba(0, 40, 45, 0.80) 20%, rgba(0, 70, 80, 0.50) 50%, rgba(0, 100, 110, 0.25) 75%, rgba(0, 150, 160, 0.0) 100% );
   position: relative;
   padding: 80px 0;   /* ✅ more balanced vertical spacing */
   min-height: 400px;

@@ -83,16 +83,21 @@
 /* --- DROPDOWN MENU --- */
 .nav-sections {
   position: absolute !important;
-  top: 70px !important;
-  left: 0 !important;
-  right: 0 !important;
+  top: 100% !important;        /* Position right below the parent */
+  right: 0 !important;         /* Align right edge to the button */
+  left: auto !important;       /* Reset left */
   background-color: white !important;
   z-index: 9999 !important;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important;
   display: none !important;
   overflow: hidden !important;
   border-top: 1px solid #ccc !important;
+  width: 100vw;                /* Optional: full width, or adjust */
+  max-width: 300px;            /* Set a max width */
+  margin-top: 8px !important; /* Space below button */
+  border-radius: 4px;          /* Optional: rounded corners */
 }
+
 
 .nav-sections[style*="display: block"] {
   display: block !important;

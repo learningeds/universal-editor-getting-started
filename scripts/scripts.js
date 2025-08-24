@@ -15,13 +15,12 @@ import {
 } from './aem.js';
 
 /**
- * Moves all the attributes from a given elmenet to another given element.
+ * Moves all the attributes from a given element to another given element.
  * @param {Element} from the element to copy attributes from
  * @param {Element} to the element to copy attributes to
  */
 export function moveAttributes(from, to, attributes) {
   if (!attributes) {
-    // eslint-disable-next-line no-param-reassign
     attributes = [...from.attributes].map(({ nodeName }) => nodeName);
   }
   attributes.forEach((attr) => {
@@ -68,7 +67,6 @@ function buildAutoBlocks() {
   try {
     // TODO: add auto block, if needed
   } catch (error) {
-    // eslint-disable-next-line no-console
     console.error('Auto Blocking failed', error);
   }
 }
@@ -77,14 +75,23 @@ function buildAutoBlocks() {
  * Decorates the main element.
  * @param {Element} main The main element
  */
-// eslint-disable-next-line import/prefer-default-export
 export function decorateMain(main) {
-  // hopefully forward compatible button decoration
   decorateButtons(main);
   decorateIcons(main);
   buildAutoBlocks(main);
   decorateSections(main);
   decorateBlocks(main);
+}
+
+/**
+ * Adjusts body padding to prevent content being hidden behind fixed header
+ */
+function adjustBodyPaddingForFixedHeader() {
+  const navWrapper = document.querySelector('.nav-wrapper');
+  if (navWrapper) {
+    const height = navWrapper.offsetHeight;
+    document.body.style.paddingTop = `${height}px`;
+  }
 }
 
 /**
@@ -103,7 +110,6 @@ async function loadEager(doc) {
   }
 
   try {
-    /* if desktop (proxy for fast connection) or fonts already loaded, load fonts.css */
     if (window.innerWidth >= 900 || sessionStorage.getItem('fonts-loaded')) {
       loadFonts();
     }
@@ -124,7 +130,9 @@ async function loadLazy(doc) {
   const element = hash ? doc.getElementById(hash.substring(1)) : false;
   if (hash && element) element.scrollIntoView();
 
-  loadHeader(doc.querySelector('header'));
+  loadHeader(doc.querySelector('header')).then(() => {
+    adjustBodyPaddingForFixedHeader(); // Add padding after header loads
+  });
   loadFooter(doc.querySelector('footer'));
 
   loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`);
@@ -136,26 +144,37 @@ async function loadLazy(doc) {
  * without impacting the user experience.
  */
 function loadDelayed() {
-  // eslint-disable-next-line import/no-cycle
   window.setTimeout(() => import('./delayed.js'), 3000);
-  // load anything that can be postponed to the latest here
 }
 
 async function loadPage() {
   await loadEager(document);
   await loadLazy(document);
   loadDelayed();
+
+  document.addEventListener('DOMContentLoaded', function () {
+    const navWrapper = document.querySelector('.nav-wrapper');
+
+    // Adjust padding on load
+    adjustBodyPaddingForFixedHeader();
+
+    // Adjust on scroll
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 10) {
+        navWrapper?.classList.add('scrolled');
+      } else {
+        navWrapper?.classList.remove('scrolled');
+      }
+    });
+
+    // Adjust on resize
+    window.addEventListener('resize', adjustBodyPaddingForFixedHeader);
+  });
 }
 
 async function loadSiteCss() {
   try {
     loadCSS(`${window.hlx.codeBasePath}/styles/base-styles.css`);
-    // const themes = ["site1", "site2", "default"];
-    // const randomIndex = Math.floor(Math.random() * themes.length);
-    // const theme = toClassName(getMetadata("theme"));
-    // for a POC, use a random site theme
-    //const theme = themes[randomIndex];
-    // console.warn(`the selected theme is ${theme}`);
 
     const themeFromUrl = getThemeFromUrl();
     console.warn(`the selected theme is ${themeFromUrl}`);
@@ -189,8 +208,8 @@ export function getThemeFromUrl() {
   }
   if (window.location.href.indexOf('compresseurs-mauguiere') > -1) {
     return 'compresseurs-mauguiere';
-  } 
-    return 'atlascopco';  
+  }
+  return 'atlascopco';
 }
 
 loadPage();

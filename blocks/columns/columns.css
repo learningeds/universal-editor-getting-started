@@ -419,3 +419,6 @@
   text-transform: uppercase;
   margin-bottom: 0.5rem;
 }
+.rightimagethentext .columns-img-col .top-right-link {
+  display: none !important;
+}

@@ -60,4 +60,28 @@ export default function decorate(block) {
       updateCarousel();
     }, 15000); // 15 seconds
   }
+  // === Scoped Carousel Toggle for section_1144820921 only ===
+const section = block.closest('.section');
+const isTargetSection = section?.id === 'section_1144820921';
+
+if (isTargetSection) {
+  // Ensure only ONE toggle button gets added (for first cards block)
+  const isFirstCardsBlock = block.dataset.aueResource?.endsWith('/block');
+  if (isFirstCardsBlock) {
+    // Create and insert toggle button
+    const toggleBtn = document.createElement('button');
+    toggleBtn.className = 'cards-toggle-btn';
+    toggleBtn.textContent = 'View as carousel';
+
+    toggleBtn.addEventListener('click', () => {
+      block.classList.toggle('carousel-view');
+      const isCarousel = block.classList.contains('carousel-view');
+      toggleBtn.textContent = isCarousel ? 'View as grid' : 'View as carousel';
+    });
+
+    // Insert above the cards list
+    block.prepend(toggleBtn);
+  }
+}
+
 }

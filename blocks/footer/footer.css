@@ -22,32 +22,28 @@
     flex: 1;
     margin: 0 20px;
     min-width: 230px; /* Ensures columns are of adequate size */
+    padding: 10px;
 }
 
-/* For the first column (Address) */
-.footer .columns-wrapper > div:first-child {
-    font-size: 16px;
-}
-
-/* Address section styling */
-.footer .columns-wrapper p {
+/* Styling for the first column (Address & Contact) */
+.footer .columns-wrapper > div:first-child p {
     margin: 5px 0;
     line-height: 1.5;
 }
 
-/* Contact button styling */
-.footer .button-container a.button {
-    background-color: #F9A64D; /* Orange color for the button */
+/* Contact button style */
+.footer .columns-wrapper > div:first-child .button-container a.button {
+    background-color: #F9A64D; /* Light orange button color */
     color: white;
-    padding: 12px 20px; /* Adjusted padding for button */
+    padding: 12px 20px; /* Adjusted padding for the button */
     text-decoration: none;
     border-radius: 4px;
     font-weight: bold;
     display: inline-block;
-    margin-top: 12px; /* Spacing above the button */
+    margin-top: 12px; /* Space above the button */
 }
 
-/* Column titles (Atlas Copco Group, Quick Links, etc.) */
+/* Column Titles (Atlas Copco Group, Quick Links, About Us) */
 .footer h5 {
     font-size: 18px;
     margin-bottom: 15px;
@@ -55,7 +51,7 @@
     font-weight: bold;
 }
 
-/* Styling for lists inside the columns */
+/* Styling for Lists inside the Columns */
 .footer ul {
     list-style-type: none;
     padding-left: 0;
@@ -69,14 +65,14 @@
     color: white;
     text-decoration: none;
     font-size: 14px;
-    display: block; /* Ensure links are block-level for better clicking area */
+    display: block; /* Make links block-level for better clicking */
 }
 
 .footer ul li a:hover {
     color: #F9A64D; /* Light orange on hover */
 }
 
-/* Adjusting About Us text */
+/* Styling for the 'About Us' paragraph */
 .footer .columns-wrapper > div:last-child p {
     font-size: 14px;
     color: white;

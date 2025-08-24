@@ -28,29 +28,40 @@ export default function decorate(block) {
 
   const allCards = [];
 
+  // Collect all existing cards from carousel views and card wrappers
   section.querySelectorAll('.combined-cards.carousel-view ul').forEach(ul => {
     allCards.push(...ul.children);
   });
+
   section.querySelectorAll('.combined-cards.carousel-view').forEach(c => c.remove());
 
   section.querySelectorAll('.cards-wrapper .cards.block ul').forEach(ul => {
     allCards.push(...ul.children);
   });
+
   section.querySelectorAll('.cards-wrapper').forEach(wrapper => {
     wrapper.style.display = 'none';
   });
 
   if (allCards.length === 0) return;
 
+  // Create combined container and add all cards
   const combinedContainer = document.createElement('div');
   combinedContainer.className = 'combined-cards grid-view';
+
   const combinedUL = document.createElement('ul');
   combinedContainer.append(combinedUL);
+
   allCards.forEach(li => combinedUL.append(li));
 
   const ref = section.querySelector('.default-content-wrapper');
-  ref ? ref.insertAdjacentElement('afterend', combinedContainer) : section.appendChild(combinedContainer);
+  if (ref) {
+    ref.insertAdjacentElement('afterend', combinedContainer);
+  } else {
+    section.appendChild(combinedContainer);
+  }
 
+  // Create toggle button for carousel/grid
   let toggleBtn = section.querySelector('.cards-view-toggle-btn');
   if (!toggleBtn) {
     toggleBtn = document.createElement('button');
@@ -59,6 +70,7 @@ export default function decorate(block) {
     section.insertBefore(toggleBtn, combinedContainer);
   }
 
+  // Create prev/next buttons
   const prevBtn = document.createElement('button');
   prevBtn.className = 'carousel-arrow prev';
   prevBtn.textContent = '‹';
@@ -69,6 +81,7 @@ export default function decorate(block) {
 
   combinedContainer.append(prevBtn, nextBtn);
 
+  // Create indicators container
   const indicators = document.createElement('div');
   indicators.className = 'cards-carousel-indicators';
 
@@ -116,6 +129,7 @@ export default function decorate(block) {
   }
 
   prevBtn.onclick = () => {
+    if (!isCarousel) return;
     if (currentIndex > 0) {
       currentIndex--;
       updateCarousel();
@@ -124,6 +138,7 @@ export default function decorate(block) {
   };
 
   nextBtn.onclick = () => {
+    if (!isCarousel) return;
     if (currentIndex < combinedUL.children.length - 1) {
       currentIndex++;
       updateCarousel();

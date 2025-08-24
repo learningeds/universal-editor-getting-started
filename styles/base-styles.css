@@ -627,6 +627,7 @@ main .section.imageovercard {
 }
 
 .section.quote .default-content-wrapper h3 {
+    padding-left: 60pt !important;
   font-size: 2rem;
   font-weight: 400;
   color: #004b5e;
@@ -644,6 +645,7 @@ main .section.imageovercard {
  font-size: 10rem !important;
   color: #004b5e;
   position: absolute;
+    top: 1rem;
   left: 0;
   top: -0.5rem;
   line-height: 1;

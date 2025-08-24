@@ -397,3 +397,11 @@
   left: 0;
   z-index: 1;
 }
+.rightimagethentext .columns.block.columns-2-cols {
+  display: flex;
+  gap: 60px;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: center;
+  padding: 40px 20px;
+}

@@ -413,152 +413,28 @@
 
 /* General Carousel Styles */
 .carousel {
-  display: flex;
-  position: relative;
-   overflow: hidden;
-  padding: 20px;
-  gap: 20px;
   background-color: #fcf8f2; /* Set the background color */
-  border-radius: 10px;
 }
 
-.carousel .cards-container {
-  display: flex;
-  transition: transform 0.3s ease; /* Smooth scroll effect */
+.section.carousel h1 {
+  
+  font-size: 42px;
+  font-weight: 400;
+  line-height: 1.3;
+  color: #004750;   /* teal shade from screenshot */
+  margin-bottom: 16px;
+  margin-right:15rem;
+ font-family: "Noto Serif", "Times New Roman", Georgia, serif !important;
+}
+.section.carousel p {
+ 
+  font-size: 18px !important;
+  font-weight: 400;
+  text-align: inherit;
+  line-height: 1.6;
+  color: #4e4843;   
+  max-width: 500px; /* keeps it neat */
+  margin: 0;
+  text-align: left !important;
 }
 
-.carousel .card {
-  width: 300px;
-  border-radius: 10px;
-  overflow: hidden;
-  background-color: #fff;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  margin-right: 20px;
-}
-
-.carousel .card:hover {
-  transform: scale(1.05);
-}
-
-.carousel .cards-card-image {
-  width: 100%;
-  height: 200px;
-  background-size: cover;
-  background-position: center;
-  transition: background-image 0.3s ease;
-}
-
-.carousel .cards-card-body {
-  padding: 15px;
-}
-
-.carousel .cards-card-body h3 {
-  font-size: 1.2rem;
-  margin-bottom: 10px;
-}
-
-.carousel .cards-card-body p {
-  font-size: 1rem;
-  color: #555;
-}
-
-.carousel .button-container {
-  margin-top: 15px;
-}
-
-.carousel .button {
-  text-decoration: none;
-  background-color: #007BFF;
-  color: #fff;
-  padding: 10px 15px;
-  border-radius: 5px;
-  text-align: center;
-  display: inline-block;
-}
-
-.carousel .button:hover {
-  background-color: #0056b3;
-}
-
-/* Left and Right Arrow Styles */
-.carousel-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: rgba(0, 0, 0, 0.5);
-  color: white;
-  padding: 10px;
-  border: none;
-  cursor: pointer;
-  z-index: 10;
-  font-size: 20px;
-  border-radius: 50%;
-}
-
-.carousel-arrow-left {
-  left: 10px;
-}
-
-.carousel-arrow-right {
-  right: 10px;
-}
-
-.carousel-arrow:hover {
-  background-color: rgba(0, 0, 0, 0.8);
-}
-/* Title and Text Above Cards */
-.carousel h1 {
-    color: #004B6A; /* Dark Blue color for the title */
-    font-size: 32px; /* Set a font size for the title */
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.carousel .default-content-wrapper p {
-    color: #6A7C89; /* Lighter color for text */
-    font-size: 18px;
-    text-align: center;
-    margin-bottom: 40px;
-}
-
-/* Cards Layout - Two Columns */
-.carousel .cards-wrapper {
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* Two columns layout */
-    gap: 30px; /* Space between the cards */
-    justify-items: center;
-}
-
-/* Style for Each Card */
-.carousel .cards-card-body {
-    padding: 20px;
-    background-color: #f8f8f8;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-}
-
-.carousel .cards-card-body:hover {
-    transform: scale(1.05); /* Hover effect to enlarge the card */
-}
-
-/* Image Styling */
-.carousel .cards-card-image img {
-    width: 100%;
-    border-radius: 8px;
-    object-fit: cover;
-}
-
-/* Button Styling */
-.carousel .button-container a.button {
-    background-color: #004B6A; /* Matching button color */
-    color: white;
-    padding: 10px 20px;
-    border-radius: 4px;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.carousel .button-container a.button:hover {
-    background-color: #003a55; /* Darken button on hover */
-}

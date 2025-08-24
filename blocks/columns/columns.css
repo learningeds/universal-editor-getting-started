@@ -368,74 +368,31 @@
   background-position: center;
 }
 }
-/* Make both columns wider */
-.rightimagethentext .columns-2-cols {
-  display: flex;
-  gap: 60px;
-  max-width: 1200px;
-  margin: 0 auto;
-  align-items: center;
-}
-
-/* Image column styles */
-.rightimagethentext .columns-img-col {
-  flex: 1;
+/* 1. Target the specific section */
+.section.rightimagethentext .columns-img-col {
   position: relative;
+  min-height: 400px; /* Ensures space is reserved */
 }
 
-.rightimagethentext .columns-img-col picture img {
+/* 2. Hide existing media (picture, video) */
+.section.rightimagethentext .columns-img-col picture,
+.section.rightimagethentext .columns-img-col video {
+  display: none !important;
+}
+
+/* 3. Inject your image as a background */
+.section.rightimagethentext .columns-img-col::before {
+  content: "";
+  display: block;
   width: 100%;
-  height: auto;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
-  border-bottom-right-radius: 20px;
-  border-bottom-left-radius: 0px; /* bottom-left stays sharp */
-  display: block;
-}
-
-/* Remove zoom/fullscreen link */
-.rightimagethentext .columns-img-col .top-right-link {
-  display: none;
-}
-
-/* Text column styles */
-.rightimagethentext .columns-2-cols > div:last-child {
-  flex: 1;
-}
-
-.rightimagethentext h1#available-jobs {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-}
-
-/* Pre-title "Careers" */
-.rightimagethentext h1#available-jobs::before {
-  content: "Careers";
-  display: block;
-  color: #00424f;
-  font-size: 0.9rem;
-  letter-spacing: 0.1em;
-  font-weight: bold;
-  text-transform: uppercase;
-  margin-bottom: 0.5rem;
-}
-
-/* Paragraph alignment */
-.rightimagethentext .columns-2-cols > div:last-child p {
-  font-size: 1.2rem;
-  line-height: 1.6;
-  margin-bottom: 1rem;
-  max-width: 90%;
-}
-
-/* Link styling (if needed) */
-.rightimagethentext .columns-2-cols > div:last-child a {
-  font-size: 1.1rem;
-  font-weight: 500;
-  text-decoration: none;
-  color: #0077cc;
-}
-
-.rightimagethentext .columns-2-cols > div:last-child a:hover {
-  text-decoration: underline;
+  height: 100%;
+  background-image: url('https://atlascopco.scene7.com/is/image/atlascopco/two-women-employees-shaking-hands?$landscape1600$');
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 8px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
 }

@@ -197,7 +197,7 @@
   max-width: 480px; /* limit max width for each card */
   box-sizing: border-box;
   color: #fff;
-  height: 460px; /* fixed height for all cards for consistent alignment */
+  height: 230px; /* fixed height for all cards for consistent alignment */
 }
 
 .upcomingeventscards .cards-wrapper > div.cards.block > ul > li p:first-child {

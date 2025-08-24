@@ -152,6 +152,10 @@
            {
             "name": "UpcomingEventsCards",
             "value": "upcomingeventscards"
+          },
+          {
+            "name": "GroupCards",
+            "value": "groupcards"
           }
           
         ]

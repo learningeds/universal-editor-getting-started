@@ -201,5 +201,11 @@ loadPage();
     } else {
       header.classList.remove('scrolled');
     }
+     const navwrapper = document.querySelector('.nav-wrapper');
+    if (window.scrollY > 50) {
+      navwrapper.classList.add('scrolled');
+    } else {
+      navwrapper.classList.remove('scrolled');
+    }
   });
 

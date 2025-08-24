@@ -22,6 +22,33 @@ export default function decorate(block) {
   block.textContent = '';
   block.append(ul);
 
+  document.addEventListener("DOMContentLoaded", function () {
+    const section = document.querySelector(
+      '.section[data-aue-resource*="section_1144820921"]'
+    );
+
+    if (!section) return;
+
+    // Add initial class
+    section.classList.add("view-carousel");
+
+    // Create and inject toggle button
+    const toggleBtn = document.createElement("button");
+    toggleBtn.className = "cards-toggle-btn";
+    toggleBtn.textContent = "View as Grid";
+
+    const wrapper = section.querySelector(".default-content-wrapper");
+    wrapper && wrapper.appendChild(toggleBtn);
+
+    toggleBtn.addEventListener("click", function () {
+      const isCarousel = section.classList.contains("view-carousel");
+      section.classList.toggle("view-carousel", !isCarousel);
+      section.classList.toggle("view-grid", isCarousel);
+      toggleBtn.textContent = isCarousel ? "View as Carousel" : "View as Grid";
+    });
+  });
+
+
   const section = block.closest('.section[data-aue-resource*="section_303714501"]');
   if (!section) return; // Exit if not in target section
   if (section) {

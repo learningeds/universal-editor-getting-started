@@ -60,29 +60,45 @@ export default function decorate(block) {
       updateCarousel();
     }, 15000); // 15 seconds
   }
-  // Find all cards blocks on the page
-document.querySelectorAll('.cards.block').forEach((block) => {
-  const cards = block.querySelectorAll('li h3');
-  cards.forEach((card) => {
-    if (card.textContent.trim() === 'The hunt for the unknow') {
-      block.classList.add('better-way-cards');
+ function addBetterWayCarouselToggle() {
+  const heading = document.querySelector('h1#there-is-always-a-better-way');
 
-      // Add toggle button
-      const toggleBtn = document.createElement('button');
-      toggleBtn.className = 'cards-view-toggle-btn';
-      toggleBtn.textContent = 'View as carousel';
+  if (!heading) return;
 
-      toggleBtn.addEventListener('click', () => {
-        block.classList.toggle('carousel-view');
-        toggleBtn.textContent = block.classList.contains('carousel-view')
-          ? 'View as grid'
-          : 'View as carousel';
-      });
+  // Traverse following siblings to find related .cards.block containers
+  let current = heading.parentElement.nextElementSibling;
+  while (current) {
+    const cardsBlock = current.querySelector('.cards.block');
+    if (cardsBlock) {
+      const containsTargetHeading = [...cardsBlock.querySelectorAll('h3')].some(
+        (h3) => h3.textContent.trim() === 'The hunt for the unknow'
+      );
 
-      // Insert button before the cards list
-      block.insertBefore(toggleBtn, block.querySelector('ul'));
+      if (containsTargetHeading) {
+        cardsBlock.classList.add('better-way-cards');
+
+        // Insert toggle button if not already there
+        if (!cardsBlock.querySelector('.cards-view-toggle-btn')) {
+          const toggleBtn = document.createElement('button');
+          toggleBtn.className = 'cards-view-toggle-btn';
+          toggleBtn.textContent = 'View as carousel';
+
+          toggleBtn.addEventListener('click', () => {
+            cardsBlock.classList.toggle('carousel-view');
+            toggleBtn.textContent = cardsBlock.classList.contains('carousel-view')
+              ? 'View as grid'
+              : 'View as carousel';
+          });
+
+          cardsBlock.insertBefore(toggleBtn, cardsBlock.querySelector('ul'));
+        }
+      }
     }
-  });
-});
+
+    current = current.nextElementSibling;
+  }
+}
+
+addBetterWayCarouselToggle();
 
 }

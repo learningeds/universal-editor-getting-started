@@ -25,17 +25,15 @@ export default function decorate(block) {
   block.textContent = '';
   block.append(ul);
 
-  // ===== Combined Carousel Toggle Logic for section_1144820921 =====
-
+  // Combined Carousel Toggle Logic
   const section1 = document.querySelector('[data-aue-resource*="section_1144820921"]');
   if (section1) {
     const cardsWrappers = section1.querySelectorAll('.cards-wrapper');
     const combinedUL = document.createElement('ul');
     const combinedContainer = document.createElement('div');
-    combinedContainer.className = 'combined-cards';
+    combinedContainer.className = 'combined-cards grid-view'; // start in grid-view
     combinedContainer.appendChild(combinedUL);
 
-    // Gather all <li> from all .cards-wrapper > .cards.block > ul
     let hasCards = false;
     cardsWrappers.forEach(wrapper => {
       const cardsBlock = wrapper.querySelector('.cards.block');
@@ -44,25 +42,17 @@ export default function decorate(block) {
         const lis = ul.querySelectorAll('li');
         if (lis.length > 0) {
           hasCards = true;
-          lis.forEach(li => {
-            combinedUL.appendChild(li); // Move the existing li elements
-          });
+          lis.forEach(li => combinedUL.appendChild(li));
         }
       }
-
-      // Hide original wrapper
       wrapper.style.display = 'none';
     });
 
     if (hasCards) {
       const referenceNode = section1.querySelector('.default-content-wrapper');
-      if (referenceNode) {
-        referenceNode.insertAdjacentElement('afterend', combinedContainer);
-      } else {
-        section1.appendChild(combinedContainer);
-      }
+      if (referenceNode) referenceNode.insertAdjacentElement('afterend', combinedContainer);
+      else section1.appendChild(combinedContainer);
 
-      // Create or reuse toggle button
       let toggleBtn = section1.querySelector('.cards-view-toggle-btn');
       if (!toggleBtn) {
         toggleBtn = document.createElement('button');
@@ -71,7 +61,6 @@ export default function decorate(block) {
         section1.insertBefore(toggleBtn, combinedContainer);
       }
 
-      // Carousel indicators container
       const indicatorWrapper = document.createElement('div');
       indicatorWrapper.className = 'cards-carousel-indicators';
 
@@ -130,6 +119,7 @@ export default function decorate(block) {
           combinedUL.style.width = `${combinedUL.children.length * 100}%`;
           combinedUL.querySelectorAll('li').forEach(li => {
             li.style.flex = '0 0 100%';
+            li.style.maxWidth = '100%';
           });
 
           index = 0;
@@ -144,8 +134,15 @@ export default function decorate(block) {
           combinedContainer.classList.remove('carousel-view');
 
           combinedUL.style.transform = 'none';
-          combinedUL.removeAttribute('style');
-          combinedUL.querySelectorAll('li').forEach(li => li.removeAttribute('style'));
+          combinedUL.style.transition = 'none';
+          combinedUL.style.width = 'auto';
+          combinedUL.style.display = 'grid';  // Use grid display for grid-view
+          combinedUL.querySelectorAll('li').forEach(li => {
+            li.style.flex = 'initial';
+            li.style.maxWidth = 'initial';
+            li.style.removeProperty('flex-basis');
+          });
+
           stopAutoSlide();
           indicatorWrapper.remove();
 
@@ -155,8 +152,10 @@ export default function decorate(block) {
 
       // Initialize with grid view
       combinedContainer.classList.add('grid-view');
+      combinedUL.style.display = 'grid';
     }
   }
+
 
   // ===== Separate Carousel Logic for section_303714501 with one-time initialization =====
 

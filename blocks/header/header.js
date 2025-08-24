@@ -171,10 +171,8 @@ export default async function decorate(block) {
 
   // Assemble navigation
   nav.append(navBrand, hamburger, navSections);
-
-navWrapper.append(nav);
-
+// Correct DOM structure for layout
+navWrapper.append(nav, navSections); // NOT nav.append(navSections)
 
   block.append(navWrapper);
 }
-

@@ -3,6 +3,7 @@
   background-color: #005661;
   padding: 60px 20px;
 }
+
 .cards-wrapper {
   max-width: 1200px;
   margin: 0 auto;
@@ -47,6 +48,7 @@
 .cards .cards-card-image {
   line-height: 0;
 }
+
 .cards .cards-card-image img {
   width: 100%;
   height: auto;
@@ -98,6 +100,7 @@
   padding-bottom: 2px;
   transition: border-color 0.2s ease;
 }
+
 .cards .cards-card-body a::before {
   content: '→';
   display: inline-block;
@@ -106,9 +109,11 @@
   transform: translateY(-1px);
   transition: none;
 }
+
 .cards .cards-card-body a:hover {
   text-decoration: underline;
 }
+
 .cards .cards-card-body a:hover::before {
   transform: translateY(-1px);
 }
@@ -127,6 +132,7 @@
   padding-bottom: 2px;
   transition: border-color 0.2s ease;
 }
+
 .cards .cards-card-body .button-container a::before {
   content: '→';
   display: inline-block;
@@ -134,15 +140,18 @@
   transform: translateY(-1px);
   transition: none;
 }
+
 .cards .cards-card-body .button-container a:hover {
   text-decoration: underline;
 }
+
 .cards .cards-card-body .button-container a:hover::before {
   transform: translateY(-1px);
 }
 
 /* Scoped styles for 'There is always a better way' section */
-.better-way-cards .cards-view-toggle-btn {
+.better-way-cards .cards-view-toggle-btn,
+.combined-cards + .cards-view-toggle-btn {
   background-color: transparent;
   border: 2px solid #004B5E;
   color: #004B5E;
@@ -153,8 +162,11 @@
   cursor: pointer;
   margin-bottom: 1rem;
   transition: background-color 0.3s ease, color 0.3s ease;
+  display: inline-block;
 }
-.better-way-cards .cards-view-toggle-btn:hover {
+
+.better-way-cards .cards-view-toggle-btn:hover,
+.combined-cards + .cards-view-toggle-btn:hover {
   background-color: #004B5E;
   color: #ffffff;
 }
@@ -172,15 +184,18 @@
   list-style: none;
   margin: 0;
 }
+
 .better-way-cards.carousel-view > ul > li {
   flex: 0 0 80%;
   scroll-snap-align: start;
   transition: transform 0.3s ease;
 }
+
 /* Hide scrollbar */
 .better-way-cards.carousel-view > ul::-webkit-scrollbar {
   display: none;
 }
+
 .better-way-cards.carousel-view > ul {
   -ms-overflow-style: none;
   scrollbar-width: none;
@@ -193,6 +208,7 @@
   gap: 12px;
   margin-top: 1rem;
 }
+
 .cards-carousel-indicators .dot {
   width: 12px;
   height: 12px;
@@ -201,9 +217,11 @@
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
+
 .cards-carousel-indicators .dot.active {
   background-color: #004B5E;
 }
+
 .cards-carousel-indicators .dot:focus {
   outline: 2px solid #004B5E;
   outline-offset: 2px;
@@ -218,27 +236,6 @@
   padding: 20px;
   position: relative;
   overflow: hidden; /* to clip any overflow */
-}
-
-/* Toggle button for combined cards carousel */
-.combined-cards + .cards-view-toggle-btn,
-.better-way-cards .cards-view-toggle-btn {
-  background-color: transparent;
-  border: 2px solid #004B5E;
-  color: #004B5E;
-  padding: 0.5rem 1.2rem;
-  font-size: 1rem;
-  font-weight: 500;
-  border-radius: 4px;
-  cursor: pointer;
-  margin-bottom: 1rem;
-  transition: background-color 0.3s ease, color 0.3s ease;
-  display: inline-block;
-}
-.combined-cards + .cards-view-toggle-btn:hover,
-.better-way-cards .cards-view-toggle-btn:hover {
-  background-color: #004B5E;
-  color: #ffffff;
 }
 
 /* Combined cards grid (default view) */
@@ -264,7 +261,6 @@
   margin: 0;
   list-style: none;
   position: relative;
-  /* Important: prevent wrapping and overflow */
 }
 
 /* Each card in combined carousel */
@@ -280,6 +276,7 @@
 .combined-cards.carousel-view > ul::-webkit-scrollbar {
   display: none;
 }
+
 .combined-cards.carousel-view > ul {
   -ms-overflow-style: none;
   scrollbar-width: none;
@@ -292,6 +289,7 @@
   font-family: "Noto Sans", sans-serif;
   position: relative;
 }
+
 .section[data-aue-resource*="section_1144820921"] .default-content-wrapper h1 {
   font-size: 2.5rem;
   color: #004750;
@@ -299,18 +297,21 @@
   font-weight: 500;
   margin-bottom: 16px;
 }
+
 .section[data-aue-resource*="section_1144820921"] .default-content-wrapper p {
   font-size: 18px;
   color: #4e4843;
   max-width: 600px;
   margin-bottom: 40px;
 }
+
 .section[data-aue-resource*="section_1144820921"] .cards.block > ul,
 .combined-cards > ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
+
 .section[data-aue-resource*="section_1144820921"] .cards.block > ul > li,
 .combined-cards > ul > li {
   background-color: #fff;
@@ -321,6 +322,7 @@
   flex-direction: column;
   height: 100%;
 }
+
 .section[data-aue-resource*="section_1144820921"] .cards-card-image img,
 .combined-cards .cards-card-image img {
   width: 100%;
@@ -329,6 +331,7 @@
   object-fit: cover;
   display: block;
 }
+
 .section[data-aue-resource*="section_1144820921"] .cards-card-body,
 .combined-cards .cards-card-body {
   padding: 20px;
@@ -336,6 +339,7 @@
   flex-direction: column;
   gap: 12px;
 }
+
 .section[data-aue-resource*="section_1144820921"] .cards-card-body h3,
 .combined-cards .cards-card-body h3 {
   font-size: 22px;
@@ -344,12 +348,14 @@
   margin: 0;
   font-weight: 500;
 }
+
 .section[data-aue-resource*="section_1144820921"] .cards-card-body p,
 .combined-cards .cards-card-body p {
   font-size: 16px;
   color: #333;
   margin: 0;
 }
+
 .section[data-aue-resource*="section_1144820921"] .cards-card-body a,
 .combined-cards .cards-card-body a {
   color: #004b5e;
@@ -361,6 +367,7 @@
   padding-bottom: 2px;
   transition: border-color 0.3s ease;
 }
+
 .section[data-aue-resource*="section_1144820921"] .cards-card-body a:hover,
 .combined-cards .cards-card-body a:hover {
   border-color: #004b5e;
@@ -372,13 +379,14 @@
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   }
 }
+
 @media (max-width: 600px) {
   .cards > ul {
     grid-template-columns: 1fr;
   }
 }
 
-/* Treat multiple .combined-cards as horizontal slides (if you want) */
+/* Treat multiple .combined-cards as horizontal slides (if needed) */
 .section[data-aue-resource*="section_1144820921"].carousel-active {
   overflow-x: auto;
   scroll-snap-type: x mandatory;

@@ -194,15 +194,11 @@
 
 /* CSS arrow on the right */
 .columns.block.columns-2-cols .button-container .button::after {
-  content: "↗"; 
+  content: "↗"; /* diagonal arrow (like a link icon) */
+  font-size: 1rem;
+  line-height: 1;
   display: inline-block;
-  width: 10px;
-  height: 10px;
-  border-top: 2px solid white;
-  border-right: 2px solid white;
-  transform: rotate(45deg);
-  margin-left: 5px;
-  transition: border-color 0.3s ease;
+  transition: transform 0.3s ease;
 }
 
 /* Button hover */

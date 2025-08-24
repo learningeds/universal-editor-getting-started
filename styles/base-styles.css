@@ -379,6 +379,7 @@ main .section.imageovercard {
   text-decoration: none;
   transition: background-color 0.3s ease;
   font-family: "Open Sans", sans-serif;
+    background: linear-gradient(to right, #00837A, #004463);
 }
 .section.imageovercard .cards-card-body .button::before {
   display: none !important;
@@ -398,6 +399,7 @@ main .section.imageovercard {
 .section.imageovercard .button-container .button:hover {
     text-decoration: none;
   background-color: #003837;
+    background: linear-gradient(to left, #00837A, #004463);
 }
 .section.imageovercard .cards-card-body {
   background-color: #fcf8f2 !important;

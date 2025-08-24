@@ -437,4 +437,16 @@
   margin: 0;
   text-align: left !important;
 }
+.section.carousel .cards-wrapper ul {
+    display: grid; grid-template-columns: repeat(2, 1fr); /* 2 columns */
+    gap: 3rem; /* spacing between cards */ 
+    list-style: none; 
+    margin: 0; 
+    padding: 0; } 
+/* Make sure cards stretch evenly */ 
+.section.carousel .cards-wrapper li { 
+    display: flex; flex-direction: column; background: #fff; /* optional */ 
+    border-radius: 8px;
+    /* optional */ overflow: hidden; 
+}
 

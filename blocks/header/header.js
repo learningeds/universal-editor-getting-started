@@ -156,11 +156,12 @@ export default async function decorate(block) {
   `;
 
   // --- Toggle Menu Show/Hide ---
-  hamburger.querySelector('button').addEventListener('click', () => {
-    const isOpen = nav.getAttribute('aria-expanded') === 'true';
-    nav.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
-    navSections.style.display = isOpen ? 'none' : 'block';
-  });
+ hamburger.querySelector('button').addEventListener('click', () => {
+  const isOpen = nav.getAttribute('aria-expanded') === 'true';
+  nav.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+  navSections.style.display = isOpen ? 'none' : 'block';
+});
+
 
   // Assemble navigation
   nav.append(navBrand, hamburger, navSections);

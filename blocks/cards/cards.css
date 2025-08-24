@@ -449,28 +449,3 @@
     border-radius: 8px;
     /* optional */ overflow: hidden; 
 }
-/* Toggle button styling */
-.view-toggle-btn {
-  font-size: 16px;
-  color: #005B9F;
-  background: none;
-  border: none;
-  cursor: pointer;
-  margin-left: auto;
-  display: block;
-  font-family: "Noto Sans", Arial, sans-serif;
-  padding: 0.5rem 0;
-}
-
-/* Grid view styles */
-.section.carousel.grid-view .cards-wrapper ul {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 32px;
-  transform: none !important;
-}
-
-.section.carousel.grid-view .cards-carousel-indicators {
-  display: none !important;
-}
-

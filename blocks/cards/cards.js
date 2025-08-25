@@ -158,7 +158,7 @@ export default function decorate(block) {
   if (isCarousel) {
     combinedContainer.classList.replace('grid-view', 'carousel-view');
     combinedUL.style.display = 'flex';
-    combinedUL.style.width = `${allCards.length * 100}%`;
+    combinedUL.style.width = `${allCards.length * 40}%`;
     combinedUL.style.transition = 'transform 0.5s ease';
     combinedUL.style.overflow = 'hidden';
 

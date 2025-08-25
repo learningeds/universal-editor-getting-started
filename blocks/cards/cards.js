@@ -2,7 +2,6 @@ import { createOptimizedPicture } from '../../scripts/aem.js';
 import { moveInstrumentation } from '../../scripts/scripts.js';
 
 export default function decorate(block) {
-  // Build the standard card <ul>
   const ul = document.createElement('ul');
   [...block.children].forEach(row => {
     const li = document.createElement('li');
@@ -18,18 +17,16 @@ export default function decorate(block) {
     ul.append(li);
   });
 
-  // Optimize pictures
   ul.querySelectorAll('picture > img').forEach(img => {
     const optimizedPic = createOptimizedPicture(img.src, img.alt, false, [{ width: '750' }]);
     moveInstrumentation(img, optimizedPic.querySelector('img'));
     img.closest('picture').replaceWith(optimizedPic);
   });
 
-  // Clean block and insert list
   block.textContent = '';
   block.append(ul);
 
-  // ✅ Scoped to a specific section only
+  // ✅ Scoped section only
   const section = document.querySelector('[data-aue-resource*="section_1144820921"]');
   if (!section || section.classList.contains('cards-initialized')) return;
   section.classList.add('cards-initialized');
@@ -38,12 +35,19 @@ export default function decorate(block) {
   const allCards = [];
 
   cardBlocks.forEach(cardsBlock => {
-    const listItems = cardsBlock.querySelectorAll('ul > li');
-    listItems.forEach(li => {
-      const cloned = li.cloneNode(true);
-      allCards.push(cloned);
+    // New: each child div inside cards.block is a card
+    const cardDivs = cardsBlock.querySelectorAll(':scope > div');
+    cardDivs.forEach(card => {
+      const li = document.createElement('li');
+      li.classList.add('cards-card');
+      // Move children into li
+      while (card.firstChild) {
+        li.appendChild(card.firstChild);
+      }
+      allCards.push(li);
     });
-    cardsBlock.parentElement.style.display = 'none'; // Hide original
+
+    cardsBlock.parentElement.style.display = 'none'; // Hide original cards-wrapper
   });
 
   if (allCards.length === 0) return;
@@ -65,12 +69,12 @@ export default function decorate(block) {
   }
 
   // Toggle button
-  let toggleBtn = document.createElement('button');
+  const toggleBtn = document.createElement('button');
   toggleBtn.className = 'cards-view-toggle-btn';
   toggleBtn.textContent = 'View as carousel';
   section.insertBefore(toggleBtn, combinedContainer);
 
-  // Carousel arrows
+  // Arrows
   const prevBtn = document.createElement('button');
   prevBtn.className = 'carousel-arrow prev';
   prevBtn.textContent = '‹';

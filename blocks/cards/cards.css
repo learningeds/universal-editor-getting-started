@@ -312,6 +312,7 @@
 
 /* Section heading */
 .groupcards h1 {
+    font-family: "Noto Serif", "Times New Roman", Georgia, serif !important;
   text-align: left;
   font-size: 48px;
   color: #004b5d;

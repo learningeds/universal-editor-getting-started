@@ -640,3 +640,31 @@
   margin-right: 8px !important;
     font-size: 1.5rem !important;
 }
+.combined-cards.carousel-view .cards-card > div {
+  display: block; /* make each child div full width */
+  width: 100%;    /* take full width */
+}
+
+.combined-cards.carousel-view .cards-card picture,
+.combined-cards.carousel-view .cards-card img {
+  width: 100%;    /* make images responsive and full width */
+  display: block;
+  border-radius: 16px 16px 0 0; /* rounded corners on top only if needed */
+  object-fit: cover; /* cover the container nicely */
+}
+
+.combined-cards.carousel-view .cards-card > div:last-child {
+  padding: 16px; /* add some padding around the text */
+  border-radius: 0 0 16px 16px; /* round only bottom corners */
+  background-color: #fff; /* optional background */
+}
+
+.combined-cards.carousel-view .cards-card {
+  display: flex;
+  flex-direction: column; /* stack children vertically */
+  border-radius: 16px;     /* round all corners */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15); /* subtle shadow */
+  overflow: hidden;        /* clip children rounded corners */
+  background-color: #fff;  /* background white */
+  margin: 8px;             /* spacing around cards */
+}

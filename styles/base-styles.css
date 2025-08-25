@@ -273,6 +273,10 @@ main .section.highlight {
     padding: 40px 0;
     padding-bottom: 150px !important;
 }
+main.section.empty{
+     background-color: #054e5a;
+}
+
 main.section.
 main .section.imageovercard {
     background-color: deeppink;

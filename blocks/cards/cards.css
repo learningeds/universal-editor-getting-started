@@ -489,7 +489,7 @@
 /* ========== Carousel View for Combined Cards ========== */
 /* ========== Carousel View: Container ========== */
 .combined-cards.carousel-view {
-  background-color: #f9f9f9; /* Optional: subtle background */
+ background-color: #fcf8f2;
   padding: 2rem 0;
   overflow: hidden;
   position: relative;

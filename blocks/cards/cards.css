@@ -668,3 +668,29 @@
   background-color: #fff;  /* background white */
   margin: 8px;             /* spacing around cards */
 }
+.carousel-arrow {
+    margin-top: 18rem;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  border: 2px solid #7d7d7d; /* Thin gray border */
+  background-color: transparent;
+  color: #7d7d7d;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 2;
+  user-select: none;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.carousel-arrow:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  border-color: #555;
+  color: #555;
+}

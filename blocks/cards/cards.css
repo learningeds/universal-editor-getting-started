@@ -69,7 +69,7 @@
 
 /* ----- Heading inside Card ----- */
 .cards .cards-card-body h3 {
-  font-family: "Noto Serif", Georgia, "Times New Roman", serif;
+  font-family: "Noto Serif", "Times New Roman", Georgia, serif !important;
   font-size: 22px;
   font-weight: 500;
   color: #004B54;

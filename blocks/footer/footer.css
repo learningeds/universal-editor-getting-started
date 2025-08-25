@@ -224,3 +224,24 @@ footer .columns.block.columns-4-cols ul li a:hover {
   background: none; /* removes both color & image */
   border: none;     /* optional: remove border too if not needed */
 }
+.footer-wrapper .footer .columns.block.columns-4-cols .button-container a.button {
+  background-color: transparent;
+  color: white; /* ensure text stays visible */
+  display: inline-flex;
+  align-items: center;
+  gap: 8px; /* space between icon and text */
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.footer-wrapper .footer .columns.block.columns-4-cols .button-container a.button::before {
+  content: "📞"; /* Unicode phone emoji */
+  margin-right: 8px;
+  font-size: 18px; /* adjust size */
+  vertical-align: middle;
+  color: white; /* or whatever color fits */
+}
+.footer-wrapper .footer .columns.block.columns-4-cols .button-container a.button:hover {
+  color: #578890; /* your desired hover color */
+  text-decoration: none; /* ensure no underline appears */
+}

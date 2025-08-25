@@ -181,63 +181,67 @@
 }
 
 /* ========== Carousel View for Combined Cards ========== */
-/* ========== Carousel View: Container ========== */
-.combined-cards.carousel-view {
-  background-color: #f9f9f9; /* Optional: subtle background */
-  padding: 2rem 0;
-  overflow: hidden;
-  position: relative;
-}
-
-/* ========== Carousel View: UL wrapper ========== */
+/* ========== Carousel View for Combined Cards ========== */
 .combined-cards.carousel-view > ul {
   display: flex;
   flex-wrap: nowrap;
   overflow: hidden;
   transition: transform 0.5s ease;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  justify-content: center;
-}
-
-/* ========== Carousel View: Card Container (LI) ========== */
-.combined-cards.carousel-view > ul > li {
-  flex: 0 0 80%;           /* 80% of the container width */
-  max-width: 80%;          /* Prevent stretching */
-  margin: 0 auto;          /* Center each card */
-  display: flex;
-  justify-content: center;
-  align-items: stretch;
-  transition: transform 0.5s ease;
-}
-
-/* ========== Optional: Scale down card inside LI for visual balance ========== */
-.combined-cards.carousel-view .cards-card {
   width: 100%;
-  max-width: 800px;
-  transform: scale(0.9);    /* Visually shrink card */
-  transition: transform 0.3s ease;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
-/* ========== Fix oversized images in carousel ========== */
+.combined-cards.carousel-view > ul > li {
+  flex: 0 0 100%;
+  max-width: 100%;
+  max-height: 600px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 1rem;
+  overflow: hidden;
+  border-radius: 12px;
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* === Image inside carousel cards === */
+.combined-cards.carousel-view .cards-card-image {
+  flex: 0 0 auto;
+}
+
 .combined-cards.carousel-view .cards-card-image img {
   width: 100%;
   height: auto;
   object-fit: cover;
   aspect-ratio: 4 / 3;
-  max-height: 400px;
+  max-height: 320px;
   display: block;
-  border-top-left-radius: 12px;
-  border-top-right-radius: 12px;
+  border-radius: 12px 12px 0 0;
 }
 
-/* ========== Arrows ========== */
+/* === Card body inside carousel === */
+.combined-cards.carousel-view .cards-card-body {
+  flex: 1 1 auto;
+  padding: 1rem 1.2rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.combined-cards.carousel-view {
+  max-height: 700px;
+}
+
+
+/* ========== Arrows for Carousel ========== */
 .carousel-arrow {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(0, 75, 94, 0.8);
+  background: rgba(0,75,94,0.8);
   color: #fff;
   border: none;
   font-size: 1.5rem;
@@ -255,12 +259,17 @@
   right: 10px;
 }
 
+/* ========== Hide Arrows in Grid View ========== */
+.combined-cards.grid-view .carousel-arrow {
+  display: none;
+}
+
 /* ========== Dot Indicators ========== */
 .cards-carousel-indicators {
   display: flex;
   justify-content: center;
   gap: 12px;
-  margin-top: 1.5rem;
+  margin-top: 1rem;
 }
 
 .cards-carousel-indicators .dot {
@@ -281,7 +290,7 @@
   outline-offset: 2px;
 }
 
-/* ========== Hide scrollbar in carousel ========== */
+/* ========== Hide Scrollbar in Carousel ========== */
 .combined-cards.carousel-view > ul::-webkit-scrollbar {
   display: none;
 }
@@ -292,13 +301,14 @@
 }
 
 /* ========== Responsive Adjustments ========== */
-@media (max-width: 768px) {
-  .combined-cards.carousel-view > ul > li {
-    flex: 0 0 90%;
-    max-width: 90%;
+@media (max-width: 900px) {
+  .cards > ul {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   }
+}
 
-  .combined-cards.carousel-view .cards-card {
-    transform: scale(0.95);
+@media (max-width: 600px) {
+  .cards > ul {
+    grid-template-columns: 1fr;
   }
 }

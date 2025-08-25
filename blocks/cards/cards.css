@@ -437,3 +437,174 @@
   margin: 0;
   text-align: left !important;
 }
+
+/* ========== Toggle Button for Carousel/Grid ========== */
+.cards-view-toggle-btn {
+  background-color: transparent;
+  border: 2px solid #004B5E;
+  color: #004B5E;
+  padding: 0.5rem 1.2rem;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-bottom: 1rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.cards-view-toggle-btn:hover {
+  background-color: #004B5E;
+  color: #ffffff;
+}
+
+/* ========== Combined Cards Container ========== */
+.combined-cards {
+  max-width: 1200px;
+  margin: 0 auto 2rem auto;
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ========== Grid View for Combined Cards ========== */
+.combined-cards.grid-view > ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.combined-cards.grid-view > ul > li {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+}
+
+/* ========== Carousel View for Combined Cards ========== */
+/* ========== Carousel View: Container ========== */
+.combined-cards.carousel-view {
+  background-color: #f9f9f9; /* Optional: subtle background */
+  padding: 2rem 0;
+  overflow: hidden;
+  position: relative;
+}
+
+/* ========== Carousel View: UL wrapper ========== */
+.combined-cards.carousel-view > ul {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow: hidden;
+  transition: transform 0.5s ease;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  justify-content: center;
+}
+
+/* ========== Carousel View: Card Container (LI) ========== */
+.combined-cards.carousel-view > ul > li {
+  flex: 0 0 80%;           /* 80% of the container width */
+  max-width: 80%;          /* Prevent stretching */
+  margin: 0 auto;          /* Center each card */
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  transition: transform 0.5s ease;
+}
+
+/* ========== Optional: Scale down card inside LI for visual balance ========== */
+.combined-cards.carousel-view .cards-card {
+  width: 100%;
+  max-width: 800px;
+  transform: scale(0.9);    /* Visually shrink card */
+  transition: transform 0.3s ease;
+}
+
+/* ========== Fix oversized images in carousel ========== */
+.combined-cards.carousel-view .cards-card-image img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  aspect-ratio: 4 / 3;
+  max-height: 400px;
+  display: block;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+/* ========== Arrows ========== */
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 75, 94, 0.8);
+  color: #fff;
+  border: none;
+  font-size: 1.5rem;
+  padding: 0.5rem;
+  cursor: pointer;
+  z-index: 2;
+  user-select: none;
+}
+
+.carousel-arrow.prev {
+  left: 10px;
+}
+
+.carousel-arrow.next {
+  right: 10px;
+}
+
+/* ========== Dot Indicators ========== */
+.cards-carousel-indicators {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 1.5rem;
+}
+
+.cards-carousel-indicators .dot {
+  width: 12px;
+  height: 12px;
+  background-color: #ccc;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.cards-carousel-indicators .dot.active {
+  background-color: #004B5E;
+}
+
+.cards-carousel-indicators .dot:focus {
+  outline: 2px solid #004B5E;
+  outline-offset: 2px;
+}
+
+/* ========== Hide scrollbar in carousel ========== */
+.combined-cards.carousel-view > ul::-webkit-scrollbar {
+  display: none;
+}
+
+.combined-cards.carousel-view > ul {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;     /* Firefox */
+}
+
+/* ========== Responsive Adjustments ========== */
+@media (max-width: 768px) {
+  .combined-cards.carousel-view > ul > li {
+    flex: 0 0 90%;
+    max-width: 90%;
+  }
+
+  .combined-cards.carousel-view .cards-card {
+    transform: scale(0.95);
+  }
+}

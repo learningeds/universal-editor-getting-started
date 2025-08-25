@@ -608,3 +608,35 @@
     transform: scale(0.95);
   }
 }
+.combined-cards .cards-card > div:last-child {
+  padding: 45px;
+  box-sizing: border-box;
+}
+
+
+.combined-cards .cards-card h3 {
+    font-family: "Noto Serif", "Times New Roman", Georgia, serif !important;
+    color:#054e5a;
+  font-weight: 400;
+  margin-bottom: 6px;
+}
+
+.combined-cards .cards-card p {
+    font-family: Noto Sans, Arial, Helvetica, sans-serif;
+  font-size: 1px;
+  line-height: 1.5;
+  color: #444;
+}
+
+.combined-cards .cards-card a {
+  font-size: 14px;
+  color: #0072ce; /* Example color */
+}
+.combined-cards .cards-card a::before {
+  content: "→";
+  margin-right: 6px;
+  font-size: 1.2em;
+  color: #0072ce; /* Matches link color */
+  margin-right: 8px !important;
+    font-size: 1.5rem !important;
+}

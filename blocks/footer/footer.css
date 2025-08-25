@@ -48,6 +48,10 @@ footer .columns.block.columns-4-cols > div > div:first-child {
   min-height: 330px;
 margin-top: -7rem;
   z-index: 2;
+  width: 100% !important;; /* increase width beyond normal column size */
+  height: 150px !important;
+  padding: 2pc 2pc 20px !important;; /* optional: reduce vertical padding */
+  margin-top: -7rem; /* adjust margin if needed */
 
 }
 

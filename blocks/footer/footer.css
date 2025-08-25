@@ -233,9 +233,16 @@ footer .columns.block.columns-4-cols ul li a:hover {
   text-decoration: none;
   font-weight: bold;
 }
+.footer-wrapper .footer .columns.block.columns-4-cols .button-container a.button {
+  background-color: transparent!important;
+  color: #ffffff; /* initial text color */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
 
 .footer-wrapper .footer .columns.block.columns-4-cols .button-container a.button::before {
-  content: "📞"; /* Unicode phone emoji */
+  content: "📞" !important; /* Unicode phone emoji */
   margin-right: 8px;
   font-size: 18px; /* adjust size */
   vertical-align: middle;

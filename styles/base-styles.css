@@ -641,7 +641,7 @@ main .section.imageovercard {
   padding-left: 5rem !important;
     padding-right: 25rem !important;
     font-size: 28px !important;
-  font-family: Georgia, serif !important;
+  font-family: "Noto Serif", "Times New Roman", Georgia, serif !important;
   font-weight: 400 !important;
 }
 

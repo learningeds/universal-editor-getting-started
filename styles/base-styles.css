@@ -171,13 +171,13 @@ button {
 
 /* links */
 a:any-link {
-    color: var(--link-color);
+   color: #5299cd;
     text-decoration: none;
     overflow-wrap: break-word;
 }
 
 a:hover {
-    color: var(--link-hover-color);
+   
     text-decoration: underline;
 }
 

@@ -696,3 +696,40 @@ main .section.imageovercard {
   background-color: #004B55; /* Your current header color */
 
 }
+.carousel .cards-view-toggle-btn {
+  margin-left: auto; /* Push button to the right inside a flex container */
+}
+.carousel .cards-view-toggle-btn {
+  
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  color: #222;
+  font-size: 16px;
+  font-family: inherit;
+  cursor: default;
+  padding: 8px;
+  gap: 8px;
+}
+
+/* Remove all hover/focus/active effects */
+.carousel .cards-view-toggle-btn:hover,
+.carousel .cards-view-toggle-btn:focus,
+.carousel .cards-view-toggle-btn:active {
+  background-color: transparent;
+  color: #222;
+  outline: none;
+  box-shadow: none;
+}
+
+/* Optional icon if you want it as in the uploaded image */
+.carousel .cards-view-toggle-btn::before {
+  content: '';
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background-image: url('data:image/svg+xml;utf8,<svg fill="%23007ac2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><rect x="1" y="1" width="5" height="5"/><rect x="10" y="1" width="5" height="5"/><rect x="1" y="10" width="5" height="5"/><rect x="10" y="10" width="5" height="5"/></svg>');
+  background-size: contain;
+  background-repeat: no-repeat;
+}

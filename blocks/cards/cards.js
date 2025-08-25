@@ -2,44 +2,44 @@ import { createOptimizedPicture } from '../../scripts/aem.js';
 import { moveInstrumentation } from '../../scripts/scripts.js';
 
 export default function decorate(block) {
-  // Step 1: Build a standard <ul> card layout
+  // Build the standard card <ul>
   const ul = document.createElement('ul');
   [...block.children].forEach(row => {
     const li = document.createElement('li');
     moveInstrumentation(row, li);
     while (row.firstElementChild) li.append(row.firstElementChild);
     [...li.children].forEach(div => {
-      if (div.children.length === 1 && div.querySelector('picture')) div.className = 'cards-card-image';
-      else div.className = 'cards-card-body';
+      if (div.children.length === 1 && div.querySelector('picture')) {
+        div.className = 'cards-card-image';
+      } else {
+        div.className = 'cards-card-body';
+      }
     });
     ul.append(li);
   });
 
-  // Optimize all <img>
+  // Optimize pictures
   ul.querySelectorAll('picture > img').forEach(img => {
     const optimizedPic = createOptimizedPicture(img.src, img.alt, false, [{ width: '750' }]);
     moveInstrumentation(img, optimizedPic.querySelector('img'));
     img.closest('picture').replaceWith(optimizedPic);
   });
 
-  // Clean block and insert new list
+  // Clean block and insert list
   block.textContent = '';
   block.append(ul);
 
-  // Step 2: Run logic to combine all cards in section (just once per section)
-  const section = block.closest('.section');
+  // ✅ Scoped to a specific section only
+  const section = document.querySelector('[data-aue-resource*="section_1144820921"]');
   if (!section || section.classList.contains('cards-initialized')) return;
   section.classList.add('cards-initialized');
 
-  const cardsBlocks = section.querySelectorAll('.cards.block');
-
-  if (cardsBlocks.length === 0) return;
-
+  const cardBlocks = section.querySelectorAll('.cards.block');
   const allCards = [];
 
-  cardsBlocks.forEach(cardsBlock => {
-    const lis = cardsBlock.querySelectorAll('ul > li');
-    lis.forEach(li => {
+  cardBlocks.forEach(cardsBlock => {
+    const listItems = cardsBlock.querySelectorAll('ul > li');
+    listItems.forEach(li => {
       const cloned = li.cloneNode(true);
       allCards.push(cloned);
     });
@@ -56,6 +56,7 @@ export default function decorate(block) {
   allCards.forEach(card => combinedUL.appendChild(card));
   combinedContainer.appendChild(combinedUL);
 
+  // Insert into section
   const ref = section.querySelector('.default-content-wrapper');
   if (ref) {
     ref.insertAdjacentElement('afterend', combinedContainer);
@@ -63,13 +64,13 @@ export default function decorate(block) {
     section.appendChild(combinedContainer);
   }
 
-  // Toggle Button
+  // Toggle button
   let toggleBtn = document.createElement('button');
   toggleBtn.className = 'cards-view-toggle-btn';
   toggleBtn.textContent = 'View as carousel';
   section.insertBefore(toggleBtn, combinedContainer);
 
-  // Arrows
+  // Carousel arrows
   const prevBtn = document.createElement('button');
   prevBtn.className = 'carousel-arrow prev';
   prevBtn.textContent = '‹';
@@ -178,6 +179,7 @@ export default function decorate(block) {
     }
   };
 
+  // Init in grid view
   prevBtn.style.display = 'none';
   nextBtn.style.display = 'none';
 }

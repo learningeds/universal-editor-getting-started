@@ -252,3 +252,10 @@ footer .columns.block.columns-4-cols ul li a:hover {
   color: #578890; /* your desired hover color */
   text-decoration: none; /* ensure no underline appears */
 }
+.footer-wrapper .footer .columns.block.columns-4-cols .button-container a.button::before {
+  content: "📞"; /* Unicode phone emoji */
+  margin-right: 8px;
+  font-size: 18px; /* adjust size */
+  vertical-align: middle;
+  color: white; /* or whatever color fits */
+}

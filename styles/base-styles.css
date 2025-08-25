@@ -430,7 +430,7 @@ main .section.imageovercard {
     line-height: 1.5;
     max-width: 800px;
     margin: 0;
-    visibility: hidden;
+    
 }
 
 /* === SECTION CONTAINER === */

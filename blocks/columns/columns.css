@@ -173,12 +173,11 @@
   margin-top: 1rem;
 }
 
-/* Button with CSS-only arrow */
 .columns.block.columns-2-cols .button-container .button {
   display: inline-flex;
   align-items: center;
  
-  color: #fff;
+
   padding: 0.75rem 1.5rem;
   font-weight: 600;
   font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
@@ -190,6 +189,7 @@
   gap: 0.75rem;
   transition: background 0.3s ease;
   position: relative;
+  background-color: #084b61;
 }
 
 /* CSS arrow on the right */

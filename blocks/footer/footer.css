@@ -225,7 +225,7 @@ footer .columns.block.columns-4-cols ul li a:hover {
   border: none;     /* optional: remove border too if not needed */
 }
 .footer-wrapper .footer .columns.block.columns-4-cols .button-container a.button {
-  background-color: transparent;
+  background-color: transparent !important;
   color: white; /* ensure text stays visible */
   display: inline-flex;
   align-items: center;

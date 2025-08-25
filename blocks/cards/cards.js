@@ -93,27 +93,31 @@ export default function decorate(block) {
   let isCarousel = false;
   let intervalId;
 
-  function updateIndicators() {
-    indicators.innerHTML = '';
-    allCards.forEach((_, i) => {
-      const dot = document.createElement('div');
-      dot.className = 'dot';
-      if (i === currentIndex) dot.classList.add('active');
-      dot.onclick = () => {
-        currentIndex = i;
-        updateCarousel();
-        resetAutoSlide();
-      };
-      indicators.appendChild(dot);
-    });
-  }
+ function updateIndicators() {
+  indicators.innerHTML = '';
+  allCards.forEach((_, i) => {
+    const dot = document.createElement('div');
+    dot.className = 'dot';
+    if (i === currentIndex) dot.classList.add('active');
+    dot.onclick = () => {
+      currentIndex = i;
+      updateCarousel();
+      resetAutoSlide();
+    };
+    indicators.appendChild(dot);
+  });
+}
+
 
   function updateCarousel() {
-    combinedUL.style.transform = `translateX(-${currentIndex * 100}%)`;
-    indicators.querySelectorAll('.dot').forEach((dot, i) => {
-      dot.classList.toggle('active', i === currentIndex);
-    });
-  }
+  const offset = currentIndex * combinedContainer.offsetWidth;
+  combinedUL.style.transform = `translateX(-${offset}px)`;
+
+  indicators.querySelectorAll('.dot').forEach((dot, i) => {
+    dot.classList.toggle('active', i === currentIndex);
+  });
+}
+
 
   function startAutoSlide() {
     clearInterval(intervalId);
@@ -148,40 +152,46 @@ export default function decorate(block) {
     }
   };
 
-  toggleBtn.onclick = () => {
-    isCarousel = !isCarousel;
+ toggleBtn.onclick = () => {
+  isCarousel = !isCarousel;
 
-    if (isCarousel) {
-      combinedContainer.classList.replace('grid-view', 'carousel-view');
-      combinedUL.style.display = 'flex';
-      combinedUL.style.width = `${allCards.length * 100}%`;
-      combinedUL.querySelectorAll('li').forEach(li => {
-        li.style.flex = '0 0 100%';
-        li.style.maxWidth = '100%';
-      });
-      currentIndex = 0;
-      updateIndicators();
-      combinedContainer.append(indicators);
-      startAutoSlide();
-      toggleBtn.textContent = 'View as grid';
-      prevBtn.style.display = 'block';
-      nextBtn.style.display = 'block';
-    } else {
-      combinedContainer.classList.replace('carousel-view', 'grid-view');
-      combinedUL.style.display = 'grid';
-      combinedUL.style.transform = '';
-      combinedUL.style.width = '';
-      combinedUL.querySelectorAll('li').forEach(li => {
-        li.style.flex = '';
-        li.style.maxWidth = '';
-      });
-      stopAutoSlide();
-      indicators.remove();
-      toggleBtn.textContent = 'View as carousel';
-      prevBtn.style.display = 'none';
-      nextBtn.style.display = 'none';
-    }
-  };
+  if (isCarousel) {
+    combinedContainer.classList.replace('grid-view', 'carousel-view');
+    combinedUL.style.display = 'flex';
+    combinedUL.style.width = `${allCards.length * 100}%`;
+    combinedUL.style.transition = 'transform 0.5s ease';
+    combinedUL.style.overflow = 'hidden';
+
+    combinedUL.querySelectorAll('li').forEach(li => {
+      li.style.flex = `0 0 ${100 / allCards.length}%`;
+      li.style.maxWidth = `${100 / allCards.length}%`;
+    });
+
+    currentIndex = 0;
+    updateIndicators();
+    combinedContainer.append(indicators);
+    startAutoSlide();
+    toggleBtn.textContent = 'View as grid';
+    prevBtn.style.display = 'block';
+    nextBtn.style.display = 'block';
+    updateCarousel(); // Ensure correct transform on toggle
+  } else {
+    combinedContainer.classList.replace('carousel-view', 'grid-view');
+    combinedUL.style.display = 'grid';
+    combinedUL.style.transform = '';
+    combinedUL.style.width = '';
+    combinedUL.querySelectorAll('li').forEach(li => {
+      li.style.flex = '';
+      li.style.maxWidth = '';
+    });
+    stopAutoSlide();
+    indicators.remove();
+    toggleBtn.textContent = 'View as carousel';
+    prevBtn.style.display = 'none';
+    nextBtn.style.display = 'none';
+  }
+};
+
 
   // Init in grid view
   prevBtn.style.display = 'none';

@@ -2,6 +2,7 @@ import { createOptimizedPicture } from '../../scripts/aem.js';
 import { moveInstrumentation } from '../../scripts/scripts.js';
 
 export default function decorate(block) {
+  // Step 1: Build a standard <ul> card layout
   const ul = document.createElement('ul');
   [...block.children].forEach(row => {
     const li = document.createElement('li');
@@ -14,40 +15,40 @@ export default function decorate(block) {
     ul.append(li);
   });
 
+  // Optimize all <img>
   ul.querySelectorAll('picture > img').forEach(img => {
     const optimizedPic = createOptimizedPicture(img.src, img.alt, false, [{ width: '750' }]);
     moveInstrumentation(img, optimizedPic.querySelector('img'));
     img.closest('picture').replaceWith(optimizedPic);
   });
 
+  // Clean block and insert new list
   block.textContent = '';
   block.append(ul);
 
-  const section = document.querySelector('[data-aue-resource*="section_1144820921"]');
-  if (!section) return;
+  // Step 2: Run logic to combine all cards in section (just once per section)
+  const section = block.closest('.section');
+  if (!section || section.classList.contains('cards-initialized')) return;
+  section.classList.add('cards-initialized');
 
-  const combinedCardsContainers = Array.from(section.querySelectorAll('.combined-cards'));
-  if (combinedCardsContainers.length === 0) return;
+  const cardsBlocks = section.querySelectorAll('.cards.block');
+
+  if (cardsBlocks.length === 0) return;
 
   const allCards = [];
 
-  // Extract all cards
-  combinedCardsContainers.forEach(container => {
-    const cardBlocks = container.querySelectorAll('.cards.block > div');
-    cardBlocks.forEach(card => {
-      const li = document.createElement('li');
-      while (card.firstChild) {
-        li.appendChild(card.firstChild);
-      }
-      li.classList.add('cards-card');
-      allCards.push(li);
+  cardsBlocks.forEach(cardsBlock => {
+    const lis = cardsBlock.querySelectorAll('ul > li');
+    lis.forEach(li => {
+      const cloned = li.cloneNode(true);
+      allCards.push(cloned);
     });
-    container.remove(); // Remove old containers
+    cardsBlock.parentElement.style.display = 'none'; // Hide original
   });
 
   if (allCards.length === 0) return;
 
-  // Create new combined container
+  // Create combined container
   const combinedContainer = document.createElement('div');
   combinedContainer.className = 'combined-cards grid-view';
 
@@ -55,7 +56,6 @@ export default function decorate(block) {
   allCards.forEach(card => combinedUL.appendChild(card));
   combinedContainer.appendChild(combinedUL);
 
-  // Insert the combined container back into the section
   const ref = section.querySelector('.default-content-wrapper');
   if (ref) {
     ref.insertAdjacentElement('afterend', combinedContainer);
@@ -63,14 +63,11 @@ export default function decorate(block) {
     section.appendChild(combinedContainer);
   }
 
-  // Add toggle button
-  let toggleBtn = section.querySelector('.cards-view-toggle-btn');
-  if (!toggleBtn) {
-    toggleBtn = document.createElement('button');
-    toggleBtn.className = 'cards-view-toggle-btn';
-    toggleBtn.textContent = 'View as carousel';
-    section.insertBefore(toggleBtn, combinedContainer);
-  }
+  // Toggle Button
+  let toggleBtn = document.createElement('button');
+  toggleBtn.className = 'cards-view-toggle-btn';
+  toggleBtn.textContent = 'View as carousel';
+  section.insertBefore(toggleBtn, combinedContainer);
 
   // Arrows
   const prevBtn = document.createElement('button');
@@ -146,7 +143,6 @@ export default function decorate(block) {
     }
   };
 
-  // Toggle grid ↔ carousel
   toggleBtn.onclick = () => {
     isCarousel = !isCarousel;
 
@@ -182,7 +178,6 @@ export default function decorate(block) {
     }
   };
 
-  // Init in grid view
   prevBtn.style.display = 'none';
   nextBtn.style.display = 'none';
 }
